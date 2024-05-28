@@ -26,6 +26,15 @@ public class Shift {
         this.deliveriers = new ArrayList<>();
     }
 
+    public Shift(boolean isMorningShift, LocalDate date, List<Worker> shiftManagers, List<Worker> cashiers, List<Worker> storageWorkers, List<Worker> deliveriers) {
+        this.isMorningShift = isMorningShift;
+        this.date = date;
+        this.shiftManagers = shiftManagers;
+        this.cashiers = cashiers;
+        this.storageWorkers = storageWorkers;
+        this.deliveriers = deliveriers;
+    }
+
     public boolean isMorningShift() {
         return isMorningShift;
     }

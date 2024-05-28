@@ -14,23 +14,4 @@ public class ShiftManager implements WorkerType {
         return true;
     }
 
-    @Override
-    public boolean isAbleToDeliver() {
-        return false;
-    }
-
-    @Override
-    public boolean isAbleToBeCashier() {
-        return false;
-    }
-
-    @Override
-    public boolean isAbleToBeStorageWorker() {
-        return false;
-    }
-
-    @Override
-    public boolean isAbleToSetShifts() {
-        return false;
-    }
 }

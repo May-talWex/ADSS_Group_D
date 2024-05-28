@@ -3,15 +3,28 @@ package HR;
 public interface WorkerType {
     public String getType();
 
-    public boolean isAbleToManage();
+    public default boolean isAbleToManage() {
+        return false;
+    }
 
-    public boolean isAbleToDeliver();
 
-    public boolean isAbleToBeCashier();
+    public default boolean isAbleToDeliver() {
+        return false;
+    }
 
-    public boolean isAbleToBeStorageWorker();
 
-    public boolean isAbleToSetShifts();
+    public default boolean isAbleToBeCashier() {
+        return false;
+    }
+
+    public default boolean isAbleToBeStorageWorker() {
+        return false;
+    }
+
+    public default boolean isAbleToSetShifts() {
+        return false;
+    }
+
 
     public default boolean equals(WorkerType other) {
         return this.getType().equals(other.getType());

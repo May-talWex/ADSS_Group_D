@@ -123,4 +123,8 @@ public class Worker {
         System.out.println(currentSalary.toString());
     }
 
+    public boolean hasRole(WorkerType role) {
+        return possiblePositions.contains(role);
+    }
+
 }

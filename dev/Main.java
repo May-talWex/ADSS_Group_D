@@ -1,5 +1,10 @@
+import java.time.LocalDate;
+
+
+//main class
 public class Main {
     public static void main(String[] args) {
         System.out.println("Hello world!");
+        System.out.println(LocalDate.now().plusDays(1));
     }
 }

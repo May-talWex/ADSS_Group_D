@@ -1,5 +1,6 @@
 package HR;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,6 +19,7 @@ public class Branch {
     private String branchAddress;
     private final List<Worker> workers;
     private final Schedule schedule;
+    private List<ShiftLimitation> shiftLimitations;
 
     public Branch(String name, String address) {
         this.branchId = nextBranchId++;
@@ -71,6 +73,40 @@ public class Branch {
             }
         }
         System.out.println("Worker does not exist in the branch.");
+    }
+
+    public void addShiftLimitation(Worker worker, LocalDate date, boolean isMorningShift) {
+        ShiftLimitation shiftLimitation = new ShiftLimitation(worker, date, isMorningShift);
+        for (ShiftLimitation sl : shiftLimitations) {
+            if (sl.equals(shiftLimitation)) {
+                System.out.println("Shift limitation already exists.");
+                return;
+            }
+        }
+        System.out.println("Shift limitation added.");
+        shiftLimitations.add(shiftLimitation);
+    }
+
+    public void removeShiftLimitation(Worker worker, LocalDate date, boolean isMorningShift) {
+        ShiftLimitation shiftLimitation = new ShiftLimitation(worker, date, isMorningShift);
+        for (ShiftLimitation sl : shiftLimitations) {
+            if (sl.equals(shiftLimitation)) {
+                shiftLimitations.remove(sl);
+                System.out.println("Shift limitation removed.");
+                return;
+            }
+        }
+        System.out.println("Shift limitation does not exist.");
+    }
+
+    public boolean hasShiftLimitation(Worker worker, LocalDate date, boolean isMorningShift) {
+        ShiftLimitation shiftLimitation = new ShiftLimitation(worker, date, isMorningShift);
+        for (ShiftLimitation sl : shiftLimitations) {
+            if (sl.equals(shiftLimitation)) {
+                return true;
+            }
+        }
+        return false;
     }
 
 
