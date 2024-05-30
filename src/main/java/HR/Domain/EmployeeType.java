@@ -1,6 +1,6 @@
 package HR.Domain;
 
-public interface WorkerType {
+public interface EmployeeType {
     public String getType();
 
     public default boolean isAbleToManage() {
@@ -26,7 +26,7 @@ public interface WorkerType {
     }
 
 
-    public default boolean equals(WorkerType other) {
+    public default boolean equals(EmployeeType other) {
         return this.getType().equals(other.getType());
     }
 }

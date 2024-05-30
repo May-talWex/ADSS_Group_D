@@ -2,18 +2,20 @@ package HR.Domain;
 
 import java.util.ArrayList;
 import java.util.List;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
-public class Worker {
+public class Employee {
     private int workerId;
     private String name;
     private String email;
     private BankAccount bankAccount;
     private Branch branch;
-    private List<WorkerType> possiblePositions;
+    private List<EmployeeType> possiblePositions;
     private Salary currentSalary;
 
 
-    public Worker(int workerId, String name, String email, BankAccount bankAccount, Branch branch, Salary currentSalary) {
+    public Employee(int workerId, String name, String email, BankAccount bankAccount, Branch branch, Salary currentSalary) {
         this.workerId = workerId;
         this.name = name;
         this.email = email;
@@ -22,16 +24,23 @@ public class Worker {
         this.possiblePositions = null;
         this.currentSalary = currentSalary;
     }
-
-    public Worker (String JSON){
-
+    @JsonCreator
+    public Employee JSONtoClass(
+            @JsonProperty("workerId") int workerId,
+            @JsonProperty("name") String name,
+            @JsonProperty("email") String email,
+            @JsonProperty("bankAccount") BankAccount bankAccount,
+            @JsonProperty("branch") Branch branch,
+            @JsonProperty("possiblePositions") List<EmployeeType> possiblePositions,
+            @JsonProperty("currentSalary") Salary currentSalary) {
+        return new Employee(workerId, name, email, bankAccount, branch, currentSalary);
     }
 
     public int getWorkerId() {
         return workerId;
     }
 
-    public boolean equals(Worker worker) {
+    public boolean equals(Employee worker) {
         return workerId == worker.getWorkerId();
     }
 
@@ -55,7 +64,7 @@ public class Worker {
         return branch;
     }
 
-    public List<WorkerType> getPossiblePositions() {
+    public List<EmployeeType> getPossiblePositions() {
         return possiblePositions;
     }
 
@@ -79,12 +88,12 @@ public class Worker {
         this.branch = branch;
     }
 
-    public void addPossiblePosition(WorkerType position) {
+    public void addPossiblePosition(EmployeeType position) {
         if (possiblePositions == null) {
-            possiblePositions = new ArrayList<WorkerType>();
+            possiblePositions = new ArrayList<EmployeeType>();
         } else {
-            for (WorkerType workerType : possiblePositions) {
-                if (workerType.equals(position)) {
+            for (EmployeeType employeeType : possiblePositions) {
+                if (employeeType.equals(position)) {
                     System.out.println("Worker already has this position.");
                     return;
                 }
@@ -94,11 +103,11 @@ public class Worker {
         possiblePositions.add(position);
     }
 
-    public void removePossiblePosition(WorkerType position) {
+    public void removePossiblePosition(EmployeeType position) {
         if (possiblePositions != null) {
-            for (WorkerType workerType : possiblePositions) {
-                if (workerType.equals(position)) {
-                    possiblePositions.remove(workerType);
+            for (EmployeeType employeeType : possiblePositions) {
+                if (employeeType.equals(position)) {
+                    possiblePositions.remove(employeeType);
                     System.out.println("Position removed from worker.");
                     return;
                 }
@@ -119,15 +128,15 @@ public class Worker {
         System.out.println("Branch: " + branch.getName());
         System.out.println("Possible positions: ");
         if (possiblePositions != null) {
-            for (WorkerType workerType : possiblePositions) {
-                System.out.println(workerType.getType());
+            for (EmployeeType employeeType : possiblePositions) {
+                System.out.println(employeeType.getType());
             }
         }
         System.out.println("Current salary: ");
         System.out.println(currentSalary.toString());
     }
 
-    public boolean hasRole(WorkerType role) {
+    public boolean hasRole(EmployeeType role) {
         return possiblePositions.contains(role);
     }
 

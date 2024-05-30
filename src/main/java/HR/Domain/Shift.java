@@ -1,9 +1,11 @@
 package HR.Domain;
 
-import HR.Domain.WorkerTypes.Cashier;
-import HR.Domain.WorkerTypes.DeliveryPerson;
-import HR.Domain.WorkerTypes.ShiftManager;
-import HR.Domain.WorkerTypes.StorageWorker;
+import HR.Domain.EmployeeTypes.Cashier;
+import HR.Domain.EmployeeTypes.DeliveryPerson;
+import HR.Domain.EmployeeTypes.ShiftManager;
+import HR.Domain.EmployeeTypes.StorageEmployee;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -12,10 +14,10 @@ import java.util.List;
 public class Shift {
     private boolean isMorningShift;
     private LocalDate date;
-    private List<Worker> shiftManagers;
-    private List<Worker> cashiers;
-    private List<Worker> storageWorkers;
-    private List<Worker> deliveriers;
+    private List<Employee> shiftManagers;
+    private List<Employee> cashiers;
+    private List<Employee> storageWorkers;
+    private List<Employee> deliveriers;
 
     public Shift(boolean isMorningShift, LocalDate date) {
         this.isMorningShift = isMorningShift;
@@ -25,8 +27,33 @@ public class Shift {
         this.storageWorkers = new ArrayList<>();
         this.deliveriers = new ArrayList<>();
     }
+    @JsonCreator
+    public Shift JSONtoClass(
+            @JsonProperty("isMorningShift") boolean isMorningShift,
+            @JsonProperty("date") LocalDate date,
+            @JsonProperty("shiftManagers") List<Employee> shiftManagers,
+            @JsonProperty("cashiers") List<Employee> cashiers,
+            @JsonProperty("storageWorkers") List<Employee> storageWorkers,
+            @JsonProperty("deliveries") List<Employee> deliveries) {
 
-    public Shift(boolean isMorningShift, LocalDate date, List<Worker> shiftManagers, List<Worker> cashiers, List<Worker> storageWorkers, List<Worker> deliveriers) {
+        if (shiftManagers == null) {
+            shiftManagers = new ArrayList<>();
+        }
+        if (cashiers == null) {
+            cashiers = new ArrayList<>();
+        }
+        if (storageWorkers == null) {
+            storageWorkers = new ArrayList<>();
+        }
+        if (deliveries == null) {
+            deliveries = new ArrayList<>();
+        }
+        return new Shift(isMorningShift, date, shiftManagers, cashiers, storageWorkers, deliveries);
+    }
+
+
+
+    public Shift(boolean isMorningShift, LocalDate date, List<Employee> shiftManagers, List<Employee> cashiers, List<Employee> storageWorkers, List<Employee> deliveriers) {
         this.isMorningShift = isMorningShift;
         this.date = date;
         this.shiftManagers = shiftManagers;
@@ -43,28 +70,30 @@ public class Shift {
         return date;
     }
 
-    public List<Worker> getShiftManagers() {
+    public List<Employee> getShiftManagers() {
         return shiftManagers;
     }
 
-    public List<Worker> getCashiers() {
+    public List<Employee> getCashiers() {
         return cashiers;
     }
 
-    public List<Worker> getStorageWorkers() {
+    public List<Employee> getStorageWorkers() {
         return storageWorkers;
     }
 
-    public List<Worker> getDeliveriers() {
+    // Ido Haya Po
+
+    public List<Employee> getDeliveriers() {
         return deliveriers;
     }
 
-    public void addShiftManager(Worker shiftManager) {
+    public void addShiftManager(Employee shiftManager) {
         if (!shiftManager.getPossiblePositions().contains(new ShiftManager())) {
             System.out.println("Worker is not able to be a shift manager.");
             return;
         }
-        for (Worker w : shiftManagers) {
+        for (Employee w : shiftManagers) {
             if (w.equals(shiftManager)) {
                 System.out.println("Worker is already a shift manager.");
                 return;
@@ -74,12 +103,12 @@ public class Shift {
         shiftManagers.add(shiftManager);
     }
 
-    public void addCashier(Worker cashier) {
+    public void addCashier(Employee cashier) {
         if (!cashier.getPossiblePositions().contains(new Cashier())) {
             System.out.println("Worker is not able to be a cashier.");
             return;
         }
-        for (Worker w : cashiers) {
+        for (Employee w : cashiers) {
             if (w.equals(cashier)) {
                 System.out.println("Worker is already a cashier.");
                 return;
@@ -89,12 +118,12 @@ public class Shift {
         cashiers.add(cashier);
     }
 
-    public void addStorageWorker(Worker storageWorker) {
-        if (!storageWorker.getPossiblePositions().contains(new StorageWorker())) {
+    public void addStorageWorker(Employee storageWorker) {
+        if (!storageWorker.getPossiblePositions().contains(new StorageEmployee())) {
             System.out.println("Worker is not able to be a storage worker.");
             return;
         }
-        for (Worker w : storageWorkers) {
+        for (Employee w : storageWorkers) {
             if (w.equals(storageWorker)) {
                 System.out.println("Worker is already a storage worker.");
                 return;
@@ -103,12 +132,12 @@ public class Shift {
         storageWorkers.add(storageWorker);
     }
 
-    public void addDeliverier(Worker deliverier) {
+    public void addDeliverier(Employee deliverier) {
         if (!deliverier.getPossiblePositions().contains(new DeliveryPerson())) {
             System.out.println("Worker is not able to be a deliverier.");
             return;
         }
-        for (Worker w : deliveriers) {
+        for (Employee w : deliveriers) {
             if (w.equals(deliverier)) {
                 System.out.println("Worker is already a deliverier.");
                 return;
@@ -118,8 +147,8 @@ public class Shift {
         deliveriers.add(deliverier);
     }
 
-    public void removeShiftManager(Worker shiftManager) {
-        for (Worker w : shiftManagers) {
+    public void removeShiftManager(Employee shiftManager) {
+        for (Employee w : shiftManagers) {
             if (w.equals(shiftManager)) {
                 shiftManagers.remove(w);
                 System.out.println("Worker removed from shift managers.");
@@ -129,8 +158,8 @@ public class Shift {
         System.out.println("Worker is not a shift manager.");
     }
 
-    public void removeCashier(Worker cashier) {
-        for (Worker w : cashiers) {
+    public void removeCashier(Employee cashier) {
+        for (Employee w : cashiers) {
             if (w.equals(cashier)) {
                 cashiers.remove(w);
                 System.out.println("Worker removed from cashiers.");
@@ -140,8 +169,8 @@ public class Shift {
         System.out.println("Worker is not a cashier.");
     }
 
-    public void removeStorageWorker(Worker storageWorker) {
-        for (Worker w : storageWorkers) {
+    public void removeStorageWorker(Employee storageWorker) {
+        for (Employee w : storageWorkers) {
             if (w.equals(storageWorker)) {
                 storageWorkers.remove(w);
                 System.out.println("Worker removed from storage workers.");
@@ -151,8 +180,8 @@ public class Shift {
         System.out.println("Worker is not a storage worker.");
     }
 
-    public void removeDeliverier(Worker deliverier) {
-        for (Worker w : deliveriers) {
+    public void removeDeliverier(Employee deliverier) {
+        for (Employee w : deliveriers) {
             if (w.equals(deliverier)) {
                 deliveriers.remove(w);
                 System.out.println("Worker removed from deliveriers.");
@@ -167,22 +196,22 @@ public class Shift {
         System.out.println((isMorningShift ? "Morning" : "Evening") + " shift");
         System.out.println("Shift managers:");
         int i = 0;
-        for (Worker w : shiftManagers) {
+        for (Employee w : shiftManagers) {
             System.out.println("    " + ++i + ". " + w.getName());
         }
         i = 0;
         System.out.println("Cashiers:");
-        for (Worker w : cashiers) {
+        for (Employee w : cashiers) {
             System.out.println("    " + ++i + ". " + w.getName());
         }
         i = 0;
         System.out.println("Storage workers:");
-        for (Worker w : storageWorkers) {
+        for (Employee w : storageWorkers) {
             System.out.println("    " + ++i + ". " + w.getName());
         }
         i = 0;
         System.out.println("Deliveriers:");
-        for (Worker w : deliveriers) {
+        for (Employee w : deliveriers) {
             System.out.println("    " + ++i + ". " + w.getName());
         }
     }
@@ -190,22 +219,22 @@ public class Shift {
     public String toString() {
         StringBuilder result = new StringBuilder("Shift date: " + date + "\nMorning shift: " + isMorningShift + "\nShift managers:\n");
         int i = 0;
-        for (Worker w : shiftManagers) {
+        for (Employee w : shiftManagers) {
             result.append("    ").append(++i).append(". ").append(w.getName()).append("\n");
         }
         i = 0;
         result.append("Cashiers:\n");
-        for (Worker w : cashiers) {
+        for (Employee w : cashiers) {
             result.append("    ").append(++i).append(". ").append(w.getName()).append("\n");
         }
         i = 0;
         result.append("Storage workers:\n");
-        for (Worker w : storageWorkers) {
+        for (Employee w : storageWorkers) {
             result.append("    ").append(++i).append(". ").append(w.getName()).append("\n");
         }
         i = 0;
         result.append("Deliveriers:\n");
-        for (Worker w : deliveriers) {
+        for (Employee w : deliveriers) {
             result.append("    ").append(++i).append(". ").append(w.getName()).append("\n");
         }
         return result.toString();

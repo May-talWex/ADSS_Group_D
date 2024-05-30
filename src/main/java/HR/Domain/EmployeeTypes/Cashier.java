@@ -1,8 +1,8 @@
-package HR.Domain.WorkerTypes;
+package HR.Domain.EmployeeTypes;
 
-import HR.Domain.WorkerType;
+import HR.Domain.EmployeeType;
 
-public class Cashier implements WorkerType {
+public class Cashier implements EmployeeType {
 
     @Override
     public String getType() {

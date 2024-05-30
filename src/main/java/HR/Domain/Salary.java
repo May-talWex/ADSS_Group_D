@@ -4,11 +4,11 @@ import java.time.LocalDate;
 
 public class Salary {
     private float amount;
-    private Worker worker;
+    private Employee worker;
     private LocalDate startDate;
     private LocalDate endDate;
 
-    public Salary(float amount, Worker worker, LocalDate startDate, LocalDate endDate) {
+    public Salary(float amount, Employee worker, LocalDate startDate, LocalDate endDate) {
         this.amount = amount;
         this.worker = worker;
         this.startDate = startDate;
@@ -19,7 +19,7 @@ public class Salary {
         return amount;
     }
 
-    public Worker getWorker() {
+    public Employee getWorker() {
         return worker;
     }
 
@@ -35,7 +35,7 @@ public class Salary {
         this.amount = amount;
     }
 
-    public void setWorker(Worker worker) {
+    public void setWorker(Employee worker) {
         this.worker = worker;
     }
 
