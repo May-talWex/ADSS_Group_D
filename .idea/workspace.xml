@@ -4,26 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9a0829ce-1916-46c8-a83f-0eb68d1bcbb5" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="9a0829ce-1916-46c8-a83f-0eb68d1bcbb5" name="Changes" comment="Added some JSON support">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/HR/Domain/Branch.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/HR/Domain/Branch.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/HR/Domain/Salary.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/HR/Domain/Salary.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/HR/Domain/Schedule.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/HR/Domain/Schedule.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/HR/Domain/Shift.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/HR/Domain/Shift.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/HR/Domain/ShiftLimitation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/HR/Domain/ShiftLimitation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/HR/Domain/Worker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/HR/Domain/Employee.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/HR/Domain/WorkerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/HR/Domain/EmployeeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/HR/Domain/WorkerType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/HR/Domain/EmployeeType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/HR/Domain/WorkerTypes/Cashier.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/HR/Domain/EmployeeTypes/Cashier.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/HR/Domain/WorkerTypes/DeliveryPerson.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/HR/Domain/EmployeeTypes/DeliveryPerson.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/HR/Domain/WorkerTypes/HRManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/HR/Domain/EmployeeTypes/HRManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/HR/Domain/WorkerTypes/ShiftManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/HR/Domain/EmployeeTypes/ShiftManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/HR/Domain/WorkerTypes/StorageWorker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/HR/Domain/EmployeeTypes/StorageEmployee.java" afterDir="false" />
     </list>
-    <list id="92241546-7950-4e02-919c-86c9491857e4" name="Changes by kidox" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/HR/Domain/ShiftLimitation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/HR/Domain/ShiftLimitation.java" afterDir="false" />
-    </list>
+    <list id="92241546-7950-4e02-919c-86c9491857e4" name="Changes by kidox" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -50,23 +34,12 @@
     &quot;assignee&quot;: &quot;idokraicer&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/May-talWex/ADSS_Group_D.git",
-    "accountId": "7d454304-cb03-4785-a372-4daa0c436d01"
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/May-talWex/ADSS_Group_D.git&quot;,
+    &quot;accountId&quot;: &quot;7d454304-cb03-4785-a372-4daa0c436d01&quot;
   }
-}]]></component>
-  <component name="LineStatusTrackerManager">
-    <file path="$PROJECT_DIR$/src/main/java/HR/Domain/ShiftLimitation.java">
-      <ranges>
-        <range start1="2" end1="2" start2="2" end2="4" changelist="92241546-7950-4e02-919c-86c9491857e4" />
-        <range start1="6" end1="7" start2="8" end2="9" changelist="9a0829ce-1916-46c8-a83f-0eb68d1bcbb5" />
-        <range start1="10" end1="11" start2="12" end2="13" changelist="9a0829ce-1916-46c8-a83f-0eb68d1bcbb5" />
-        <range start1="15" end1="15" start2="17" end2="21" changelist="92241546-7950-4e02-919c-86c9491857e4" />
-        <range start1="20" end1="21" start2="26" end2="27" changelist="9a0829ce-1916-46c8-a83f-0eb68d1bcbb5" />
-      </ranges>
-    </file>
-  </component>
+}</component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 1
 }</component>
@@ -122,10 +95,24 @@
       <workItem from="1714811524309" duration="105000" />
       <workItem from="1716791028807" duration="4978000" />
       <workItem from="1717056998828" duration="3240000" />
+      <workItem from="1717064981279" duration="55000" />
     </task>
+    <task id="LOCAL-00001" summary="Added some JSON support">
+      <option name="closed" value="true" />
+      <created>1717064917414</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1717064917414</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Added some JSON support" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added some JSON support" />
   </component>
 </project>
