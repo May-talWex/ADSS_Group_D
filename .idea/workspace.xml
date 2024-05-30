@@ -4,31 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9a0829ce-1916-46c8-a83f-0eb68d1bcbb5" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dev/HR/Domain/BranchController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dev/HR/Domain/ShiftController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dev/HR/Domain/ShiftLimitationController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dev/HR/Domain/WorkerController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src.main.java/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dev/HR/BankAccount.java" beforeDir="false" afterPath="$PROJECT_DIR$/dev/HR/Domain/BankAccount.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dev/HR/Branch.java" beforeDir="false" afterPath="$PROJECT_DIR$/dev/HR/Domain/Branch.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dev/HR/Salary.java" beforeDir="false" afterPath="$PROJECT_DIR$/dev/HR/Domain/Salary.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dev/HR/Schedule.java" beforeDir="false" afterPath="$PROJECT_DIR$/dev/HR/Domain/Schedule.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dev/HR/Shift.java" beforeDir="false" afterPath="$PROJECT_DIR$/dev/HR/Domain/Shift.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dev/HR/ShiftLimitation.java" beforeDir="false" afterPath="$PROJECT_DIR$/dev/HR/Domain/ShiftLimitation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dev/HR/Worker.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dev/HR/WorkerType.java" beforeDir="false" afterPath="$PROJECT_DIR$/dev/HR/Domain/WorkerType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dev/HR/WorkerTypes/Cashier.java" beforeDir="false" afterPath="$PROJECT_DIR$/dev/HR/Domain/WorkerTypes/Cashier.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dev/HR/WorkerTypes/DeliveryPerson.java" beforeDir="false" afterPath="$PROJECT_DIR$/dev/HR/Domain/WorkerTypes/DeliveryPerson.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dev/HR/WorkerTypes/HRManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/dev/HR/Domain/WorkerTypes/HRManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dev/HR/WorkerTypes/ShiftManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/dev/HR/Domain/WorkerTypes/ShiftManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dev/HR/WorkerTypes/StorageWorker.java" beforeDir="false" afterPath="$PROJECT_DIR$/dev/HR/Domain/WorkerTypes/StorageWorker.java" afterDir="false" />
-    </list>
+    <list default="true" id="9a0829ce-1916-46c8-a83f-0eb68d1bcbb5" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -74,6 +50,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Application.Main.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
