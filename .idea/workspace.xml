@@ -5,19 +5,29 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9a0829ce-1916-46c8-a83f-0eb68d1bcbb5" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dev/HR/Domain/BranchController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dev/HR/Domain/ShiftController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dev/HR/Domain/ShiftLimitationController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dev/HR/Domain/WorkerController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src.main.java/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dev/HR/Branch.java" beforeDir="false" afterPath="$PROJECT_DIR$/dev/HR/Branch.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dev/HR/Schedule.java" beforeDir="false" afterPath="$PROJECT_DIR$/dev/HR/Schedule.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dev/HR/Shift.java" beforeDir="false" afterPath="$PROJECT_DIR$/dev/HR/Shift.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dev/HR/ShiftLimitation.java" beforeDir="false" afterPath="$PROJECT_DIR$/dev/HR/ShiftLimitation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dev/HR/Worker.java" beforeDir="false" afterPath="$PROJECT_DIR$/dev/HR/Worker.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dev/HR/WorkerType.java" beforeDir="false" afterPath="$PROJECT_DIR$/dev/HR/WorkerType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dev/HR/WorkerTypes/Cashier.java" beforeDir="false" afterPath="$PROJECT_DIR$/dev/HR/WorkerTypes/Cashier.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dev/HR/WorkerTypes/DeliveryPerson.java" beforeDir="false" afterPath="$PROJECT_DIR$/dev/HR/WorkerTypes/DeliveryPerson.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dev/HR/WorkerTypes/HRManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/dev/HR/WorkerTypes/HRManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dev/HR/WorkerTypes/ShiftManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/dev/HR/WorkerTypes/ShiftManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dev/HR/WorkerTypes/StorageWorker.java" beforeDir="false" afterPath="$PROJECT_DIR$/dev/HR/WorkerTypes/StorageWorker.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dev/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/dev/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dev/HR/BankAccount.java" beforeDir="false" afterPath="$PROJECT_DIR$/dev/HR/Domain/BankAccount.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dev/HR/Branch.java" beforeDir="false" afterPath="$PROJECT_DIR$/dev/HR/Domain/Branch.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dev/HR/Salary.java" beforeDir="false" afterPath="$PROJECT_DIR$/dev/HR/Domain/Salary.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dev/HR/Schedule.java" beforeDir="false" afterPath="$PROJECT_DIR$/dev/HR/Domain/Schedule.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dev/HR/Shift.java" beforeDir="false" afterPath="$PROJECT_DIR$/dev/HR/Domain/Shift.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dev/HR/ShiftLimitation.java" beforeDir="false" afterPath="$PROJECT_DIR$/dev/HR/Domain/ShiftLimitation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dev/HR/Worker.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dev/HR/WorkerType.java" beforeDir="false" afterPath="$PROJECT_DIR$/dev/HR/Domain/WorkerType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dev/HR/WorkerTypes/Cashier.java" beforeDir="false" afterPath="$PROJECT_DIR$/dev/HR/Domain/WorkerTypes/Cashier.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dev/HR/WorkerTypes/DeliveryPerson.java" beforeDir="false" afterPath="$PROJECT_DIR$/dev/HR/Domain/WorkerTypes/DeliveryPerson.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dev/HR/WorkerTypes/HRManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/dev/HR/Domain/WorkerTypes/HRManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dev/HR/WorkerTypes/ShiftManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/dev/HR/Domain/WorkerTypes/ShiftManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dev/HR/WorkerTypes/StorageWorker.java" beforeDir="false" afterPath="$PROJECT_DIR$/dev/HR/Domain/WorkerTypes/StorageWorker.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,18 +49,18 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "idokraicer"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;idokraicer&quot;
   }
-}]]></component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/May-talWex/ADSS_Group_D.git",
-    "accountId": "d4b7678e-6fb5-4390-84e0-e4a0c3352291"
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/May-talWex/ADSS_Group_D.git&quot;,
+    &quot;accountId&quot;: &quot;d4b7678e-6fb5-4390-84e0-e4a0c3352291&quot;
   }
-}]]></component>
+}</component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 1
 }</component>
@@ -62,26 +72,28 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;318810777__315839795&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/rotto/OneDrive/Documents/GitHub/ADSS_Group_D/release&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Artifacts&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "318810777__315839795",
+    "ignore.virus.scanning.warn.message": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/rotto/OneDrive/Documents/GitHub/ADSS_Group_D/release",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "run.code.analysis.last.selected.profile": "pProject Default",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -101,7 +113,8 @@
       <workItem from="1714808626980" duration="2000" />
       <workItem from="1714810811509" duration="678000" />
       <workItem from="1714811524309" duration="105000" />
-      <workItem from="1716791028807" duration="3791000" />
+      <workItem from="1716791028807" duration="4978000" />
+      <workItem from="1717056998828" duration="3240000" />
     </task>
     <servers />
   </component>
