@@ -1,8 +1,11 @@
 package HR.Presentation;
+
 import HR.Domain.*;
-import HR.Data.*;
+
+import HR.Domain.EmployeeTypes.HRManager;
 import HR.Domain.Exceptions.*;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
@@ -13,7 +16,28 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Enter your ID: ");
         int id = scanner.nextInt();
-        if(branch.getWorkerById(id).getPossiblePositions().contains("HRManager")){
+        // Create Admin as HR Manager
+        try {
+            branch.addWorker(new Employee(0, "Admin", "admin@supermarket.com", new BankAccount(0, 0, 0), branch, new Salary(0)));
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            return;
+        }
+        try {
+            branch.getWorkerById(0).addPossiblePosition(new HRManager());
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            return;
+        }
+        Employee employee = branch.getWorkerById(id);
+        if (employee == null) {
+            System.out.println("Employee not found.");
+            return;
+        }
+        boolean hasPermission = employee.hasRole(new HRManager());
+
+        System.out.println("Has permission: " + hasPermission);
+        if (hasPermission) {
             System.out.println("Welcome " + branch.getWorkerById(id).getName());
             System.out.println("Select an option:");
             System.out.println("1. Add Employee");
@@ -68,8 +92,7 @@ public class Main {
             }
 
             scanner.close();
-        }
-        else{
+        } else {
             System.out.println("You do not have the required permissions to view the schedule.");
         }
     }

@@ -1,4 +1,5 @@
 package HR.Domain;
+
 import HR.Domain.EmployeeTypes.*;
 
 
@@ -29,6 +30,9 @@ public interface EmployeeType {
 
 
     public default boolean equals(EmployeeType other) {
+        System.out.println("EmployeeType: Checking if " + this.getType() + " equals " + other.getType());
         return this.getType().equals(other.getType());
     }
+
+    public int hashCode();
 }

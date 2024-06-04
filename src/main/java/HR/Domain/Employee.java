@@ -112,8 +112,9 @@ public class Employee {
                 }
             }
         }
-        System.out.println("Position added to worker.");
+        System.out.println("Position " + position.getType() + " added to worker.");
         possiblePositions.add(position);
+        System.out.println(possiblePositions.toString());
     }
 
     public void removePossiblePosition(EmployeeType position) throws Exception {
@@ -154,7 +155,9 @@ public class Employee {
     }
 
     public boolean hasRole(EmployeeType role) {
-        return possiblePositions.contains(role);
+        if (this.possiblePositions == null) return false;
+        System.out.println("Hello");
+        return this.possiblePositions.contains(role);
     }
 
 }

@@ -13,4 +13,17 @@ public class Cashier implements EmployeeType {
     public boolean isAbleToBeCashier() {
         return true;
     }
+
+    @Override
+    public int hashCode() {
+        return getType().hashCode();
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (obj == null || getClass() != obj.getClass()) return false;
+        Cashier cashier = (Cashier) obj;
+        return getType().equals(cashier.getType());
+    }
 }
