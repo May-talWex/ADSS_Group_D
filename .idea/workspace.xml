@@ -7,16 +7,11 @@
     <list default="true" id="9a0829ce-1916-46c8-a83f-0eb68d1bcbb5" name="Changes" comment="Added some JSON support">
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/HR/Domain/BankAccount.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/HR/Domain/BankAccount.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/HR/Domain/BranchController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/HR/Domain/BranchController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/HR/Domain/Employee.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/HR/Domain/Employee.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/HR/Domain/EmployeeType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/HR/Domain/EmployeeType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/HR/Domain/EmployeeTypes/Cashier.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/HR/Domain/EmployeeTypes/Cashier.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/HR/Domain/EmployeeTypes/DeliveryPerson.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/HR/Domain/EmployeeTypes/DeliveryPerson.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/HR/Domain/EmployeeTypes/HRManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/HR/Domain/EmployeeTypes/HRManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/HR/Domain/EmployeeTypes/ShiftManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/HR/Domain/EmployeeTypes/ShiftManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/HR/Domain/EmployeeTypes/StorageEmployee.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/HR/Domain/EmployeeTypes/StorageEmployee.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/HR/Domain/Salary.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/HR/Domain/Salary.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/HR/Presentation/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/HR/Presentation/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/HR/Domain/Employee.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/HR/Domain/Employee.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/HR/Presentation/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/HR/Presentation/Main.class" afterDir="false" />
     </list>
     <list id="92241546-7950-4e02-919c-86c9491857e4" name="Changes by kidox" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -51,6 +46,9 @@
     &quot;accountId&quot;: &quot;d4b7678e-6fb5-4390-84e0-e4a0c3352291&quot;
   }
 }</component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/src/main/java/HR/Presentation/Main.java" root0="FORCE_HIGHLIGHTING" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 1
 }</component>
@@ -62,30 +60,29 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.Main.executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "extract.method.default.visibility": "private",
-    "git-widget-placeholder": "318810777__315839795",
-    "ignore.virus.scanning.warn.message": "true",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/rotto/OneDrive/Documents/GitHub/ADSS_Group_D/release",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "run.code.analysis.last.selected.profile": "pProject Default",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;318810777__315839795&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/rotto/OneDrive/Documents/GitHub/ADSS_Group_D/release&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -111,7 +108,7 @@
       <workItem from="1717104448923" duration="94000" />
       <workItem from="1717104555869" duration="339000" />
       <workItem from="1717488535554" duration="447000" />
-      <workItem from="1717489009199" duration="5268000" />
+      <workItem from="1717489009199" duration="1676000" />
     </task>
     <task id="LOCAL-00001" summary="Added some JSON support">
       <option name="closed" value="true" />
@@ -129,7 +126,15 @@
       <option name="project" value="LOCAL" />
       <updated>1717491318808</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Added some JSON support">
+      <option name="closed" value="true" />
+      <created>1717496188596</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1717496188596</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -138,26 +143,5 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Added some JSON support" />
     <option name="LAST_COMMIT_MESSAGE" value="Added some JSON support" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/HR/Domain/EmployeeType.java</url>
-          <line>33</line>
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/HR/Domain/EmployeeTypes/HRManager.java</url>
-          <line>22</line>
-          <option name="timeStamp" value="4" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/HR/Domain/Employee.java</url>
-          <line>159</line>
-          <option name="timeStamp" value="5" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

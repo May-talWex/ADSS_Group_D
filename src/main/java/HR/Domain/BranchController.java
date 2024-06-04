@@ -14,4 +14,6 @@ public class BranchController {
         Branch branch = new Branch(branchName, branchAddress);
         System.out.println("Branch " + branchName + " created successfully");
         return branch;
-    }}
+    }
+
+}
