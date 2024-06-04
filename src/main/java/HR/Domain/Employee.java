@@ -5,6 +5,7 @@ import HR.Domain.Exceptions.EmployeeDoesNotHaveRole;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -24,6 +25,8 @@ public class Employee {
     private List<EmployeeType> possiblePositions;
     @JsonProperty("salary")
     private Salary currentSalary;
+    @JsonProperty("dateOfEmployment")
+    private LocalDate dateOfEmployment;
 
 
     public Employee(int workerId, String name, String email, BankAccount bankAccount, Branch branch, Salary currentSalary) {
@@ -34,6 +37,7 @@ public class Employee {
         this.branch = branch;
         this.possiblePositions = null;
         this.currentSalary = currentSalary;
+        this.dateOfEmployment = LocalDate.now();
     }
 
     public Employee(String JSON) {
@@ -62,6 +66,10 @@ public class Employee {
         return name;
     }
 
+    public LocalDate getDateOfEmployment() {
+        return dateOfEmployment;
+    }
+
     public String getEmail() {
         return email;
     }
@@ -80,6 +88,16 @@ public class Employee {
 
     public List<EmployeeType> getPossiblePositions() {
         return possiblePositions;
+    }
+
+    public String printPossiblePositions() {
+        String positions = "";
+        if (possiblePositions != null) {
+            for (EmployeeType employeeType : possiblePositions) {
+                positions += employeeType.getType() + " ";
+            }
+        }
+        return positions;
     }
 
     public Salary getCurrentSalary() {

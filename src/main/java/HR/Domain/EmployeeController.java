@@ -20,6 +20,10 @@ public class EmployeeController {
         System.out.println("Creating Employee");
         System.out.println("Enter workerId: ");
         int workerId = Integer.parseInt(System.console().readLine());
+        if (branch.getWorkerById(workerId) != null) {
+            System.out.println("Employee with ID " + workerId + " already exists.");
+            return createEmployee(branch);
+        }
         System.out.println("Enter workerName: ");
         String workerName = System.console().readLine();
         System.out.println("Enter workerEmail: ");

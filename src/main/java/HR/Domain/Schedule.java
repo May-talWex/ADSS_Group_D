@@ -97,7 +97,7 @@ public class Schedule {
             throw new NotEnoughWorkers(" date: " + date + " and isMorningShift: " + isMorningShift);
         }
         for (int i = 0; i < numManagers; i++) {
-            // Go through all of the workers capable of being a manager
+            // Go through all the workers capable of being a manager
             // and add them to the list of workers that can be assigned to the shift
             // If the worker does not have a limitation for the shift, add them to the list
             // If the worker has a limitation for the shift, do not add them to the list
@@ -118,7 +118,7 @@ public class Schedule {
         }
         List<Employee> cashierList = new ArrayList<>();
         for (int i = 0; i < numCashiers; i++) {
-            // Go through all of the workers capable of being a cashier
+            // Go through all the workers capable of being a cashier
             // and add them to the list of workers that can be assigned to the shift
             // If the worker does not have a limitation for the shift, add them to the list
             // If the worker has a limitation for the shift, do not add them to the list
@@ -139,7 +139,7 @@ public class Schedule {
         }
         List<Employee> storageWorkerList = new ArrayList<>();
         for (int i = 0; i < numStorageWorkers; i++) {
-            // Go through all of the workers capable of being a storage worker
+            // Go through all the workers capable of being a storage worker
             // and add them to the list of workers that can be assigned to the shift
             // If the worker does not have a limitation for the shift, add them to the list
             // If the worker has a limitation for the shift, do not add them to the list
@@ -162,12 +162,12 @@ public class Schedule {
 
         List<Employee> deliverierList = new ArrayList<>();
         for (int i = 0; i < numDeliveriers; i++) {
-            // Go through all of the workers capable of being a deliverier
+            // Go through all the workers capable of being a deliveries
             // and add them to the list of workers that can be assigned to the shift
             // If the worker does not have a limitation for the shift, add them to the list
             // If the worker has a limitation for the shift, do not add them to the list
             // If the worker is already assigned to a shift on the same day, do not add them to the list
-            // Stop when reaching the required number of deliveriers
+            // Stop when reaching the required number of deliveries
             for (Employee w : branchWorkers) {
                 if (w.hasRole(new DeliveryPerson()) && !branch.hasShiftLimitation(w, date, isMorningShift) && !shiftWorkers.contains(w)) {
                     shiftWorkers.add(w);

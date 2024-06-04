@@ -7,7 +7,7 @@ import java.time.LocalDate;
 
 public class ShiftLimitationController {
 
-    public void addShiftLimitation(Employee employee) {
+    public static void addShiftLimitation(Employee employee) {
         System.out.println("Enter the day of the limitation (1-31):");
         try {
             Integer.parseInt(System.console().readLine());
@@ -55,7 +55,7 @@ public class ShiftLimitationController {
         }
     }
 
-    public void removeShiftLimitation(Employee employee) {
+    public static void removeShiftLimitation(Employee employee) {
         System.out.println("Enter the day of the limitation (1-31):");
         try {
             Integer.parseInt(System.console().readLine());

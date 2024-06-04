@@ -79,17 +79,6 @@ public class Branch {
         throw new EmployeeDoesNotExistInBranch("Worker ID: " + worker.getEmployeeId() + " does not exist in the branch with ID: " + branchId);
     }
 
-    public void addShiftLimitation(Employee worker, LocalDate date, boolean isMorningShift) throws Exception {
-        ShiftLimitation shiftLimitation = new ShiftLimitation(worker, date, isMorningShift);
-        for (ShiftLimitation sl : shiftLimitations) {
-            if (sl.equals(shiftLimitation)) {
-                throw new ShiftAlreadyExists("Shift limitation already exists for worker ID: " + worker.getEmployeeId() + " on date: " + date + " and isMorningShift: " + isMorningShift);
-            }
-        }
-        System.out.println("Shift limitation added.");
-        shiftLimitations.add(shiftLimitation);
-    }
-
     public void addShiftLimitation(Employee worker, ShiftLimitation shiftLimitation) throws Exception {
         for (ShiftLimitation sl : shiftLimitations) {
             if (sl.equals(shiftLimitation)) {
@@ -100,17 +89,6 @@ public class Branch {
         shiftLimitations.add(shiftLimitation);
     }
 
-    public void removeShiftLimitation(Employee worker, LocalDate date, boolean isMorningShift) throws Exception {
-        ShiftLimitation shiftLimitation = new ShiftLimitation(worker, date, isMorningShift);
-        for (ShiftLimitation sl : shiftLimitations) {
-            if (sl.equals(shiftLimitation)) {
-                shiftLimitations.remove(sl);
-                System.out.println("Shift limitation removed.");
-                return;
-            }
-        }
-        throw new ShiftLimitationDoesntExist("Shift limitation does not exist for worker ID: " + worker.getEmployeeId() + " on date: " + date + " and isMorningShift: " + isMorningShift);
-    }
 
     public void removeShiftLimitation(Employee worker, ShiftLimitation shiftLimitation) throws Exception {
         for (ShiftLimitation sl : shiftLimitations) {
@@ -142,4 +120,7 @@ public class Branch {
     }
 
 
+    public List<ShiftLimitation> getShiftLimitations() {
+        return shiftLimitations;
+    }
 }
