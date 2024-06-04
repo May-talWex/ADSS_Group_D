@@ -1,6 +1,7 @@
 package HR.Presentation;
 import HR.Domain.*;
 import HR.Data.*;
+import HR.Domain.Exceptions.*;
 
 import java.util.Scanner;
 
@@ -28,9 +29,12 @@ public class Main {
             switch (choice) {
                 case 1:
                     Employee temp = employeeController.createEmployee(branch);
-                    branch.addWorker(temp);
-                    System.out.println("Employee added successfully.");
-                    break;
+                    try {
+                        branch.addWorker(temp);
+                    } catch (Exception e) {
+                        System.out.println("Employee already exists in branch.");
+                        break;
+                    }
                 case 2:
                     // Remove Employee logic
                     System.out.println("Removing Employee...");

@@ -134,7 +134,7 @@ public class Branch {
     }
     public Employee getWorkerById(int id) {
         for (Employee worker : workers) {
-            if (worker.getWorkerId() == id) {
+            if (worker.getEmployeeId() == id) {
                 return worker;
             }
         }
