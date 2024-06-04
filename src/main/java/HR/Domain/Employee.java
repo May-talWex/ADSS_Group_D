@@ -35,19 +35,7 @@ public class Employee {
     }
 
     public Employee(String JSON){
-        ObjectMapper mapper = new ObjectMapper();
-        try {
-            Employee employee = mapper.readValue(JSON, Employee.class);
-            this.workerId = employee.getWorkerId();
-            this.name = employee.getName();
-            this.email = employee.getEmail();
-            this.bankAccount = employee.getBankAccount();
-            this.branch = employee.getBranch();
-            this.possiblePositions = employee.getPossiblePositions();
-            this.currentSalary = employee.getCurrentSalary();
-        } catch (Exception e) {
-            System.out.println("Error creating employee from JSON");
-        }
+        // TODO: Implement this method to create an Employee object from a JSON string
     }
 
     public Employee() {
