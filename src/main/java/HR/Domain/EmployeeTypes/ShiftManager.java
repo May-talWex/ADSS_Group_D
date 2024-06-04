@@ -14,10 +14,10 @@ public class ShiftManager implements EmployeeType {
         return true;
     }
 
-    @Override
-    public int hashCode() {
-        return getType().hashCode();
-    }
+//    @Override
+//    public int hashCode() {
+//        return getType().hashCode();
+//    }
 
     @Override
     public boolean equals(Object obj) {

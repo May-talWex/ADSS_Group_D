@@ -45,7 +45,7 @@ public class Main {
             } else if (employee.hasRole(new ShiftManager())) {
                 SMMenu(branch, id, employeeController, scanner);
             } else {
-                NonMenegerMenu(branch, id, employeeController, scanner);
+                NonManagerMenu(branch, id, employeeController, scanner);
             }
         }
     }
@@ -66,31 +66,35 @@ public class Main {
                     }
                     break;
                 case 2:
-                    System.out.println("Available Employees:");
+                    // Remove Employee logic
+                    System.out.println("remove Employee:");
                     break;
                 case 3:
+                    System.out.println("Available Employees:");
+                    break;
+                case 4:
                     // Create Schedule logic
                     System.out.println("Creating Schedule...");
                     // Implement logic for creating schedule (e.g., prompt for details, call a createSchedule method)
                     break;
-                case 4:
+                case 5:
                     // Set Shift Restrictions logic
                     System.out.println("Setting Shift Restrictions...");
                     // Implement logic for setting shift restrictions (e.g., prompt for details, call a setShiftRestrictions method)
                     break;
-                case 5:
+                case 6:
                     // Get Shift Limitations logic
                     System.out.println("Getting Shift Limitations...");
                     // Implement logic for displaying shift limitations (e.g., call a getShiftLimitations method)
                     break;
-                case 6:
+                case 7:
                     System.out.println("Logging out and returning to the main menu...");
                     break;
                 default:
                     System.out.println("Invalid choice!");
                     break;
             }
-        } while (HRchoice != 6);
+        } while (HRchoice != 7);
     }
 
     public static void SMMenu(Branch branch, int id, EmployeeController employeeController, Scanner scanner) {
@@ -136,7 +140,7 @@ public class Main {
         } while (SMchoice != 6);
     }
 
-    public static void NonMenegerMenu(Branch branch, int id, EmployeeController employeeController, Scanner scanner) {
+    public static void NonManagerMenu(Branch branch, int id, EmployeeController employeeController, Scanner scanner) {
         int choice;
         do {
             PrintNonMenegerMenu(branch, id);
