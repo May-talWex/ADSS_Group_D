@@ -1,6 +1,6 @@
 package HR.Domain;
 
-import HR.Domain.WorkerTypes.*;
+import HR.Domain.EmployeeTypes.*;
 
 import java.time.LocalDate;
 import java.util.*;
@@ -87,9 +87,9 @@ public class Schedule {
         int numStorageWorkers = new Scanner(System.in).nextInt();
         System.out.println("Enter the number of deliveriers for the shift: ");
         int numDeliveriers = new Scanner(System.in).nextInt();
-        List<Worker> branchWorkers = List.copyOf(branch.getWorkers());
-        List<Worker> shiftWorkers = new ArrayList<>();
-        List<Worker> shiftManagerList = new ArrayList<>();
+        List<Employee> branchWorkers = List.copyOf(branch.getWorkers());
+        List<Employee> shiftWorkers = new ArrayList<>();
+        List<Employee> shiftManagerList = new ArrayList<>();
         if (branchWorkers.isEmpty() || branchWorkers.size() < numManagers) {
             System.out.println("Not enough workers for the shift.");
             throw new IllegalArgumentException();
@@ -101,7 +101,7 @@ public class Schedule {
             // If the worker has a limitation for the shift, do not add them to the list
             // If the worker is already assigned to a shift on the same day, do not add them to the list
             // Stop when reaching the required number of managers
-            for (Worker w : branchWorkers) {
+            for (Employee w : branchWorkers) {
                 if (w.hasRole(new ShiftManager()) && !branch.hasShiftLimitation(w, date, isMorningShift) && !shiftWorkers.contains(w)) {
                     shiftWorkers.add(w);
                     shiftManagerList.add(w);
@@ -114,7 +114,7 @@ public class Schedule {
             System.out.println("Not enough workers for the shift.");
             throw new IllegalArgumentException();
         }
-        List<Worker> cashierList = new ArrayList<>();
+        List<Employee> cashierList = new ArrayList<>();
         for (int i = 0; i < numCashiers; i++) {
             // Go through all of the workers capable of being a cashier
             // and add them to the list of workers that can be assigned to the shift
@@ -122,7 +122,7 @@ public class Schedule {
             // If the worker has a limitation for the shift, do not add them to the list
             // If the worker is already assigned to a shift on the same day, do not add them to the list
             // Stop when reaching the required number of cashiers
-            for (Worker w : branchWorkers) {
+            for (Employee w : branchWorkers) {
                 if (w.hasRole(new Cashier()) && !branch.hasShiftLimitation(w, date, isMorningShift) && !shiftWorkers.contains(w)) {
                     shiftWorkers.add(w);
                     cashierList.add(w);
@@ -135,7 +135,7 @@ public class Schedule {
             System.out.println("Not enough workers for the shift.");
             throw new IllegalArgumentException();
         }
-        List<Worker> storageWorkerList = new ArrayList<>();
+        List<Employee> storageWorkerList = new ArrayList<>();
         for (int i = 0; i < numStorageWorkers; i++) {
             // Go through all of the workers capable of being a storage worker
             // and add them to the list of workers that can be assigned to the shift
@@ -143,8 +143,8 @@ public class Schedule {
             // If the worker has a limitation for the shift, do not add them to the list
             // If the worker is already assigned to a shift on the same day, do not add them to the list
             // Stop when reaching the required number of storage workers
-            for (Worker w : branchWorkers) {
-                if (w.hasRole(new StorageWorker()) && !branch.hasShiftLimitation(w, date, isMorningShift) && !shiftWorkers.contains(w)) {
+            for (Employee w : branchWorkers) {
+                if (w.hasRole(new StorageEmployee()) && !branch.hasShiftLimitation(w, date, isMorningShift) && !shiftWorkers.contains(w)) {
                     shiftWorkers.add(w);
                     storageWorkerList.add(w);
                     branchWorkers.remove(w);
@@ -158,7 +158,7 @@ public class Schedule {
             throw new IllegalArgumentException();
         }
 
-        List<Worker> deliverierList = new ArrayList<>();
+        List<Employee> deliverierList = new ArrayList<>();
         for (int i = 0; i < numDeliveriers; i++) {
             // Go through all of the workers capable of being a deliverier
             // and add them to the list of workers that can be assigned to the shift
@@ -166,7 +166,7 @@ public class Schedule {
             // If the worker has a limitation for the shift, do not add them to the list
             // If the worker is already assigned to a shift on the same day, do not add them to the list
             // Stop when reaching the required number of deliveriers
-            for (Worker w : branchWorkers) {
+            for (Employee w : branchWorkers) {
                 if (w.hasRole(new DeliveryPerson()) && !branch.hasShiftLimitation(w, date, isMorningShift) && !shiftWorkers.contains(w)) {
                     shiftWorkers.add(w);
                     deliverierList.add(w);

@@ -1,19 +1,30 @@
 package HR.Domain;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 import java.util.ArrayList;
 import java.util.List;
 
-public class Worker {
+
+public class Employee {
+    @JsonProperty("workerId")
     private int workerId;
+    @JsonProperty("workerName")
     private String name;
+    @JsonProperty("workerEmail")
     private String email;
+    @JsonProperty("bankAccount")
     private BankAccount bankAccount;
+    @JsonProperty("branch")
     private Branch branch;
-    private List<WorkerType> possiblePositions;
+    @JsonProperty("possiblePositions")
+    private List<EmployeeType> possiblePositions;
+    @JsonProperty("salary")
     private Salary currentSalary;
 
 
-    public Worker(int workerId, String name, String email, BankAccount bankAccount, Branch branch, Salary currentSalary) {
+    public Employee(int workerId, String name, String email, BankAccount bankAccount, Branch branch, Salary currentSalary) {
         this.workerId = workerId;
         this.name = name;
         this.email = email;
@@ -23,15 +34,39 @@ public class Worker {
         this.currentSalary = currentSalary;
     }
 
-    public Worker (String JSON){
+    public Employee(String JSON){
+        ObjectMapper mapper = new ObjectMapper();
+        try {
+            Employee employee = mapper.readValue(JSON, Employee.class);
+            this.workerId = employee.getWorkerId();
+            this.name = employee.getName();
+            this.email = employee.getEmail();
+            this.bankAccount = employee.getBankAccount();
+            this.branch = employee.getBranch();
+            this.possiblePositions = employee.getPossiblePositions();
+            this.currentSalary = employee.getCurrentSalary();
+        } catch (Exception e) {
+            System.out.println("Error creating employee from JSON");
+        }
+    }
 
+    public Employee() {
+        this.possiblePositions = new ArrayList<>();
+    }
+    public String toJSON() {
+        ObjectMapper mapper = new ObjectMapper();
+        try {
+            return mapper.writeValueAsString(this);
+        } catch (Exception e) {
+            return null;
+        }
     }
 
     public int getWorkerId() {
         return workerId;
     }
 
-    public boolean equals(Worker worker) {
+    public boolean equals(Employee worker) {
         return workerId == worker.getWorkerId();
     }
 
@@ -55,7 +90,7 @@ public class Worker {
         return branch;
     }
 
-    public List<WorkerType> getPossiblePositions() {
+    public List<EmployeeType> getPossiblePositions() {
         return possiblePositions;
     }
 
@@ -79,12 +114,12 @@ public class Worker {
         this.branch = branch;
     }
 
-    public void addPossiblePosition(WorkerType position) {
+    public void addPossiblePosition(EmployeeType position) {
         if (possiblePositions == null) {
-            possiblePositions = new ArrayList<WorkerType>();
+            possiblePositions = new ArrayList<EmployeeType>();
         } else {
-            for (WorkerType workerType : possiblePositions) {
-                if (workerType.equals(position)) {
+            for (EmployeeType employeeType : possiblePositions) {
+                if (employeeType.equals(position)) {
                     System.out.println("Worker already has this position.");
                     return;
                 }
@@ -94,11 +129,11 @@ public class Worker {
         possiblePositions.add(position);
     }
 
-    public void removePossiblePosition(WorkerType position) {
+    public void removePossiblePosition(EmployeeType position) {
         if (possiblePositions != null) {
-            for (WorkerType workerType : possiblePositions) {
-                if (workerType.equals(position)) {
-                    possiblePositions.remove(workerType);
+            for (EmployeeType employeeType : possiblePositions) {
+                if (employeeType.equals(position)) {
+                    possiblePositions.remove(employeeType);
                     System.out.println("Position removed from worker.");
                     return;
                 }
@@ -119,15 +154,19 @@ public class Worker {
         System.out.println("Branch: " + branch.getName());
         System.out.println("Possible positions: ");
         if (possiblePositions != null) {
-            for (WorkerType workerType : possiblePositions) {
-                System.out.println(workerType.getType());
+            for (EmployeeType employeeType : possiblePositions) {
+                System.out.println(employeeType.getType());
             }
         }
         System.out.println("Current salary: ");
         System.out.println(currentSalary.toString());
     }
 
-    public boolean hasRole(WorkerType role) {
+    public String toString() {
+        return name + " (" + workerId + ")";
+    }
+
+    public boolean hasRole(EmployeeType role) {
         return possiblePositions.contains(role);
     }
 

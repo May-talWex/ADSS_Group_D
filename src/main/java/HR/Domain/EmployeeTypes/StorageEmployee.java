@@ -1,8 +1,8 @@
-package HR.Domain.WorkerTypes;
+package HR.Domain.EmployeeTypes;
 
-import HR.Domain.WorkerType;
+import HR.Domain.EmployeeType;
 
-public class StorageWorker implements WorkerType {
+public class StorageEmployee implements EmployeeType {
     @Override
     public String getType() {
         return "StorageWorker";

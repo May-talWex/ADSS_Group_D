@@ -1,14 +1,17 @@
 package HR.Domain;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import java.time.LocalDate;
 
 public class ShiftLimitation {
 
-    private Worker worker;
+    private Employee worker;
     private LocalDate date;
     private boolean isMorningShift;
 
-    public ShiftLimitation(Worker worker, LocalDate date, boolean isMorningShift) {
+    public ShiftLimitation(Employee worker, LocalDate date, boolean isMorningShift) {
         this.worker = worker;
         this.date = date;
         this.isMorningShift = isMorningShift;
@@ -18,7 +21,7 @@ public class ShiftLimitation {
         return this.worker.equals(other.worker) && this.date.equals(other.date) && this.isMorningShift == other.isMorningShift;
     }
 
-    public Worker getWorker() {
+    public Employee getWorker() {
         return worker;
     }
 

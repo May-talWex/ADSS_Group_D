@@ -1,8 +1,8 @@
-package HR.Domain.WorkerTypes;
+package HR.Domain.EmployeeTypes;
 
-import HR.Domain.WorkerType;
+import HR.Domain.EmployeeType;
 
-public class HRManager implements WorkerType {
+public class HRManager implements EmployeeType {
 
     public String getType() {
         return "HR Manager";
