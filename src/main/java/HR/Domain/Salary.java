@@ -36,9 +36,6 @@ public class Salary {
         return amount;
     }
 
-    /*public Employee getWorker() {
-        return worker;
-    }*/
 
     public LocalDate getStartDate() {
         return startDate;

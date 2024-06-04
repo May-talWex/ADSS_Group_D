@@ -14,7 +14,7 @@ public class ScheduleController {
         try {
             schedule.addShift(date, shifts);
             System.out.println("Shift added successfully.");
-        } catch (IllegalArgumentException e) {
+        } catch (Exception e) {
             System.out.println("Error: " + e.getMessage());
         }
     }
@@ -36,7 +36,7 @@ public class ScheduleController {
         try {
             schedule.generateShift(branch, date, isMorningShift);
             System.out.println("Shift generated successfully.");
-        } catch (IllegalArgumentException e) {
+        } catch (Exception e) {
             System.out.println("Error: " + e.getMessage());
         }
     }

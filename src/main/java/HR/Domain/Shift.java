@@ -4,6 +4,9 @@ import HR.Domain.EmployeeTypes.Cashier;
 import HR.Domain.EmployeeTypes.DeliveryPerson;
 import HR.Domain.EmployeeTypes.ShiftManager;
 import HR.Domain.EmployeeTypes.StorageEmployee;
+import HR.Domain.Exceptions.EmployeeDoesNotHaveRole;
+import HR.Domain.Exceptions.ShiftAlreadyExists;
+import HR.Domain.Exceptions.ShiftDoesntExist;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -17,7 +20,7 @@ public class Shift {
     private LocalDate date;
     private List<Employee> shiftManagers;
     private List<Employee> cashiers;
-    private List<Employee> storageWorkers;
+    private List<Employee> storageEmployees;
     private List<Employee> deliveriers;
 
     public Shift(boolean isMorningShift, LocalDate date) {
@@ -25,17 +28,17 @@ public class Shift {
         this.date = date;
         this.shiftManagers = new ArrayList<>();
         this.cashiers = new ArrayList<>();
-        this.storageWorkers = new ArrayList<>();
+        this.storageEmployees = new ArrayList<>();
         this.deliveriers = new ArrayList<>();
     }
 
 
-    public Shift(boolean isMorningShift, LocalDate date, List<Employee> shiftManagers, List<Employee> cashiers, List<Employee> storageWorkers, List<Employee> deliveriers) {
+    public Shift(boolean isMorningShift, LocalDate date, List<Employee> shiftManagers, List<Employee> cashiers, List<Employee> storageEmployees, List<Employee> deliveriers) {
         this.isMorningShift = isMorningShift;
         this.date = date;
         this.shiftManagers = shiftManagers;
         this.cashiers = cashiers;
-        this.storageWorkers = storageWorkers;
+        this.storageEmployees = storageEmployees;
         this.deliveriers = deliveriers;
     }
 
@@ -64,117 +67,120 @@ public class Shift {
         return cashiers;
     }
 
-    public List<Employee> getStorageWorkers() {
-        return storageWorkers;
+    public List<Employee> getStorageEmployees() {
+        return storageEmployees;
     }
-
-    // Ido Haya Po
 
     public List<Employee> getDeliveriers() {
         return deliveriers;
     }
 
-    public void addShiftManager(Employee shiftManager) {
+    public void addShiftManager(Employee shiftManager) throws Exception {
         if (!shiftManager.getPossiblePositions().contains(new ShiftManager())) {
-            System.out.println("Worker is not able to be a shift manager.");
-            return;
+            throw new EmployeeDoesNotHaveRole("Shift Manager");
+        }
+        if (this.getCashiers().contains(shiftManager) || this.getStorageEmployees().contains(shiftManager) || this.getDeliveriers().contains(shiftManager)) {
+            throw new ShiftAlreadyExists("Employee is already assigned to the shift.");
         }
         for (Employee w : shiftManagers) {
             if (w.equals(shiftManager)) {
-                System.out.println("Worker is already a shift manager.");
-                return;
+                throw new ShiftAlreadyExists("Employee is already assigned to the shift as a shift manager.");
             }
         }
-        System.out.println("Worker added as shift manager.");
+        System.out.println("Employee added as shift manager.");
         shiftManagers.add(shiftManager);
     }
 
-    public void addCashier(Employee cashier) {
+    public void addCashier(Employee cashier) throws Exception {
         if (!cashier.getPossiblePositions().contains(new Cashier())) {
-            System.out.println("Worker is not able to be a cashier.");
+            System.out.println("Employee is not able to be a cashier.");
             return;
+        }
+        if (this.getShiftManagers().contains(cashier) || this.getStorageEmployees().contains(cashier) || this.getDeliveriers().contains(cashier)) {
+            throw new ShiftAlreadyExists("Employee is already assigned to the shift.");
         }
         for (Employee w : cashiers) {
             if (w.equals(cashier)) {
-                System.out.println("Worker is already a cashier.");
-                return;
+                throw new ShiftAlreadyExists("Employee is already assigned to the shift as a cashier.");
             }
         }
-        System.out.println("Worker added as cashier.");
+        System.out.println("Employee added as cashier.");
         cashiers.add(cashier);
     }
 
-    public void addStorageWorker(Employee storageWorker) {
-        if (!storageWorker.getPossiblePositions().contains(new StorageEmployee())) {
-            System.out.println("Worker is not able to be a storage worker.");
-            return;
+    public void addStorageEmployee(Employee storageEmployee) throws Exception {
+        if (!storageEmployee.getPossiblePositions().contains(new StorageEmployee())) {
+            throw new EmployeeDoesNotHaveRole("Storage Employee");
         }
-        for (Employee w : storageWorkers) {
-            if (w.equals(storageWorker)) {
-                System.out.println("Worker is already a storage worker.");
-                return;
+        if (this.getShiftManagers().contains(storageEmployee) || this.getCashiers().contains(storageEmployee) || this.getDeliveriers().contains(storageEmployee)) {
+            throw new ShiftAlreadyExists("Employee is already assigned to the shift.");
+        }
+        for (Employee w : storageEmployees) {
+            if (w.equals(storageEmployee)) {
+                throw new ShiftAlreadyExists("Employee is already assigned to the shift as a storage worker.");
             }
         }
-        storageWorkers.add(storageWorker);
+        storageEmployees.add(storageEmployee);
     }
 
-    public void addDeliverier(Employee deliverier) {
+    public void addDeliverier(Employee deliverier) throws Exception {
         if (!deliverier.getPossiblePositions().contains(new DeliveryPerson())) {
-            System.out.println("Worker is not able to be a deliverier.");
-            return;
+            throw new EmployeeDoesNotHaveRole("Delivery Person");
+        }
+        if (this.getShiftManagers().contains(deliverier) || this.getCashiers().contains(deliverier) || this.getStorageEmployees().contains(deliverier)) {
+            throw new ShiftAlreadyExists("Employee is already assigned to the shift.");
         }
         for (Employee w : deliveriers) {
             if (w.equals(deliverier)) {
-                System.out.println("Worker is already a deliverier.");
-                return;
+                throw new ShiftAlreadyExists("Employee is already assigned to the shift as a deliverier.");
             }
         }
-        System.out.println("Worker added as deliverier.");
+        System.out.println("Employee added as deliverier.");
         deliveriers.add(deliverier);
     }
 
-    public void removeShiftManager(Employee shiftManager) {
+    public void removeShiftManager(Employee shiftManager) throws Exception {
         for (Employee w : shiftManagers) {
             if (w.equals(shiftManager)) {
                 shiftManagers.remove(w);
-                System.out.println("Worker removed from shift managers.");
+                System.out.println("Employee removed from shift managers.");
                 return;
             }
         }
-        System.out.println("Worker is not a shift manager.");
+        throw new ShiftDoesntExist("Employee is not a shift manager in this shift.");
     }
 
-    public void removeCashier(Employee cashier) {
+    public void removeCashier(Employee cashier) throws Exception {
         for (Employee w : cashiers) {
             if (w.equals(cashier)) {
                 cashiers.remove(w);
-                System.out.println("Worker removed from cashiers.");
+                System.out.println("Employee removed from cashiers.");
                 return;
             }
         }
-        System.out.println("Worker is not a cashier.");
+        throw new ShiftDoesntExist("Employee is not a cashier in this shift.");
     }
 
-    public void removeStorageWorker(Employee storageWorker) {
-        for (Employee w : storageWorkers) {
-            if (w.equals(storageWorker)) {
-                storageWorkers.remove(w);
-                System.out.println("Worker removed from storage workers.");
+    public void removeStorageEmployee(Employee storageEmployee) throws Exception {
+        for (Employee w : storageEmployees) {
+            if (w.equals(storageEmployee)) {
+                storageEmployees.remove(w);
+                System.out.println("Employee removed from storage workers.");
                 return;
             }
         }
-        System.out.println("Worker is not a storage worker.");
+        throw new ShiftDoesntExist("Employee is not a storage worker in this shift.");
     }
 
-    public void removeDeliverier(Employee deliverier) {
+    public void removeDeliverier(Employee deliverier) throws Exception {
         for (Employee w : deliveriers) {
             if (w.equals(deliverier)) {
                 deliveriers.remove(w);
-                System.out.println("Worker removed from deliveriers.");
+                System.out.println("Employee removed from deliveriers.");
                 return;
             }
         }
-        System.out.println("Worker is not a deliverier.");
+        throw new ShiftDoesntExist("Employee is not a deliverier in this shift.");
     }
 
     public void printShift() {
@@ -192,7 +198,7 @@ public class Shift {
         }
         i = 0;
         System.out.println("Storage workers:");
-        for (Employee w : storageWorkers) {
+        for (Employee w : storageEmployees) {
             System.out.println("    " + ++i + ". " + w.getName());
         }
         i = 0;
@@ -215,7 +221,7 @@ public class Shift {
         }
         i = 0;
         result.append("Storage workers:\n");
-        for (Employee w : storageWorkers) {
+        for (Employee w : storageEmployees) {
             result.append("    ").append(++i).append(". ").append(w.getName()).append("\n");
         }
         i = 0;
@@ -240,7 +246,7 @@ public class Shift {
     public void clear() {
         shiftManagers.clear();
         cashiers.clear();
-        storageWorkers.clear();
+        storageEmployees.clear();
         deliveriers.clear();
     }
 

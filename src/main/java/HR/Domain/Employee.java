@@ -1,5 +1,7 @@
 package HR.Domain;
 
+import HR.Domain.Exceptions.EmployeeAlreadyHasRole;
+import HR.Domain.Exceptions.EmployeeDoesNotHaveRole;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
@@ -34,13 +36,11 @@ public class Employee {
         this.currentSalary = currentSalary;
     }
 
-    public Employee(String JSON){
+    public Employee(String JSON) {
         // TODO: Implement this method to create an Employee object from a JSON string
     }
 
-    public Employee() {
-        this.possiblePositions = new ArrayList<>();
-    }
+
     public String toJSON() {
         ObjectMapper mapper = new ObjectMapper();
         try {
@@ -50,12 +50,12 @@ public class Employee {
         }
     }
 
-    public int getWorkerId() {
+    public int getEmployeeId() {
         return workerId;
     }
 
     public boolean equals(Employee worker) {
-        return workerId == worker.getWorkerId();
+        return workerId == worker.getEmployeeId();
     }
 
     public String getName() {
@@ -102,14 +102,13 @@ public class Employee {
         this.branch = branch;
     }
 
-    public void addPossiblePosition(EmployeeType position) {
+    public void addPossiblePosition(EmployeeType position) throws Exception {
         if (possiblePositions == null) {
             possiblePositions = new ArrayList<EmployeeType>();
         } else {
             for (EmployeeType employeeType : possiblePositions) {
                 if (employeeType.equals(position)) {
-                    System.out.println("Worker already has this position.");
-                    return;
+                    throw new EmployeeAlreadyHasRole(position.getType());
                 }
             }
         }
@@ -117,7 +116,7 @@ public class Employee {
         possiblePositions.add(position);
     }
 
-    public void removePossiblePosition(EmployeeType position) {
+    public void removePossiblePosition(EmployeeType position) throws Exception {
         if (possiblePositions != null) {
             for (EmployeeType employeeType : possiblePositions) {
                 if (employeeType.equals(position)) {
@@ -126,7 +125,7 @@ public class Employee {
                     return;
                 }
             }
-            System.out.println("Worker does not have this position.");
+            throw new EmployeeDoesNotHaveRole(position.getType());
         }
     }
 
