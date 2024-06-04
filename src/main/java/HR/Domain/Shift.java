@@ -6,6 +6,7 @@ import HR.Domain.EmployeeTypes.ShiftManager;
 import HR.Domain.EmployeeTypes.StorageEmployee;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -27,30 +28,6 @@ public class Shift {
         this.storageWorkers = new ArrayList<>();
         this.deliveriers = new ArrayList<>();
     }
-    @JsonCreator
-    public Shift JSONtoClass(
-            @JsonProperty("isMorningShift") boolean isMorningShift,
-            @JsonProperty("date") LocalDate date,
-            @JsonProperty("shiftManagers") List<Employee> shiftManagers,
-            @JsonProperty("cashiers") List<Employee> cashiers,
-            @JsonProperty("storageWorkers") List<Employee> storageWorkers,
-            @JsonProperty("deliveries") List<Employee> deliveries) {
-
-        if (shiftManagers == null) {
-            shiftManagers = new ArrayList<>();
-        }
-        if (cashiers == null) {
-            cashiers = new ArrayList<>();
-        }
-        if (storageWorkers == null) {
-            storageWorkers = new ArrayList<>();
-        }
-        if (deliveries == null) {
-            deliveries = new ArrayList<>();
-        }
-        return new Shift(isMorningShift, date, shiftManagers, cashiers, storageWorkers, deliveries);
-    }
-
 
 
     public Shift(boolean isMorningShift, LocalDate date, List<Employee> shiftManagers, List<Employee> cashiers, List<Employee> storageWorkers, List<Employee> deliveriers) {
@@ -60,6 +37,15 @@ public class Shift {
         this.cashiers = cashiers;
         this.storageWorkers = storageWorkers;
         this.deliveriers = deliveriers;
+    }
+
+    public String toJSON() {
+        ObjectMapper mapper = new ObjectMapper();
+        try {
+            return mapper.writeValueAsString(this);
+        } catch (Exception e) {
+            return null;
+        }
     }
 
     public boolean isMorningShift() {

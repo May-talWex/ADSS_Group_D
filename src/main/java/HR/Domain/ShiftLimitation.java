@@ -1,6 +1,7 @@
 package HR.Domain;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.time.LocalDate;
 
@@ -15,10 +16,6 @@ public class ShiftLimitation {
         this.date = date;
         this.isMorningShift = isMorningShift;
     }
-
-    @JsonCreator
-    public ShiftLimitation JSONtoClass(
-
 
     public boolean equals(ShiftLimitation other) {
         return this.worker.equals(other.worker) && this.date.equals(other.date) && this.isMorningShift == other.isMorningShift;

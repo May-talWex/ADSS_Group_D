@@ -1,17 +1,26 @@
 package HR.Domain;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 import java.util.ArrayList;
 import java.util.List;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonProperty;
+
 
 public class Employee {
+    @JsonProperty("workerId")
     private int workerId;
+    @JsonProperty("workerName")
     private String name;
+    @JsonProperty("workerEmail")
     private String email;
+    @JsonProperty("bankAccount")
     private BankAccount bankAccount;
+    @JsonProperty("branch")
     private Branch branch;
+    @JsonProperty("possiblePositions")
     private List<EmployeeType> possiblePositions;
+    @JsonProperty("salary")
     private Salary currentSalary;
 
 
@@ -24,16 +33,33 @@ public class Employee {
         this.possiblePositions = null;
         this.currentSalary = currentSalary;
     }
-    @JsonCreator
-    public Employee JSONtoClass(
-            @JsonProperty("workerId") int workerId,
-            @JsonProperty("name") String name,
-            @JsonProperty("email") String email,
-            @JsonProperty("bankAccount") BankAccount bankAccount,
-            @JsonProperty("branch") Branch branch,
-            @JsonProperty("possiblePositions") List<EmployeeType> possiblePositions,
-            @JsonProperty("currentSalary") Salary currentSalary) {
-        return new Employee(workerId, name, email, bankAccount, branch, currentSalary);
+
+    public Employee(String JSON){
+        ObjectMapper mapper = new ObjectMapper();
+        try {
+            Employee employee = mapper.readValue(JSON, Employee.class);
+            this.workerId = employee.getWorkerId();
+            this.name = employee.getName();
+            this.email = employee.getEmail();
+            this.bankAccount = employee.getBankAccount();
+            this.branch = employee.getBranch();
+            this.possiblePositions = employee.getPossiblePositions();
+            this.currentSalary = employee.getCurrentSalary();
+        } catch (Exception e) {
+            System.out.println("Error creating employee from JSON");
+        }
+    }
+
+    public Employee() {
+        this.possiblePositions = new ArrayList<>();
+    }
+    public String toJSON() {
+        ObjectMapper mapper = new ObjectMapper();
+        try {
+            return mapper.writeValueAsString(this);
+        } catch (Exception e) {
+            return null;
+        }
     }
 
     public int getWorkerId() {
@@ -134,6 +160,10 @@ public class Employee {
         }
         System.out.println("Current salary: ");
         System.out.println(currentSalary.toString());
+    }
+
+    public String toString() {
+        return name + " (" + workerId + ")";
     }
 
     public boolean hasRole(EmployeeType role) {
