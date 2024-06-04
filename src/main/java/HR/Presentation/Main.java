@@ -39,21 +39,21 @@ public class Main {
             }
 
             if (employee.hasRole(new HRManager())) {
-                HRMenu(branch, id, employeeController, scanner);
+                HRMenu(branch, employeeController, scanner);
             } else {
-                NonManagerMenu(branch, id, employeeController, scanner);
+                NonManagerMenu(branch, id, scanner);
             }
         }
     }
 
-public static void HRMenu(Branch branch, int id, EmployeeController employeeController, Scanner scanner) throws Exception {
-    int HRchoice;
+public static void HRMenu(Branch branch, EmployeeController employeeController, Scanner scanner) throws Exception {
+    int HRChoice;
     do {
-        PrintMainHRmenu();
-        HRchoice = scanner.nextInt();
-        switch (HRchoice) {
+        PrintMainHRMenu();
+        HRChoice = scanner.nextInt();
+        switch (HRChoice) {
             case 1:
-                employeeMenu(branch, id, employeeController, scanner);
+                employeeMenu(branch, employeeController, scanner);
                 break;
             case 2:
                 scheduleMenu(branch, scanner);
@@ -65,10 +65,10 @@ public static void HRMenu(Branch branch, int id, EmployeeController employeeCont
                 System.out.println("Invalid choice!");
                 break;
         }
-    } while (HRchoice != 3);
+    } while (HRChoice != 3);
 }
 
-    public static void employeeMenu(Branch branch, int id, EmployeeController employeeController, Scanner scanner) throws Exception {
+    public static void employeeMenu(Branch branch, EmployeeController employeeController, Scanner scanner) throws Exception {
         int employeeChoice;
         do {
             PrintEmployeeMenu();
@@ -105,7 +105,7 @@ public static void HRMenu(Branch branch, int id, EmployeeController employeeCont
         } while (employeeChoice != 5);
     }
 
-    public static void scheduleMenu(Branch branch, Scanner scanner) throws Exception {
+    public static void scheduleMenu(Branch branch, Scanner scanner) {
         int scheduleChoice;
         do {
             PrintScheduleMenu();
@@ -130,10 +130,10 @@ public static void HRMenu(Branch branch, int id, EmployeeController employeeCont
             }
         } while (scheduleChoice != 3);
     }
-    public static void NonManagerMenu(Branch branch, int id, EmployeeController employeeController, Scanner scanner) {
+    public static void NonManagerMenu(Branch branch, int id, Scanner scanner) {
         int choice;
         do {
-            PrintNonManagerMenu(branch, id);
+            PrintNonManagerMenu();
             choice = scanner.nextInt();
             switch (choice) {
                 case 1:
@@ -149,14 +149,14 @@ public static void HRMenu(Branch branch, int id, EmployeeController employeeCont
         } while (choice != 2);
     }
 
-    public static void PrintNonManagerMenu(Branch branch, int id) {
+    public static void PrintNonManagerMenu() {
         System.out.println("Non-Manager Menu:");
         System.out.println("1. Submit Limitations");
         System.out.println("2. Remove Limitations");
         System.out.print("Enter your choice: ");
     }
 
-    public static void PrintMainHRmenu() {
+    public static void PrintMainHRMenu() {
         System.out.println("Main HR Menu:");
         System.out.println("1. Employee Functions");
         System.out.println("2. Schedule and Shift Functions");
