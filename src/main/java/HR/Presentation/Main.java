@@ -48,12 +48,34 @@ public class Main {
         }
     }
 
-    public static void HRMenu(Branch branch, int id, EmployeeController employeeController, Scanner scanner) throws Exception {
-        int HRchoice;
+public static void HRMenu(Branch branch, int id, EmployeeController employeeController, Scanner scanner) throws Exception {
+    int HRchoice;
+    do {
+        PrintMainHRmenu();
+        HRchoice = scanner.nextInt();
+        switch (HRchoice) {
+            case 1:
+                employeeMenu(branch, id, employeeController, scanner);
+                break;
+            case 2:
+                scheduleMenu(branch, scanner);
+                break;
+            case 3:
+                System.out.println("Logging out and returning to the main menu...");
+                break;
+            default:
+                System.out.println("Invalid choice!");
+                break;
+        }
+    } while (HRchoice != 3);
+}
+
+    public static void employeeMenu(Branch branch, int id, EmployeeController employeeController, Scanner scanner) throws Exception {
+        int employeeChoice;
         do {
-            PrintHRmenu(branch, id);
-            HRchoice = scanner.nextInt();
-            switch (HRchoice) {
+            PrintEmployeeMenu();
+            employeeChoice = scanner.nextInt();
+            switch (employeeChoice) {
                 case 1:
                     // Add Employee logic
                     Employee temp = employeeController.createEmployee(branch);
@@ -72,29 +94,47 @@ public class Main {
                     BranchController.printEmployees(branch);
                     break;
                 case 4:
-                    // Create Schedule logic
-                    System.out.println("Creating Schedule");
-                    ScheduleController.GenerateSchedule(branch);
+                    BranchController.UpdateEmployee(branch);
                     break;
                 case 5:
-                    // Set shifts requirements logic
-                    System.out.println("Getting Shift Limitations...");
-                    // Implement logic for displaying shift limitations (e.g., call a getShiftLimitations method)
-                    break;
-                case 6:
-                    System.out.println("Logging out and returning to the main menu...");
+                    System.out.println("Returning to the main HR menu...");
                     break;
                 default:
                     System.out.println("Invalid choice!");
                     break;
             }
-        } while (HRchoice != 6);
+        } while (employeeChoice != 5);
     }
 
+    public static void scheduleMenu(Branch branch, Scanner scanner) throws Exception {
+        int scheduleChoice;
+        do {
+            PrintScheduleMenu();
+            scheduleChoice = scanner.nextInt();
+            switch (scheduleChoice) {
+                case 1:
+                    // Create Schedule logic
+                    System.out.println("Creating Schedule");
+                    ScheduleController.GenerateSchedule(branch);
+                    break;
+                case 2:
+                    // Set shifts requirements logic
+                    System.out.println("Getting Shift Limitations...");
+                    // Implement logic for displaying shift limitations (e.g., call a getShiftLimitations method)
+                    break;
+                case 3:
+                    System.out.println("Returning to the main HR menu...");
+                    break;
+                default:
+                    System.out.println("Invalid choice!");
+                    break;
+            }
+        } while (scheduleChoice != 3);
+    }
     public static void NonManagerMenu(Branch branch, int id, EmployeeController employeeController, Scanner scanner) {
         int choice;
         do {
-            PrintNonMenegerMenu(branch, id);
+            PrintNonManagerMenu(branch, id);
             choice = scanner.nextInt();
             switch (choice) {
                 case 1:
@@ -111,22 +151,36 @@ public class Main {
     }
 
 
-    public static void PrintHRmenu(Branch branch, int id) {
-        System.out.println("HR Menu:");
-        System.out.println("1. Add Employee");
-        System.out.println("2. Remove Employee");
-        System.out.println("3. Print all Employees");
-        System.out.println("4. Create Schedule");
-        System.out.println("5. Set Shift Requirements");
-        System.out.println("6. Logout and return to main menu");
-        System.out.print("Enter your choice: ");
-    }
-
-
-    public static void PrintNonMenegerMenu(Branch branch, int id) {
+    public static void PrintNonManagerMenu(Branch branch, int id) {
         System.out.println("Non-Manager Menu:");
         System.out.println("1. Submit Limitations");
         System.out.println("2. Remove Limitations");
+        System.out.print("Enter your choice: ");
+    }
+
+    public static void PrintMainHRmenu() {
+        System.out.println("Main HR Menu:");
+        System.out.println("1. Employee Functions");
+        System.out.println("2. Schedule and Shift Functions");
+        System.out.println("3. Logout");
+        System.out.print("Enter your choice: ");
+    }
+
+    public static void PrintEmployeeMenu() {
+        System.out.println("Employee Menu:");
+        System.out.println("1. Add Employee");
+        System.out.println("2. Remove Employee");
+        System.out.println("3. View Available Employees");
+        System.out.println("4. Update Employee Information");
+        System.out.println("5. Return to Main HR Menu");
+        System.out.print("Enter your choice: ");
+    }
+
+    public static void PrintScheduleMenu() {
+        System.out.println("Schedule Menu:");
+        System.out.println("1. Create Schedule");
+        System.out.println("2. Set Shifts Requirements");
+        System.out.println("3. Return to Main HR Menu");
         System.out.print("Enter your choice: ");
     }
 

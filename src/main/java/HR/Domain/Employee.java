@@ -176,4 +176,7 @@ public class Employee {
         return this.possiblePositions.contains(role);
     }
 
+    public void setSalary(Salary salary) {
+        this.currentSalary = salary;
+    }
 }

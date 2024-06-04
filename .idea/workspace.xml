@@ -6,17 +6,14 @@
   <component name="ChangeListManager">
     <list default="true" id="9a0829ce-1916-46c8-a83f-0eb68d1bcbb5" name="Changes" comment="updating main">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/HR/Domain/Branch.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/HR/Domain/Branch.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/HR/Domain/BranchController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/HR/Domain/BranchController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/HR/Domain/Employee.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/HR/Domain/Employee.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/HR/Domain/EmployeeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/HR/Domain/EmployeeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/HR/Domain/Schedule.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/HR/Domain/Schedule.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/HR/Domain/ScheduleController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/HR/Domain/ScheduleController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/HR/Domain/ShiftLimitationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/HR/Domain/ShiftLimitationController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/HR/Presentation/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/HR/Presentation/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/HR/Domain/Branch.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/HR/Domain/Branch.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/HR/Domain/BranchController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/HR/Domain/BranchController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/HR/Domain/Employee.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/HR/Domain/Employee.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/HR/Domain/EmployeeController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/HR/Domain/EmployeeController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/HR/Domain/ScheduleController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/HR/Domain/ScheduleController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/HR/Domain/ShiftLimitationController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/HR/Domain/ShiftLimitationController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/HR/Presentation/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/HR/Presentation/Main.class" afterDir="false" />
     </list>
     <list id="92241546-7950-4e02-919c-86c9491857e4" name="Changes by kidox" comment="" />
@@ -156,7 +153,15 @@
       <option name="project" value="LOCAL" />
       <updated>1717518950619</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="updating main">
+      <option name="closed" value="true" />
+      <created>1717527308635</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1717527308635</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
