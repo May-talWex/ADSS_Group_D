@@ -1,4 +1,5 @@
 package HR.Domain;
+import HR.Domain.EmployeeTypes.*;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.io.IOException;
@@ -63,6 +64,92 @@ public class BranchController {
         }
     }
 
+    public static void updateEmployeePosition(Branch branch) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Enter the ID of the employee you want to update: ");
+        int id = scanner.nextInt();
+        Employee employee = branch.getWorkerById(id);
+        if (employee == null) {
+            System.out.println("Employee not found.");
+            return;
+        }
+        boolean updateDone = false;
+        while (!updateDone) {
+            System.out.println("Update Employee Position:");
+            System.out.println("1. Add Position");
+            System.out.println("2. Remove Position");
+            System.out.println("3. Done");
+            System.out.print("Enter your choice: ");
+
+            int choice = scanner.nextInt();
+            switch (choice) {
+                case 1:
+                    System.out.println("Choose a role to add to the employee: ");
+                    System.out.println("The employee currently has the following roles: " + employee.printPossiblePositions());
+                    printRoleMenu();
+                    int role = Integer.parseInt(System.console().readLine());
+                    try {
+                        switch (role) {
+                            case 1:
+                                employee.addPossiblePosition(new ShiftManager());
+                                break;
+                            case 2:
+                                employee.addPossiblePosition(new Cashier());
+                                break;
+                            case 3:
+                                employee.addPossiblePosition(new StorageEmployee());
+                                break;
+                            case 4:
+                                employee.addPossiblePosition(new DeliveryPerson());
+                                break;
+                            case 5:
+                                employee.addPossiblePosition(new HRManager());
+                                break;
+                            case 6:
+                                break;
+                            default:
+                                System.out.println("Invalid option.");
+                        }
+                    } catch (Exception e) {
+                        System.out.println(e.getMessage());
+                    }
+                    break;
+                case 2:
+                    System.out.println("Choose a role to remove from the employee: ");
+                    System.out.println("The employee currently has the following roles: " + employee.printPossiblePositions());
+                    printRoleMenu();
+                    int roleToRemove = Integer.parseInt(System.console().readLine());
+                    try {
+                        switch (roleToRemove) {
+                            case 1:
+                                employee.removePossiblePosition(new ShiftManager());
+                                break;
+                            case 2:
+                                employee.removePossiblePosition(new Cashier());
+                                break;
+                            case 3:
+                                employee.removePossiblePosition(new StorageEmployee());
+                                break;
+                            case 4:
+                                employee.removePossiblePosition(new DeliveryPerson());
+                                break;
+                            case 5:
+                                employee.removePossiblePosition(new HRManager());
+                                break;
+                            case 6:
+                                break;
+                            default:
+                                System.out.println("Invalid option.");
+                        }
+                    } catch (Exception e) {
+                        System.out.println(e.getMessage());
+                    }
+                    break;
+                case 3:
+                    updateDone = true;
+                    System.out.println("Employee position update complete.");
+    }}}
+
     public Branch createBranch() {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Enter branch name: ");
@@ -92,5 +179,12 @@ public class BranchController {
         }
     }
 
-
+    private static void printRoleMenu() {
+        System.out.println("1. Shift Manager");
+        System.out.println("2. Cashier");
+        System.out.println("3. Storage Worker");
+        System.out.println("4. Delivery Person");
+        System.out.println("5. HR Manager");
+        System.out.println("6. Exit");
+    }
 }

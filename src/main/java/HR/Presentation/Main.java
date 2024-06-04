@@ -17,8 +17,6 @@ public class Main {
         try {
             branch.addWorker(new Employee(0, "Admin", "admin@supermarket.com", new BankAccount(0, 0, 0), branch, new Salary(0)));
             branch.getWorkerById(0).addPossiblePosition(new HRManager());
-            branch.addWorker(new Employee(1, "Admin", "admin@supermarket.com", new BankAccount(0, 0, 0), branch, new Salary(0)));
-            branch.getWorkerById(1).addPossiblePosition(new ShiftManager());
         } catch (Exception e) {
             System.out.println(e.getMessage());
             return;
@@ -94,7 +92,8 @@ public static void HRMenu(Branch branch, int id, EmployeeController employeeCont
                     BranchController.printEmployees(branch);
                     break;
                 case 4:
-                    BranchController.UpdateEmployee(branch);
+                    // Update Employee Position logic
+                    BranchController.updateEmployeePosition(branch);
                     break;
                 case 5:
                     System.out.println("Returning to the main HR menu...");
@@ -123,7 +122,7 @@ public static void HRMenu(Branch branch, int id, EmployeeController employeeCont
                     // Implement logic for displaying shift limitations (e.g., call a getShiftLimitations method)
                     break;
                 case 3:
-                    System.out.println("Returning to the main HR menu...");
+                    System.out.println("Returning to the main HR menu... ");
                     break;
                 default:
                     System.out.println("Invalid choice!");
@@ -149,7 +148,6 @@ public static void HRMenu(Branch branch, int id, EmployeeController employeeCont
             }
         } while (choice != 2);
     }
-
 
     public static void PrintNonManagerMenu(Branch branch, int id) {
         System.out.println("Non-Manager Menu:");
