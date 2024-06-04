@@ -65,4 +65,9 @@ public class BankAccount {
         return bankNumber + "-" + branchNumber + "-" + accountNumber;
     }
 
+    public boolean equals(BankAccount bankAccount) {
+        return bankNumber == bankAccount.getBankNumber() && branchNumber == bankAccount.getBranchNumber() && accountNumber == bankAccount.getAccountNumber();
+    }
+
+
 }

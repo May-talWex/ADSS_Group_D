@@ -23,9 +23,7 @@ import java.nio.file.Files;
 
 //main class
 public class Main {
-    public static <JsonNode> void main(String[] args) throws IOException {
-        EmployeeController employeeController = new EmployeeController();
-        employeeController.JSONtoClass("src/main/java/HR/Data/employees.json");
+    public static void main(String[] args) {
 
     }
 }

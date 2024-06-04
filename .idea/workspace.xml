@@ -5,40 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9a0829ce-1916-46c8-a83f-0eb68d1bcbb5" name="Changes" comment="Added some JSON support">
-      <change afterPath="$PROJECT_DIR$/src/main/java/HR/Data/employees.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/HR/Data/shiftLimitations.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/HR/Data/shifts.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/HR/Domain/EmployeeDeserializer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/HR/Presentation/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/HR/Service/Service.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/HR/Domain/BankAccount.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/HR/Domain/BankAccount.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/HR/Domain/Employee.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/HR/Domain/Employee.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/HR/Domain/EmployeeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/HR/Domain/EmployeeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/HR/Domain/EmployeeType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/HR/Domain/EmployeeType.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/HR/Domain/Salary.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/HR/Domain/Salary.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/HR/Domain/Shift.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/HR/Domain/Shift.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/HR/Domain/ShiftController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/HR/Domain/ShiftController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/HR/Domain/ShiftLimitation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/HR/Domain/ShiftLimitation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/HR/Domain/ShiftLimitationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/HR/Domain/ShiftLimitationController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/HR/Domain/BankAccount.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/HR/Domain/BankAccount.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/HR/Domain/Branch.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/HR/Domain/Branch.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/HR/Domain/Salary.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/HR/Domain/Salary.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/HR/Domain/Schedule.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/HR/Domain/Schedule.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/HR/Domain/Shift.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/HR/Domain/Shift.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/HR/Domain/ShiftController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/HR/Domain/ShiftController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/HR/Domain/ShiftLimitation.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/HR/Domain/ShiftLimitation.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/HR/Domain/ShiftLimitationController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/HR/Domain/ShiftLimitationController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/HR/Domain/Worker.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/HR/Domain/WorkerController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/HR/Domain/WorkerType.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/HR/Domain/WorkerTypes/Cashier.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/HR/Domain/WorkerTypes/DeliveryPerson.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/HR/Domain/WorkerTypes/HRManager.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/HR/Domain/WorkerTypes/ShiftManager.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/HR/Domain/WorkerTypes/StorageWorker.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Main.class" afterDir="false" />
     </list>
     <list id="92241546-7950-4e02-919c-86c9491857e4" name="Changes by kidox" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -131,6 +104,8 @@
       <workItem from="1717064981279" duration="55000" />
       <workItem from="1717104448923" duration="94000" />
       <workItem from="1717104555869" duration="339000" />
+      <workItem from="1717488535554" duration="447000" />
+      <workItem from="1717489009199" duration="1676000" />
     </task>
     <task id="LOCAL-00001" summary="Added some JSON support">
       <option name="closed" value="true" />
@@ -140,7 +115,15 @@
       <option name="project" value="LOCAL" />
       <updated>1717064917414</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Added some JSON support">
+      <option name="closed" value="true" />
+      <created>1717491318808</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1717491318808</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

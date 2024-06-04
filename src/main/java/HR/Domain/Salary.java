@@ -7,8 +7,7 @@ import java.time.LocalDate;
 public class Salary {
     @JsonProperty("amount")
     private float amount;
-    //    @JsonProperty("worker")
-//    private Employee worker;
+
     @JsonProperty("startDate")
     private LocalDate startDate;
     @JsonProperty("endDate")
@@ -21,7 +20,16 @@ public class Salary {
         this.endDate = endDate;
     }
 
+    public Salary(float amount, LocalDate startDate) {
+        this.amount = amount;
+        this.startDate = startDate;
+        this.endDate = null;
+    }
+
     public Salary() {
+        this.amount = 0;
+        this.startDate = null;
+        this.endDate = null;
     }
 
     public float getSalaryAmount() {
@@ -58,13 +66,12 @@ public class Salary {
 
     public void printSalary() {
         System.out.println("Salary amount: " + amount);
-        //System.out.println("Worker: " + worker.getName());
         System.out.println("Start date: " + startDate);
         System.out.println("End date: " + endDate);
     }
 
     public String toString() {
-        return "Salary amount: " + amount + /*"\nWorker: " + worker.getName() + */"\nStart date: " + startDate + "\nEnd date: " + endDate;
+        return "Salary amount: " + amount + "\nStart date: " + startDate + "\nEnd date: " + endDate;
     }
 
 
