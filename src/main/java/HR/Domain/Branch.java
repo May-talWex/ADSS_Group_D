@@ -132,6 +132,14 @@ public class Branch {
         }
         return false;
     }
+    public Employee getWorkerById(int id) {
+        for (Employee worker : workers) {
+            if (worker.getWorkerId() == id) {
+                return worker;
+            }
+        }
+        return null;
+    }
 
 
 }
