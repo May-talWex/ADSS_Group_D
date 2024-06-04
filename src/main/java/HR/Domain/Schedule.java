@@ -1,6 +1,8 @@
 package HR.Domain;
 
 import HR.Domain.EmployeeTypes.*;
+import HR.Domain.Exceptions.NotEnoughWorkers;
+import HR.Domain.Exceptions.ShiftAlreadyExists;
 
 import java.time.LocalDate;
 import java.util.*;
@@ -73,10 +75,10 @@ public class Schedule {
         }
     }
 
-    public void generateShift(Branch branch, LocalDate date, boolean isMorningShift) {
+    public void generateShift(Branch branch, LocalDate date, boolean isMorningShift) throws Exception {
         if (branch.getSchedule().doesShiftExist(date, isMorningShift)) { // TODO: Check this
             System.out.println("Shift already exists.");
-            throw new IllegalArgumentException();
+            throw new ShiftAlreadyExists(" date: " + date + " and isMorningShift: " + isMorningShift);
         }
         System.out.println("Generating shift for the date: " + date + " and isMorningShift: " + isMorningShift);
         System.out.println("Enter the number of managers for the shift: ");
@@ -87,12 +89,12 @@ public class Schedule {
         int numStorageWorkers = new Scanner(System.in).nextInt();
         System.out.println("Enter the number of deliveriers for the shift: ");
         int numDeliveriers = new Scanner(System.in).nextInt();
-        List<Employee> branchWorkers = List.copyOf(branch.getWorkers());
+        List<Employee> branchWorkers = new ArrayList<>(List.copyOf(branch.getWorkers()));
         List<Employee> shiftWorkers = new ArrayList<>();
         List<Employee> shiftManagerList = new ArrayList<>();
         if (branchWorkers.isEmpty() || branchWorkers.size() < numManagers) {
             System.out.println("Not enough workers for the shift.");
-            throw new IllegalArgumentException();
+            throw new NotEnoughWorkers(" date: " + date + " and isMorningShift: " + isMorningShift);
         }
         for (int i = 0; i < numManagers; i++) {
             // Go through all of the workers capable of being a manager
@@ -112,7 +114,7 @@ public class Schedule {
         }
         if (branchWorkers.isEmpty() || branchWorkers.size() < numCashiers) {
             System.out.println("Not enough workers for the shift.");
-            throw new IllegalArgumentException();
+            throw new NotEnoughWorkers(" date: " + date + " and isMorningShift: " + isMorningShift);
         }
         List<Employee> cashierList = new ArrayList<>();
         for (int i = 0; i < numCashiers; i++) {
@@ -133,7 +135,7 @@ public class Schedule {
         }
         if (branchWorkers.isEmpty() || branchWorkers.size() < numStorageWorkers) {
             System.out.println("Not enough workers for the shift.");
-            throw new IllegalArgumentException();
+            throw new NotEnoughWorkers(" date: " + date + " and isMorningShift: " + isMorningShift);
         }
         List<Employee> storageWorkerList = new ArrayList<>();
         for (int i = 0; i < numStorageWorkers; i++) {
@@ -155,7 +157,7 @@ public class Schedule {
 
         if (branchWorkers.isEmpty() || branchWorkers.size() < numDeliveriers) {
             System.out.println("Not enough workers for the shift.");
-            throw new IllegalArgumentException();
+            throw new NotEnoughWorkers(" date: " + date + " and isMorningShift: " + isMorningShift);
         }
 
         List<Employee> deliverierList = new ArrayList<>();
@@ -181,8 +183,8 @@ public class Schedule {
                 || cashierList.isEmpty() && numCashiers > 0
                 || storageWorkerList.isEmpty() && numStorageWorkers > 0
                 || deliverierList.isEmpty() && numDeliveriers > 0) {
-            System.out.println("Not enough workers for the shift.");
-            throw new IllegalArgumentException();
+
+            throw new NotEnoughWorkers(" date: " + date + " and isMorningShift: " + isMorningShift);
         }
         this.shifts.computeIfAbsent(date, k -> new ArrayList<>()).add(new Shift(isMorningShift, date, shiftManagerList, cashierList, storageWorkerList, deliverierList));
 

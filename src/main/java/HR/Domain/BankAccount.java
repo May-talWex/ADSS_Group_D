@@ -18,9 +18,6 @@ public class BankAccount {
         this.branchNumber = branchNumber;
     }
 
-    public BankAccount() {
-
-    }
 
     public String toJSON() {
         ObjectMapper mapper = new ObjectMapper();
