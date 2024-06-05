@@ -41,7 +41,10 @@ public class ShiftLimitationController {
 
     public static void removeShiftLimitation(Employee employee) {
         Scanner scanner = new Scanner(System.in);
-
+        if (employee.getBranch().getShiftLimitations().isEmpty()) {
+            System.out.println("You have no shift limitations to remove.");
+            return;
+        }
         System.out.println("Your current shift limitations are:");
         for (ShiftLimitation sl : employee.getBranch().getShiftLimitations()) {
             if (sl.getEmployee().equals(employee)) {
@@ -86,6 +89,19 @@ public class ShiftLimitationController {
             employee.getBranch().removeShiftLimitation(employee, limitation);
         } catch (Exception e) {
             System.out.println(e.getMessage());
+        }
+    }
+
+    public static void printShiftLimitations(Employee workerById) {
+        if (workerById.getBranch().getShiftLimitations().isEmpty()) {
+            System.out.println("You have no shift limitations.");
+            return;
+        }
+        System.out.println("Your current shift limitations are:");
+        for (ShiftLimitation sl : workerById.getBranch().getShiftLimitations()) {
+            if (sl.getEmployee().equals(workerById)) {
+                System.out.println(sl);
+            }
         }
     }
 }

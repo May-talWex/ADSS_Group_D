@@ -152,24 +152,29 @@ public class Main {
             choice = scanner.nextInt();
             switch (choice) {
                 case 1:
-                    System.out.println("Submit Limitations");
                     ShiftLimitationController.addShiftLimitation(branch.getWorkerById(id));
                     break;
                 case 2:
-                    System.out.println("Remove Limitations");
                     ShiftLimitationController.removeShiftLimitation(branch.getWorkerById(id));
+                    break;
+                case 3:
+                    ShiftLimitationController.printShiftLimitations(branch.getWorkerById(id));
+                    break;
+                case 4:
+                    System.out.println("Returning to the main menu...");
                     break;
                 default:
                     System.out.println("Invalid choice!");
                     break;
             }
-        } while (choice != 2);
+        } while (choice != 4);
     }
 
     public static void PrintNonManagerMenu() {
-        System.out.println("Non-Manager Menu:");
-        System.out.println("1. Submit Limitations");
-        System.out.println("2. Remove Limitations");
+        System.out.println("1. Add Shift Limitation");
+        System.out.println("2. Remove Shift Limitation");
+        System.out.println("3. View Shift Limitations");
+        System.out.println("4. Logout");
         System.out.print("Enter your choice: ");
     }
 
