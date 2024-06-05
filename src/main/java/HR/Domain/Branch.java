@@ -24,7 +24,7 @@ public class Branch {
     private String branchAddress;
     private final List<Employee> workers;
     private final Schedule schedule;
-    private List<ShiftLimitation> shiftLimitations;
+    private final List<ShiftLimitation> shiftLimitations;
 
     public Branch(String name, String address) {
         this.branchId = nextBranchId++;
@@ -32,6 +32,7 @@ public class Branch {
         this.branchAddress = address;
         this.workers = new ArrayList<>();
         this.schedule = new Schedule();
+        this.shiftLimitations = new ArrayList<>();
     }
 
     public String getName() {

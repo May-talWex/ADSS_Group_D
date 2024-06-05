@@ -10,7 +10,7 @@ public class ScheduleController {
         List<ShiftLimitation> shiftLimitations = branch.getShiftLimitations();
         List<Employee> workers = branch.getWorkers();
         List<Shift> shifts = new ArrayList<>();
-        // TO DO: Implement the logic to generate the schedule
+        
 
     }
 

@@ -30,4 +30,8 @@ public class ShiftLimitation {
         return isMorningShift;
     }
 
+    public String toString() {
+        return "Employee: " + employee + ", Date: " + date + ", Morning Shift: " + isMorningShift;
+    }
+
 }

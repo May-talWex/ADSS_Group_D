@@ -126,9 +126,8 @@ public class Main {
             scheduleChoice = scanner.nextInt();
             switch (scheduleChoice) {
                 case 1:
-                    // Create Schedule logic
-                    System.out.println("Creating Schedule");
-                    ScheduleController.GenerateSchedule(branch);
+                    // Create Shift Schedule logic
+
                     break;
                 case 2:
                     // Set shifts requirements logic
@@ -155,9 +154,11 @@ public class Main {
                 case 1:
                     System.out.println("Submit Limitations");
                     ShiftLimitationController.addShiftLimitation(branch.getWorkerById(id));
+                    break;
                 case 2:
                     System.out.println("Remove Limitations");
                     ShiftLimitationController.removeShiftLimitation(branch.getWorkerById(id));
+                    break;
                 default:
                     System.out.println("Invalid choice!");
                     break;
