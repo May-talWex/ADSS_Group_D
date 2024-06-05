@@ -4,16 +4,40 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9a0829ce-1916-46c8-a83f-0eb68d1bcbb5" name="Changes" comment="Added more employee functionality">
-      <change afterPath="$PROJECT_DIR$/src/main/java/Inventory/Domain/Category.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Inventory/Domain/CategoryController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Inventory/Domain/Item.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Inventory/Domain/ItemController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Inventory/Domain/Product.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Inventory/Domain/ProductController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Inventory/presentation/ProductController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="9a0829ce-1916-46c8-a83f-0eb68d1bcbb5" name="Changes" comment="adding everything to new branch">
+      <change beforePath="$PROJECT_DIR$/src/main/java/HR/Data/employees.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/HR/Data/shiftLimitations.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/HR/Data/shifts.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/HR/Domain/BankAccount.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/HR/Domain/Branch.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/HR/Domain/BranchController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/HR/Domain/Employee.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/HR/Domain/EmployeeController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/HR/Domain/EmployeeType.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/HR/Domain/EmployeeTypes/Cashier.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/HR/Domain/EmployeeTypes/DeliveryPerson.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/HR/Domain/EmployeeTypes/HRManager.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/HR/Domain/EmployeeTypes/ShiftManager.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/HR/Domain/EmployeeTypes/StorageEmployee.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/HR/Domain/Exceptions/EmployeeAlreadyExistsInBranch.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/HR/Domain/Exceptions/EmployeeAlreadyHasRole.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/HR/Domain/Exceptions/EmployeeDoesNotExistInBranch.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/HR/Domain/Exceptions/EmployeeDoesNotHaveRole.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/HR/Domain/Exceptions/NotEnoughWorkers.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/HR/Domain/Exceptions/ShiftAlreadyExists.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/HR/Domain/Exceptions/ShiftDoesntExist.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/HR/Domain/Exceptions/ShiftLimitationAlreadyExists.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/HR/Domain/Exceptions/ShiftLimitationDoesntExist.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/HR/Domain/Salary.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/HR/Domain/Schedule.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/HR/Domain/ScheduleController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/HR/Domain/Shift.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/HR/Domain/ShiftController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/HR/Domain/ShiftLimitation.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/HR/Domain/ShiftLimitationController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/HR/Presentation/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/HR/Service/Service.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/HR/Domain/ShiftLimitationController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/HR/Domain/ShiftLimitationController.class" afterDir="false" />
     </list>
     <list id="92241546-7950-4e02-919c-86c9491857e4" name="Changes by kidox" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -64,6 +88,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Application.CLIInterface.executor": "Run",
     "Application.Main.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
@@ -184,7 +209,15 @@
       <option name="project" value="LOCAL" />
       <updated>1717533257666</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="adding everything to new branch">
+      <option name="closed" value="true" />
+      <created>1717570634250</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1717570634250</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -195,7 +228,8 @@
     <MESSAGE value="updating main" />
     <MESSAGE value="Main menu updated, added updating employee info" />
     <MESSAGE value="Added more employee functionality" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added more employee functionality" />
+    <MESSAGE value="adding everything to new branch" />
+    <option name="LAST_COMMIT_MESSAGE" value="adding everything to new branch" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
