@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import HR.Domain.EmployeeTypes.*;
 
 import java.time.LocalDate;
+import java.util.Scanner;
 
 public class EmployeeController {
     @JsonCreator
@@ -16,39 +17,47 @@ public class EmployeeController {
 
     }
 
-    public Employee createEmployee(Branch branch) {
+    public Employee createEmployee(Branch branch) throws Exception {
         System.out.println("Creating Employee");
         System.out.println("Enter workerId: ");
-        int workerId = Integer.parseInt(System.console().readLine());
+        Scanner scanner = new Scanner(System.in);
+        int workerId = scanner.nextInt();
         if (branch.getWorkerById(workerId) != null) {
             System.out.println("Employee with ID " + workerId + " already exists.");
-            return createEmployee(branch);
+            return null;
         }
-        System.out.println("Enter workerName: ");
-        String workerName = System.console().readLine();
-        System.out.println("Enter workerEmail: ");
-        String workerEmail = System.console().readLine();
-        System.out.println("Enter bankNumber: ");
-        int bankNumber = Integer.parseInt(System.console().readLine());
-        System.out.println("Enter branchNumber: ");
-        int branchNumber = Integer.parseInt(System.console().readLine());
-        System.out.println("Enter accountNumber: ");
-        int accountNumber = Integer.parseInt(System.console().readLine());
-        BankAccount bankAccount = new BankAccount(bankNumber, accountNumber, branchNumber);
-        System.out.println("Enter workerSalary: ");
-        float workerSalary = Float.parseFloat(System.console().readLine());
-        Salary salary = new Salary(workerSalary, LocalDate.now());
-        Employee employee = new Employee(workerId, workerName, workerEmail, bankAccount, branch, salary);
-        System.out.println("Employee " + workerName + " created successfully");
-        return employee;
+        scanner.nextLine();
+        try {
+            System.out.println("Enter workerName: ");
+            String workerName = scanner.nextLine();
+            System.out.println("Enter workerEmail: ");
+            String workerEmail = scanner.nextLine();
+            System.out.println("Enter bankNumber: ");
+            int bankNumber = scanner.nextInt();
+            System.out.println("Enter branchNumber: ");
+            int branchNumber = scanner.nextInt();
+            System.out.println("Enter accountNumber: ");
+            int accountNumber = scanner.nextInt();
+            BankAccount bankAccount = new BankAccount(bankNumber, accountNumber, branchNumber);
+            System.out.println("Enter workerSalary: ");
+            float workerSalary = scanner.nextFloat();
+            Salary salary = new Salary(workerSalary, LocalDate.now());
+            Employee employee = new Employee(workerId, workerName, workerEmail, bankAccount, branch, salary);
+            System.out.println("Employee " + workerName + " created successfully");
+            return employee;
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            return null;
+        }
 
         // TODO: Add exception if employee already exists
     }
 
     public void addRoleToEmployee(Employee employee) {
         System.out.println("Choose a role to add to the employee: ");
+        Scanner scanner = new Scanner(System.in);
         printRoleMenu();
-        int role = Integer.parseInt(System.console().readLine());
+        int role = scanner.nextInt();
         try {
             switch (role) {
                 case 1:
@@ -80,9 +89,10 @@ public class EmployeeController {
     }
 
     public void removeRoleFromEmployee(Employee employee) {
+        Scanner scanner = new Scanner(System.in);
         System.out.println("Choose a role to remove from the employee: ");
         printRoleMenu();
-        int role = Integer.parseInt(System.console().readLine());
+        int role = scanner.nextInt();
         try {
             switch (role) {
                 case 1:

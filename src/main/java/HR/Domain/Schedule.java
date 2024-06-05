@@ -92,6 +92,15 @@ public class Schedule {
         List<Employee> branchWorkers = new ArrayList<>(List.copyOf(branch.getWorkers()));
         List<Employee> shiftWorkers = new ArrayList<>();
         List<Employee> shiftManagerList = new ArrayList<>();
+
+        // Remove the workers which have a limitation for the shift
+        List<ShiftLimitation> shiftLimitations = branch.getShiftLimitations();
+        for (ShiftLimitation sl : shiftLimitations) {
+            if (sl.getDate().equals(date) && sl.isMorningShift() == isMorningShift) {
+                branchWorkers.remove(sl.getEmployee());
+            }
+        }
+
         if (branchWorkers.isEmpty() || branchWorkers.size() < numManagers) {
             System.out.println("Not enough workers for the shift.");
             throw new NotEnoughWorkers(" date: " + date + " and isMorningShift: " + isMorningShift);

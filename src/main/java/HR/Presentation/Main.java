@@ -4,13 +4,21 @@ import HR.Domain.*;
 
 import HR.Domain.EmployeeTypes.*;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) throws Exception {
+        boolean testing = true;
         EmployeeController employeeController = new EmployeeController();
         BranchController branchController = new BranchController();
-        Branch branch = branchController.createBranch();
+        Branch branch;
+        if (testing) {
+            branch = branchController.createBranch("Branch Name", "Branch Address");
+        } else {
+            branch = branchController.createBranch();
+        }
         Scanner scanner = new Scanner(System.in);
 
         // Create Admin as HR Manager
@@ -39,36 +47,38 @@ public class Main {
             }
 
             if (employee.hasRole(new HRManager())) {
-                HRMenu(branch, employeeController, scanner);
+                HRMenu(branch, employeeController);
             } else {
-                NonManagerMenu(branch, id, scanner);
+                NonManagerMenu(branch, id);
             }
         }
     }
 
-public static void HRMenu(Branch branch, EmployeeController employeeController, Scanner scanner) throws Exception {
-    int HRChoice;
-    do {
-        PrintMainHRMenu();
-        HRChoice = scanner.nextInt();
-        switch (HRChoice) {
-            case 1:
-                employeeMenu(branch, employeeController, scanner);
-                break;
-            case 2:
-                scheduleMenu(branch, scanner);
-                break;
-            case 3:
-                System.out.println("Logging out and returning to the main menu...");
-                break;
-            default:
-                System.out.println("Invalid choice!");
-                break;
-        }
-    } while (HRChoice != 3);
-}
+    public static void HRMenu(Branch branch, EmployeeController employeeController) throws Exception {
+        Scanner scanner = new Scanner(System.in);
+        int HRChoice;
+        do {
+            PrintMainHRMenu();
+            HRChoice = scanner.nextInt();
+            switch (HRChoice) {
+                case 1:
+                    employeeMenu(branch, employeeController);
+                    break;
+                case 2:
+                    scheduleMenu(branch);
+                    break;
+                case 3:
+                    System.out.println("Logging out and returning to the main menu...");
+                    break;
+                default:
+                    System.out.println("Invalid choice!");
+                    break;
+            }
+        } while (HRChoice != 3);
+    }
 
-    public static void employeeMenu(Branch branch, EmployeeController employeeController, Scanner scanner) throws Exception {
+    public static void employeeMenu(Branch branch, EmployeeController employeeController) throws Exception {
+        Scanner scanner = new Scanner(System.in);
         int employeeChoice;
         do {
             PrintEmployeeMenu();
@@ -80,7 +90,7 @@ public static void HRMenu(Branch branch, EmployeeController employeeController, 
                     try {
                         branch.addWorker(temp);
                     } catch (Exception e) {
-                        System.out.println("Employee already exists in branch.");
+                        System.out.println(e.getMessage());
                     }
                     break;
                 case 2:
@@ -93,7 +103,11 @@ public static void HRMenu(Branch branch, EmployeeController employeeController, 
                     break;
                 case 4:
                     // Update Employee Position logic
-                    BranchController.updateEmployeePosition(branch);
+                    try {
+                        BranchController.updateEmployeePosition(branch);
+                    } catch (Exception e) {
+                        System.out.println(e.getMessage());
+                    }
                     break;
                 case 5:
                     System.out.println("Returning to the main HR menu...");
@@ -105,7 +119,8 @@ public static void HRMenu(Branch branch, EmployeeController employeeController, 
         } while (employeeChoice != 5);
     }
 
-    public static void scheduleMenu(Branch branch, Scanner scanner) {
+    public static void scheduleMenu(Branch branch) {
+        Scanner scanner = new Scanner(System.in);
         int scheduleChoice;
         do {
             PrintScheduleMenu();
@@ -130,7 +145,9 @@ public static void HRMenu(Branch branch, EmployeeController employeeController, 
             }
         } while (scheduleChoice != 3);
     }
-    public static void NonManagerMenu(Branch branch, int id, Scanner scanner) {
+
+    public static void NonManagerMenu(Branch branch, int id) {
+        Scanner scanner = new Scanner(System.in);
         int choice;
         do {
             PrintNonManagerMenu();
@@ -179,6 +196,7 @@ public static void HRMenu(Branch branch, EmployeeController employeeController, 
         System.out.println("1. Create Schedule");
         System.out.println("2. Set Shifts Requirements");
         System.out.println("3. Return to Main HR Menu");
+
         System.out.print("Enter your choice: ");
     }
 

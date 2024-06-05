@@ -64,7 +64,7 @@ public class Branch {
                 throw new EmployeeAlreadyExistsInBranch("Employee ID: " + worker.getEmployeeId() + " already exists in the branch with ID: " + branchId);
             }
         }
-        System.out.println("Employee added to the branch.");
+        System.out.println("Employee " + worker.getName() + ", id: " + worker.getEmployeeId() + " added to the branch.");
         workers.add(worker);
     }
 
@@ -110,8 +110,12 @@ public class Branch {
         }
         return false;
     }
+
     public Employee getWorkerById(int id) {
+        if (workers == null || workers.isEmpty()) return null;
+
         for (Employee worker : workers) {
+
             if (worker.getEmployeeId() == id) {
                 return worker;
             }

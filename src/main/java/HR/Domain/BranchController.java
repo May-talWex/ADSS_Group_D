@@ -1,4 +1,5 @@
 package HR.Domain;
+
 import HR.Domain.EmployeeTypes.*;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
@@ -12,6 +13,7 @@ public class BranchController {
         System.out.println("Enter the ID of the employee you want to update: ");
         int id = scanner.nextInt();
         Employee employee = branch.getWorkerById(id);
+
         if (employee == null) {
             System.out.println("Employee not found.");
             return;
@@ -87,7 +89,7 @@ public class BranchController {
                     System.out.println("Choose a role to add to the employee: ");
                     System.out.println("The employee currently has the following roles: " + employee.printPossiblePositions());
                     printRoleMenu();
-                    int role = Integer.parseInt(System.console().readLine());
+                    int role = scanner.nextInt();
                     try {
                         switch (role) {
                             case 1:
@@ -118,7 +120,7 @@ public class BranchController {
                     System.out.println("Choose a role to remove from the employee: ");
                     System.out.println("The employee currently has the following roles: " + employee.printPossiblePositions());
                     printRoleMenu();
-                    int roleToRemove = Integer.parseInt(System.console().readLine());
+                    int roleToRemove = scanner.nextInt();
                     try {
                         switch (roleToRemove) {
                             case 1:
@@ -148,7 +150,9 @@ public class BranchController {
                 case 3:
                     updateDone = true;
                     System.out.println("Employee position update complete.");
-    }}}
+            }
+        }
+    }
 
     public Branch createBranch() {
         Scanner scanner = new Scanner(System.in);
@@ -160,6 +164,14 @@ public class BranchController {
         System.out.println("Branch " + branchName + " created successfully");
         return branch;
     }
+
+    public Branch createBranch(String name, String address) {
+
+        Branch branch = new Branch(name, address);
+        System.out.println("Branch " + name + " created successfully");
+        return branch;
+    }
+
     public static void removeEmployee(Branch branch) throws Exception {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Enter the ID of the employee you want to remove: ");

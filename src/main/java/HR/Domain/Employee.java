@@ -91,13 +91,13 @@ public class Employee {
     }
 
     public String printPossiblePositions() {
-        String positions = "";
+        StringBuilder positions = new StringBuilder();
         if (possiblePositions != null) {
             for (EmployeeType employeeType : possiblePositions) {
-                positions += employeeType.getType() + " ";
+                positions.append(employeeType.getType()).append(", ");
             }
         }
-        return positions;
+        return positions.toString();
     }
 
     public Salary getCurrentSalary() {
