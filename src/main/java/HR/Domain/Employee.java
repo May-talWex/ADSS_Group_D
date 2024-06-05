@@ -1,5 +1,6 @@
 package HR.Domain;
 
+import HR.Domain.EmployeeTypes.*;
 import HR.Domain.Exceptions.EmployeeAlreadyHasRole;
 import HR.Domain.Exceptions.EmployeeDoesNotHaveRole;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -127,6 +128,16 @@ public class Employee {
             for (EmployeeType employeeType : possiblePositions) {
                 if (employeeType.equals(position)) {
                     throw new EmployeeAlreadyHasRole(position.getType());
+                }
+                // Check restrictions
+                if (position instanceof Cashier && employeeType instanceof DeliveryPerson) {
+                    throw new Exception("A Cashier cannot also be a DeliveryPerson.");
+                }
+                if (position instanceof StorageEmployee && employeeType instanceof Cashier) {
+                    throw new Exception("A StorageEmployee cannot be a Cashier.");
+                }
+                if (position instanceof DeliveryPerson && employeeType instanceof StorageEmployee) {
+                    throw new Exception("A DeliveryPerson cannot be a StorageEmployee.");
                 }
             }
         }

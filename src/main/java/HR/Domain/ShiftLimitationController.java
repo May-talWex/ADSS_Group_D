@@ -32,7 +32,6 @@ public class ShiftLimitationController {
 
             boolean isMorningShift = Boolean.parseBoolean(System.console().readLine());
             ShiftLimitation limitation = new ShiftLimitation(employee, date, isMorningShift);
-
             employee.getBranch().addShiftLimitation(employee, limitation);
         } catch (Exception e) {
             System.out.println(e.getMessage());
