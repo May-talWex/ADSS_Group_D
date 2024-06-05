@@ -19,31 +19,31 @@ public class ItemController {
         HashMap<String, Item> storeItems = new HashMap<>();
     }
 
-//    public void addDefaultItem() {
-//        // Add non-expired item
-//        boolean defective = false;
-//        boolean inWareHouse = true;
-//        int floorBuilding = 3;
-//        int floorShelf = 3;
-//        float x = 3.3f;
-//        float y = 3.3f;
-//        float supplierCost = 3.3f;
-//        float priceNoDiscount = 33.3f;
-//        String name = "DefaultItem";
-//        String id = "3333";
-//        LocalDate expireDate = LocalDate.now().plusMonths(3);
-//        String categoryID = "3";
-//        String productID = "333";
-//
-//        addNewItem(defective, inWareHouse, floorBuilding, floorShelf, x, y, supplierCost, priceNoDiscount, name, id, expireDate, categoryID, productID);
-//
-//        // Add expired item
-//        String expiredName = "ExpiredItem";
-//        String expiredId = "3334";
-//        LocalDate expiredDate = LocalDate.now().minusDays(1);
-//
-//        addNewItem(defective, inWareHouse, floorBuilding, floorShelf, x, y, supplierCost, priceNoDiscount, expiredName, expiredId, expiredDate, categoryID, productID);
-//    }
+    public void addDefaultItem() {
+        // Add non-expired item
+        boolean defective = false;
+        boolean inWareHouse = true;
+        int floorBuilding = 3;
+        int floorShelf = 3;
+        float x = 3.3f;
+        float y = 3.3f;
+        float supplierCost = 3.3f;
+        float priceNoDiscount = 4.5f;
+        String name = "Milk 3% Tnuva";
+        String id = "Milk3Tnuva1";
+        LocalDate expireDate = LocalDate.now().plusMonths(3);
+        String categoryID = "MP493";
+        String productID = "Milk176";
+
+        addNewItem(defective, inWareHouse, floorBuilding, floorShelf, x, y, supplierCost, priceNoDiscount, name, id, expireDate, categoryID, productID);
+
+        // Add expired item
+        String expiredName = "Milk 3% Tnuva";
+        String expiredId = "Milk3Tnuva2";
+        LocalDate expiredDate = LocalDate.now().minusDays(1);
+
+        addNewItem(defective, inWareHouse, floorBuilding, floorShelf, x, y, supplierCost, priceNoDiscount, expiredName, expiredId, expiredDate, categoryID, productID);
+    }
 
     public static Item getItemByID(String id) {
         if (wareHouseItems.containsKey(id)) {

@@ -13,18 +13,18 @@ public class ProductController {
         this.products = new HashMap<>();
     }
 
-//    public void addDefaultProduct() {
-//        String defaultProductID = "333";
-//        String defaultProductName = "DefaultProduct";
-//        String supplier = "DefaultSupplier";
-//        double costPrice = 3.33;
-//        double sellingPrice = 33.33;
-//        String defaultCategoryID = "3";
-//        String defaultSubCategoryID = "3";
-//        int minimumAmount = 3;
-//
-//        addProduct(defaultProductID, defaultProductName, supplier, costPrice, sellingPrice, defaultCategoryID, defaultSubCategoryID, minimumAmount);
-//    }
+    public void addDefaultProduct() {
+        String defaultProductID = "Milk176";
+        String defaultProductName = "Milk";
+        String supplier = "Tnuva";
+        double costPrice = 3.33;
+        double sellingPrice = 4.5;
+        String defaultCategoryID = "MP493";
+        String defaultSubCategoryID = "Milk";
+        int minimumAmount = 3;
+
+        addProduct(defaultProductID, defaultProductName, supplier, costPrice, sellingPrice, defaultCategoryID, defaultSubCategoryID, minimumAmount);
+    }
 
 
     public boolean addProduct(String makat, String name, String supplier, double costPrice, double sellingPrice, String categoryID, String subCategoryID, int minimumAmount) {

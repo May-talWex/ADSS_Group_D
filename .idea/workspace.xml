@@ -4,241 +4,74 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9a0829ce-1916-46c8-a83f-0eb68d1bcbb5" name="Changes" comment="adding everything to new branch">
-      <change beforePath="$PROJECT_DIR$/src/main/java/HR/Data/employees.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/HR/Data/shiftLimitations.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/HR/Data/shifts.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/HR/Domain/BankAccount.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/HR/Domain/Branch.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/HR/Domain/BranchController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/HR/Domain/Employee.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/HR/Domain/EmployeeController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/HR/Domain/EmployeeType.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/HR/Domain/EmployeeTypes/Cashier.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/HR/Domain/EmployeeTypes/DeliveryPerson.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/HR/Domain/EmployeeTypes/HRManager.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/HR/Domain/EmployeeTypes/ShiftManager.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/HR/Domain/EmployeeTypes/StorageEmployee.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/HR/Domain/Exceptions/EmployeeAlreadyExistsInBranch.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/HR/Domain/Exceptions/EmployeeAlreadyHasRole.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/HR/Domain/Exceptions/EmployeeDoesNotExistInBranch.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/HR/Domain/Exceptions/EmployeeDoesNotHaveRole.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/HR/Domain/Exceptions/NotEnoughWorkers.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/HR/Domain/Exceptions/ShiftAlreadyExists.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/HR/Domain/Exceptions/ShiftDoesntExist.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/HR/Domain/Exceptions/ShiftLimitationAlreadyExists.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/HR/Domain/Exceptions/ShiftLimitationDoesntExist.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/HR/Domain/Salary.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/HR/Domain/Schedule.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/HR/Domain/ScheduleController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/HR/Domain/Shift.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/HR/Domain/ShiftController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/HR/Domain/ShiftLimitation.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/HR/Domain/ShiftLimitationController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/HR/Presentation/Main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/HR/Service/Service.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/HR/Domain/ShiftLimitationController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/HR/Domain/ShiftLimitationController.class" afterDir="false" />
+    <list default="true" id="2ee10d94-4457-471a-97fe-029a048743dc" name="Changes" comment="removing HR directory and fixing ID txt">
+      <change afterPath="$PROJECT_DIR$/target/classes/src/inventory/DomainLayer/Category.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/src/inventory/DomainLayer/CategoryController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/src/inventory/DomainLayer/Item.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/src/inventory/DomainLayer/ItemController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/src/inventory/DomainLayer/Product.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/src/inventory/DomainLayer/ProductController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/src/inventory/PresentationLayer/CLIInterface.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/src/inventory/ServiceLayer/ServiceController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/src/inventory/tests/InventoryManagementTests.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Inventory/DomainLayer/CategoryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Inventory/DomainLayer/CategoryController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Inventory/DomainLayer/ItemController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Inventory/DomainLayer/ItemController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Inventory/DomainLayer/ProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Inventory/DomainLayer/ProductController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Inventory/PresentationLayer/CLIInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Inventory/PresentationLayer/CLIInterface.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Inventory/ServiceLayer/ServiceController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Inventory/ServiceLayer/ServiceController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/HR/Domain/BankAccount.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/HR/Domain/Branch.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/HR/Domain/BranchController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/HR/Domain/Employee.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/HR/Domain/EmployeeController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/HR/Domain/EmployeeType.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/HR/Domain/EmployeeTypes/Cashier.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/HR/Domain/EmployeeTypes/DeliveryPerson.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/HR/Domain/EmployeeTypes/HRManager.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/HR/Domain/EmployeeTypes/ShiftManager.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/HR/Domain/EmployeeTypes/StorageEmployee.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/HR/Domain/Exceptions/EmployeeAlreadyExistsInBranch.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/HR/Domain/Exceptions/EmployeeAlreadyHasRole.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/HR/Domain/Exceptions/EmployeeDoesNotExistInBranch.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/HR/Domain/Exceptions/EmployeeDoesNotHaveRole.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/HR/Domain/Exceptions/NotEnoughWorkers.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/HR/Domain/Exceptions/ShiftAlreadyExists.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/HR/Domain/Exceptions/ShiftDoesntExist.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/HR/Domain/Exceptions/ShiftLimitationAlreadyExists.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/HR/Domain/Exceptions/ShiftLimitationDoesntExist.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/HR/Domain/Salary.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/HR/Domain/Schedule.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/HR/Domain/ScheduleController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/HR/Domain/Shift.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/HR/Domain/ShiftController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/HR/Domain/ShiftLimitation.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/HR/Domain/ShiftLimitationController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/HR/Presentation/Main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/HR/Service/Service.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Main.class" afterDir="false" />
     </list>
-    <list id="92241546-7950-4e02-919c-86c9491857e4" name="Changes by kidox" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="Class" />
-      </list>
-    </option>
-  </component>
-  <component name="Git.Settings">
-    <option name="RECENT_BRANCH_BY_REPOSITORY">
-      <map>
-        <entry key="$PROJECT_DIR$" value="master" />
-      </map>
-    </option>
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-  </component>
-  <component name="GitHubPullRequestSearchHistory">{
-  &quot;lastFilter&quot;: {
-    &quot;state&quot;: &quot;OPEN&quot;,
-    &quot;assignee&quot;: &quot;idokraicer&quot;
-  }
-}</component>
-  <component name="GithubPullRequestsUISettings">{
-  &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/May-talWex/ADSS_Group_D.git&quot;,
-    &quot;accountId&quot;: &quot;d4b7678e-6fb5-4390-84e0-e4a0c3352291&quot;
-  }
-}</component>
-  <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/src/main/java/HR/Presentation/Main.java" root0="FORCE_HIGHLIGHTING" />
-  </component>
-  <component name="ProjectColorInfo">{
-  &quot;associatedIndex&quot;: 1
-}</component>
-  <component name="ProjectId" id="2fzf2pxr3EseylL3w7AcH1DWylP" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
-  </component>
-  <component name="ProjectViewState">
-    <option name="hideEmptyMiddlePackages" value="true" />
-    <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "Application.CLIInterface.executor": "Run",
-    "Application.Main.executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "new__test__branch",
-    "ignore.virus.scanning.warn.message": "true",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/rotto/OneDrive/Documents/GitHub/ADSS_Group_D/release",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "run.code.analysis.last.selected.profile": "pProject Default",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
-    "vue.rearranger.settings.migration": "true"
+    "git-widget-placeholder": "209638667__205850621__325842706",
+    "node.js.selected.package.tslint": "(autodetect)"
   }
 }]]></component>
-  <component name="SharedIndexes">
-    <attachedChunks>
-      <set>
-        <option value="bundled-jdk-9f38398b9061-39b83d9b5494-intellij.indexing.shared.core-IU-241.17011.79" />
-        <option value="bundled-js-predefined-1d06a55b98c1-0b3e54e931b4-JavaScript-IU-241.17011.79" />
-      </set>
-    </attachedChunks>
-  </component>
-  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
-    <task active="true" id="Default" summary="Default task">
-      <changelist id="9a0829ce-1916-46c8-a83f-0eb68d1bcbb5" name="Changes" comment="" />
-      <created>1714808625927</created>
-      <option name="number" value="Default" />
-      <option name="presentableId" value="Default" />
-      <updated>1714808625927</updated>
-      <workItem from="1714808626980" duration="2000" />
-      <workItem from="1714810811509" duration="678000" />
-      <workItem from="1714811524309" duration="105000" />
-      <workItem from="1716791028807" duration="4978000" />
-      <workItem from="1717056998828" duration="3240000" />
-      <workItem from="1717064981279" duration="55000" />
-      <workItem from="1717104448923" duration="94000" />
-      <workItem from="1717104555869" duration="339000" />
-      <workItem from="1717488535554" duration="447000" />
-      <workItem from="1717489009199" duration="1676000" />
-    </task>
-    <task id="LOCAL-00001" summary="Added some JSON support">
-      <option name="closed" value="true" />
-      <created>1717064917414</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1717064917414</updated>
-    </task>
-    <task id="LOCAL-00002" summary="Added some JSON support">
-      <option name="closed" value="true" />
-      <created>1717491318808</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1717491318808</updated>
-    </task>
-    <task id="LOCAL-00003" summary="Added some JSON support">
-      <option name="closed" value="true" />
-      <created>1717496188596</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1717496188596</updated>
-    </task>
-    <task id="LOCAL-00004" summary="updating main">
-      <option name="closed" value="true" />
-      <created>1717518698738</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1717518698738</updated>
-    </task>
-    <task id="LOCAL-00005" summary="updating main">
-      <option name="closed" value="true" />
-      <created>1717518950619</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1717518950619</updated>
-    </task>
-    <task id="LOCAL-00006" summary="updating main">
-      <option name="closed" value="true" />
-      <created>1717527308635</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1717527308635</updated>
-    </task>
-    <task id="LOCAL-00007" summary="Main menu updated, added updating employee info">
-      <option name="closed" value="true" />
-      <created>1717528720406</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1717528720406</updated>
-    </task>
-    <task id="LOCAL-00008" summary="Added more employee functionality">
-      <option name="closed" value="true" />
-      <created>1717531641373</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1717531641373</updated>
-    </task>
-    <task id="LOCAL-00009" summary="Added more employee functionality">
-      <option name="closed" value="true" />
-      <created>1717533257666</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1717533257666</updated>
-    </task>
-    <task id="LOCAL-00010" summary="adding everything to new branch">
-      <option name="closed" value="true" />
-      <created>1717570634250</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1717570634250</updated>
-    </task>
-    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
-  <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="3" />
-  </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Added some JSON support" />
-    <MESSAGE value="updating main" />
-    <MESSAGE value="Main menu updated, added updating employee info" />
-    <MESSAGE value="Added more employee functionality" />
-    <MESSAGE value="adding everything to new branch" />
-    <option name="LAST_COMMIT_MESSAGE" value="adding everything to new branch" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <breakpoint enabled="true" type="java-exception">
-          <properties class="java.lang.NullPointerException" package="java.lang" />
-          <option name="timeStamp" value="6" />
-        </breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="removing HR directory and fixing ID txt" />
+    <option name="LAST_COMMIT_MESSAGE" value="removing HR directory and fixing ID txt" />
   </component>
 </project>

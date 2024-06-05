@@ -6,11 +6,11 @@ import java.util.HashMap;
 public class CategoryController {
     private HashMap<String, Category> categories;
 
-//    public void addDefaultCategory() {
-//        String defaultCategoryID = "3";
-//        String defaultCategoryName = "DefaultCategory";
-//        addCategory(defaultCategoryName, defaultCategoryID);
-//    }
+    public void addDefaultCategory() {
+        String defaultCategoryID = "MP493";
+        String defaultCategoryName = "Milk Products";
+        addCategory(defaultCategoryName, defaultCategoryID);
+    }
 
     public CategoryController() {
         categories = new HashMap<>();

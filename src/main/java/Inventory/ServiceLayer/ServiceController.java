@@ -19,13 +19,13 @@ public class ServiceController {
         categoryController = new CategoryController();
         productController = new ProductController();
         itemController = new ItemController();
-//
-//        System.out.println("");
-//        System.out.println("Start of adding deafult info");
-//        categoryController.addDefaultCategory();
-//        productController.addDefaultProduct();
-//        itemController.addDefaultItem();         //So there is something already in the data base
-//        System.out.println("End of adding deafult info");
+
+        System.out.println("");
+        System.out.println("Start of adding deafult info");
+        categoryController.addDefaultCategory();
+        productController.addDefaultProduct();
+        itemController.addDefaultItem();         //So there is something already in the database
+        System.out.println("End of adding deafult info");
     }
 
     //item service

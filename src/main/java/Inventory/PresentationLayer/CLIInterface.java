@@ -1,5 +1,6 @@
 package Inventory.PresentationLayer;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 import Inventory.ServiceLayer.ServiceController;
 import java.time.LocalDate;
@@ -14,88 +15,30 @@ public class CLIInterface {
 
     public static void main(String[] args) {
         while (true) {
-            System.out.print("");
-            primeMenu();
-            int choice = scanner.nextInt();
-            scanner.nextLine(); // Consume newline
-            switch (choice) {
-                case 1:
-                    addRemoveMenu();
-                    choice = scanner.nextInt();
-                    scanner.nextLine(); // Consume newline
-
-                    switch (choice) {
-                        case 1:
-                            addCategory();
-                            break;
-                        case 2:
-                            addProduct();
-                            break;
-                        case 3:
-                            addItem();
-                            break;
-                        case 4:
-                            removeCategory();
-                            break;
-                        case 5:
-                            removeProduct();
-                            break;
-                        case 6:
-                            removeItem();
-                            break;
-                        case 7:
-                            System.out.println("Exiting...");
-                            return;
-                        default:
-                            System.out.println("Invalid choice. Please try again.");
-                    }
-                    break;
-                case 2:
-                    displayHashMapsMenu();
-                    choice = scanner.nextInt();
-                    scanner.nextLine(); // Consume newline
-
-                    switch (choice) {
-                        case 1:
-                            displayCategories();
-                            break;
-                        case 2:
-                            displayProducts();
-                            break;
-                        case 3:
-                            displayItems();
-                            break;
-                        case 4:
-                            System.out.println("Exiting...");
-                            return;
-                        default:
-                            System.out.println("Invalid choice. Please try again.");
-                    }
-                    break;
-                case 3:
-                    reportMenu();
-                    choice = scanner.nextInt();
-                    scanner.nextLine(); // Consume newline
-
-                    switch (choice) {
-                        case 1:
-                            getStockReport();
-                            break;
-                        case 2:
-                            getExpireReport();
-                            break;
-                        case 3:
-                            System.out.println("Exiting...");
-                            return;
-                        default:
-                            System.out.println("Invalid choice. Please try again.");
-                    }
-                    break;
-                case 4:
-                    System.out.println("Exiting...");
-                    return;
-                default:
-                    System.out.println("Invalid choice. Please try again.");
+            try {
+                System.out.print("");
+                primeMenu();
+                int choice = scanner.nextInt();
+                scanner.nextLine(); // Consume newline
+                switch (choice) {
+                    case 1:
+                        handleAddRemoveMenu();
+                        break;
+                    case 2:
+                        handleDisplayHashMapsMenu();
+                        break;
+                    case 3:
+                        handleReportMenu();
+                        break;
+                    case 4:
+                        System.out.println("Exiting...");
+                        return;
+                    default:
+                        System.out.println("Invalid choice. Please try again.");
+                }
+            } catch (InputMismatchException e) {
+                System.out.println("Invalid input. Please enter a number.");
+                scanner.nextLine(); // Consume the invalid input
             }
         }
     }
@@ -107,6 +50,96 @@ public class CLIInterface {
         System.out.println("3. Generate reports");
         System.out.println("4. Exit");
         System.out.print("Choose an option: ");
+    }
+
+    private static void handleAddRemoveMenu() {
+        try {
+            addRemoveMenu();
+            int choice = scanner.nextInt();
+            scanner.nextLine(); // Consume newline
+
+            switch (choice) {
+                case 1:
+                    addCategory();
+                    break;
+                case 2:
+                    addProduct();
+                    break;
+                case 3:
+                    addItem();
+                    break;
+                case 4:
+                    removeCategory();
+                    break;
+                case 5:
+                    removeProduct();
+                    break;
+                case 6:
+                    removeItem();
+                    break;
+                case 7:
+                    System.out.println("Exiting...");
+                    return;
+                default:
+                    System.out.println("Invalid choice. Please try again.");
+            }
+        } catch (InputMismatchException e) {
+            System.out.println("Invalid input. Please enter a number.");
+            scanner.nextLine(); // Consume the invalid input
+        }
+    }
+
+    private static void handleDisplayHashMapsMenu() {
+        try {
+            displayHashMapsMenu();
+            int choice = scanner.nextInt();
+            scanner.nextLine(); // Consume newline
+
+            switch (choice) {
+                case 1:
+                    displayCategories();
+                    break;
+                case 2:
+                    displayProducts();
+                    break;
+                case 3:
+                    displayItems();
+                    break;
+                case 4:
+                    System.out.println("Exiting...");
+                    return;
+                default:
+                    System.out.println("Invalid choice. Please try again.");
+            }
+        } catch (InputMismatchException e) {
+            System.out.println("Invalid input. Please enter a number.");
+            scanner.nextLine(); // Consume the invalid input
+        }
+    }
+
+    private static void handleReportMenu() {
+        try {
+            reportMenu();
+            int choice = scanner.nextInt();
+            scanner.nextLine(); // Consume newline
+
+            switch (choice) {
+                case 1:
+                    getStockReport();
+                    break;
+                case 2:
+                    getExpireReport();
+                    break;
+                case 3:
+                    System.out.println("Exiting...");
+                    return;
+                default:
+                    System.out.println("Invalid choice. Please try again.");
+            }
+        } catch (InputMismatchException e) {
+            System.out.println("Invalid input. Please enter a number.");
+            scanner.nextLine(); // Consume the invalid input
+        }
     }
 
     private static void addRemoveMenu() {
@@ -143,7 +176,8 @@ public class CLIInterface {
     }
 
     private static void getExpireReport() {
-        serviceController.reportExpired();}
+        serviceController.reportExpired();
+    }
 
     private static void addCategory() {
         System.out.print("Enter category name: ");
@@ -151,9 +185,9 @@ public class CLIInterface {
         System.out.print("Enter category ID: ");
         String id = scanner.nextLine();
         if (serviceController.addCategory(name, id)) {
-            System.out.println("Category added successfully.");
+//            System.out.println("Category added successfully.");
         } else {
-            System.out.println("Failed to add category. It might already exist.");
+//            System.out.println("Failed to add category. It might already exist.");
         }
     }
 
@@ -178,9 +212,9 @@ public class CLIInterface {
         scanner.nextLine(); // Consume newline
 
         if (serviceController.addNewProduct(makat, name, supplier, costPrice, sellingPrice, categoryId, subCategoryID, minimumAmount)) {
-            System.out.println("New product added successfully.");
+//            System.out.println("New product added successfully.");
         } else {
-            System.out.println("Failed to add new product.");
+//            System.out.println("Failed to add new product.");
         }
     }
 
@@ -203,13 +237,11 @@ public class CLIInterface {
         String productID = scanner.nextLine();
 
         if (serviceController.addItem(defective, inWareHouse, -1, -1, -1f, -1f, -1f, -1f, name, itemId, expireDate, categoryID, productID)) {
-            System.out.println("Item added successfully.");
+//            System.out.println("Item added successfully.");
         } else {
-            System.out.println("Failed to add item.");
+//            System.out.println("Failed to add item.");
         }
     }
-
-
 
     private static void removeCategory() {
         System.out.print("Enter category ID: ");
@@ -240,8 +272,6 @@ public class CLIInterface {
             System.out.println("Failed to remove item.");
         }
     }
-
-
 
     // Methods to display the contents of hashmaps
     private static void displayCategories() {
