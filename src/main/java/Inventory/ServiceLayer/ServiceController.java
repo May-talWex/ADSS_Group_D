@@ -1,46 +1,56 @@
 package Inventory.ServiceLayer;
 
-import Inventory.DomainLayer.*;
-
+import Inventory.DomainLayer.Item;
+import Inventory.DomainLayer.CategoryController;
+import Inventory.DomainLayer.Category;
+import Inventory.DomainLayer.ItemController;
+import Inventory.DomainLayer.ProductController;
+import Inventory.DomainLayer.Product;
 import java.time.LocalDate;
 import java.util.HashMap;
 import java.util.List;
 
 public class ServiceController {
-    public CategoryController categoryController = new CategoryController();
-    public ProductController productController = new ProductController();
-    public ItemController itemController = new ItemController();
+    public CategoryController categoryController;
+    public ProductController productController;
+    public ItemController itemController;
 
-    public ServiceController() {
+    public ServiceController(boolean addDeafult) {
+
         categoryController = new CategoryController();
         productController = new ProductController();
         itemController = new ItemController();
 
-        System.out.println("");
-        System.out.println("Start of adding default info");
-        categoryController.addDefaultCategory();
-        productController.addDefaultProduct();
-        itemController.addDefaultItem();         //So there is something already in the database
-        System.out.println("End of adding default info");
+
+        if(addDeafult) { //So there is something already in the database
+            System.out.println("");
+            System.out.println("Start of adding deafult info");
+            categoryController.addDefaultCategory();
+            productController.addDefaultProduct();
+            itemController.addDefaultItem();
+            System.out.println("End of adding deafult info");
+            System.out.println("");
+        }
+
     }
 
     //item service
-    public boolean addItem(boolean defective, boolean inWareHouse, int floorBuilding,
+    public boolean addItem(boolean defective, boolean inWareHouse,int floorBuilding,
                            int floorShelf, float x, float y,
                            float supplierCost, float priceNoDiscount, String name,
                            String id, LocalDate expireDate,
-                           String categoryID, String productID) {
-        if (itemController.addNewItem(defective, inWareHouse, floorBuilding,
-                floorShelf, x, y,
-                supplierCost, priceNoDiscount, name, id, expireDate,
-                categoryID, productID)) {
+                           String categoryID, String productID){
+        if(itemController.addNewItem(defective,inWareHouse,floorBuilding,
+                floorShelf,x,y,
+                supplierCost,priceNoDiscount,name,id, expireDate,
+                categoryID,productID)){
             productController.addItemToProduct(id);
             return true;
         }
         return false;
     }
 
-    public void reportExpired() {
+    public void reportExpired(){
         itemController.reportExpiredItems();
     }
 
@@ -48,19 +58,19 @@ public class ServiceController {
         productController.generateStockReport();
     }
 
-    public void generateStockAlerts() {
-        productController.generateStockAlerts();
+    public void removeExpire(){
+
+        itemController.removeExpired(productController);
+    }
+    public void getLowSupplyReport() {
+        productController.getLowStockProducts();
     }
 
-    public void removeExpiredItems() {
-        itemController.removeExpiredItems(productController);
+    public void removeDefective(){
+        itemController.removeDefective(productController);
     }
 
-    public void removeDefectiveItems() {
-        itemController.removeDefectiveItems(productController);
-    }
-
-    public boolean moveItemToStore(String id) {
+    public boolean moveItemToStore(String id){
         return itemController.moveItemToStore(id);
     }
 
@@ -68,11 +78,13 @@ public class ServiceController {
         return productController.removeItemFromProduct(itemID);
     }
 
+
     public boolean removeItem(String id) {
         boolean removedFromProduct = productController.removeItemFromProduct(id);
         boolean removedFromInventory = itemController.removeItem(id, productController);
         return removedFromProduct && removedFromInventory;
     }
+
 
     public List<Product> getAllProducts() {
         return productController.getAllProducts();
@@ -86,7 +98,9 @@ public class ServiceController {
         return itemController.getStoreItems();
     }
 
+
     //product service
+
     public boolean addNewProduct(String makat, String name, String supplier, double costPrice, double sellingPrice, String categoryID, String subCategoryID, int minimumAmount) {
         if (categoryController.doesCategoryExist(categoryID)) {
             boolean productAdded = productController.addProduct(makat, name, supplier, costPrice, sellingPrice, categoryID, subCategoryID, minimumAmount);
@@ -129,9 +143,15 @@ public class ServiceController {
         return false;
     }
 
+
+
+
     //category service
     public boolean addCategory(String name, String id) {
+
         return categoryController.addCategory(name, id);
+
+
     }
 
     public boolean removeCategory(String id) {
@@ -145,4 +165,7 @@ public class ServiceController {
     public HashMap<String, Category> getCategories() {
         return categoryController.getCategories();
     }
+
+
 }
+
