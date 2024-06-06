@@ -26,7 +26,6 @@ public class ProductController {
         addProduct(defaultProductID, defaultProductName, supplier, costPrice, sellingPrice, defaultCategoryID, defaultSubCategoryID, minimumAmount);
     }
 
-
     public boolean addProduct(String makat, String name, String supplier, double costPrice, double sellingPrice, String categoryID, String subCategoryID, int minimumAmount) {
         Product product = new Product(makat, name, supplier, costPrice, sellingPrice, categoryID, subCategoryID, minimumAmount);
         products.put(makat, product);
@@ -34,12 +33,12 @@ public class ProductController {
         return true;
     }
 
-
-
     public boolean addItemToProduct(String itemID) {
         Item item = ItemController.getItemByID(itemID);
         if (products.containsKey(item.productID)) {
-            products.get(item.productID).setItemAmount(products.get(item.productID).getItemAmount());
+            Product product = products.get(item.productID);
+            product.addItem(item);
+            productItems.get(item.productID).put(itemID, item);
             return true;
         }
         return false;
@@ -83,12 +82,11 @@ public class ProductController {
         return false;
     }
 
-
     public Product getProduct(String makat) {
         return products.get(makat);
     }
 
-    public List<Product> getLowStockProducts(int threshold) {
+    public List<Product> getLowStockProducts() {
         List<Product> lowStockProducts = new ArrayList<>();
         for (Product product : products.values()) {
             if (product.isLowStock()) {
@@ -96,6 +94,14 @@ public class ProductController {
             }
         }
         return lowStockProducts;
+    }
+
+    public void generateStockAlerts() {
+        for (Product product : products.values()) {
+            if (product.isLowStock()) {
+                System.out.println("Alert: Product " + product.getName() + " is below the minimum stock level. Current stock: " + product.getCurrentQuantity() + ", Minimum stock: " + product.getMinimumAmount());
+            }
+        }
     }
 
     public List<Product> getAllProducts() {
@@ -111,5 +117,4 @@ public class ProductController {
         }
         return categoryProducts;
     }
-
 }

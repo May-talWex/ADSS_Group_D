@@ -55,6 +55,7 @@ public class ItemController {
         }
     }
 
+
     public void reportExpiredItems() {
         List<Item> expiredItems = new ArrayList<>();
 
@@ -76,9 +77,14 @@ public class ItemController {
                 System.out.println("Expired store item: " + entry.getValue());
             }
         }
+
+        if (expiredItems.isEmpty()) {
+            System.out.println("No expired items found.");
+        }
     }
 
-    public void reportDefectionItems() {
+
+    public void reportDefectiveItems() {
         List<Item> defectiveItems = new ArrayList<>();
 
         // Check defective items in warehouse
@@ -100,10 +106,15 @@ public class ItemController {
                 System.out.println("Defective store item: " + entry.getValue());
             }
         }
+
+        if (defectiveItems.isEmpty()) {
+            System.out.println("No defective items found.");
+        }
     }
 
 
-    public void removeExpired(ProductController productController) {
+    public void removeExpiredItems(ProductController productController) {
+        boolean removed = false;
         // Remove expired items from inWareHouse
         Iterator<Map.Entry<String, Item>> iteratorWarehouse = wareHouseItems.entrySet().iterator();
         while (iteratorWarehouse.hasNext()) {
@@ -111,6 +122,7 @@ public class ItemController {
             if (entry.getValue().isExpired()) {
                 productController.getProduct(entry.getValue().productID).setItemAmount(productController.getProduct(entry.getValue().productID).getItemAmount() - 1);
                 iteratorWarehouse.remove();
+                removed = true;
             }
         }
 
@@ -121,11 +133,48 @@ public class ItemController {
             if (entry.getValue().isExpired()) {
                 productController.getProduct(entry.getValue().productID).setItemAmount(productController.getProduct(entry.getValue().productID).getItemAmount() - 1);
                 iteratorStore.remove();
+                removed = true;
             }
+        }
+
+        if (!removed) {
+            System.out.println("No expired items found.");
+        } else {
+            System.out.println("Expired items removed successfully.");
         }
     }
 
 
+    public void removeDefectiveItems(ProductController productController) {
+        boolean removed = false;
+        // Remove defective items from inWareHouse
+        Iterator<Map.Entry<String, Item>> iteratorWarehouse = wareHouseItems.entrySet().iterator();
+        while (iteratorWarehouse.hasNext()) {
+            Map.Entry<String, Item> entry = iteratorWarehouse.next();
+            if (entry.getValue().defective) {
+                productController.getProduct(entry.getValue().productID).setItemAmount(productController.getProduct(entry.getValue().productID).getItemAmount() - 1);
+                iteratorWarehouse.remove();
+                removed = true;
+            }
+        }
+
+        // Remove defective items from inStore
+        Iterator<Map.Entry<String, Item>> iteratorStore = storeItems.entrySet().iterator();
+        while (iteratorStore.hasNext()) {
+            Map.Entry<String, Item> entry = iteratorStore.next();
+            if (entry.getValue().defective) {
+                productController.getProduct(entry.getValue().productID).setItemAmount(productController.getProduct(entry.getValue().productID).getItemAmount() - 1);
+                iteratorStore.remove();
+                removed = true;
+            }
+        }
+
+        if (!removed) {
+            System.out.println("No defective items found.");
+        } else {
+            System.out.println("Defective items removed successfully.");
+        }
+    }
 
     public boolean addNewItem(boolean defective, boolean inWareHouse, int floorBuilding, int floorShelf, float x, float y, float supplierCost, float priceNoDiscount, String name, String id, LocalDate expireDate, String categoryID, String productID) {
         Item itemToAdd = new Item(defective, inWareHouse, floorBuilding, floorShelf, x, y, supplierCost, priceNoDiscount, name, id, expireDate, categoryID, productID);

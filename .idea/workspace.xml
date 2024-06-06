@@ -5,70 +5,82 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2ee10d94-4457-471a-97fe-029a048743dc" name="Changes" comment="removing HR directory and fixing ID txt">
-      <change afterPath="$PROJECT_DIR$/target/classes/src/inventory/DomainLayer/Category.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/src/inventory/DomainLayer/CategoryController.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/src/inventory/DomainLayer/Item.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/src/inventory/DomainLayer/ItemController.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/src/inventory/DomainLayer/Product.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/src/inventory/DomainLayer/ProductController.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/src/inventory/PresentationLayer/CLIInterface.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/src/inventory/ServiceLayer/ServiceController.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/src/inventory/tests/InventoryManagementTests.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Inventory/DomainLayer/CategoryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Inventory/DomainLayer/CategoryController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Inventory/DomainLayer/ItemController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Inventory/DomainLayer/ItemController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Inventory/DomainLayer/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Inventory/DomainLayer/Product.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Inventory/DomainLayer/ProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Inventory/DomainLayer/ProductController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Inventory/PresentationLayer/CLIInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Inventory/PresentationLayer/CLIInterface.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Inventory/ServiceLayer/ServiceController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Inventory/ServiceLayer/ServiceController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/HR/Domain/BankAccount.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/HR/Domain/Branch.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/HR/Domain/BranchController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/HR/Domain/Employee.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/HR/Domain/EmployeeController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/HR/Domain/EmployeeType.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/HR/Domain/EmployeeTypes/Cashier.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/HR/Domain/EmployeeTypes/DeliveryPerson.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/HR/Domain/EmployeeTypes/HRManager.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/HR/Domain/EmployeeTypes/ShiftManager.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/HR/Domain/EmployeeTypes/StorageEmployee.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/HR/Domain/Exceptions/EmployeeAlreadyExistsInBranch.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/HR/Domain/Exceptions/EmployeeAlreadyHasRole.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/HR/Domain/Exceptions/EmployeeDoesNotExistInBranch.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/HR/Domain/Exceptions/EmployeeDoesNotHaveRole.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/HR/Domain/Exceptions/NotEnoughWorkers.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/HR/Domain/Exceptions/ShiftAlreadyExists.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/HR/Domain/Exceptions/ShiftDoesntExist.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/HR/Domain/Exceptions/ShiftLimitationAlreadyExists.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/HR/Domain/Exceptions/ShiftLimitationDoesntExist.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/HR/Domain/Salary.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/HR/Domain/Schedule.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/HR/Domain/ScheduleController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/HR/Domain/Shift.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/HR/Domain/ShiftController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/HR/Domain/ShiftLimitation.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/HR/Domain/ShiftLimitationController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/HR/Presentation/Main.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/HR/Service/Service.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Main.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "timorlan"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/May-talWex/ADSS_Group_D.git",
+    "accountId": "d2dba9d7-518d-411d-a679-5ad71eb239dc"
+  }
+}]]></component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "customColor": "",
+  "associatedIndex": 1
+}]]></component>
+  <component name="ProjectId" id="2hVrxDm41TkkJvUBeDbLvKE4Df2" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "Application.CLIInterface.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "209638667__205850621__325842706",
-    "node.js.selected.package.tslint": "(autodetect)"
+    "kotlin-language-version-configured": "true",
+    "node.js.detected.package.eslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9f38398b9061-39b83d9b5494-intellij.indexing.shared.core-IU-241.15989.150" />
+        <option value="bundled-js-predefined-1d06a55b98c1-91d5c284f522-JavaScript-IU-241.15989.150" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="2ee10d94-4457-471a-97fe-029a048743dc" name="Changes" comment="removing HR directory and fixing ID txt" />
+      <created>1717690336405</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1717690336405</updated>
+      <workItem from="1717690338497" duration="6505000" />
+    </task>
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="removing HR directory and fixing ID txt" />
