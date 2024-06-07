@@ -4,17 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9a0829ce-1916-46c8-a83f-0eb68d1bcbb5" name="Changes" comment="Added employee ShiftLimitation functionality">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/HR/Domain/BranchController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/HR/Domain/BranchController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/HR/Domain/Schedule.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/HR/Domain/Schedule.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/HR/Domain/ScheduleController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/HR/Domain/ScheduleController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/HR/Domain/ShiftController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/HR/Domain/ShiftController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/HR/Presentation/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/HR/Presentation/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/HR/Domain/BranchController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/HR/Domain/BranchController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/HR/Domain/ScheduleController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/HR/Domain/ScheduleController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/HR/Domain/ShiftController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/HR/Domain/ShiftController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/HR/Presentation/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/HR/Presentation/Main.class" afterDir="false" />
+    <list default="true" id="9a0829ce-1916-46c8-a83f-0eb68d1bcbb5" name="Changes" comment="Added Schedule functionality">
+      <change beforePath="$PROJECT_DIR$/target/classes/HR/Domain/Schedule.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/HR/Domain/Schedule.class" afterDir="false" />
     </list>
     <list id="92241546-7950-4e02-919c-86c9491857e4" name="Changes by kidox" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -116,7 +107,7 @@
       <workItem from="1717488535554" duration="447000" />
       <workItem from="1717489009199" duration="1676000" />
       <workItem from="1717594638702" duration="2600000" />
-      <workItem from="1717745044390" duration="3884000" />
+      <workItem from="1717745044390" duration="4365000" />
     </task>
     <task id="LOCAL-00001" summary="Added some JSON support">
       <option name="closed" value="true" />
@@ -206,7 +197,15 @@
       <option name="project" value="LOCAL" />
       <updated>1717597279059</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Added Schedule functionality">
+      <option name="closed" value="true" />
+      <created>1717749278335</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1717749278335</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -219,7 +218,8 @@
     <MESSAGE value="Added more employee functionality" />
     <MESSAGE value="Added employee ShiftLimitation functionality- still need work" />
     <MESSAGE value="Added employee ShiftLimitation functionality" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added employee ShiftLimitation functionality" />
+    <MESSAGE value="Added Schedule functionality" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added Schedule functionality" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
