@@ -1,16 +1,13 @@
-package Inventory.ServiceLayer;
+package src.main.java.Inventory.ServiceLayer;
 
-import Inventory.DomainLayer.Item;
-import Inventory.DomainLayer.CategoryController;
-import Inventory.DomainLayer.Category;
-import Inventory.DomainLayer.ItemController;
-import Inventory.DomainLayer.ProductController;
-import Inventory.DomainLayer.Product;
+import src.main.java.Inventory.DomainLayer.Item;
+import src.main.java.Inventory.DomainLayer.CategoryController;
+import src.main.java.Inventory.DomainLayer.Category;
+import src.main.java.Inventory.DomainLayer.ItemController;
+import src.main.java.Inventory.DomainLayer.ProductController;
+import src.main.java.Inventory.DomainLayer.Product;
 
-import java.io.FileWriter;
-import java.io.IOException;
 import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 

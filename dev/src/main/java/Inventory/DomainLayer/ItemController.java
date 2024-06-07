@@ -1,4 +1,4 @@
-package Inventory.DomainLayer;
+package src.main.java.Inventory.DomainLayer;
 
 //controls the items, here we will implement for example a function that returns all expired products
 

@@ -1,4 +1,4 @@
-package Inventory.DomainLayer;
+package src.main.java.Inventory.DomainLayer;
 
 import java.util.HashMap;
 

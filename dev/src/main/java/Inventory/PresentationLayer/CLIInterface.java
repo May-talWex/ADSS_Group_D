@@ -1,13 +1,13 @@
-package Inventory.PresentationLayer;
+package src.main.java.Inventory.PresentationLayer;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
-import Inventory.ServiceLayer.ServiceController;
+import src.main.java.Inventory.ServiceLayer.ServiceController;
 import java.time.LocalDate;
 import java.util.Map;
-import Inventory.DomainLayer.Category;
-import Inventory.DomainLayer.Product;
-import Inventory.DomainLayer.Item;
+import src.main.java.Inventory.DomainLayer.Category;
+import src.main.java.Inventory.DomainLayer.Product;
+import src.main.java.Inventory.DomainLayer.Item;
 
 public class CLIInterface {
     private static ServiceController serviceController;

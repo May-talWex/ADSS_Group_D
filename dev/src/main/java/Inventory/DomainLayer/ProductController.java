@@ -1,4 +1,4 @@
-package Inventory.DomainLayer;
+package src.main.java.Inventory.DomainLayer;
 
 import java.io.FileWriter;
 import java.io.IOException;

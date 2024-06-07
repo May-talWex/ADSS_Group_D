@@ -1,4 +1,4 @@
-package Inventory.DomainLayer;
+package src.main.java.Inventory.DomainLayer;
 
 //River
 // This class will represent an item, it will hold its ID, category ID, sub-category ID, location (aisle, shelf)
