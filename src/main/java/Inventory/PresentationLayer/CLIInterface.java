@@ -272,9 +272,9 @@ public class CLIInterface {
         System.out.print("Enter category ID: ");
         String categoryID = scanner.nextLine();
         if (serviceController.removeCategory(categoryID)) {
-            System.out.println("Category was successfully removed.");
+//            System.out.println("Category was successfully removed.");
         } else {
-            System.out.println("Failed to remove category.");
+//            System.out.println("Failed to remove category.");
         }
     }
 
@@ -282,9 +282,9 @@ public class CLIInterface {
         System.out.print("Enter product makat: ");
         String makat = scanner.nextLine();
         if (serviceController.removeProduct(makat)) {  // Ensure this method exists in ServiceController
-            System.out.println("Product removed successfully.");
+//            System.out.println("Product removed successfully.");
         } else {
-            System.out.println("Failed to remove product.");
+//            System.out.println("Failed to remove product.");
         }
     }
 
@@ -294,9 +294,9 @@ public class CLIInterface {
         System.out.print("Enter item ID: ");
         String itemID = scanner.nextLine();
         if (serviceController.removeItem(itemID)) {
-            System.out.println("Item removed successfully.");
+//            System.out.println("Item removed successfully.");
         } else {
-            System.out.println("Failed to remove item.");
+//            System.out.println("Failed to remove item.");
         }
     }
 
@@ -337,6 +337,6 @@ public class CLIInterface {
         }
     }
     private static void getLowSupplyReport() {
-        serviceController.getLowSupplyReport();
+        serviceController.generateLowSupplyCSVReport();
     }
 }

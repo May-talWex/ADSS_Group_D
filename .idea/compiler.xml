@@ -10,5 +10,8 @@
         <module name="ADSS_Group_D" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="src.main.java" target="21" />
+    </bytecodeTargetLevel>
   </component>
 </project>

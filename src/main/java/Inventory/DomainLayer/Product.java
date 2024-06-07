@@ -19,7 +19,7 @@ public class Product {
     private String categoryID;
     private String subCategoryID;
     private ArrayList<Item> items;
-    private int itemAmount = 0;
+//    private int itemAmount = 0;
 
     public Product(String makat, String name, String supplier, double costPrice, double sellingPrice, String categoryID, String subCategoryID, int minimumAmount) {
         this.makat = makat;
@@ -71,8 +71,8 @@ public class Product {
     public double getCostPrice() { return costPrice; }
     public void setCostPrice(double costPrice) { this.costPrice = costPrice; }
 
-    public void setItemAmount(int itemAmount) { this.itemAmount = itemAmount; }
-    public int getItemAmount() { return this.itemAmount; }
+//    public void setItemAmount(int itemAmount) { this.itemAmount = itemAmount; }
+    public int getItemAmount() { return items.size(); }
 
     public double getSellingPrice() { return sellingPrice; }
     public void setSellingPrice(double sellingPrice) { this.sellingPrice = sellingPrice; }
@@ -143,7 +143,7 @@ public class Product {
                 ", discounts=" + discounts +
                 ", categoryID='" + categoryID + '\'' +
                 ", subCategoryID='" + subCategoryID + '\'' +
-                ", itemAmount=" + itemAmount +
+                ", itemAmount=" + items.size() +
                 '}';
     }
 }

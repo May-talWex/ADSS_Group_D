@@ -1,5 +1,7 @@
 package Inventory.DomainLayer;
 
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -86,8 +88,12 @@ public class ProductController {
         return products.get(makat);
     }
 
-    public List<Product> getLowStockProducts() {
-        List<Product> lowStockProducts = new ArrayList<>();
+    public int getItemAmountByProductID(String makat){
+        return getProduct(makat).getItemAmount();
+    }
+
+    public ArrayList<Product> getLowStockProducts() {
+        ArrayList<Product> lowStockProducts = new ArrayList<>();
         for (Product product : products.values()) {
             if (product.isLowStock()) {
                 lowStockProducts.add(product);
@@ -95,6 +101,32 @@ public class ProductController {
         }
         return lowStockProducts;
     }
+
+    public void generateLowSupplyCSVReport() {
+        ArrayList<Product> lowSupplyProducts = getLowStockProducts();
+        generateCSVReport(lowSupplyProducts);
+    }
+
+    private void generateCSVReport(ArrayList<Product> products) {
+        String csvFile = "low_supply_report.csv";
+        try (FileWriter writer = new FileWriter(csvFile)) {
+            // Writing header
+            writer.append("Product Makat,Product Name,Quantity\n");
+
+            // Writing data
+            for (Product product : products) {
+                writer.append(product.getMakat()).append(",");
+                writer.append(product.getName()).append(",");
+                writer.append(String.valueOf(product.getCurrentQuantity())).append("\n");
+            }
+
+            System.out.println("CSV report generated successfully.");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+
 
     public void generateStockAlerts() {
         for (Product product : products.values()) {

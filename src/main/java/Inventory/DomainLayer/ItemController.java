@@ -120,7 +120,6 @@ public class ItemController {
         while (iteratorWarehouse.hasNext()) {
             Map.Entry<String, Item> entry = iteratorWarehouse.next();
             if (entry.getValue().isExpired()) {
-                productController.getProduct(entry.getValue().productID).setItemAmount(productController.getProduct(entry.getValue().productID).getItemAmount() - 1);
                 iteratorWarehouse.remove();
                 removed = true;
             }
@@ -131,7 +130,6 @@ public class ItemController {
         while (iteratorStore.hasNext()) {
             Map.Entry<String, Item> entry = iteratorStore.next();
             if (entry.getValue().isExpired()) {
-                productController.getProduct(entry.getValue().productID).setItemAmount(productController.getProduct(entry.getValue().productID).getItemAmount() - 1);
                 iteratorStore.remove();
                 removed = true;
             }
@@ -152,7 +150,6 @@ public class ItemController {
         while (iteratorWarehouse.hasNext()) {
             Map.Entry<String, Item> entry = iteratorWarehouse.next();
             if (entry.getValue().defective) {
-                productController.getProduct(entry.getValue().productID).setItemAmount(productController.getProduct(entry.getValue().productID).getItemAmount() - 1);
                 iteratorWarehouse.remove();
                 removed = true;
             }
@@ -163,7 +160,6 @@ public class ItemController {
         while (iteratorStore.hasNext()) {
             Map.Entry<String, Item> entry = iteratorStore.next();
             if (entry.getValue().defective) {
-                productController.getProduct(entry.getValue().productID).setItemAmount(productController.getProduct(entry.getValue().productID).getItemAmount() - 1);
                 iteratorStore.remove();
                 removed = true;
             }
@@ -182,7 +178,8 @@ public class ItemController {
         if (wareHouseItems.containsKey(itemToAdd.id) || storeItems.containsKey(itemToAdd.id)) {
             System.out.println("Item with same ID already exists");
             return false;
-        } else {
+        }
+        else {
             if (inWareHouse) {
                 wareHouseItems.put(itemToAdd.id, itemToAdd);
                 System.out.println("Item added successfully to warehouse");
@@ -216,15 +213,13 @@ public class ItemController {
         // Item exists, remove it from the appropriate HashMap
         if (wareHouseItems.containsKey(id)) {
             Item item = wareHouseItems.get(id);
-            productController.getProduct(item.productID).setItemAmount(productController.getProduct(item.productID).getItemAmount() - 1);
             wareHouseItems.remove(id);
-            System.out.println("removed succesfully");
+            System.out.println("removed succesfully from warehouse");
         }
         else if(storeItems.containsKey(id)) {
             Item item = storeItems.get(id);
-            productController.getProduct(item.productID).setItemAmount(productController.getProduct(item.productID).getItemAmount() - 1);
             storeItems.remove(id);
-            System.out.println("removed succesfully");
+            System.out.println("removed succesfully from store");
         }
         else {
             System.out.println("Item doesnt exist");

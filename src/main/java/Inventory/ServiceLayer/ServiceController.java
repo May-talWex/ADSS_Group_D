@@ -6,7 +6,11 @@ import Inventory.DomainLayer.Category;
 import Inventory.DomainLayer.ItemController;
 import Inventory.DomainLayer.ProductController;
 import Inventory.DomainLayer.Product;
+
+import java.io.FileWriter;
+import java.io.IOException;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
@@ -40,7 +44,15 @@ public class ServiceController {
                            float supplierCost, float priceNoDiscount, String name,
                            String id, LocalDate expireDate,
                            String categoryID, String productID){
-        if(itemController.addNewItem(defective,inWareHouse,floorBuilding,
+        if(!categoryController.getCategories().containsKey(categoryID)){
+            System.out.println("CategoryID " + categoryID + " does not exist. Please create category first");
+            return false;
+        }
+        else if(!productController.getAllProducts().contains(productController.getProduct(productID))){
+            System.out.println("ProductID " + productID + " does not exist. Please create product first");
+            return false;
+        }
+        else if(itemController.addNewItem(defective,inWareHouse,floorBuilding,
                 floorShelf,x,y,
                 supplierCost,priceNoDiscount,name,id, expireDate,
                 categoryID,productID)){
@@ -60,14 +72,16 @@ public class ServiceController {
 
     public void removeExpire(){
 
-        itemController.removeExpired(productController);
-    }
-    public void getLowSupplyReport() {
-        productController.getLowStockProducts();
+        itemController.removeExpiredItems(productController);
     }
 
+    public void generateLowSupplyCSVReport() {
+        productController.generateLowSupplyCSVReport();
+    }
+
+
     public void removeDefective(){
-        itemController.removeDefective(productController);
+        itemController.removeDefectiveItems(productController);
     }
 
     public boolean moveItemToStore(String id){
