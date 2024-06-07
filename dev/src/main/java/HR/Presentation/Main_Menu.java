@@ -7,19 +7,13 @@ import HR.Domain.Exceptions.NotEnoughWorkers;
 
 import java.util.Scanner;
 
-public class Main {
+public class Main_Menu {
     public static void main(String[] args) throws Exception {
-        boolean testing = true;
-        ScheduleController scheduleController = new ScheduleController();
         EmployeeController employeeController = new EmployeeController();
         BranchController branchController = new BranchController();
         ShiftController shiftController = new ShiftController();
         Branch branch;
-        if (testing) {
-            branch = branchController.createBranch("Branch Name", "Branch Address");
-        } else {
-            branch = branchController.createBranch();
-        }
+        branch = branchController.createBranch("Branch Name", "Branch Address");
         Scanner scanner = new Scanner(System.in);
 
         // Create Admin as HR Manager
@@ -49,14 +43,14 @@ public class Main {
             }
 
             if (employee.hasRole(new HRManager())) {
-                HRMenu(branch, employeeController,scheduleController,shiftController);
+                HRMenu(branch, employeeController,shiftController);
             } else {
                 NonManagerMenu(branch, id);
             }
         }
     }
 
-    public static void HRMenu(Branch branch, EmployeeController employeeController,ScheduleController scheduleController,ShiftController shiftController) throws Exception {
+    public static void HRMenu(Branch branch, EmployeeController employeeController,ShiftController shiftController) throws Exception {
         Scanner scanner = new Scanner(System.in);
         int HRChoice;
         do {
@@ -67,7 +61,7 @@ public class Main {
                     employeeMenu(branch, employeeController);
                     break;
                 case 2:
-                    scheduleMenu(branch,scheduleController,shiftController);
+                    scheduleMenu(branch,shiftController);
                     break;
                 case 3:
                     System.out.println("Logging out and returning to the main menu...");
@@ -121,7 +115,7 @@ public class Main {
         } while (employeeChoice != 5);
     }
 
-    public static void scheduleMenu(Branch branch, ScheduleController scheduleController, ShiftController shiftController) throws NotEnoughWorkers {
+    public static void scheduleMenu(Branch branch, ShiftController shiftController) throws NotEnoughWorkers {
         Scanner scanner = new Scanner(System.in);
         int scheduleChoice;
         do {
@@ -249,7 +243,7 @@ public class Main {
         branch.getWorkerById(2).addPossiblePosition(new Cashier());
         branch.getWorkerById(3).addPossiblePosition(new Cashier());
         branch.getWorkerById(3).addPossiblePosition(new DeliveryPerson());
-        branch.getWorkerById(4).addPossiblePosition(new Cashier());;
+        branch.getWorkerById(4).addPossiblePosition(new Cashier());
         branch.getWorkerById(5).addPossiblePosition(new Cashier());
         branch.getWorkerById(5).addPossiblePosition(new DeliveryPerson());
         branch.getWorkerById(6).addPossiblePosition(new ShiftManager());

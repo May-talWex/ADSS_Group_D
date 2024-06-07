@@ -1,16 +1,12 @@
 package HR.Tests;
 import HR.Domain.*;
 import HR.Domain.Exceptions.*;
-
 import java.time.LocalDate;
-
-
 public class Branch_Tests {
         public static void main(String[] args) {
-            Branch branch = new Branch("Main Branch", "123 Main St");
+            Branch branch = new Branch("Branch", "123 Main St");
 
             Employee employee1 = new Employee(1, "John Doe", "john.doe@example.com", new BankAccount(123, 456, 789), branch, new Salary(1000.0f, LocalDate.now(), null));
-            Employee employee2 = new Employee(2, "Jane Smith", "jane.smith@example.com", new BankAccount(321, 654, 987), branch, new Salary(1200.0f, LocalDate.now(), null));
             ShiftLimitation shiftLimitation = new ShiftLimitation(employee1, LocalDate.now(), true);
 
             try {

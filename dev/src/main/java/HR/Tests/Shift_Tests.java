@@ -9,17 +9,16 @@ public class Shift_Tests {
     public static void main(String[] args) throws Exception {
         LocalDate shiftDate = LocalDate.now();
         Shift shift = new Shift(true, shiftDate);
-
-        Branch branch = new Branch("Main Branch", "123 Main St");
+        Branch branch = new Branch("Test Branch", "123 Main St");
         Employee shiftManager = new Employee(1, "John Doe", "john.doe@example.com", new BankAccount(123, 456, 789), branch, new Salary(1000.0f, LocalDate.now(), null));
         Employee cashier = new Employee(2, "Jane Smith", "jane.smith@example.com", new BankAccount(321, 654, 987), branch, new Salary(1200.0f, LocalDate.now(), null));
         Employee storageEmployee = new Employee(3, "Jim Brown", "jim.brown@example.com", new BankAccount(111, 222, 333), branch, new Salary(1100.0f, LocalDate.now(), null));
-        Employee deliverier = new Employee(4, "Jake White", "jake.white@example.com", new BankAccount(444, 555, 666), branch, new Salary(1150.0f, LocalDate.now(), null));
+        Employee deliverer = new Employee(4, "Jake White", "jake.white@example.com", new BankAccount(444, 555, 666), branch, new Salary(1150.0f, LocalDate.now(), null));
 
         shiftManager.addPossiblePosition(new ShiftManager());
         cashier.addPossiblePosition(new Cashier());
         storageEmployee.addPossiblePosition(new StorageEmployee());
-        deliverier.addPossiblePosition(new DeliveryPerson());
+        deliverer.addPossiblePosition(new DeliveryPerson());
 
         try {
             assert shift.isMorningShift();
@@ -127,37 +126,37 @@ public class Shift_Tests {
         }
 
         try {
-            shift.addDeliverier(deliverier);
-            assert shift.getDeliveriers().contains(deliverier);
-            System.out.println("Add deliverier test passed.");
+            shift.addDeliverier(deliverer);
+            assert shift.getDeliveriers().contains(deliverer);
+            System.out.println("Add deliverer test passed.");
         } catch (AssertionError | Exception e) {
-            System.out.println("Add deliverier test failed.");
+            System.out.println("Add deliverer test failed.");
         }
 
         try {
-            shift.addDeliverier(deliverier);
-            System.out.println("Duplicate add deliverier test failed.");
+            shift.addDeliverier(deliverer);
+            System.out.println("Duplicate add deliverer test failed.");
         } catch (ShiftAlreadyExists e) {
-            System.out.println("Duplicate add deliverier test passed.");
+            System.out.println("Duplicate add deliverer test passed.");
         } catch (Exception e) {
-            System.out.println("Unexpected exception in duplicate add deliverier test.");
+            System.out.println("Unexpected exception in duplicate add deliverer test.");
         }
 
         try {
-            shift.removeDeliverier(deliverier);
-            assert !shift.getDeliveriers().contains(deliverier);
-            System.out.println("Remove deliverier test passed.");
+            shift.removeDeliverier(deliverer);
+            assert !shift.getDeliveriers().contains(deliverer);
+            System.out.println("Remove deliverer test passed.");
         } catch (AssertionError | Exception e) {
-            System.out.println("Remove deliverier test failed.");
+            System.out.println("Remove deliverer test failed.");
         }
 
         try {
-            shift.removeDeliverier(deliverier);
-            System.out.println("Remove non-existent deliverier test failed.");
+            shift.removeDeliverier(deliverer);
+            System.out.println("Remove non-existent deliverer test failed.");
         } catch (ShiftDoesntExist e) {
-            System.out.println("Remove non-existent deliverier test passed.");
+            System.out.println("Remove non-existent deliverer test passed.");
         } catch (Exception e) {
-            System.out.println("Unexpected exception in remove non-existent deliverier test.");
+            System.out.println("Unexpected exception in remove non-existent deliverer test.");
         }
 
         try {

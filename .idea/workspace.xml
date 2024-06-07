@@ -4,13 +4,45 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9a0829ce-1916-46c8-a83f-0eb68d1bcbb5" name="Changes" comment="Added Schedule functionality">
-      <change afterPath="$PROJECT_DIR$/src/main/java/HR/Tests/Branch_Tests.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/HR/Tests/Employee_Tests.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/HR/Tests/Shift_Tests.java" afterDir="false" />
+    <list default="true" id="9a0829ce-1916-46c8-a83f-0eb68d1bcbb5" name="Changes" comment="Added Unit tests">
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/HR/Presentation/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/HR/Presentation/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/HR/Presentation/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/HR/Presentation/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/HR/Data/employees.json" beforeDir="false" afterPath="$PROJECT_DIR$/dev/src/main/java/HR/Data/employees.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/HR/Data/shiftLimitations.json" beforeDir="false" afterPath="$PROJECT_DIR$/dev/src/main/java/HR/Data/shiftLimitations.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/HR/Data/shifts.json" beforeDir="false" afterPath="$PROJECT_DIR$/dev/src/main/java/HR/Data/shifts.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/HR/Domain/BankAccount.java" beforeDir="false" afterPath="$PROJECT_DIR$/dev/src/main/java/HR/Domain/BankAccount.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/HR/Domain/Branch.java" beforeDir="false" afterPath="$PROJECT_DIR$/dev/src/main/java/HR/Domain/Branch.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/HR/Domain/BranchController.java" beforeDir="false" afterPath="$PROJECT_DIR$/dev/src/main/java/HR/Domain/BranchController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/HR/Domain/Employee.java" beforeDir="false" afterPath="$PROJECT_DIR$/dev/src/main/java/HR/Domain/Employee.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/HR/Domain/EmployeeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/dev/src/main/java/HR/Domain/EmployeeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/HR/Domain/EmployeeType.java" beforeDir="false" afterPath="$PROJECT_DIR$/dev/src/main/java/HR/Domain/EmployeeType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/HR/Domain/EmployeeTypes/Cashier.java" beforeDir="false" afterPath="$PROJECT_DIR$/dev/src/main/java/HR/Domain/EmployeeTypes/Cashier.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/HR/Domain/EmployeeTypes/DeliveryPerson.java" beforeDir="false" afterPath="$PROJECT_DIR$/dev/src/main/java/HR/Domain/EmployeeTypes/DeliveryPerson.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/HR/Domain/EmployeeTypes/HRManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/dev/src/main/java/HR/Domain/EmployeeTypes/HRManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/HR/Domain/EmployeeTypes/ShiftManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/dev/src/main/java/HR/Domain/EmployeeTypes/ShiftManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/HR/Domain/EmployeeTypes/StorageEmployee.java" beforeDir="false" afterPath="$PROJECT_DIR$/dev/src/main/java/HR/Domain/EmployeeTypes/StorageEmployee.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/HR/Domain/Exceptions/EmployeeAlreadyExistsInBranch.java" beforeDir="false" afterPath="$PROJECT_DIR$/dev/src/main/java/HR/Domain/Exceptions/EmployeeAlreadyExistsInBranch.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/HR/Domain/Exceptions/EmployeeAlreadyHasRole.java" beforeDir="false" afterPath="$PROJECT_DIR$/dev/src/main/java/HR/Domain/Exceptions/EmployeeAlreadyHasRole.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/HR/Domain/Exceptions/EmployeeDoesNotExistInBranch.java" beforeDir="false" afterPath="$PROJECT_DIR$/dev/src/main/java/HR/Domain/Exceptions/EmployeeDoesNotExistInBranch.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/HR/Domain/Exceptions/EmployeeDoesNotHaveRole.java" beforeDir="false" afterPath="$PROJECT_DIR$/dev/src/main/java/HR/Domain/Exceptions/EmployeeDoesNotHaveRole.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/HR/Domain/Exceptions/NotEnoughWorkers.java" beforeDir="false" afterPath="$PROJECT_DIR$/dev/src/main/java/HR/Domain/Exceptions/NotEnoughWorkers.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/HR/Domain/Exceptions/ShiftAlreadyExists.java" beforeDir="false" afterPath="$PROJECT_DIR$/dev/src/main/java/HR/Domain/Exceptions/ShiftAlreadyExists.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/HR/Domain/Exceptions/ShiftDoesntExist.java" beforeDir="false" afterPath="$PROJECT_DIR$/dev/src/main/java/HR/Domain/Exceptions/ShiftDoesntExist.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/HR/Domain/Exceptions/ShiftLimitationAlreadyExists.java" beforeDir="false" afterPath="$PROJECT_DIR$/dev/src/main/java/HR/Domain/Exceptions/ShiftLimitationAlreadyExists.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/HR/Domain/Exceptions/ShiftLimitationDoesntExist.java" beforeDir="false" afterPath="$PROJECT_DIR$/dev/src/main/java/HR/Domain/Exceptions/ShiftLimitationDoesntExist.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/HR/Domain/Salary.java" beforeDir="false" afterPath="$PROJECT_DIR$/dev/src/main/java/HR/Domain/Salary.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/HR/Domain/Schedule.java" beforeDir="false" afterPath="$PROJECT_DIR$/dev/src/main/java/HR/Domain/Schedule.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/HR/Domain/ScheduleController.java" beforeDir="false" afterPath="$PROJECT_DIR$/dev/src/main/java/HR/Domain/ScheduleController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/HR/Domain/Shift.java" beforeDir="false" afterPath="$PROJECT_DIR$/dev/src/main/java/HR/Domain/Shift.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/HR/Domain/ShiftController.java" beforeDir="false" afterPath="$PROJECT_DIR$/dev/src/main/java/HR/Domain/ShiftController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/HR/Domain/ShiftLimitation.java" beforeDir="false" afterPath="$PROJECT_DIR$/dev/src/main/java/HR/Domain/ShiftLimitation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/HR/Domain/ShiftLimitationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/dev/src/main/java/HR/Domain/ShiftLimitationController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/HR/Presentation/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/dev/src/main/java/HR/Presentation/Main_Menu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/HR/Service/Service.java" beforeDir="false" afterPath="$PROJECT_DIR$/dev/src/main/java/HR/Service/Service.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/HR/Tests/Branch_Tests.java" beforeDir="false" afterPath="$PROJECT_DIR$/dev/src/main/java/HR/Tests/Branch_Tests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/HR/Tests/Employee_Tests.java" beforeDir="false" afterPath="$PROJECT_DIR$/dev/src/main/java/HR/Tests/Employee_Tests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/HR/Tests/Shift_Tests.java" beforeDir="false" afterPath="$PROJECT_DIR$/dev/src/main/java/HR/Tests/Shift_Tests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" />
     </list>
     <list id="92241546-7950-4e02-919c-86c9491857e4" name="Changes by kidox" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -88,7 +120,12 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
-  <component name="RunManager" selected="Application.Shift_Tests">
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\rotto\IdeaProjects\ADSS_Group_D\dev" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.Main_Menu">
     <configuration name="Branch_Tests" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="HR.Tests.Branch_Tests" />
       <module name="ADSS_Group_D" />
@@ -115,6 +152,19 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="Main_Menu" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="HR.Presentation.Main_Menu" />
+      <module name="ADSS_Group_D" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="HR.Presentation.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Shift_Tests" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="HR.Tests.Shift_Tests" />
       <module name="ADSS_Group_D" />
@@ -130,6 +180,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Main_Menu" />
         <item itemvalue="Application.Shift_Tests" />
         <item itemvalue="Application.Branch_Tests" />
         <item itemvalue="Application.Employee_Tests" />
@@ -163,7 +214,7 @@
       <workItem from="1717488535554" duration="447000" />
       <workItem from="1717489009199" duration="1676000" />
       <workItem from="1717594638702" duration="2600000" />
-      <workItem from="1717745044390" duration="10630000" />
+      <workItem from="1717745044390" duration="11008000" />
     </task>
     <task id="LOCAL-00001" summary="Added some JSON support">
       <option name="closed" value="true" />
@@ -269,7 +320,15 @@
       <option name="project" value="LOCAL" />
       <updated>1717749751356</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Added Unit tests">
+      <option name="closed" value="true" />
+      <created>1717768577852</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1717768577852</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -283,30 +342,31 @@
     <MESSAGE value="Added employee ShiftLimitation functionality- still need work" />
     <MESSAGE value="Added employee ShiftLimitation functionality" />
     <MESSAGE value="Added Schedule functionality" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added Schedule functionality" />
+    <MESSAGE value="Added Unit tests" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added Unit tests" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/HR/Domain/ShiftLimitationController.java</url>
+          <url>file://$PROJECT_DIR$/dev/src/main/java/HR/Domain/ShiftLimitationController.java</url>
           <line>31</line>
           <option name="timeStamp" value="5" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/HR/Presentation/Main.java</url>
+          <url>file://$PROJECT_DIR$/dev/src/main/java/HR/Presentation/Main_Menu.java</url>
           <line>133</line>
           <option name="timeStamp" value="7" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/HR/Presentation/Main.java</url>
+          <url>file://$PROJECT_DIR$/dev/src/main/java/HR/Presentation/Main_Menu.java</url>
           <line>216</line>
           <option name="timeStamp" value="8" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/main/java/HR/Domain/Branch.java</url>
+          <url>file://$PROJECT_DIR$/dev/src/main/java/HR/Domain/Branch.java</url>
           <line>82</line>
-          <properties class="HR.Domain.Branch" method="addShiftLimitation">
+          <properties class="HR.Domain.Branch">
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />
           </properties>
