@@ -37,6 +37,18 @@ public class Schedule {
     public List<Shift> getShifts(LocalDate date) {
         return shifts.get(date);
     }
+    public Shift getShift(LocalDate date, boolean isMorningShift) {
+        List<Shift> shiftList = shifts.get(date);
+        if (shiftList == null) {
+            return null;
+        }
+        for (Shift shift : shiftList) {
+            if (shift.isMorningShift() == isMorningShift) {
+                return shift;
+            }
+        }
+        return null;
+    }
 
     public boolean doesShiftExist(LocalDate date, boolean isMorningShift) {
         List<Shift> shiftList = shifts.get(date);
@@ -199,4 +211,117 @@ public class Schedule {
 
     }
 
-}
+    public void updateShiftRequirement(LocalDate date, boolean isMorningShift, int choice, int NewRequirement, Branch branch) throws NotEnoughWorkers {
+        List<Employee> workers = branch.getWorkers();
+        Shift shift = getShift(date, isMorningShift);
+        if (shift == null) {
+            System.out.println("Shift not found.");
+            throw new IllegalArgumentException();
+        }
+        switch (choice) {
+            case 1:
+                if (NewRequirement == shift.getShiftManagers().size()){
+                    System.out.println("Requirement is already set to " + NewRequirement);
+                    return;
+                }
+                else if (NewRequirement < shift.getShiftManagers().size()) {
+                    while (shift.getShiftManagers().size() > NewRequirement) {
+                        shift.getShiftManagers().removeLast();
+                    }
+                }
+                else {
+                    for (Employee w : workers) {
+                        if (w.hasRole(new ShiftManager()) && !shift.getShiftManagers().contains(w)&& !branch.hasShiftLimitation(w, date, isMorningShift)) {
+                            shift.getShiftManagers().add(w);
+                            if (shift.getShiftManagers().size() == NewRequirement) {
+                                break;
+                            }
+                        }
+                    }
+                    if (shift.getShiftManagers().size() < NewRequirement) {
+                        System.out.println("Not enough workers for the shift.");
+                        throw new NotEnoughWorkers(" date: " + date + " and isMorningShift: " + isMorningShift);
+                    }
+                }
+                break;
+            case 2:
+                if (NewRequirement == shift.getCashiers().size()){
+                    System.out.println("Requirement is already set to " + NewRequirement);
+                    return;
+                }
+                else if (NewRequirement < shift.getCashiers().size()) {
+                    while (shift.getCashiers().size() > NewRequirement) {
+                        shift.getCashiers().removeLast();
+                    }
+                }
+                else {
+                    for (Employee w : workers) {
+                        if (w.hasRole(new Cashier()) && !shift.getCashiers().contains(w)&& !branch.hasShiftLimitation(w, date, isMorningShift)) {
+                            shift.getCashiers().add(w);
+                            if (shift.getCashiers().size() == NewRequirement) {
+                                break;
+                            }
+                        }
+                    }
+                    if (shift.getCashiers().size() < NewRequirement) {
+                        System.out.println("Not enough workers for the shift.");
+                        throw new NotEnoughWorkers(" date: " + date + " and isMorningShift: " + isMorningShift);
+                    }
+                }
+                break;
+            case 3:
+                if (NewRequirement == shift.getStorageEmployees().size()){
+                    System.out.println("Requirement is already set to " + NewRequirement);
+                    return;
+                }
+                else if (NewRequirement < shift.getStorageEmployees().size()) {
+                    while (shift.getStorageEmployees().size() > NewRequirement) {
+                        shift.getStorageEmployees().removeLast();
+                    }
+                }
+                else {
+                    for (Employee w : workers) {
+                        if (w.hasRole(new StorageEmployee()) && !shift.getStorageEmployees().contains(w)&& !branch.hasShiftLimitation(w, date, isMorningShift)) {
+                            shift.getStorageEmployees().add(w);
+                            if (shift.getStorageEmployees().size() == NewRequirement) {
+                                break;
+                            }
+                        }
+                    }
+                    if (shift.getStorageEmployees().size() < NewRequirement) {
+                        System.out.println("Not enough workers for the shift.");
+                        throw new NotEnoughWorkers(" date: " + date + " and isMorningShift: " + isMorningShift);
+                    }
+                }
+                break;
+            case 4:
+                if (NewRequirement == shift.getDeliveriers().size()){
+                    System.out.println("Requirement is already set to " + NewRequirement);
+                    return;
+                }
+                else if (NewRequirement < shift.getDeliveriers().size()) {
+                    while (shift.getDeliveriers().size() > NewRequirement) {
+                        shift.getDeliveriers().removeLast();
+                    }
+                }
+                else {
+                    for (Employee w : workers) {
+                        if (w.hasRole(new DeliveryPerson()) && !shift.getDeliveriers().contains(w)&& !branch.hasShiftLimitation(w, date, isMorningShift)) {
+                            shift.getDeliveriers().add(w);
+                            if (shift.getDeliveriers().size() == NewRequirement) {
+                                break;
+                            }
+                        }
+                    }
+                    if (shift.getDeliveriers().size() < NewRequirement) {
+                        System.out.println("Not enough workers for the shift.");
+                        throw new NotEnoughWorkers(" date: " + date + " and isMorningShift: " + isMorningShift);
+                    }
+                }
+                break;
+            default:
+                System.out.println("Invalid choice.");
+                throw new IllegalArgumentException();
+        }
+    }
+        }

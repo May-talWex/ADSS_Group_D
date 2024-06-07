@@ -3,14 +3,17 @@ package HR.Presentation;
 import HR.Domain.*;
 
 import HR.Domain.EmployeeTypes.*;
+import HR.Domain.Exceptions.NotEnoughWorkers;
 
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) throws Exception {
         boolean testing = true;
+        ScheduleController scheduleController = new ScheduleController();
         EmployeeController employeeController = new EmployeeController();
         BranchController branchController = new BranchController();
+        ShiftController shiftController = new ShiftController();
         Branch branch;
         if (testing) {
             branch = branchController.createBranch("Branch Name", "Branch Address");
@@ -46,14 +49,14 @@ public class Main {
             }
 
             if (employee.hasRole(new HRManager())) {
-                HRMenu(branch, employeeController);
+                HRMenu(branch, employeeController,scheduleController,shiftController);
             } else {
                 NonManagerMenu(branch, id);
             }
         }
     }
 
-    public static void HRMenu(Branch branch, EmployeeController employeeController) throws Exception {
+    public static void HRMenu(Branch branch, EmployeeController employeeController,ScheduleController scheduleController,ShiftController shiftController) throws Exception {
         Scanner scanner = new Scanner(System.in);
         int HRChoice;
         do {
@@ -64,7 +67,7 @@ public class Main {
                     employeeMenu(branch, employeeController);
                     break;
                 case 2:
-                    scheduleMenu(branch);
+                    scheduleMenu(branch,scheduleController,shiftController);
                     break;
                 case 3:
                     System.out.println("Logging out and returning to the main menu...");
@@ -118,7 +121,7 @@ public class Main {
         } while (employeeChoice != 5);
     }
 
-    public static void scheduleMenu(Branch branch) {
+    public static void scheduleMenu(Branch branch, ScheduleController scheduleController, ShiftController shiftController) throws NotEnoughWorkers {
         Scanner scanner = new Scanner(System.in);
         int scheduleChoice;
         do {
@@ -127,21 +130,25 @@ public class Main {
             switch (scheduleChoice) {
                 case 1:
                     // Create Shift Schedule logic
-
+                    Shift shift = shiftController.createShift(branch);
+                    ScheduleController.generateShift(branch, shift);
                     break;
                 case 2:
-                    // Set shifts requirements logic
-                    System.out.println("Getting Shift Limitations...");
-                    // Implement logic for displaying shift limitations (e.g., call a getShiftLimitations method)
+                    // Update Shift Requirements logic
+                    ScheduleController.updateShiftRequirements(branch);
                     break;
                 case 3:
-                    System.out.println("Returning to the main HR menu... ");
+                    // Print Weekly Schedule logic
+                    ScheduleController.printWeeklySchedule(branch);
+                    break;
+                case 4:
+                    System.out.println("Returning to the main HR menu...");
                     break;
                 default:
                     System.out.println("Invalid choice!");
                     break;
             }
-        } while (scheduleChoice != 3);
+        } while (scheduleChoice != 4);
     }
 
     public static void NonManagerMenu(Branch branch, int id) {
@@ -198,10 +205,10 @@ public class Main {
 
     public static void PrintScheduleMenu() {
         System.out.println("Schedule Menu:");
-        System.out.println("1. Create Schedule");
-        System.out.println("2. Set Shifts Requirements");
-        System.out.println("3. Return to Main HR Menu");
-
+        System.out.println("1. Create Shift");
+        System.out.println("2. update Shifts Requirements");
+        System.out.println("3. Print Weekly Schedule");
+        System.out.println("4. Return to Main HR Menu");
         System.out.print("Enter your choice: ");
     }
 
