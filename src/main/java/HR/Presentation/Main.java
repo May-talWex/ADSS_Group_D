@@ -178,6 +178,7 @@ public class Main {
     }
 
     public static void PrintNonManagerMenu() {
+        System.out.println("Non-Manager Menu:");
         System.out.println("1. Add Shift Limitation");
         System.out.println("2. Remove Shift Limitation");
         System.out.println("3. View Shift Limitations");
