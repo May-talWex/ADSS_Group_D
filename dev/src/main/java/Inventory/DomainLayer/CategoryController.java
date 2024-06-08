@@ -6,10 +6,11 @@ import java.util.HashMap;
 public class CategoryController {
     private HashMap<String, Category> categories;
 
-    public void addDefaultCategory() {
-        String defaultCategoryID = "MP493";
-        String defaultCategoryName = "Milk Products";
+    public Category addDefaultCategory() {
+        String defaultCategoryID = "DP493";
+        String defaultCategoryName = "Dairy Products";
         addCategory(defaultCategoryName, defaultCategoryID);
+        return getCategoryByID(defaultCategoryID);
     }
 
     public CategoryController() {
@@ -56,13 +57,6 @@ public class CategoryController {
         System.out.println("Category ID " + categoryID + " does not exist.");
         return false;
     }
-
-
-
-
-
-
-
 
 
     public boolean addProductToCategory(String categoryID, Product product) {

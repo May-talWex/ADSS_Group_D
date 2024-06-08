@@ -15,17 +15,18 @@ public class ProductController {
         this.products = new HashMap<>();
     }
 
-    public void addDefaultProduct() {
+    public Product addDefaultProduct() {
         String defaultProductID = "Milk176";
         String defaultProductName = "Milk";
         String supplier = "Tnuva";
         double costPrice = 3.33;
         double sellingPrice = 4.5;
-        String defaultCategoryID = "MP493";
+        String defaultCategoryID = "DP493";
         String defaultSubCategoryID = "Milk";
         int minimumAmount = 3;
 
         addProduct(defaultProductID, defaultProductName, supplier, costPrice, sellingPrice, defaultCategoryID, defaultSubCategoryID, minimumAmount);
+        return getProduct(defaultProductID);
     }
 
     public boolean addProduct(String makat, String name, String supplier, double costPrice, double sellingPrice, String categoryID, String subCategoryID, int minimumAmount) {
@@ -35,8 +36,12 @@ public class ProductController {
         return true;
     }
 
-    public boolean addItemToProduct(String itemID) {
+    public boolean addItemsToProduct(String itemID) {
         Item item = ItemController.getItemByID(itemID);
+        if (item == null) {
+            System.out.println("Item " + itemID + " doesn't exist");
+            return false;
+        }
         if (products.containsKey(item.productID)) {
             Product product = products.get(item.productID);
             product.addItem(item);
@@ -46,9 +51,14 @@ public class ProductController {
         return false;
     }
 
+
     public boolean removeItemFromProduct(String itemID) {
         Item item = ItemController.getItemByID(itemID);
-        if (item != null && products.containsKey(item.productID)) {
+        if (item == null){
+            System.out.println("Item " + itemID + " does not exist");
+            return false;
+        }
+        if (products.containsKey(item.productID)) {
             Product product = products.get(item.productID);
             product.removeItem(item);
             productItems.get(item.productID).remove(itemID);
@@ -104,12 +114,14 @@ public class ProductController {
 
     public void generateLowSupplyCSVReport() {
         ArrayList<Product> lowSupplyProducts = getLowStockProducts();
-        generateCSVReport(lowSupplyProducts);
+        String directory = "C:\\githubclones\\ADSS_Group_D\\dev\\src\\main\\java\\resources\\"; // Specify your directory here
+        String filePath = directory + "low_supply_report.csv";
+        generateCSVReport(lowSupplyProducts, filePath);
     }
 
-    private void generateCSVReport(ArrayList<Product> products) {
-        String csvFile = "low_supply_report.csv";
-        try (FileWriter writer = new FileWriter(csvFile)) {
+
+    private void generateCSVReport(ArrayList<Product> products, String filePath) {
+        try (FileWriter writer = new FileWriter(filePath)) {
             // Writing header
             writer.append("Product Makat,Product Name,Quantity\n");
 
@@ -117,14 +129,15 @@ public class ProductController {
             for (Product product : products) {
                 writer.append(product.getMakat()).append(",");
                 writer.append(product.getName()).append(",");
-                writer.append(String.valueOf(product.getCurrentQuantity())).append("\n");
+                writer.append(String.valueOf(product.getItemAmount())).append("\n");
             }
 
-            System.out.println("CSV report generated successfully.");
+            System.out.println("CSV report generated successfully at: " + filePath);
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
+
 
 
 

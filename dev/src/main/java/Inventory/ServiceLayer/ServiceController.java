@@ -16,23 +16,27 @@ public class ServiceController {
     public ProductController productController;
     public ItemController itemController;
 
-    public ServiceController(boolean addDeafult) {
 
+    public ServiceController(boolean addDefault) {
         categoryController = new CategoryController();
         productController = new ProductController();
         itemController = new ItemController();
 
-
-        if(addDeafult) { //So there is something already in the database
+        if (addDefault) {
             System.out.println("");
-            System.out.println("Start of adding deafult info");
-            categoryController.addDefaultCategory();
-            productController.addDefaultProduct();
-            itemController.addDefaultItem();
-            System.out.println("End of adding deafult info");
+            System.out.println("Start of adding default info");
+            Category defaultCategory = categoryController.addDefaultCategory();
+            Product defaultProduct = productController.addDefaultProduct();
+            categoryController.addProductToCategory(defaultCategory.getID(), defaultProduct);
+            Item defaultItem = itemController.addDefaultItem();
+            if (defaultItem != null) {
+                productController.addItemsToProduct(defaultItem.getID());
+            } else {
+                System.out.println("Failed to add default item.");
+            }
+            System.out.println("End of adding default info");
             System.out.println("");
         }
-
     }
 
     //item service
@@ -53,10 +57,13 @@ public class ServiceController {
                 floorShelf,x,y,
                 supplierCost,priceNoDiscount,name,id, expireDate,
                 categoryID,productID)){
-            productController.addItemToProduct(id);
             return true;
         }
         return false;
+    }
+
+    public void addItemsToProduct(String itemID){
+        productController.addItemsToProduct(itemID);
     }
 
     public void reportExpired(){

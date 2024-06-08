@@ -60,7 +60,7 @@ public class Item {
         this.supplierCost = supplierCost;
         this.priceNoDiscount = priceNoDiscount;
         this.name = name;
-        this.id = id;  // Ensure the ID is set correctly
+        this.id = id;
         this.expireDate = expireDate;
         this.quantityInWareHouse = quantityInWareHouse;
         this.categoryID = categoryID;

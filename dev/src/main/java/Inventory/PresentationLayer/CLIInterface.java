@@ -4,6 +4,7 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 import src.main.java.Inventory.ServiceLayer.ServiceController;
 import java.time.LocalDate;
+import java.time.format.DateTimeParseException;
 import java.util.Map;
 import src.main.java.Inventory.DomainLayer.Category;
 import src.main.java.Inventory.DomainLayer.Product;
@@ -15,8 +16,8 @@ public class CLIInterface {
 
     public static void main(String[] args) {
         boolean exit = false;
-        while(!exit) {
-            System.out.println("Do you want to upload the deafult data? answer yes or no");
+        while (!exit) {
+            System.out.println("Do you want to upload the default data? answer yes or no");
             String response = scanner.nextLine();
             if (response.equalsIgnoreCase("yes")) {
                 serviceController = new ServiceController(true);
@@ -210,9 +211,9 @@ public class CLIInterface {
         System.out.print("Enter category ID: ");
         String id = scanner.nextLine();
         if (serviceController.addCategory(name, id)) {
-//            System.out.println("Category added successfully.");
+            System.out.println("Category added successfully.");
         } else {
-//            System.out.println("Failed to add category. It might already exist.");
+            System.out.println("Failed to add category. It might already exist.");
         }
     }
 
@@ -237,12 +238,11 @@ public class CLIInterface {
         scanner.nextLine(); // Consume newline
 
         if (serviceController.addNewProduct(makat, name, supplier, costPrice, sellingPrice, categoryId, subCategoryID, minimumAmount)) {
-//            System.out.println("New product added successfully.");
+            System.out.println("New product added successfully.");
         } else {
-//            System.out.println("Failed to add new product.");
+            System.out.println("Failed to add new product.");
         }
     }
-
     private static void addItem() {
         System.out.print("Enter item name: ");
         String name = scanner.nextLine();
@@ -252,54 +252,53 @@ public class CLIInterface {
         boolean defective = scanner.nextLine().equalsIgnoreCase("yes");
         System.out.print("Is the item in the warehouse (yes/no)? ");
         boolean inWareHouse = scanner.nextLine().equalsIgnoreCase("yes");
-        System.out.print("Enter product expiry date (YYYY-MM-DD): ");
-        String expireDateStr = scanner.nextLine();
-        LocalDate expireDate = LocalDate.parse(expireDateStr);
+
+        LocalDate expireDate;
+        while (true) {
+            System.out.print("Enter product expiry date (YYYY-MM-DD): ");
+            String expireDateStr = scanner.nextLine();
+            try {
+                expireDate = LocalDate.parse(expireDateStr);
+                break; // Break the loop if the date is valid
+            } catch (DateTimeParseException e) {
+                System.out.println("Invalid date format. Please use YYYY-MM-DD.");
+            }
+        }
 
         System.out.print("Enter category ID: ");
         String categoryID = scanner.nextLine();
         System.out.print("Enter product ID: ");
         String productID = scanner.nextLine();
+        System.out.print("Enter amount of items to add to stock: ");
+        int itemAmount = scanner.nextInt();
+        scanner.nextLine(); // Consume newline
 
-        if (serviceController.addItem(defective, inWareHouse, -1, -1, -1f, -1f, -1f, -1f, name, itemId, expireDate, categoryID, productID)) {
-//            System.out.println("Item added successfully.");
-        } else {
-//            System.out.println("Failed to add item.");
+        for (int i = 0; i < itemAmount; i++) {
+            String newItemId = itemId + i; // Generate a new item ID for each item
+            serviceController.addItem(defective, inWareHouse, -1, -1, -1f, -1f, -1f, -1f, name, newItemId, expireDate, categoryID, productID);
+            serviceController.addItemsToProduct(newItemId); // Add each item individually to the product
         }
     }
+
 
     private static void removeCategory() {
         System.out.print("Enter category ID: ");
         String categoryID = scanner.nextLine();
-        if (serviceController.removeCategory(categoryID)) {
-//            System.out.println("Category was successfully removed.");
-        } else {
-//            System.out.println("Failed to remove category.");
-        }
+        serviceController.removeCategory(categoryID);
     }
 
     private static void removeProduct() {
         System.out.print("Enter product makat: ");
         String makat = scanner.nextLine();
-        if (serviceController.removeProduct(makat)) {  // Ensure this method exists in ServiceController
-//            System.out.println("Product removed successfully.");
-        } else {
-//            System.out.println("Failed to remove product.");
-        }
+        serviceController.removeProduct(makat);
     }
-
-
 
     private static void removeItem() {
         System.out.print("Enter item ID: ");
         String itemID = scanner.nextLine();
-        if (serviceController.removeItem(itemID)) {
-//            System.out.println("Item removed successfully.");
-        } else {
-//            System.out.println("Failed to remove item.");
-        }
+        serviceController.removeItemFromProduct(itemID);
+        serviceController.removeItem(itemID);
     }
-
 
     private static void removeExpired() {
         serviceController.removeExpire();
@@ -308,7 +307,6 @@ public class CLIInterface {
     private static void removeDefective() {
         serviceController.removeDefective();
     }
-
 
     // Methods to display the contents of hashmaps
     private static void displayCategories() {
@@ -336,6 +334,7 @@ public class CLIInterface {
             System.out.println(item.getID() + ": " + item.getName());
         }
     }
+
     private static void getLowSupplyReport() {
         serviceController.generateLowSupplyCSVReport();
     }

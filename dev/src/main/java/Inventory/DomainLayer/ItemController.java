@@ -11,15 +11,16 @@ public class ItemController {
 
     private static HashMap<String, Item> wareHouseItems = new HashMap<>(); //items in warehouse by category ID
     private static HashMap<String, Item> storeItems = new HashMap<>();
+//    int idCounter = 0;
 
 
 
     public ItemController() {
-        HashMap<String, Item> wareHouseItems = new HashMap<>();
-        HashMap<String, Item> storeItems = new HashMap<>();
+        wareHouseItems = new HashMap<>();
+        storeItems = new HashMap<>();
     }
 
-    public void addDefaultItem() {
+    public Item addDefaultItem() {
         // Add non-expired item
         boolean defective = false;
         boolean inWareHouse = true;
@@ -30,20 +31,19 @@ public class ItemController {
         float supplierCost = 3.3f;
         float priceNoDiscount = 4.5f;
         String name = "Milk 3% Tnuva";
-        String id = "Milk3Tnuva1";
+        String id = "Milk3Tnuva";
         LocalDate expireDate = LocalDate.now().plusMonths(3);
         String categoryID = "MP493";
         String productID = "Milk176";
 
         addNewItem(defective, inWareHouse, floorBuilding, floorShelf, x, y, supplierCost, priceNoDiscount, name, id, expireDate, categoryID, productID);
+        return getItemByID(id);
 
-        // Add expired item
-        String expiredName = "Milk 3% Tnuva";
-        String expiredId = "Milk3Tnuva2";
-        LocalDate expiredDate = LocalDate.now().minusDays(1);
-
-        addNewItem(defective, inWareHouse, floorBuilding, floorShelf, x, y, supplierCost, priceNoDiscount, expiredName, expiredId, expiredDate, categoryID, productID);
     }
+
+//    private String generateUniqueID(String baseID) {
+//        return baseID + idCounter++;
+//    }
 
     public static Item getItemByID(String id) {
         if (wareHouseItems.containsKey(id)) {
@@ -175,16 +175,15 @@ public class ItemController {
     public boolean addNewItem(boolean defective, boolean inWareHouse, int floorBuilding, int floorShelf, float x, float y, float supplierCost, float priceNoDiscount, String name, String id, LocalDate expireDate, String categoryID, String productID) {
         Item itemToAdd = new Item(defective, inWareHouse, floorBuilding, floorShelf, x, y, supplierCost, priceNoDiscount, name, id, expireDate, categoryID, productID);
 
-        if (wareHouseItems.containsKey(itemToAdd.id) || storeItems.containsKey(itemToAdd.id)) {
+        if (wareHouseItems.containsKey(itemToAdd.getID()) || storeItems.containsKey(itemToAdd.getID())) {
             System.out.println("Item with same ID already exists");
             return false;
-        }
-        else {
+        } else {
             if (inWareHouse) {
-                wareHouseItems.put(itemToAdd.id, itemToAdd);
+                wareHouseItems.put(itemToAdd.getID(), itemToAdd);
                 System.out.println("Item added successfully to warehouse");
             } else {
-                storeItems.put(itemToAdd.id, itemToAdd);
+                storeItems.put(itemToAdd.getID(), itemToAdd);
                 System.out.println("Item added successfully to store");
             }
         }
