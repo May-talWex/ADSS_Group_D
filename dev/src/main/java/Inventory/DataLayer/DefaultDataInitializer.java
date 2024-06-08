@@ -32,21 +32,21 @@ public class DefaultDataInitializer {
         categoryController.addProductToCategory(bakeryCategory.getID(), croissantProduct);
 
         // Add items to products
-        addItem(itemController, "Milk3Tnuva", "Milk 3% Tnuva", 3, 3, 3.3f, 3.3f, 3.3f, 4.5f, LocalDate.now().plusMonths(3), "DP493", "Milk176");
-        addItem(itemController, "Milk3Tnuva2", "Milk 3% Tnuva", 3, 3, 3.3f, 3.3f, 3.3f, 4.5f, LocalDate.now().plusMonths(3), "DP493", "Milk176");
-        addItem(itemController, "Milk3Tnuva3", "Milk 3% Tnuva", 3, 3, 3.3f, 3.3f, 3.3f, 4.5f, LocalDate.now().plusMonths(3), "DP493", "Milk176");
+        addItem(itemController, productController, "Milk3Tnuva1", "Milk 3% Tnuva", 3, 3, 3.3f, 3.3f, 3.3f, 4.5f, LocalDate.now().plusMonths(3), "DP493", "Milk176");
+        addItem(itemController, productController, "Milk3Tnuva2", "Milk 3% Tnuva", 3, 3, 3.3f, 3.3f, 3.3f, 4.5f, LocalDate.now().plusMonths(3), "DP493", "Milk176");
+        addItem(itemController, productController, "Milk3Tnuva3", "Milk 3% Tnuva", 3, 3, 3.3f, 3.3f, 3.3f, 4.5f, LocalDate.now().plusMonths(3), "DP493", "Milk176");
 
-        addItem(itemController, "Cheese7891", "Cheese 1", 3, 3, 3.3f, 3.3f, 10.0f, 12.5f, LocalDate.now().plusMonths(3), "DP493", "Cheese789");
-        addItem(itemController, "Cheese7892", "Cheese 2", 3, 3, 3.3f, 3.3f, 10.0f, 12.5f, LocalDate.now().plusMonths(3), "DP493", "Cheese789");
-        addItem(itemController, "Cheese7893", "Cheese 3", 3, 3, 3.3f, 3.3f, 10.0f, 12.5f, LocalDate.now().plusMonths(3), "DP493", "Cheese789");
+        addItem(itemController, productController, "Cheese7891", "Cheese 1", 3, 3, 3.3f, 3.3f, 10.0f, 12.5f, LocalDate.now().plusMonths(3), "DP493", "Cheese789");
+        addItem(itemController, productController, "Cheese7892", "Cheese 2", 3, 3, 3.3f, 3.3f, 10.0f, 12.5f, LocalDate.now().plusMonths(3), "DP493", "Cheese789");
+        addItem(itemController, productController, "Cheese7893", "Cheese 3", 3, 3, 3.3f, 3.3f, 10.0f, 12.5f, LocalDate.now().plusMonths(3), "DP493", "Cheese789");
 
-        addItem(itemController, "Bread0011", "Bread 1", 3, 3, 1.0f, 2.0f, 1.0f, 2.0f, LocalDate.now().plusMonths(1), "BK123", "Bread001");
-        addItem(itemController, "Bread0012", "Bread 2", 3, 3, 1.0f, 2.0f, 1.0f, 2.0f, LocalDate.now().plusMonths(1), "BK123", "Bread001");
-        addItem(itemController, "Bread0013", "Bread 3", 3, 3, 1.0f, 2.0f, 1.0f, 2.0f, LocalDate.now().plusMonths(1), "BK123", "Bread001");
+        addItem(itemController, productController, "Bread0011", "Bread 1", 3, 3, 1.0f, 2.0f, 1.0f, 2.0f, LocalDate.parse("2024-01-01"), "BK123", "Bread001");
+        addItem(itemController, productController, "Bread0012", "Bread 2", 3, 3, 1.0f, 2.0f, 1.0f, 2.0f, LocalDate.now().plusMonths(1), "BK123", "Bread001");
+        addItem(itemController, productController, "Bread0013", "Bread 3", 3, 3, 1.0f, 2.0f, 1.0f, 2.0f, LocalDate.now().plusMonths(1), "BK123", "Bread001");
 
-        addItem(itemController, "Croissant0021", "Croissant 1", 3, 3, 2.0f, 3.0f, 2.0f, 3.0f, LocalDate.now().plusMonths(1), "BK123", "Croissant002");
-        addItem(itemController, "Croissant0022", "Croissant 2", 3, 3, 2.0f, 3.0f, 2.0f, 3.0f, LocalDate.now().plusMonths(1), "BK123", "Croissant002");
-        addItem(itemController, "Croissant0023", "Croissant 3", 3, 3, 2.0f, 3.0f, 2.0f, 3.0f, LocalDate.now().plusMonths(1), "BK123", "Croissant002");
+        addItem(itemController, productController, "Croissant0021", "Croissant 1", 3, 3, 2.0f, 3.0f, 2.0f, 3.0f, LocalDate.now().plusMonths(1), "BK123", "Croissant002");
+        addItem(itemController, productController, "Croissant0022", "Croissant 2", 3, 3, 2.0f, 3.0f, 2.0f, 3.0f, LocalDate.now().plusMonths(1), "BK123", "Croissant002");
+        addItem(itemController, productController, "Croissant0023", "Croissant 3", 3, 3, 2.0f, 3.0f, 2.0f, 3.0f, LocalDate.now().plusMonths(1), "BK123", "Croissant002");
 
         System.out.println("End of adding default info");
         System.out.println("");
@@ -62,11 +62,17 @@ public class DefaultDataInitializer {
         return productController.getProduct(productID);
     }
 
-    private static Item addItem(ItemController itemController, String itemID, String name, int floorBuilding, int floorShelf, float x, float y, float supplierCost, float priceNoDiscount, LocalDate expireDate, String categoryID, String productID) {
+    private static Item addItem(ItemController itemController, ProductController productController, String itemID, String name, int floorBuilding, int floorShelf, float x, float y, float supplierCost, float priceNoDiscount, LocalDate expireDate, String categoryID, String productID) {
         boolean defective = false;
         boolean inWareHouse = true;
 
         itemController.addNewItem(defective, inWareHouse, floorBuilding, floorShelf, x, y, supplierCost, priceNoDiscount, name, itemID, expireDate, categoryID, productID);
-        return itemController.getItemByID(itemID);
+        Item item = itemController.getItemByID(itemID);
+
+        if (item != null) {
+            productController.addItemsToProduct(itemID);
+        }
+
+        return item;
     }
 }

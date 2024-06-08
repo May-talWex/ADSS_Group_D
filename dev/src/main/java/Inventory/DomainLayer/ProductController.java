@@ -1,7 +1,9 @@
 package src.main.java.Inventory.DomainLayer;
 
+import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.nio.file.Paths;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -62,7 +64,23 @@ public class ProductController {
             Product product = entry.getValue();
             report.append(product.toString()).append("\n");
         }
-        generateCSV("C:\\githubclones\\ADSS_Group_D\\dev\\src\\main\\java\\resources\\stock_report.csv");
+        String projectRoot = getProjectRootDirectory();
+        String relativePath = "dev/src/main/java/resources/stock_report.csv";
+        String fullPath = Paths.get(projectRoot, relativePath).toString();
+        ensureDirectoryExists(fullPath);
+        generateCSV(fullPath);
+    }
+
+    private String getProjectRootDirectory() {
+        return System.getProperty("user.dir");
+    }
+
+    private void ensureDirectoryExists(String filePath) {
+        File file = new File(filePath);
+        File parentDir = file.getParentFile();
+        if (!parentDir.exists()) {
+            parentDir.mkdirs();
+        }
     }
 
     public void generateCSV(String filePath) {
@@ -81,7 +99,6 @@ public class ProductController {
                         .append(String.valueOf(product.getCurrentQuantity())).append(',')
                         .append(String.valueOf(product.getDiscount())).append('\n');
             }
-            System.out.println("CSV report generated successfully.");
         } catch (IOException e) {
             System.out.println("Error while generating CSV report: " + e.getMessage());
         }
@@ -125,9 +142,11 @@ public class ProductController {
 
     public void generateLowSupplyCSVReport() {
         ArrayList<Product> lowSupplyProducts = getLowStockProducts();
-        String directory = "C:\\githubclones\\ADSS_Group_D\\dev\\src\\main\\java\\resources\\"; // Specify your directory here
-        String filePath = directory + "low_supply_report.csv";
-        generateCSVReport(lowSupplyProducts, filePath);
+        String projectRoot = getProjectRootDirectory();
+        String relativePath = "dev/src/main/java/resources/low_supply_report.csv";
+        String fullPath = Paths.get(projectRoot, relativePath).toString();
+        ensureDirectoryExists(fullPath);
+        generateCSVReport(lowSupplyProducts, fullPath);
     }
 
 

@@ -9,28 +9,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2ee10d94-4457-471a-97fe-029a048743dc" name="Changes" comment="Adding bulk item insertion">
-      <change afterPath="$PROJECT_DIR$/.idea/artifacts/adss2024_v01_jar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/META-INF/MANIFEST.MF" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dev/src/main/java/Inventory/DataLayer/DefaultDataInitializer.java" afterDir="false" />
+    <list default="true" id="2ee10d94-4457-471a-97fe-029a048743dc" name="Changes" comment="Fixing reports and last bugs. Adding jar file. Moving all default creations to data layer">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dev/src/main/java/Inventory/DomainLayer/CategoryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/dev/src/main/java/Inventory/DomainLayer/CategoryController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dev/src/main/java/Inventory/DomainLayer/Item.java" beforeDir="false" afterPath="$PROJECT_DIR$/dev/src/main/java/Inventory/DomainLayer/Item.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dev/src/main/java/Inventory/DataLayer/DefaultDataInitializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/dev/src/main/java/Inventory/DataLayer/DefaultDataInitializer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dev/src/main/java/Inventory/DomainLayer/ItemController.java" beforeDir="false" afterPath="$PROJECT_DIR$/dev/src/main/java/Inventory/DomainLayer/ItemController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dev/src/main/java/Inventory/DomainLayer/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/dev/src/main/java/Inventory/DomainLayer/Product.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dev/src/main/java/Inventory/DomainLayer/ProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/dev/src/main/java/Inventory/DomainLayer/ProductController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dev/src/main/java/Inventory/PresentationLayer/CLIInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/dev/src/main/java/Inventory/PresentationLayer/CLIInterface.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dev/src/main/java/Inventory/ServiceLayer/ServiceController.java" beforeDir="false" afterPath="$PROJECT_DIR$/dev/src/main/java/Inventory/ServiceLayer/ServiceController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dev/src/main/java/Inventory/tests/testsV1.java" beforeDir="false" afterPath="$PROJECT_DIR$/dev/src/main/java/Inventory/tests/testsV1.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/src/inventory/DomainLayer/Category.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/src/inventory/DomainLayer/CategoryController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/src/inventory/DomainLayer/Item.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/src/inventory/DomainLayer/ItemController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/src/inventory/DomainLayer/Product.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/src/inventory/DomainLayer/ProductController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/src/inventory/PresentationLayer/CLIInterface.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/src/inventory/ServiceLayer/ServiceController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/src/inventory/tests/InventoryManagementTests.class" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -74,7 +57,7 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "Application.CLIInterface.executor": "Run",
-    "Application.src.main.java.Inventory.PresentationLayer.CLIInterface.executor": "Run",
+    "Application.src.main.java.Inventory.PresentationLayer.CLIInterface.executor": "Debug",
     "JUnit.InventoryManagementTests.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
@@ -163,7 +146,7 @@
       <option name="presentableId" value="Default" />
       <updated>1717690336405</updated>
       <workItem from="1717690338497" duration="6505000" />
-      <workItem from="1717835411372" duration="6882000" />
+      <workItem from="1717835411372" duration="11729000" />
     </task>
     <task id="LOCAL-00001" summary="Fixing bugs and adding CSV generation">
       <option name="closed" value="true" />
@@ -189,7 +172,15 @@
       <option name="project" value="LOCAL" />
       <updated>1717833983408</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Fixing reports and last bugs. Adding jar file. Moving all default creations to data layer">
+      <option name="closed" value="true" />
+      <created>1717842429526</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1717842429526</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -200,6 +191,18 @@
     <MESSAGE value="Fixing bugs and adding CSV generation" />
     <MESSAGE value="Moving project to DEV folder + adding tests" />
     <MESSAGE value="Adding bulk item insertion" />
-    <option name="LAST_COMMIT_MESSAGE" value="Adding bulk item insertion" />
+    <MESSAGE value="Fixing reports and last bugs. Adding jar file. Moving all default creations to data layer" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixing reports and last bugs. Adding jar file. Moving all default creations to data layer" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/dev/src/main/java/Inventory/DomainLayer/ProductController.java</url>
+          <line>90</line>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

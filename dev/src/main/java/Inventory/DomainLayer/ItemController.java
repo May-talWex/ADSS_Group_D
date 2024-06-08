@@ -2,8 +2,10 @@ package src.main.java.Inventory.DomainLayer;
 
 //controls the items, here we will implement for example a function that returns all expired products
 
+import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.nio.file.Paths;
 import java.time.LocalDate;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -57,7 +59,23 @@ public class ItemController {
         if (expiredItems.isEmpty()) {
             System.out.println("No expired items found.");
         } else {
-            generateExpiredItemsCSV(expiredItems, "C:\\githubclones\\ADSS_Group_D\\dev\\src\\main\\java\\resources\\expired_items_report.csv");
+            String projectRoot = getProjectRootDirectory();
+            String relativePath = "dev/src/main/java/resources/expired_items_report.csv";
+            String fullPath = Paths.get(projectRoot, relativePath).toString();
+            ensureDirectoryExists(fullPath);
+            generateExpiredItemsCSV(expiredItems, fullPath);
+        }
+    }
+
+    private String getProjectRootDirectory() {
+        return System.getProperty("user.dir");
+    }
+
+    private void ensureDirectoryExists(String filePath) {
+        File file = new File(filePath);
+        File parentDir = file.getParentFile();
+        if (!parentDir.exists()) {
+            parentDir.mkdirs();
         }
     }
 
@@ -79,7 +97,7 @@ public class ItemController {
                         .append(item.categoryID).append(',')
                         .append(item.productID).append('\n');
             }
-            System.out.println("CSV report for expired items generated successfully.");
+            System.out.println("CSV report for expired items generated successfully in the path" + filePath + ".");
         } catch (IOException e) {
             System.out.println("Error while generating CSV report for expired items: " + e.getMessage());
         }
@@ -110,7 +128,11 @@ public class ItemController {
         if (defectiveItems.isEmpty()) {
             System.out.println("No defective items found.");
         } else {
-            generateDefectiveItemsCSV(defectiveItems, "C:\\githubclones\\ADSS_Group_D\\dev\\src\\main\\java\\resources\\defective_items_report.csv");
+            String projectRoot = getProjectRootDirectory();
+            String relativePath = "dev/src/main/java/resources/defective_items_report.csv";
+            String fullPath = Paths.get(projectRoot, relativePath).toString();
+            ensureDirectoryExists(fullPath);
+            generateDefectiveItemsCSV(defectiveItems, fullPath);
         }
     }
 
@@ -136,6 +158,7 @@ public class ItemController {
         } catch (IOException e) {
             System.out.println("Error while generating CSV report for defective items: " + e.getMessage());
         }
+
 
 
         // Check defective items in store
