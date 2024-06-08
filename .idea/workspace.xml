@@ -9,9 +9,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2ee10d94-4457-471a-97fe-029a048743dc" name="Changes" comment="Fixing reports and last bugs. Adding jar file. Moving all default creations to data layer">
+    <list default="true" id="2ee10d94-4457-471a-97fe-029a048743dc" name="Changes" comment="adding relative file report storage">
+      <change beforePath="$PROJECT_DIR$/.idea/artifacts/adss2024_v01_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/adss2024_v01_jar.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dev/src/main/java/Inventory/DataLayer/DefaultDataInitializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/dev/src/main/java/Inventory/DataLayer/DefaultDataInitializer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dev/src/main/java/Inventory/DomainLayer/ItemController.java" beforeDir="false" afterPath="$PROJECT_DIR$/dev/src/main/java/Inventory/DomainLayer/ItemController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dev/src/main/java/Inventory/DomainLayer/ProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/dev/src/main/java/Inventory/DomainLayer/ProductController.java" afterDir="false" />
     </list>
@@ -57,7 +57,7 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "Application.CLIInterface.executor": "Run",
-    "Application.src.main.java.Inventory.PresentationLayer.CLIInterface.executor": "Debug",
+    "Application.src.main.java.Inventory.PresentationLayer.CLIInterface.executor": "Run",
     "JUnit.InventoryManagementTests.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
@@ -76,6 +76,7 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\githubclones\ADSS_Group_D\release" />
       <recent name="C:\githubclones\ADSS_Group_D\dev" />
     </key>
   </component>
@@ -146,7 +147,7 @@
       <option name="presentableId" value="Default" />
       <updated>1717690336405</updated>
       <workItem from="1717690338497" duration="6505000" />
-      <workItem from="1717835411372" duration="11729000" />
+      <workItem from="1717835411372" duration="12914000" />
     </task>
     <task id="LOCAL-00001" summary="Fixing bugs and adding CSV generation">
       <option name="closed" value="true" />
@@ -180,7 +181,15 @@
       <option name="project" value="LOCAL" />
       <updated>1717842429526</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="adding relative file report storage">
+      <option name="closed" value="true" />
+      <created>1717857964870</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1717857964870</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -192,17 +201,7 @@
     <MESSAGE value="Moving project to DEV folder + adding tests" />
     <MESSAGE value="Adding bulk item insertion" />
     <MESSAGE value="Fixing reports and last bugs. Adding jar file. Moving all default creations to data layer" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixing reports and last bugs. Adding jar file. Moving all default creations to data layer" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/dev/src/main/java/Inventory/DomainLayer/ProductController.java</url>
-          <line>90</line>
-          <option name="timeStamp" value="6" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="adding relative file report storage" />
+    <option name="LAST_COMMIT_MESSAGE" value="adding relative file report storage" />
   </component>
 </project>

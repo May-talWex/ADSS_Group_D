@@ -35,6 +35,7 @@ public class ItemController {
         }
     }
 
+
     public void generateExpiredItems() {
         List<Item> expiredItems = new ArrayList<>();
 
@@ -43,7 +44,6 @@ public class ItemController {
             Map.Entry<String, Item> entry = iteratorWarehouse.next();
             if (entry.getValue().isExpired()) {
                 expiredItems.add(entry.getValue());
-                System.out.println("Expired warehouse item: " + entry.getValue());
             }
         }
 
@@ -59,9 +59,9 @@ public class ItemController {
         if (expiredItems.isEmpty()) {
             System.out.println("No expired items found.");
         } else {
-            String projectRoot = getProjectRootDirectory();
+            String jarDir = getJarDirectory();
             String relativePath = "dev/src/main/java/resources/expired_items_report.csv";
-            String fullPath = Paths.get(projectRoot, relativePath).toString();
+            String fullPath = Paths.get(jarDir, relativePath).toString();
             ensureDirectoryExists(fullPath);
             generateExpiredItemsCSV(expiredItems, fullPath);
         }
@@ -128,11 +128,20 @@ public class ItemController {
         if (defectiveItems.isEmpty()) {
             System.out.println("No defective items found.");
         } else {
-            String projectRoot = getProjectRootDirectory();
+            String jarDir = getJarDirectory();
             String relativePath = "dev/src/main/java/resources/defective_items_report.csv";
-            String fullPath = Paths.get(projectRoot, relativePath).toString();
+            String fullPath = Paths.get(jarDir, relativePath).toString();
             ensureDirectoryExists(fullPath);
             generateDefectiveItemsCSV(defectiveItems, fullPath);
+        }
+    }
+
+    private String getJarDirectory() {
+        try {
+            String jarPath = ProductController.class.getProtectionDomain().getCodeSource().getLocation().toURI().getPath();
+            return new File(jarPath).getParentFile().getParentFile().getParentFile().getParent(); // Adjust according to your directory structure
+        } catch (Exception e) {
+            throw new RuntimeException("Unable to determine JAR file directory", e);
         }
     }
 
@@ -154,7 +163,7 @@ public class ItemController {
                         .append(item.categoryID).append(',')
                         .append(item.productID).append('\n');
             }
-            System.out.println("CSV report for defective items generated successfully.");
+            System.out.println("CSV report for defective items generated successfully at path" + filePath + ".");
         } catch (IOException e) {
             System.out.println("Error while generating CSV report for defective items: " + e.getMessage());
         }

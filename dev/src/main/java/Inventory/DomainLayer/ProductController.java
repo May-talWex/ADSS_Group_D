@@ -64,11 +64,20 @@ public class ProductController {
             Product product = entry.getValue();
             report.append(product.toString()).append("\n");
         }
-        String projectRoot = getProjectRootDirectory();
+        String jarDir = getJarDirectory();
         String relativePath = "dev/src/main/java/resources/stock_report.csv";
-        String fullPath = Paths.get(projectRoot, relativePath).toString();
+        String fullPath = Paths.get(jarDir, relativePath).toString();
         ensureDirectoryExists(fullPath);
         generateCSV(fullPath);
+    }
+
+    private String getJarDirectory() {
+        try {
+            String jarPath = ProductController.class.getProtectionDomain().getCodeSource().getLocation().toURI().getPath();
+            return new File(jarPath).getParentFile().getParentFile().getParentFile().getParent(); // Adjust according to your directory structure
+        } catch (Exception e) {
+            throw new RuntimeException("Unable to determine JAR file directory", e);
+        }
     }
 
     private String getProjectRootDirectory() {
@@ -99,6 +108,7 @@ public class ProductController {
                         .append(String.valueOf(product.getCurrentQuantity())).append(',')
                         .append(String.valueOf(product.getDiscount())).append('\n');
             }
+            System.out.println("CSV stock report generated successfully at path" + filePath + ".");
         } catch (IOException e) {
             System.out.println("Error while generating CSV report: " + e.getMessage());
         }
@@ -142,9 +152,9 @@ public class ProductController {
 
     public void generateLowSupplyCSVReport() {
         ArrayList<Product> lowSupplyProducts = getLowStockProducts();
-        String projectRoot = getProjectRootDirectory();
+        String jarDir = getJarDirectory();
         String relativePath = "dev/src/main/java/resources/low_supply_report.csv";
-        String fullPath = Paths.get(projectRoot, relativePath).toString();
+        String fullPath = Paths.get(jarDir, relativePath).toString();
         ensureDirectoryExists(fullPath);
         generateCSVReport(lowSupplyProducts, fullPath);
     }
