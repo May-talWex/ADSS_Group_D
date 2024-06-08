@@ -83,7 +83,7 @@ class InventoryManagementTests {
     // Test for Tracking and Reporting Damaged Items
     @Test
     void testTrackAndReportDamagedItems() {
-        itemController.setDefective(item.id);
+        itemController.reportDefectiveItem(true, item.id);
         Item retrievedItem = itemController.getItemByID(item.id);
         assertNotNull(retrievedItem);
         assertTrue(retrievedItem.defective);

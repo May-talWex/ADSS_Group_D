@@ -95,6 +95,10 @@ public class Item {
         return expireDate.isBefore(currentDate);
     }
 
+    public void setisDefective(boolean isDefective){
+        defective = isDefective;
+    }
+
 
     public void setSupplierCost(float newPrice){
         supplierCost = newPrice;

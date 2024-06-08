@@ -19,6 +19,7 @@ public class Product {
     private String categoryID;
     private String subCategoryID;
     private ArrayList<Item> items;
+    private double fullPrice;
 //    private int itemAmount = 0;
 
     public Product(String makat, String name, String supplier, double costPrice, double sellingPrice, String categoryID, String subCategoryID, int minimumAmount) {
@@ -26,6 +27,7 @@ public class Product {
         this.name = name;
         this.supplier = supplier;
         this.sellingPrice = sellingPrice;
+        this.fullPrice = sellingPrice;
         this.categoryID = categoryID;
         this.subCategoryID = subCategoryID;
         this.isDamaged = false;
@@ -75,7 +77,7 @@ public class Product {
     public int getItemAmount() { return items.size(); }
 
     public double getSellingPrice() { return sellingPrice; }
-    public void setSellingPrice(double sellingPrice) { this.sellingPrice = sellingPrice; }
+    public void setSellingPrice(double sellingPrice) { this.sellingPrice = sellingPrice;}
 
     public String getCategoryID() { return categoryID; }
     public void setCategory(String categoryID) { this.categoryID = categoryID; }
@@ -95,10 +97,6 @@ public class Product {
         this.sellingPrice = this.sellingPrice - (this.sellingPrice * (discountPercentage / 100.0));
     }
 
-    public void setDiscountPeriod(LocalDate startDiscount, LocalDate endDiscount) {
-        this.startDiscount = startDiscount;
-        this.endDiscount = endDiscount;
-    }
 
     public boolean isDiscountActive() {
         LocalDate now = LocalDate.now();
@@ -112,7 +110,21 @@ public class Product {
     public boolean isDamaged() { return isDamaged; }
 
     public double getDiscount() { return discount; }
-    public void setDiscount(int discount) { this.discount = discount; }
+    public void setDiscount(int discount, LocalDate startDate, LocalDate endDate) {
+        this.discount = discount;
+        this.startDiscount = startDate;
+        this.endDiscount = endDate;
+        if(isDiscountActive()){
+            this.sellingPrice = this.fullPrice - (this.fullPrice * (discount / 100.0));
+        }
+        else{
+            this.discount = 0;
+            this.sellingPrice = this.fullPrice;
+        }
+    }
+
+    public double getFullPrice() { return fullPrice; }
+
 
     public void addDiscount(String discount) { discounts.add(discount); }
 

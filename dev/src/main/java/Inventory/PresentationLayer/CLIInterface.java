@@ -5,10 +5,7 @@ import java.util.Scanner;
 import src.main.java.Inventory.ServiceLayer.ServiceController;
 import java.time.LocalDate;
 import java.time.format.DateTimeParseException;
-import java.util.Map;
-import src.main.java.Inventory.DomainLayer.Category;
-import src.main.java.Inventory.DomainLayer.Product;
-import src.main.java.Inventory.DomainLayer.Item;
+
 
 public class CLIInterface {
     private static ServiceController serviceController;
@@ -40,7 +37,7 @@ public class CLIInterface {
                         handleAddRemoveMenu();
                         break;
                     case 2:
-                        handleDisplayHashMapsMenu();
+                        handleUpdateMenu();
                         break;
                     case 3:
                         handleReportMenu();
@@ -64,9 +61,9 @@ public class CLIInterface {
     private static void primeMenu() {
         System.out.println("What would you like to do: ");
         System.out.println("1. Add/remove products/item/categories");
-        System.out.println("2. Display products/item/categories");
+        System.out.println("2. Update items/categories/products");
         System.out.println("3. Generate reports");
-        System.out.println("4. Generate alarming report");
+        System.out.println("4. Generate low stock report");
         System.out.println("5. Exit");
         System.out.print("Choose an option: ");
     }
@@ -114,34 +111,6 @@ public class CLIInterface {
         }
     }
 
-    private static void handleDisplayHashMapsMenu() {
-        try {
-            displayHashMapsMenu();
-            int choice = scanner.nextInt();
-            scanner.nextLine(); // Consume newline
-
-            switch (choice) {
-                case 1:
-                    displayCategories();
-                    break;
-                case 2:
-                    displayProducts();
-                    break;
-                case 3:
-                    displayItems();
-                    break;
-                case 4:
-                    System.out.println("Exiting...");
-                    return;
-                default:
-                    System.out.println("Invalid choice. Please try again.");
-            }
-        } catch (InputMismatchException e) {
-            System.out.println("Invalid input. Please enter a number.");
-            scanner.nextLine(); // Consume the invalid input
-        }
-    }
-
     private static void handleReportMenu() {
         try {
             reportMenu();
@@ -156,6 +125,9 @@ public class CLIInterface {
                     getExpireReport();
                     break;
                 case 3:
+                    getDefectiveReport();
+                    break;
+                case 4:
                     System.out.println("Exiting...");
                 default:
                     System.out.println("Invalid choice. Please try again.");
@@ -180,6 +152,32 @@ public class CLIInterface {
         System.out.print("Choose an option: ");
     }
 
+    private static void handleUpdateMenu() {
+        try {
+            updateMenu();
+            int choice = scanner.nextInt();
+            scanner.nextLine(); // Consume newline
+
+            switch (choice) {
+                case 1:
+                    updateProductDiscount();
+                    break;
+                case 2:
+                    updateItemDefective();
+                    break;
+                case 3:
+                    System.out.println("Exiting...");
+                    return;
+                default:
+                    System.out.println("Invalid choice. Please try again.");
+            }
+        } catch (InputMismatchException e) {
+            System.out.println("Invalid input. Please enter a number.");
+            scanner.nextLine(); // Consume the invalid input
+        }
+    }
+
+
     private static void displayHashMapsMenu() {
         System.out.println("Menu:");
         System.out.println("1. Display Categories");
@@ -193,6 +191,15 @@ public class CLIInterface {
         System.out.println("Menu:");
         System.out.println("1. Get Stock report");
         System.out.println("2. Get expire report");
+        System.out.println("3. Get defective report");
+        System.out.println("4. Exit");
+        System.out.print("Choose an option: ");
+    }
+
+    private static void updateMenu() {
+        System.out.println("Update Menu:");
+        System.out.println("1. Update Product Discount");
+        System.out.println("2. Update Item Defective Status");
         System.out.println("3. Exit");
         System.out.print("Choose an option: ");
     }
@@ -238,7 +245,7 @@ public class CLIInterface {
         scanner.nextLine(); // Consume newline
 
         if (serviceController.addNewProduct(makat, name, supplier, costPrice, sellingPrice, categoryId, subCategoryID, minimumAmount)) {
-            System.out.println("New product added successfully.");
+//            System.out.println("New product added successfully.");
         } else {
             System.out.println("Failed to add new product.");
         }
@@ -269,9 +276,17 @@ public class CLIInterface {
         String categoryID = scanner.nextLine();
         System.out.print("Enter product ID: ");
         String productID = scanner.nextLine();
-        System.out.print("Enter amount of items to add to stock: ");
-        int itemAmount = scanner.nextInt();
-        scanner.nextLine(); // Consume newline
+        int itemAmount = 0;
+        while (true) {
+            System.out.print("Enter amount of items to add to stock: ");
+            itemAmount = scanner.nextInt();
+            scanner.nextLine(); // Consume newline
+            if (itemAmount > 0) {
+                break; // Break the loop if the item amount is valid
+            } else {
+                System.out.println("Item amount must be greater than 0. Please try again.");
+            }
+        }
 
         for (int i = 0; i < itemAmount; i++) {
             String newItemId = itemId + i; // Generate a new item ID for each item
@@ -279,6 +294,7 @@ public class CLIInterface {
             serviceController.addItemsToProduct(newItemId); // Add each item individually to the product
         }
     }
+
 
 
     private static void removeCategory() {
@@ -308,34 +324,62 @@ public class CLIInterface {
         serviceController.removeDefective();
     }
 
-    // Methods to display the contents of hashmaps
-    private static void displayCategories() {
-        System.out.println("Categories:");
-        for (Map.Entry<String, Category> entry : serviceController.getCategories().entrySet()) {
-            System.out.println(entry.getKey() + ": " + entry.getValue().getName());
-        }
-    }
-
-    private static void displayProducts() {
-        System.out.println("Products:");
-        for (Product product : serviceController.getAllProducts()) {
-            System.out.println(product.getMakat() + ": " + product.getName());
-        }
-    }
-
-    private static void displayItems() {
-        System.out.println("Warehouse Items:");
-        for (Item item : serviceController.getWarehouseItems()) {
-            System.out.println(item.getID() + ": " + item.getName());
-        }
-
-        System.out.println("Store Items:");
-        for (Item item : serviceController.getStoreItems()) {
-            System.out.println(item.getID() + ": " + item.getName());
-        }
-    }
-
     private static void getLowSupplyReport() {
         serviceController.generateLowSupplyCSVReport();
+    }
+
+    private static void getDefectiveReport() {
+        serviceController.generateDefectiveCSVReport();
+    }
+
+    private static void updateProductDiscount() {
+        System.out.print("Enter product makat: ");
+        String makat = scanner.nextLine();
+        System.out.print("Enter new discount percentage: ");
+        int discount = scanner.nextInt();
+        scanner.nextLine(); // Consume newline
+
+        LocalDate startDate;
+        while (true) {
+            System.out.print("Enter discount start date (YYYY-MM-DD): ");
+            String startDateStr = scanner.nextLine();
+            try {
+                startDate = LocalDate.parse(startDateStr);
+                break; // Break the loop if the date is valid
+            } catch (DateTimeParseException e) {
+                System.out.println("Invalid date format. Please use YYYY-MM-DD.");
+            }
+        }
+
+        LocalDate endDate;
+        while (true) {
+            System.out.print("Enter discount end date (YYYY-MM-DD): ");
+            String endDateStr = scanner.nextLine();
+            try {
+                endDate = LocalDate.parse(endDateStr);
+                break; // Break the loop if the date is valid
+            } catch (DateTimeParseException e) {
+                System.out.println("Invalid date format. Please use YYYY-MM-DD.");
+            }
+        }
+
+        if (serviceController.updateProductDiscount(makat, discount, startDate, endDate)) {
+            System.out.println("Product discount updated successfully.");
+        } else {
+            System.out.println("Failed to update product discount. Product might not exist.");
+        }
+    }
+
+
+    private static void updateItemDefective() {
+        System.out.print("Enter Item ID: ");
+        String itemID = scanner.nextLine();
+        System.out.print("Is the item defective (yes/no)? ");
+        boolean defective = scanner.nextLine().equalsIgnoreCase("yes");
+        if (serviceController.updateItemDefective(defective, itemID)) {
+            System.out.println("Item defective status updated successfully.");
+        } else {
+            System.out.println("Failed to update item defective status.");
+        }
     }
 }

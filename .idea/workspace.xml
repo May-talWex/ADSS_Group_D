@@ -1,17 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="adss2024_v01:jar" />
+    </artifacts-to-build>
+  </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2ee10d94-4457-471a-97fe-029a048743dc" name="Changes" comment="Moving project to DEV folder + adding tests">
+    <list default="true" id="2ee10d94-4457-471a-97fe-029a048743dc" name="Changes" comment="Adding bulk item insertion">
+      <change afterPath="$PROJECT_DIR$/.idea/artifacts/adss2024_v01_jar.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/META-INF/MANIFEST.MF" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dev/src/main/java/Inventory/DataLayer/DefaultDataInitializer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dev/src/main/java/Inventory/DomainLayer/CategoryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/dev/src/main/java/Inventory/DomainLayer/CategoryController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dev/src/main/java/Inventory/DomainLayer/Item.java" beforeDir="false" afterPath="$PROJECT_DIR$/dev/src/main/java/Inventory/DomainLayer/Item.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dev/src/main/java/Inventory/DomainLayer/ItemController.java" beforeDir="false" afterPath="$PROJECT_DIR$/dev/src/main/java/Inventory/DomainLayer/ItemController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dev/src/main/java/Inventory/DomainLayer/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/dev/src/main/java/Inventory/DomainLayer/Product.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dev/src/main/java/Inventory/DomainLayer/ProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/dev/src/main/java/Inventory/DomainLayer/ProductController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dev/src/main/java/Inventory/PresentationLayer/CLIInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/dev/src/main/java/Inventory/PresentationLayer/CLIInterface.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dev/src/main/java/Inventory/ServiceLayer/ServiceController.java" beforeDir="false" afterPath="$PROJECT_DIR$/dev/src/main/java/Inventory/ServiceLayer/ServiceController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dev/src/main/java/Inventory/tests/testsV1.java" beforeDir="false" afterPath="$PROJECT_DIR$/dev/src/main/java/Inventory/tests/testsV1.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/src/inventory/DomainLayer/Category.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/src/inventory/DomainLayer/CategoryController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/src/inventory/DomainLayer/Item.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/src/inventory/DomainLayer/ItemController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/src/inventory/DomainLayer/Product.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/src/inventory/DomainLayer/ProductController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/src/inventory/PresentationLayer/CLIInterface.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/src/inventory/ServiceLayer/ServiceController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/src/inventory/tests/InventoryManagementTests.class" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,12 +53,12 @@
     &quot;assignee&quot;: &quot;timorlan&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings">{
-  &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/May-talWex/ADSS_Group_D.git&quot;,
-    &quot;accountId&quot;: &quot;d2dba9d7-518d-411d-a679-5ad71eb239dc&quot;
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/May-talWex/ADSS_Group_D.git",
+    "accountId": "cdbfdf1c-f5bc-4dba-a0c5-400a30b43d11"
   }
-}</component>
+}]]></component>
   <component name="ProjectColorInfo">{
   &quot;customColor&quot;: &quot;&quot;,
   &quot;associatedIndex&quot;: 1
@@ -55,18 +74,20 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "Application.CLIInterface.executor": "Run",
-    "Application.src.main.java.Inventory.PresentationLayer.CLIInterface.executor": "Debug",
+    "Application.src.main.java.Inventory.PresentationLayer.CLIInterface.executor": "Run",
     "JUnit.InventoryManagementTests.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "git-widget-placeholder": "209638667__205850621__325842706",
     "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/githubclones/ADSS_Group_D/release",
     "node.js.detected.package.eslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
+    "project.structure.last.edited": "Artifacts",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -142,6 +163,7 @@
       <option name="presentableId" value="Default" />
       <updated>1717690336405</updated>
       <workItem from="1717690338497" duration="6505000" />
+      <workItem from="1717835411372" duration="6882000" />
     </task>
     <task id="LOCAL-00001" summary="Fixing bugs and adding CSV generation">
       <option name="closed" value="true" />
@@ -159,7 +181,15 @@
       <option name="project" value="LOCAL" />
       <updated>1717766368558</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Adding bulk item insertion">
+      <option name="closed" value="true" />
+      <created>1717833983407</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1717833983408</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -169,17 +199,7 @@
     <MESSAGE value="removing HR directory and fixing ID txt" />
     <MESSAGE value="Fixing bugs and adding CSV generation" />
     <MESSAGE value="Moving project to DEV folder + adding tests" />
-    <option name="LAST_COMMIT_MESSAGE" value="Moving project to DEV folder + adding tests" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/dev/src/main/java/Inventory/PresentationLayer/CLIInterface.java</url>
-          <line>275</line>
-          <option name="timeStamp" value="36" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="Adding bulk item insertion" />
+    <option name="LAST_COMMIT_MESSAGE" value="Adding bulk item insertion" />
   </component>
 </project>

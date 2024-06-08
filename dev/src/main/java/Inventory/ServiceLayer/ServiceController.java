@@ -6,6 +6,8 @@ import src.main.java.Inventory.DomainLayer.Category;
 import src.main.java.Inventory.DomainLayer.ItemController;
 import src.main.java.Inventory.DomainLayer.ProductController;
 import src.main.java.Inventory.DomainLayer.Product;
+import src.main.java.Inventory.DataLayer.DefaultDataInitializer;
+
 
 import java.time.LocalDate;
 import java.util.HashMap;
@@ -23,19 +25,7 @@ public class ServiceController {
         itemController = new ItemController();
 
         if (addDefault) {
-            System.out.println("");
-            System.out.println("Start of adding default info");
-            Category defaultCategory = categoryController.addDefaultCategory();
-            Product defaultProduct = productController.addDefaultProduct();
-            categoryController.addProductToCategory(defaultCategory.getID(), defaultProduct);
-            Item defaultItem = itemController.addDefaultItem();
-            if (defaultItem != null) {
-                productController.addItemsToProduct(defaultItem.getID());
-            } else {
-                System.out.println("Failed to add default item.");
-            }
-            System.out.println("End of adding default info");
-            System.out.println("");
+            DefaultDataInitializer.initializeDefaultData(categoryController, productController, itemController);
         }
     }
 
@@ -67,7 +57,7 @@ public class ServiceController {
     }
 
     public void reportExpired(){
-        itemController.reportExpiredItems();
+        itemController.generateExpiredItems();
     }
 
     public void generateStockReport() {
@@ -184,6 +174,18 @@ public class ServiceController {
         return categoryController.getCategories();
     }
 
+    public boolean updateItemDefective(boolean isDefective, String itemID){
+        return itemController.reportDefectiveItem(isDefective, itemID);
+    }
+
+    public boolean updateProductDiscount(String productID, int discount, LocalDate startDate, LocalDate endDate) {
+        return productController.updateProductDiscount(productID, discount, startDate, endDate);
+    }
+
+
+    public void generateDefectiveCSVReport(){
+        itemController.generateDefectiveItemsReport();
+    }
 
 }
 

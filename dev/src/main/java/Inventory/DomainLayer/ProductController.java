@@ -2,6 +2,7 @@ package src.main.java.Inventory.DomainLayer;
 
 import java.io.FileWriter;
 import java.io.IOException;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -13,20 +14,6 @@ public class ProductController {
 
     public ProductController() {
         this.products = new HashMap<>();
-    }
-
-    public Product addDefaultProduct() {
-        String defaultProductID = "Milk176";
-        String defaultProductName = "Milk";
-        String supplier = "Tnuva";
-        double costPrice = 3.33;
-        double sellingPrice = 4.5;
-        String defaultCategoryID = "DP493";
-        String defaultSubCategoryID = "Milk";
-        int minimumAmount = 3;
-
-        addProduct(defaultProductID, defaultProductName, supplier, costPrice, sellingPrice, defaultCategoryID, defaultSubCategoryID, minimumAmount);
-        return getProduct(defaultProductID);
     }
 
     public boolean addProduct(String makat, String name, String supplier, double costPrice, double sellingPrice, String categoryID, String subCategoryID, int minimumAmount) {
@@ -75,8 +62,32 @@ public class ProductController {
             Product product = entry.getValue();
             report.append(product.toString()).append("\n");
         }
-        System.out.println(report.toString());
+        generateCSV("C:\\githubclones\\ADSS_Group_D\\dev\\src\\main\\java\\resources\\stock_report.csv");
     }
+
+    public void generateCSV(String filePath) {
+        try (FileWriter writer = new FileWriter(filePath)) {
+            writer.append("Makat,Name,Supplier,Cost Price,Selling Price, Full Price, Category ID,Sub Category ID,Minimum Amount,Current Quantity,Discount\n");
+            for (Product product : products.values()) {
+                writer.append(product.getMakat()).append(',')
+                        .append(product.getName()).append(',')
+                        .append(product.getSupplier()).append(',')
+                        .append(String.valueOf(product.getCostPrice())).append(',')
+                        .append(String.valueOf(product.getSellingPrice())).append(',')
+                        .append(String.valueOf(product.getFullPrice())).append(',')
+                        .append(product.getCategoryID()).append(',')
+                        .append(product.getSubCategoryID()).append(',')
+                        .append(String.valueOf(product.getMinimumAmount())).append(',')
+                        .append(String.valueOf(product.getCurrentQuantity())).append(',')
+                        .append(String.valueOf(product.getDiscount())).append('\n');
+            }
+            System.out.println("CSV report generated successfully.");
+        } catch (IOException e) {
+            System.out.println("Error while generating CSV report: " + e.getMessage());
+        }
+    }
+
+
 
     public boolean removeProduct(String makat) {
         Product product = products.get(makat);
@@ -162,4 +173,24 @@ public class ProductController {
         }
         return categoryProducts;
     }
+
+    public boolean updateProductDiscount(String productID, int discount, LocalDate startDate, LocalDate endDate) {
+        Product product = getProduct(productID);
+        if (product != null) {
+            product.setDiscount(discount, startDate, endDate);
+            return true;
+        }
+        return false;
+    }
+
+    //adding for when DB is implemented
+    public void setCurrentPrice(String productID) {
+        Product product = getProduct(productID);
+        if (product != null) {
+            if(!product.isDiscountActive()){
+                product.setSellingPrice(product.getFullPrice());
+            }
+        }
+    }
+
 }

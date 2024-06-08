@@ -2,16 +2,19 @@ package src.main.java.Inventory.DomainLayer;
 
 //controls the items, here we will implement for example a function that returns all expired products
 
+import java.io.FileWriter;
+import java.io.IOException;
+import java.time.LocalDate;
 import java.util.HashMap;
 import java.util.Iterator;
-import java.time.LocalDate;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 
 public class ItemController {
 
     private static HashMap<String, Item> wareHouseItems = new HashMap<>(); //items in warehouse by category ID
     private static HashMap<String, Item> storeItems = new HashMap<>();
-//    int idCounter = 0;
 
 
 
@@ -19,31 +22,6 @@ public class ItemController {
         wareHouseItems = new HashMap<>();
         storeItems = new HashMap<>();
     }
-
-    public Item addDefaultItem() {
-        // Add non-expired item
-        boolean defective = false;
-        boolean inWareHouse = true;
-        int floorBuilding = 3;
-        int floorShelf = 3;
-        float x = 3.3f;
-        float y = 3.3f;
-        float supplierCost = 3.3f;
-        float priceNoDiscount = 4.5f;
-        String name = "Milk 3% Tnuva";
-        String id = "Milk3Tnuva";
-        LocalDate expireDate = LocalDate.now().plusMonths(3);
-        String categoryID = "MP493";
-        String productID = "Milk176";
-
-        addNewItem(defective, inWareHouse, floorBuilding, floorShelf, x, y, supplierCost, priceNoDiscount, name, id, expireDate, categoryID, productID);
-        return getItemByID(id);
-
-    }
-
-//    private String generateUniqueID(String baseID) {
-//        return baseID + idCounter++;
-//    }
 
     public static Item getItemByID(String id) {
         if (wareHouseItems.containsKey(id)) {
@@ -55,8 +33,7 @@ public class ItemController {
         }
     }
 
-
-    public void reportExpiredItems() {
+    public void generateExpiredItems() {
         List<Item> expiredItems = new ArrayList<>();
 
         Iterator<Map.Entry<String, Item>> iteratorWarehouse = wareHouseItems.entrySet().iterator();
@@ -74,17 +51,42 @@ public class ItemController {
             Map.Entry<String, Item> entry = iteratorStore.next();
             if (entry.getValue().isExpired()) {
                 expiredItems.add(entry.getValue());
-                System.out.println("Expired store item: " + entry.getValue());
             }
         }
 
         if (expiredItems.isEmpty()) {
             System.out.println("No expired items found.");
+        } else {
+            generateExpiredItemsCSV(expiredItems, "C:\\githubclones\\ADSS_Group_D\\dev\\src\\main\\java\\resources\\expired_items_report.csv");
+        }
+    }
+
+    public void generateExpiredItemsCSV(List<Item> expiredItems, String filePath) {
+        try (FileWriter writer = new FileWriter(filePath)) {
+            writer.append("ID,Name,Defective,InWarehouse,FloorBuilding,FloorShelf,X,Y,SupplierCost,PriceNoDiscount,ExpireDate,CategoryID,ProductID\n");
+            for (Item item : expiredItems) {
+                writer.append(item.getID()).append(',')
+                        .append(item.getName()).append(',')
+                        .append(String.valueOf(item.defective)).append(',')
+                        .append(String.valueOf(item.inWareHouse)).append(',')
+                        .append(String.valueOf(item.floorBuilding)).append(',')
+                        .append(String.valueOf(item.floorShelf)).append(',')
+                        .append(String.valueOf(item.x)).append(',')
+                        .append(String.valueOf(item.y)).append(',')
+                        .append(String.valueOf(item.supplierCost)).append(',')
+                        .append(String.valueOf(item.priceNoDiscount)).append(',')
+                        .append(item.expireDate.toString()).append(',')
+                        .append(item.categoryID).append(',')
+                        .append(item.productID).append('\n');
+            }
+            System.out.println("CSV report for expired items generated successfully.");
+        } catch (IOException e) {
+            System.out.println("Error while generating CSV report for expired items: " + e.getMessage());
         }
     }
 
 
-    public void reportDefectiveItems() {
+    public void generateDefectiveItemsReport() {
         List<Item> defectiveItems = new ArrayList<>();
 
         // Check defective items in warehouse
@@ -93,9 +95,48 @@ public class ItemController {
             Map.Entry<String, Item> entry = iteratorWarehouse.next();
             if (entry.getValue().defective) {
                 defectiveItems.add(entry.getValue());
-                System.out.println("Defective warehouse item: " + entry.getValue());
             }
         }
+
+        // Check defective items in store
+        Iterator<Map.Entry<String, Item>> iteratorStore = storeItems.entrySet().iterator();
+        while (iteratorStore.hasNext()) {
+            Map.Entry<String, Item> entry = iteratorStore.next();
+            if (entry.getValue().defective) {
+                defectiveItems.add(entry.getValue());
+            }
+        }
+
+        if (defectiveItems.isEmpty()) {
+            System.out.println("No defective items found.");
+        } else {
+            generateDefectiveItemsCSV(defectiveItems, "C:\\githubclones\\ADSS_Group_D\\dev\\src\\main\\java\\resources\\defective_items_report.csv");
+        }
+    }
+
+    public void generateDefectiveItemsCSV(List<Item> defectiveItems, String filePath) {
+        try (FileWriter writer = new FileWriter(filePath)) {
+            writer.append("ID,Name,Defective,InWarehouse,FloorBuilding,FloorShelf,X,Y,SupplierCost,PriceNoDiscount,ExpireDate,CategoryID,ProductID\n");
+            for (Item item : defectiveItems) {
+                writer.append(item.getID()).append(',')
+                        .append(item.getName()).append(',')
+                        .append(String.valueOf(item.defective)).append(',')
+                        .append(String.valueOf(item.inWareHouse)).append(',')
+                        .append(String.valueOf(item.floorBuilding)).append(',')
+                        .append(String.valueOf(item.floorShelf)).append(',')
+                        .append(String.valueOf(item.x)).append(',')
+                        .append(String.valueOf(item.y)).append(',')
+                        .append(String.valueOf(item.supplierCost)).append(',')
+                        .append(String.valueOf(item.priceNoDiscount)).append(',')
+                        .append(item.expireDate.toString()).append(',')
+                        .append(item.categoryID).append(',')
+                        .append(item.productID).append('\n');
+            }
+            System.out.println("CSV report for defective items generated successfully.");
+        } catch (IOException e) {
+            System.out.println("Error while generating CSV report for defective items: " + e.getMessage());
+        }
+
 
         // Check defective items in store
         Iterator<Map.Entry<String, Item>> iteratorStore = storeItems.entrySet().iterator();
@@ -228,16 +269,6 @@ public class ItemController {
         return true; // Item removed successfully
     }
 
-    public boolean setDefective(String id) {
-        Item item = getItemByID(id);
-        if (item != null) {
-            item.defective = true;
-            return true;
-        } else {
-            System.out.println("Item doesn't exist");
-            return false;
-        }
-    }
 
     public List<Item> getWarehouseItems() {
         return new ArrayList<>(wareHouseItems.values());
@@ -247,5 +278,15 @@ public class ItemController {
         return new ArrayList<>(storeItems.values());
     }
 
+
+    public boolean reportDefectiveItem(boolean isDefective, String itemID){
+        Item item = getItemByID(itemID);
+        if(item == null){
+            System.out.println("Item not found");
+            return false;
+        }
+        item.defective = isDefective;
+        return true;
+    }
 
 }

@@ -6,12 +6,6 @@ import java.util.HashMap;
 public class CategoryController {
     private HashMap<String, Category> categories;
 
-    public Category addDefaultCategory() {
-        String defaultCategoryID = "DP493";
-        String defaultCategoryName = "Dairy Products";
-        addCategory(defaultCategoryName, defaultCategoryID);
-        return getCategoryByID(defaultCategoryID);
-    }
 
     public CategoryController() {
         categories = new HashMap<>();
@@ -93,14 +87,6 @@ public class CategoryController {
 
     public  void clearCategories() {
         categories.clear();
-    }
-
-
-
-    public void printCategoriesDetails() {
-        for (Category category : categories.values()) {
-            System.out.println(category);
-        }
     }
 
 }
