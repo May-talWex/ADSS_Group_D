@@ -9,12 +9,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2ee10d94-4457-471a-97fe-029a048743dc" name="Changes" comment="adding relative file report storage">
-      <change beforePath="$PROJECT_DIR$/.idea/artifacts/adss2024_v01_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/adss2024_v01_jar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dev/src/main/java/Inventory/DomainLayer/ItemController.java" beforeDir="false" afterPath="$PROJECT_DIR$/dev/src/main/java/Inventory/DomainLayer/ItemController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dev/src/main/java/Inventory/DomainLayer/ProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/dev/src/main/java/Inventory/DomainLayer/ProductController.java" afterDir="false" />
-    </list>
+    <list default="true" id="2ee10d94-4457-471a-97fe-029a048743dc" name="Changes" comment="adding new jar file and fixing path issue" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -147,7 +142,7 @@
       <option name="presentableId" value="Default" />
       <updated>1717690336405</updated>
       <workItem from="1717690338497" duration="6505000" />
-      <workItem from="1717835411372" duration="12914000" />
+      <workItem from="1717835411372" duration="13619000" />
     </task>
     <task id="LOCAL-00001" summary="Fixing bugs and adding CSV generation">
       <option name="closed" value="true" />
@@ -189,7 +184,15 @@
       <option name="project" value="LOCAL" />
       <updated>1717857964870</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="adding new jar file and fixing path issue">
+      <option name="closed" value="true" />
+      <created>1717859049108</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1717859049108</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -202,6 +205,7 @@
     <MESSAGE value="Adding bulk item insertion" />
     <MESSAGE value="Fixing reports and last bugs. Adding jar file. Moving all default creations to data layer" />
     <MESSAGE value="adding relative file report storage" />
-    <option name="LAST_COMMIT_MESSAGE" value="adding relative file report storage" />
+    <MESSAGE value="adding new jar file and fixing path issue" />
+    <option name="LAST_COMMIT_MESSAGE" value="adding new jar file and fixing path issue" />
   </component>
 </project>
