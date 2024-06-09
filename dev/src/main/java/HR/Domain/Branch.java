@@ -77,6 +77,48 @@ public class Branch {
                 return;
             }
         }
+        // Remove any future shift limitations for the worker
+        List<ShiftLimitation> limitations = new ArrayList<>(worker.getBranch().getShiftLimitations().stream().filter(
+                sl ->
+                        sl.getEmployee().equals(worker) &&
+                                sl.getDate().isAfter(LocalDate.now())).toList());
+
+        if (!limitations.isEmpty()) {
+            // Remove all future shift limitations
+            for (ShiftLimitation sl : limitations) {
+                worker.getBranch().removeShiftLimitation(worker, sl);
+            }
+        }
+
+        // Remove any future shifts for the worker
+        // And update the shifts of the worker that are affected by the removal
+
+        List<Shift> shifts = new ArrayList<>(worker.getBranch().getSchedule().getShifts().stream().filter(
+                s ->
+                        s.contains(worker)).toList());
+
+        if (!shifts.isEmpty()) {
+            // Remove worker from all future shifts
+            // And update the shifts of the worker that are affected by the removal
+            for (Shift s : shifts) {
+                this.getSchedule().replaceWorker(this, worker, s);
+                if(s.getShiftManagers().contains(worker)) {
+                    s.removeShiftManager(worker);
+
+                }
+                if(s.getCashiers().contains(worker)) {
+                    s.removeCashier(worker);
+                }
+                if(s.getStorageEmployees().contains(worker)) {
+                    s.removeStorageEmployee(worker);
+                }
+                if(s.getDeliveriers().contains(worker)) {
+                    s.removeDeliverier(worker);
+                }
+
+            }
+        }
+
         throw new EmployeeDoesNotExistInBranch("Worker ID: " + worker.getEmployeeId() + " does not exist in the branch with ID: " + branchId);
     }
 

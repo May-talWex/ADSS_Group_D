@@ -1,4 +1,5 @@
 package HR.Tests;
+
 import HR.Domain.*;
 import HR.Domain.EmployeeTypes.Cashier;
 
@@ -6,8 +7,8 @@ import java.time.LocalDate;
 
 public class Employee_Tests {
     public static void main(String[] args) {
-    Branch testBranch = new Branch("Test Branch", "123 Test St.");
-    Employee employee = new Employee(1, "John Doe", "john.doe@example.com", new BankAccount(12345, 67890, 54321), testBranch, new Salary(50000));
+        Branch testBranch = new Branch("Test Branch", "123 Test St.");
+        Employee employee = new Employee(1, "John Doe", "john.doe@example.com", new BankAccount(12345, 67890, 54321), testBranch, new Salary(50000));
         try {
             assert employee.getEmployeeId() == 1;
             System.out.println("Employee ID test passed.");
@@ -20,12 +21,12 @@ public class Employee_Tests {
         } catch (AssertionError e) {
             System.out.println("Employee name test failed.");
         }
-    try {
-        assert employee.getEmail().equals("john.doe@example.com");
-        System.out.println("Employee email test passed.");
-    } catch (AssertionError e) {
-        System.out.println("Employee email test failed.");
-    }
+        try {
+            assert employee.getEmail().equals("john.doe@example.com");
+            System.out.println("Employee email test passed.");
+        } catch (AssertionError e) {
+            System.out.println("Employee email test failed.");
+        }
         try {
             assert employee.getBranch() == testBranch;
             System.out.println("Employee branch test passed.");
@@ -91,4 +92,5 @@ public class Employee_Tests {
         } catch (AssertionError e) {
             System.out.println("Set current salary test failed.");
         }
-    }}
+    }
+}

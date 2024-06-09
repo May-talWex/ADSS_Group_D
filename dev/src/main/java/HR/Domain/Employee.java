@@ -63,9 +63,14 @@ public class Employee {
         return workerId == worker.getEmployeeId();
     }
 
+    public int hashCode() {
+        return this.getEmployeeId();
+    }
+
     public String getName() {
         return name;
     }
+
 
     public LocalDate getDateOfEmployment() {
         return dateOfEmployment;
@@ -141,7 +146,7 @@ public class Employee {
                 }
             }
         }
-        System.out.println("Position " + position.getType() + " added to worker.");
+        System.out.println("Position " + position.getType() + " added to worker " + this.getName() + ".");
         possiblePositions.add(position);
     }
 

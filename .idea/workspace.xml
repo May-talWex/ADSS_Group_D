@@ -5,11 +5,47 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9a0829ce-1916-46c8-a83f-0eb68d1bcbb5" name="Changes" comment="Changed structure">
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dev/src/main/java/HR/Data/CreateStubEmployeesData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/HR/Presentation/Main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ADSS_Group_D.iml" beforeDir="false" afterPath="$PROJECT_DIR$/ADSS_Group_D.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dev/src/main/java/HR/Domain/BankAccount.java" beforeDir="false" afterPath="$PROJECT_DIR$/dev/src/main/java/HR/Domain/BankAccount.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dev/src/main/java/HR/Domain/Branch.java" beforeDir="false" afterPath="$PROJECT_DIR$/dev/src/main/java/HR/Domain/Branch.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dev/src/main/java/HR/Domain/BranchController.java" beforeDir="false" afterPath="$PROJECT_DIR$/dev/src/main/java/HR/Domain/BranchController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dev/src/main/java/HR/Domain/Employee.java" beforeDir="false" afterPath="$PROJECT_DIR$/dev/src/main/java/HR/Domain/Employee.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dev/src/main/java/HR/Domain/EmployeeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/dev/src/main/java/HR/Domain/EmployeeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dev/src/main/java/HR/Domain/EmployeeType.java" beforeDir="false" afterPath="$PROJECT_DIR$/dev/src/main/java/HR/Domain/EmployeeType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dev/src/main/java/HR/Domain/Salary.java" beforeDir="false" afterPath="$PROJECT_DIR$/dev/src/main/java/HR/Domain/Salary.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dev/src/main/java/HR/Domain/Schedule.java" beforeDir="false" afterPath="$PROJECT_DIR$/dev/src/main/java/HR/Domain/Schedule.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dev/src/main/java/HR/Domain/ScheduleController.java" beforeDir="false" afterPath="$PROJECT_DIR$/dev/src/main/java/HR/Domain/ScheduleController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dev/src/main/java/HR/Domain/Shift.java" beforeDir="false" afterPath="$PROJECT_DIR$/dev/src/main/java/HR/Domain/Shift.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dev/src/main/java/HR/Domain/ShiftController.java" beforeDir="false" afterPath="$PROJECT_DIR$/dev/src/main/java/HR/Domain/ShiftController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dev/src/main/java/HR/Domain/ShiftLimitation.java" beforeDir="false" afterPath="$PROJECT_DIR$/dev/src/main/java/HR/Domain/ShiftLimitation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dev/src/main/java/HR/Domain/ShiftLimitationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/dev/src/main/java/HR/Domain/ShiftLimitationController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dev/src/main/java/HR/Presentation/Main_Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/dev/src/main/java/HR/Presentation/Main_Menu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dev/src/main/java/HR/Tests/Branch_Tests.java" beforeDir="false" afterPath="$PROJECT_DIR$/dev/src/main/java/HR/Tests/Branch_Tests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dev/src/main/java/HR/Tests/Employee_Tests.java" beforeDir="false" afterPath="$PROJECT_DIR$/dev/src/main/java/HR/Tests/Employee_Tests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dev/src/main/java/HR/Tests/Shift_Tests.java" beforeDir="false" afterPath="$PROJECT_DIR$/dev/src/main/java/HR/Tests/Shift_Tests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src.main.java/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/HR/Domain/BankAccount.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/HR/Domain/BankAccount.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/HR/Domain/Branch.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/HR/Domain/Branch.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/HR/Domain/BranchController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/HR/Domain/BranchController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/HR/Domain/Employee.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/HR/Domain/Employee.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/HR/Domain/EmployeeController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/HR/Domain/EmployeeController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/HR/Domain/EmployeeType.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/HR/Domain/EmployeeType.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/HR/Domain/Schedule.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/HR/Domain/Schedule.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/HR/Domain/ScheduleController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/HR/Domain/ScheduleController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/HR/Domain/Shift.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/HR/Domain/Shift.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/HR/Domain/ShiftController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/HR/Domain/ShiftController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/HR/Domain/ShiftLimitation.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/HR/Domain/ShiftLimitation.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/HR/Domain/ShiftLimitationController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/HR/Domain/ShiftLimitationController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/HR/Presentation/Main_Menu.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/HR/Presentation/Main_Menu.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/HR/Tests/Branch_Tests.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/HR/Tests/Branch_Tests.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/HR/Tests/Employee_Tests.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/HR/Tests/Employee_Tests.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/HR/Tests/Shift_Tests.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/HR/Tests/Shift_Tests.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Main.class" beforeDir="false" />
     </list>
     <list id="92241546-7950-4e02-919c-86c9491857e4" name="Changes by kidox" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -20,6 +56,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="module-info" />
         <option value="Class" />
       </list>
     </option>
@@ -38,12 +75,12 @@
     &quot;assignee&quot;: &quot;idokraicer&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings">{
-  &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/May-talWex/ADSS_Group_D.git&quot;,
-    &quot;accountId&quot;: &quot;6649944e-b860-4599-94fd-b68e7680023a&quot;
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/May-talWex/ADSS_Group_D.git",
+    "accountId": "d4b7678e-6fb5-4390-84e0-e4a0c3352291"
   }
-}</component>
+}]]></component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/src/main/java/HR/Presentation/Main.java" root0="FORCE_HIGHLIGHTING" />
   </component>
@@ -61,39 +98,42 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.Branch_Tests.executor": "Run",
-    "Application.Employee_Tests.executor": "Run",
-    "Application.Main.executor": "Run",
-    "Application.Main_Menu.executor": "Run",
-    "Application.Shift_Tests.executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "318810777__315839795",
-    "ignore.virus.scanning.warn.message": "true",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/rotto/OneDrive/Documents/GitHub/ADSS_Group_D/release",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Artifacts",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "run.code.analysis.last.selected.profile": "pProject Default",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.Branch_Tests.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Employee_Tests.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Main_Menu.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Shift_Tests.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;318810777__315839795&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/rotto/OneDrive/Documents/GitHub/ADSS_Group_D/release&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.ide.settings.uml&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\rotto\IdeaProjects\ADSS_Group_D\dev" />
     </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="src" />
+    </key>
   </component>
-  <component name="RunManager" selected="Application.Main_Menu">
+  <component name="RunManager" selected="Application.Branch_Tests">
     <configuration name="Branch_Tests" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="HR.Tests.Branch_Tests" />
       <module name="ADSS_Group_D" />
@@ -148,9 +188,9 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Main_Menu" />
-        <item itemvalue="Application.Shift_Tests" />
         <item itemvalue="Application.Branch_Tests" />
+        <item itemvalue="Application.Shift_Tests" />
+        <item itemvalue="Application.Main_Menu" />
         <item itemvalue="Application.Employee_Tests" />
       </list>
     </recent_temporary>
@@ -188,6 +228,7 @@
       <workItem from="1717769907428" duration="240000" />
       <workItem from="1717770156522" duration="1152000" />
       <workItem from="1717832504419" duration="105000" />
+      <workItem from="1717926349859" duration="9355000" />
     </task>
     <task id="LOCAL-00001" summary="Added some JSON support">
       <option name="closed" value="true" />
@@ -340,29 +381,14 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/dev/src/main/java/HR/Domain/ShiftLimitationController.java</url>
-          <line>31</line>
+          <line>28</line>
           <option name="timeStamp" value="5" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/dev/src/main/java/HR/Presentation/Main_Menu.java</url>
-          <line>133</line>
-          <option name="timeStamp" value="7" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/dev/src/main/java/HR/Presentation/Main_Menu.java</url>
-          <line>216</line>
-          <option name="timeStamp" value="8" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/dev/src/main/java/HR/Domain/Branch.java</url>
-          <line>82</line>
-          <properties class="HR.Domain.Branch" method="addShiftLimitation">
-            <option name="EMULATED" value="true" />
-            <option name="WATCH_EXIT" value="false" />
-          </properties>
-          <option name="timeStamp" value="6" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>

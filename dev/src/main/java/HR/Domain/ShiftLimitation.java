@@ -18,6 +18,10 @@ public class ShiftLimitation {
         return this.employee.equals(other.employee) && this.date.equals(other.date) && this.isMorningShift == other.isMorningShift;
     }
 
+    public int hashCode() {
+        return employee.hashCode() + date.hashCode() * (isMorningShift ? 1 : -1);
+    }
+
     public Employee getEmployee() {
         return employee;
     }

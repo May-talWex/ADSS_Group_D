@@ -26,7 +26,7 @@ public class Salary {
         this.endDate = null;
     }
 
-    public Salary(float amount){
+    public Salary(float amount) {
         this.amount = amount;
         this.startDate = LocalDate.now();
         this.endDate = null;

@@ -1,8 +1,7 @@
 package HR.Domain;
 
-import com.fasterxml.jackson.annotation.JsonCreator;
-
 import HR.Domain.EmployeeTypes.*;
+import com.fasterxml.jackson.annotation.JsonCreator;
 
 import java.time.LocalDate;
 import java.util.Scanner;

@@ -1,11 +1,10 @@
 package HR.Domain;
 
 import HR.Domain.EmployeeTypes.*;
-import com.fasterxml.jackson.databind.ObjectMapper;
 
-import java.io.IOException;
 import java.time.LocalDate;
-import java.util.*;
+import java.util.List;
+import java.util.Scanner;
 
 public class BranchController {
     public static void UpdateEmployee(Branch branch) {

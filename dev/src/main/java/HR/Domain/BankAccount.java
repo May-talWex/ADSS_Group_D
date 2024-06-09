@@ -19,8 +19,6 @@ public class BankAccount {
     }
 
 
-
-
     public String toJSON() {
         ObjectMapper mapper = new ObjectMapper();
         try {

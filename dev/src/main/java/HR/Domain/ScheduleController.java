@@ -3,7 +3,8 @@ package HR.Domain;
 import HR.Domain.Exceptions.NotEnoughWorkers;
 
 import java.time.LocalDate;
-import java.util.*;
+import java.util.List;
+import java.util.Scanner;
 
 public class ScheduleController {
 
@@ -42,12 +43,12 @@ public class ScheduleController {
                         System.out.println("A Shift Manager is required for the shift. Requirement must be greater than 0.");
                         return;
                     }
-                    branch.getSchedule().updateShiftRequirement(date, isMorningShift,choice, newRequirement, branch);
+                    branch.getSchedule().updateShiftRequirement(date, isMorningShift, choice, newRequirement, branch);
                     System.out.println("Shift Manager requirement updated.");
                     break;
                 case 2:
                     System.out.println("Enter the new requirement for Cashier:");
-                    newRequirement= Integer.parseInt(scanner.nextLine());
+                    newRequirement = Integer.parseInt(scanner.nextLine());
                     if (newRequirement <= 0) {
                         System.out.println("A Cashier is required for the shift. Requirement must be greater than 0.");
                         return;
@@ -93,7 +94,7 @@ public class ScheduleController {
         }
     }
 
-    public void removeShift(LocalDate date, boolean isMorningShift , Schedule schedule) {
+    public void removeShift(LocalDate date, boolean isMorningShift, Schedule schedule) {
         try {
             schedule.removeShift(date, isMorningShift);
             System.out.println("Shift removed successfully.");
@@ -111,7 +112,7 @@ public class ScheduleController {
         int year = Integer.parseInt(scanner.nextLine());
         System.out.println("Enter the week number: ");
         int week = Integer.parseInt(scanner.nextLine());
-        LocalDate date = LocalDate.of(year, month, 1+7*(week-1));
+        LocalDate date = LocalDate.of(year, month, 1 + 7 * (week - 1));
         for (int i = 0; i < 7; i++) {
             printShifts(date.plusDays(i), branch.getSchedule());
         }
@@ -138,7 +139,7 @@ public class ScheduleController {
         }
     }
 
-    public boolean doesShiftExist(LocalDate date, boolean isMorningShift , Schedule schedule) {
+    public boolean doesShiftExist(LocalDate date, boolean isMorningShift, Schedule schedule) {
         return schedule.doesShiftExist(date, isMorningShift);
     }
 }

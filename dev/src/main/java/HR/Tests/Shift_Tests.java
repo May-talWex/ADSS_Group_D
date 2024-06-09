@@ -1,4 +1,5 @@
 package HR.Tests;
+
 import HR.Domain.*;
 import HR.Domain.EmployeeTypes.*;
 import HR.Domain.Exceptions.*;
@@ -170,4 +171,4 @@ public class Shift_Tests {
             System.out.println("Clear shift test failed.");
         }
     }
-    }
+}

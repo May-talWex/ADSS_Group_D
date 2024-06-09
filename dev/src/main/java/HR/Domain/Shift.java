@@ -7,8 +7,6 @@ import HR.Domain.EmployeeTypes.StorageEmployee;
 import HR.Domain.Exceptions.EmployeeDoesNotHaveRole;
 import HR.Domain.Exceptions.ShiftAlreadyExists;
 import HR.Domain.Exceptions.ShiftDoesntExist;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.time.LocalDate;
@@ -241,6 +239,31 @@ public class Shift {
         }
         Shift shift = (Shift) obj;
         return isMorningShift == shift.isMorningShift && date.equals(shift.date);
+    }
+
+    public EmployeeType getEmployeeType(Employee employee) {
+        if (shiftManagers.contains(employee)) {
+            return new ShiftManager();
+        } else if (cashiers.contains(employee)) {
+            return new Cashier();
+        } else if (storageEmployees.contains(employee)) {
+            return new StorageEmployee();
+        } else if (deliveriers.contains(employee)) {
+            return new DeliveryPerson();
+        }
+        return null;
+    }
+
+    public boolean contains(Employee employee) {
+        return shiftManagers.contains(employee) ||
+                cashiers.contains(employee) ||
+                storageEmployees.contains(employee) ||
+                deliveriers.contains(employee);
+    }
+
+    public int hashCode() {
+        int sign = isMorningShift ? 1 : -1;
+        return date.hashCode() * sign;
     }
 
     public void clear() {
