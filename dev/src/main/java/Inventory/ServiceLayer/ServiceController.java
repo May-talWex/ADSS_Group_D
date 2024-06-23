@@ -187,5 +187,12 @@ public class ServiceController {
         itemController.generateDefectiveItemsReport();
     }
 
+    public void generateCategoryCSVReport(String categoryID) {
+        productController.generateCategoryCSVReport(categoryID);
+    }
+
+
+
+
 }
 

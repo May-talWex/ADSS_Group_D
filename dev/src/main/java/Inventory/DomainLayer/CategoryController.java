@@ -1,5 +1,9 @@
 package src.main.java.Inventory.DomainLayer;
 
+import java.io.FileWriter;
+import java.io.IOException;
+import java.nio.file.Paths;
+import java.util.ArrayList;
 import java.util.HashMap;
 
 
@@ -88,5 +92,4 @@ public class CategoryController {
     public  void clearCategories() {
         categories.clear();
     }
-
 }

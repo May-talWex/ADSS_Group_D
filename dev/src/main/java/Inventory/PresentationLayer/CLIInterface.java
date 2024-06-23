@@ -1,6 +1,8 @@
 package src.main.java.Inventory.PresentationLayer;
 
+import java.util.Arrays;
 import java.util.InputMismatchException;
+import java.util.List;
 import java.util.Scanner;
 import src.main.java.Inventory.ServiceLayer.ServiceController;
 import java.time.LocalDate;
@@ -128,6 +130,9 @@ public class CLIInterface {
                     getDefectiveReport();
                     break;
                 case 4:
+                    generateReportByCategoryID();
+                    break;
+                case 5:
                     System.out.println("Exiting...");
                 default:
                     System.out.println("Invalid choice. Please try again.");
@@ -192,7 +197,8 @@ public class CLIInterface {
         System.out.println("1. Get Stock report");
         System.out.println("2. Get expire report");
         System.out.println("3. Get defective report");
-        System.out.println("4. Exit");
+        System.out.println("4. Generate report by category ID");
+        System.out.println("5. Exit");
         System.out.print("Choose an option: ");
     }
 
@@ -382,4 +388,13 @@ public class CLIInterface {
             System.out.println("Failed to update item defective status.");
         }
     }
+
+    private static void generateReportByCategoryID() {
+        System.out.print("Enter category ID: ");
+        String categoryID = scanner.nextLine();
+        serviceController.generateCategoryCSVReport(categoryID);
+    }
+
+
+
 }

@@ -222,4 +222,23 @@ public class ProductController {
         }
     }
 
+    private ArrayList<Product> getProductsByCategoryID(String categoryID) {
+        ArrayList<Product> productsByCategory = new ArrayList<>();
+        for (Product product : products.values()) {
+            if (product.getCategoryID().equals(categoryID)) {
+                productsByCategory.add(product);
+            }
+        }
+        return productsByCategory;
+    }
+
+    public void generateCategoryCSVReport(String categoryID) {
+        ArrayList<Product> productsByCategory = getProductsByCategoryID(categoryID);
+        String jarDir = getJarDirectory();
+        String relativePath = "dev/src/main/java/resources/category_" + categoryID + "_report.csv";
+        String fullPath = Paths.get(jarDir, relativePath).toString();
+        ensureDirectoryExists(fullPath);
+        generateCSVReport(productsByCategory, fullPath);
+    }
+
 }
