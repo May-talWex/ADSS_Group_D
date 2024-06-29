@@ -50,11 +50,26 @@ public class DataBaseConnection {
                 + "Sub_Category_ID INTEGER NOT NULL,"
                 + "Full_Price FLOAT NOT NULL,"
                 + "FOREIGN KEY (Category_ID) REFERENCES Category(id));";
+        String createItemTable = "CREATE TABLE IF NOT EXISTS Item ("
+                + "Serial_Number TEXT PRIMARY KEY,"
+                + "Product_Makat TEXT NOT NULL,"
+                + "Category_ID TEXT NOT NULL,"
+                + "In_WareHouse BOOLEAN NOT NULL,"
+                + "Is_Defective BOOLEAN NOT NULL,"
+                + "Expiration_Date DATE,"
+                + "Floor_Building INTEGER,"
+                + "Floor_Shelf INTEGER,"
+                + "X FLOAT,"
+                + "Y FLOAT,"
+                + "FOREIGN KEY (Product_Makat) REFERENCES Product(makat),"
+                + "FOREIGN KEY (Category_ID) REFERENCES Category(id));";
         try (Statement stmt = connection.createStatement()) {
             stmt.execute(createCategoryTable);
             System.out.println("Category table created successfully.");
             stmt.execute(createProductTable);
             System.out.println("Product table created successfully.");
+            stmt.execute(createItemTable);
+            System.out.println("Item table created successfully.");
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
@@ -68,17 +83,6 @@ public class DataBaseConnection {
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
         }
-    }
-
-    public boolean testConnection() {
-        try (Statement stmt = connection.createStatement()) {
-            stmt.executeQuery("SELECT sqlite_version();");
-            System.out.println("SQLite version query executed successfully.");
-            return true;
-        } catch (SQLException e) {
-            System.out.println(e.getMessage());
-        }
-        return false;
     }
 
 
