@@ -10,8 +10,49 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9a0829ce-1916-46c8-a83f-0eb68d1bcbb5" name="Changes" comment="Changed structure">
-      <change beforePath="$PROJECT_DIR$/.idea/artifacts/ADSS_Group_D_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/adss2024_v01_jar.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dev/src/main/java/HR/Data/EmployeesDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dev/src/main/java/HR/Data/SQLiteConnection.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dev/src/main/java/HR/Data/ShiftLimitationDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dev/src/main/java/HR/Data/ShiftsDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dev/src/main/java/HR/Presentation/Main_Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/dev/src/main/java/HR/Presentation/Main_Menu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/HR/Data/CreateStubEmployeesData.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/HR/Domain/BankAccount.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/HR/Domain/Branch.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/HR/Domain/BranchController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/HR/Domain/Employee.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/HR/Domain/EmployeeController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/HR/Domain/EmployeeType.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/HR/Domain/EmployeeTypes/Cashier.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/HR/Domain/EmployeeTypes/DeliveryPerson.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/HR/Domain/EmployeeTypes/HRManager.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/HR/Domain/EmployeeTypes/ShiftManager.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/HR/Domain/EmployeeTypes/StorageEmployee.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/HR/Domain/Exceptions/EmployeeAlreadyExistsInBranch.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/HR/Domain/Exceptions/EmployeeAlreadyHasRole.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/HR/Domain/Exceptions/EmployeeDoesNotExistInBranch.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/HR/Domain/Exceptions/EmployeeDoesNotHaveRole.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/HR/Domain/Exceptions/NotEnoughWorkers.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/HR/Domain/Exceptions/ShiftAlreadyExists.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/HR/Domain/Exceptions/ShiftDoesntExist.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/HR/Domain/Exceptions/ShiftLimitationAlreadyExists.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/HR/Domain/Exceptions/ShiftLimitationDoesntExist.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/HR/Domain/Salary.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/HR/Domain/Schedule.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/HR/Domain/ScheduleController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/HR/Domain/Shift.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/HR/Domain/ShiftController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/HR/Domain/ShiftLimitation.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/HR/Domain/ShiftLimitationController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/HR/Presentation/Main_Menu.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/HR/Service/Service.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/HR/Tests/Branch_Tests.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/HR/Tests/Employee_Tests.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/HR/Tests/Shift_Tests.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/META-INF/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/META-INF/MANIFEST.MF" afterDir="false" />
     </list>
     <list id="92241546-7950-4e02-919c-86c9491857e4" name="Changes by kidox" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -41,12 +82,12 @@
     &quot;assignee&quot;: &quot;idokraicer&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/May-talWex/ADSS_Group_D.git",
-    "accountId": "d4b7678e-6fb5-4390-84e0-e4a0c3352291"
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/May-talWex/ADSS_Group_D.git&quot;,
+    &quot;accountId&quot;: &quot;d4b7678e-6fb5-4390-84e0-e4a0c3352291&quot;
   }
-}]]></component>
+}</component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/src/main/java/HR/Presentation/Main.java" root0="FORCE_HIGHLIGHTING" />
   </component>
@@ -70,6 +111,7 @@
     "Application.Employee_Tests.executor": "Run",
     "Application.Main.executor": "Run",
     "Application.Main_Menu.executor": "Run",
+    "Application.SQLiteConnection.executor": "Run",
     "Application.Shift_Tests.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
@@ -83,7 +125,7 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Artifacts",
+    "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
     "run.code.analysis.last.selected.profile": "pProject Default",
@@ -99,7 +141,7 @@
       <recent name="src" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Main_Menu">
+  <component name="RunManager" selected="Application.SQLiteConnection">
     <configuration name="Branch_Tests" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="HR.Tests.Branch_Tests" />
       <module name="ADSS_Group_D" />
@@ -139,6 +181,14 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="SQLiteConnection" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="UNNAMED_CLASS_CONFIGURATION" value="true" />
+      <option name="MAIN_CLASS_NAME" value="SQLiteConnection" />
+      <module name="ADSS_Group_D" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Shift_Tests" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="HR.Tests.Shift_Tests" />
       <module name="ADSS_Group_D" />
@@ -154,6 +204,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.SQLiteConnection" />
         <item itemvalue="Application.Branch_Tests" />
         <item itemvalue="Application.Shift_Tests" />
         <item itemvalue="Application.Main_Menu" />
@@ -195,6 +246,7 @@
       <workItem from="1717770156522" duration="1152000" />
       <workItem from="1717832504419" duration="105000" />
       <workItem from="1717926349859" duration="10389000" />
+      <workItem from="1719662889337" duration="7125000" />
     </task>
     <task id="LOCAL-00001" summary="Added some JSON support">
       <option name="closed" value="true" />
@@ -341,17 +393,6 @@
     <MESSAGE value="Added Unit tests" />
     <MESSAGE value="Changed structure" />
     <option name="LAST_COMMIT_MESSAGE" value="Changed structure" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/dev/src/main/java/HR/Domain/ShiftLimitationController.java</url>
-          <line>28</line>
-          <option name="timeStamp" value="5" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

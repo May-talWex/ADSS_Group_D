@@ -9,6 +9,8 @@ import java.util.Scanner;
 
 public class Main_Menu {
     public static void main(String[] args) throws Exception {
+
+
         EmployeeController employeeController = new EmployeeController();
         ShiftController shiftController = new ShiftController();
 
