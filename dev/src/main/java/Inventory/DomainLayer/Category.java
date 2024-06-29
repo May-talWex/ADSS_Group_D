@@ -1,5 +1,6 @@
 package src.main.java.Inventory.DomainLayer;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -8,20 +9,37 @@ import java.util.Date;
 public class Category {
     private String name;
     private String ID;
-    private Date discountStartDate;
-    private Date discountEndDate;
-    private int discountPercentage;
-    ArrayList<Product> products = new ArrayList<Product>();
+    private LocalDate discountStartDate;
+    private LocalDate discountEndDate;
+    private float discountPercentage;
+    private ArrayList<Product> products;
 
     //Category constructors
-    public Category(String name, String ID){
+    public Category(String name, String ID) {
         this.name = name;
         this.ID = ID;
-        ArrayList<Product> products = new ArrayList<Product>();
+        this.products = new ArrayList<>();
+    }
+
+    public Category(String name, String ID, LocalDate discountStartDate, LocalDate discountEndDate, float discountPercentage) {
+        this.name = name;
+        this.ID = ID;
+        this.discountStartDate = discountStartDate;
+        this.discountEndDate = discountEndDate;
+        this.discountPercentage = discountPercentage;
+        this.products = new ArrayList<>();
+    }
+
+    public Category(String name, String ID, LocalDate discountStartDate, LocalDate discountEndDate, float discountPercentage, ArrayList<Product> products) {
+        this.name = name;
+        this.ID = ID;
+        this.discountStartDate = discountStartDate;
+        this.discountEndDate = discountEndDate;
+        this.discountPercentage = discountPercentage;
+        this.products = products;
     }
 
     //Getters
-
     public String getName() {
         return name;
     }
@@ -30,49 +48,52 @@ public class Category {
         return ID;
     }
 
-    public Date getDiscountStartDate() {
+    public LocalDate getDiscountStartDate() {
         return discountStartDate;
     }
 
-    public Date getDiscountEndDate() {
+    public LocalDate getDiscountEndDate() {
         return discountEndDate;
     }
 
-    public int getDiscountPercentage() {
+    public float getDiscountPercentage() {
         return discountPercentage;
     }
 
     public ArrayList<Product> getProducts() {
         return products;
-
     }
 
     //Setters
-    public void setDiscountStartDate(Date discountStartDate){
+    public void setDiscountStartDate(LocalDate discountStartDate) {
         this.discountStartDate = discountStartDate;
     }
 
-    public void setDiscountEndDate(Date discountEndDate){
+    public void setDiscountEndDate(LocalDate discountEndDate) {
         this.discountEndDate = discountEndDate;
     }
 
-    public void setDiscountPercentage(int discountPercentage){
+    public void setDiscountPercentage(float discountPercentage) {
         this.discountPercentage = discountPercentage;
     }
 
-    public void addProduct(Product product){
+    public void addProduct(Product product) {
         products.add(product);
     }
 
-    public void removeProduct(Product product){
+    public void removeProduct(Product product) {
         products.remove(product);
     }
 
-
+    @Override
     public String toString() {
         return "Category{" +
                 "name='" + name + '\'' +
                 ", ID='" + ID + '\'' +
+                ", discountStartDate=" + discountStartDate +
+                ", discountEndDate=" + discountEndDate +
+                ", discountPercentage=" + discountPercentage +
+                ", products=" + products +
                 '}';
     }
 }

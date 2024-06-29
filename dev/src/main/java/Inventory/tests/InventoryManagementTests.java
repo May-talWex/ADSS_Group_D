@@ -30,7 +30,7 @@ class InventoryManagementTests {
         // Setup for Product tests
         System.out.println("Setting up test, clearing categories");
         serviceController = new ServiceController(false);
-        serviceController.clearCategories();
+//        serviceController.clearCategories();
         System.out.println("Categories after clearing: " + serviceController.getCategories().size());
 
         product = new Product( "P1", "Milk", "Tnuva", 4.0, 5.0, "C1", "SC1", 10);

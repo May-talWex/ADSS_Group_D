@@ -1,13 +1,10 @@
 package src.main.java.Inventory.PresentationLayer;
 
-import java.util.Arrays;
 import java.util.InputMismatchException;
-import java.util.List;
 import java.util.Scanner;
 import src.main.java.Inventory.ServiceLayer.ServiceController;
 import java.time.LocalDate;
 import java.time.format.DateTimeParseException;
-
 
 public class CLIInterface {
     private static ServiceController serviceController;
@@ -171,6 +168,9 @@ public class CLIInterface {
                     updateItemDefective();
                     break;
                 case 3:
+                    updateCategory();
+                    break;
+                case 4:
                     System.out.println("Exiting...");
                     return;
                 default:
@@ -181,7 +181,6 @@ public class CLIInterface {
             scanner.nextLine(); // Consume the invalid input
         }
     }
-
 
     private static void displayHashMapsMenu() {
         System.out.println("Menu:");
@@ -206,7 +205,8 @@ public class CLIInterface {
         System.out.println("Update Menu:");
         System.out.println("1. Update Product Discount");
         System.out.println("2. Update Item Defective Status");
-        System.out.println("3. Exit");
+        System.out.println("3. Update Category Discount");
+        System.out.println("4. Exit");
         System.out.print("Choose an option: ");
     }
 
@@ -227,6 +227,56 @@ public class CLIInterface {
             System.out.println("Category added successfully.");
         } else {
             System.out.println("Failed to add category. It might already exist.");
+        }
+    }
+
+
+    private static void removeCategory() {
+        System.out.print("Enter category ID: ");
+        String categoryID = scanner.nextLine();
+        if (serviceController.removeCategory(categoryID)) {
+            System.out.println("Category removed successfully.");
+        } else {
+            System.out.println("Failed to remove category.");
+        }
+    }
+
+    private static void updateCategory() {
+        System.out.print("Enter category ID: ");
+        String categoryID = scanner.nextLine();
+
+        LocalDate startDate;
+        while (true) {
+            System.out.print("Enter new discount start date (YYYY-MM-DD): ");
+            String startDateStr = scanner.nextLine();
+            try {
+                startDate = LocalDate.parse(startDateStr);
+                break; // Break the loop if the date is valid
+            } catch (DateTimeParseException e) {
+                System.out.println("Invalid date format. Please use YYYY-MM-DD.");
+            }
+        }
+
+        LocalDate endDate;
+        while (true) {
+            System.out.print("Enter new discount end date (YYYY-MM-DD): ");
+            String endDateStr = scanner.nextLine();
+            try {
+                endDate = LocalDate.parse(endDateStr);
+                break; // Break the loop if the date is valid
+            } catch (DateTimeParseException e) {
+                System.out.println("Invalid date format. Please use YYYY-MM-DD.");
+            }
+        }
+
+        System.out.print("Enter new discount percentage: ");
+        float discountPercentage = scanner.nextFloat();
+        scanner.nextLine(); // Consume newline
+
+        if (serviceController.updateCategory(categoryID, startDate, endDate, discountPercentage)) {
+            System.out.println("Category updated successfully.");
+        } else {
+            System.out.println("Failed to update category.");
         }
     }
 
@@ -251,11 +301,12 @@ public class CLIInterface {
         scanner.nextLine(); // Consume newline
 
         if (serviceController.addNewProduct(makat, name, supplier, costPrice, sellingPrice, categoryId, subCategoryID, minimumAmount)) {
-//            System.out.println("New product added successfully.");
+            System.out.println("New product added successfully.");
         } else {
             System.out.println("Failed to add new product.");
         }
     }
+
     private static void addItem() {
         System.out.print("Enter item name: ");
         String name = scanner.nextLine();
@@ -299,14 +350,6 @@ public class CLIInterface {
             serviceController.addItem(defective, inWareHouse, -1, -1, -1f, -1f, -1f, -1f, name, newItemId, expireDate, categoryID, productID);
             serviceController.addItemsToProduct(newItemId); // Add each item individually to the product
         }
-    }
-
-
-
-    private static void removeCategory() {
-        System.out.print("Enter category ID: ");
-        String categoryID = scanner.nextLine();
-        serviceController.removeCategory(categoryID);
     }
 
     private static void removeProduct() {
@@ -376,7 +419,6 @@ public class CLIInterface {
         }
     }
 
-
     private static void updateItemDefective() {
         System.out.print("Enter Item ID: ");
         String itemID = scanner.nextLine();
@@ -394,7 +436,4 @@ public class CLIInterface {
         String categoryID = scanner.nextLine();
         serviceController.generateCategoryCSVReport(categoryID);
     }
-
-
-
 }

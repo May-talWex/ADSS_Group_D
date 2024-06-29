@@ -9,13 +9,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2ee10d94-4457-471a-97fe-029a048743dc" name="Changes" comment="Adding SQLite connection and creating tables in DB">
-      <change afterPath="$PROJECT_DIR$/dev/src/main/java/Inventory/DataLayer/MainTest.java" afterDir="false" />
+    <list default="true" id="2ee10d94-4457-471a-97fe-029a048743dc" name="Changes" comment="Adding Category DAO configuration">
+      <change afterPath="$PROJECT_DIR$/dev/src/main/java/Inventory/DataLayer/CategoryRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dev/src/main/java/Inventory/DataLayer/CategoryDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/dev/src/main/java/Inventory/DataLayer/CategoryDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dev/src/main/java/Inventory/DataLayer/DataBaseConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/dev/src/main/java/Inventory/DataLayer/DataBaseConnection.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dev/src/main/java/Inventory/DataLayer/MainApp.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dev/src/main/java/Inventory/DataLayer/DefaultDataInitializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/dev/src/main/java/Inventory/DataLayer/DefaultDataInitializer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dev/src/main/java/Inventory/DomainLayer/Category.java" beforeDir="false" afterPath="$PROJECT_DIR$/dev/src/main/java/Inventory/DomainLayer/Category.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dev/src/main/java/Inventory/DomainLayer/CategoryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/dev/src/main/java/Inventory/DomainLayer/CategoryController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dev/src/main/java/Inventory/PresentationLayer/CLIInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/dev/src/main/java/Inventory/PresentationLayer/CLIInterface.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dev/src/main/java/Inventory/ServiceLayer/ServiceController.java" beforeDir="false" afterPath="$PROJECT_DIR$/dev/src/main/java/Inventory/ServiceLayer/ServiceController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dev/src/main/java/Inventory/tests/InventoryManagementTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/dev/src/main/java/Inventory/tests/InventoryManagementTests.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,7 +64,7 @@
     "Application.CLIInterface.executor": "Run",
     "Application.MainApp.executor": "Debug",
     "Application.MainTest.executor": "Debug",
-    "Application.src.main.java.Inventory.PresentationLayer.CLIInterface.executor": "Debug",
+    "Application.src.main.java.Inventory.PresentationLayer.CLIInterface.executor": "Run",
     "JUnit.InventoryManagementTests.executor": "Run",
     "JUnit.InventoryManagementTests.testAddNewProduct.executor": "Run",
     "JUnit.InventoryManagementTests.testLowStockAlert.executor": "Debug",
@@ -91,7 +94,7 @@
       <recent name="C:\githubclones\ADSS_Group_D\dev" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.MainTest">
+  <component name="RunManager" selected="Application.src.main.java.Inventory.PresentationLayer.CLIInterface">
     <configuration name="MainApp" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="src.main.java.Inventory.DataLayer.MainApp" />
       <module name="ADSS_Group_D" />
@@ -164,9 +167,9 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.src.main.java.Inventory.PresentationLayer.CLIInterface" />
         <item itemvalue="Application.MainTest" />
         <item itemvalue="Application.MainApp" />
-        <item itemvalue="Application.src.main.java.Inventory.PresentationLayer.CLIInterface" />
         <item itemvalue="JUnit.InventoryManagementTests" />
         <item itemvalue="JUnit.InventoryManagementTests.testLowStockAlert" />
       </list>
@@ -193,7 +196,7 @@
       <workItem from="1718537860768" duration="6594000" />
       <workItem from="1719152523960" duration="11574000" />
       <workItem from="1719658324902" duration="6880000" />
-      <workItem from="1719666098621" duration="1146000" />
+      <workItem from="1719666098621" duration="7793000" />
     </task>
     <task id="LOCAL-00001" summary="Fixing bugs and adding CSV generation">
       <option name="closed" value="true" />
@@ -283,7 +286,15 @@
       <option name="project" value="LOCAL" />
       <updated>1719664362180</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Adding Category DAO configuration">
+      <option name="closed" value="true" />
+      <created>1719667290647</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1719667290648</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -302,25 +313,16 @@
     <MESSAGE value="adding fixed instructions document" />
     <MESSAGE value="Adding report generation by ID" />
     <MESSAGE value="Adding SQLite connection and creating tables in DB" />
-    <option name="LAST_COMMIT_MESSAGE" value="Adding SQLite connection and creating tables in DB" />
+    <MESSAGE value="Adding Category DAO configuration" />
+    <option name="LAST_COMMIT_MESSAGE" value="Adding Category DAO configuration" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/dev/src/main/java/Inventory/tests/InventoryManagementTests.java</url>
-          <line>69</line>
-          <option name="timeStamp" value="4" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/dev/src/main/java/Inventory/ServiceLayer/ServiceController.java</url>
-          <line>55</line>
+          <line>51</line>
           <option name="timeStamp" value="7" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/dev/src/main/java/Inventory/PresentationLayer/CLIInterface.java</url>
-          <line>298</line>
-          <option name="timeStamp" value="8" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/dev/src/main/java/Inventory/DataLayer/MainTest.java</url>

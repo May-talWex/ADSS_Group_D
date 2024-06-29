@@ -1,95 +1,50 @@
 package src.main.java.Inventory.DomainLayer;
 
-import java.io.FileWriter;
-import java.io.IOException;
-import java.nio.file.Paths;
-import java.util.ArrayList;
-import java.util.HashMap;
+import src.main.java.Inventory.DataLayer.CategoryRepository;
 
+import java.time.LocalDate;
+import java.util.Date;
+import java.util.List;
 
 public class CategoryController {
-    private HashMap<String, Category> categories;
-
+    private CategoryRepository categoryRepository;
 
     public CategoryController() {
-        categories = new HashMap<>();
+        this.categoryRepository = new CategoryRepository();
     }
 
-    public HashMap<String, Category> getCategories() {
-        return categories;
+    public boolean addCategory(String id, String name) {
+        Category category = new Category(name, id);
+        return categoryRepository.addCategory(category);
+    }
+
+    public boolean removeCategory(String id) {
+        return categoryRepository.deleteCategory(id);
+    }
+
+    public boolean updateCategory(String id, LocalDate startDiscount, LocalDate endDiscount, float discountPercentage) {
+        return categoryRepository.updateCategory(id, startDiscount, endDiscount, discountPercentage);
+    }
+
+    public Category getCategoryByID(String id) {
+        return categoryRepository.getCategoryById(id);
     }
 
     public boolean doesCategoryExist(String categoryID) {
-        return categories.containsKey(categoryID);
-    }
-    public Category getCategoryByID(String categoryID) {
-        if (categories.containsKey(categoryID)) {
-            return categories.get(categoryID);
-        } else {
-            System.out.println("Category ID " + categoryID + " does not exist.");
-            return null;
-        }
+        return categoryRepository.getCategoryById(categoryID) != null;
     }
 
-    public boolean addCategory(String name, String ID) {
-        if (categories.containsKey(ID)) {
-            System.out.println("Category ID " + ID + " already exists.");
-            return false;
-        }
-        Category category = new Category(name, ID);
-        categories.put(ID, category);
-        System.out.println("Category " + ID + " added successfully.");
-        return true;
-    }
-
-    public boolean removeCategory(String categoryID) {
-        if (categories.containsKey(categoryID)) {
-            if (!categories.get(categoryID).getProducts().isEmpty()) {
-                System.out.println("Cannot remove category " + categoryID + " because it still contains products.");
-                return false;
-            }
-            categories.remove(categoryID);
-            System.out.println("Category " + categoryID + " removed successfully.");
-            return true;
-        }
-        System.out.println("Category ID " + categoryID + " does not exist.");
-        return false;
-    }
-
-
-    public boolean addProductToCategory(String categoryID, Product product) {
-        if (categories.containsKey(categoryID)) {
-            Category category = categories.get(categoryID);
-            if (category.getProducts().contains(product)) {
-                System.out.println("Product already exists in category " + categoryID + ".");
-                return false;
-            }
-            category.addProduct(product);
-            System.out.println("Product added to category " + categoryID + " successfully.");
-            return true;
-        }
-        System.out.printf("Category ID " + categoryID + " does not exist.");
-        return false;
+    public List<Category> getCategories() {
+        return categoryRepository.getAllCategories();
     }
 
     public boolean removeProductFromCategory(String categoryID, Product product) {
-        if (categories.containsKey(categoryID)) {
-            Category category = categories.get(categoryID);
-            if (category.getProducts().contains(product)) {
-                category.removeProduct(product);
-                System.out.println("Product removed from category " + categoryID + " successfully.");
-                return true;
-            } else {
-                System.out.println("Product does not exist in category " + categoryID + ".");
-                return false;
-            }
-        } else {
-            System.out.println("Category ID " + categoryID + " does not exist.");
-            return false;
+        Category category = categoryRepository.getCategoryById(categoryID);
+        if (category != null) {
+            category.removeProduct(product);
+            return categoryRepository.updateCategory(categoryID, category.getDiscountStartDate(), category.getDiscountEndDate(), category.getDiscountPercentage());
         }
+        return false;
     }
 
-    public  void clearCategories() {
-        categories.clear();
-    }
 }

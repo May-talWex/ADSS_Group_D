@@ -6,79 +6,65 @@ import src.main.java.Inventory.DomainLayer.Category;
 import src.main.java.Inventory.DomainLayer.ItemController;
 import src.main.java.Inventory.DomainLayer.ProductController;
 import src.main.java.Inventory.DomainLayer.Product;
-import src.main.java.Inventory.DataLayer.DefaultDataInitializer;
-
+//import src.main.java.Inventory.DataLayer.DefaultDataInitializer;
 
 import java.time.LocalDate;
 import java.util.HashMap;
 import java.util.List;
 
 public class ServiceController {
-    public CategoryController categoryController;
-    public ProductController productController;
-    public ItemController itemController;
-
+    private CategoryController categoryController;
+    private ProductController productController;
+    private ItemController itemController;
 
     public ServiceController(boolean addDefault) {
         categoryController = new CategoryController();
         productController = new ProductController();
         itemController = new ItemController();
 
-        if (addDefault) {
-            DefaultDataInitializer.initializeDefaultData(categoryController, productController, itemController);
-        }
+//        if (addDefault) {
+//            DefaultDataInitializer.initializeDefaultData(categoryController, productController, itemController);
+//        }
     }
 
-    //item service
-    public boolean addItem(boolean defective, boolean inWareHouse,int floorBuilding,
+    // Item Service Methods
+    public boolean addItem(boolean defective, boolean inWareHouse, int floorBuilding,
                            int floorShelf, float x, float y,
                            float supplierCost, float priceNoDiscount, String name,
                            String id, LocalDate expireDate,
-                           String categoryID, String productID){
-        if(!categoryController.getCategories().containsKey(categoryID)){
+                           String categoryID, String productID) {
+        if (!categoryController.doesCategoryExist(categoryID)) {
             System.out.println("CategoryID " + categoryID + " does not exist. Please create category first");
             return false;
-        }
-        else if(!productController.getAllProducts().contains(productController.getProduct(productID))){
+        } else if (!productController.getAllProducts().contains(productController.getProduct(productID))) {
             System.out.println("ProductID " + productID + " does not exist. Please create product first");
             return false;
-        }
-        else if(itemController.addNewItem(defective,inWareHouse,floorBuilding,
-                floorShelf,x,y,
-                supplierCost,priceNoDiscount,name,id, expireDate,
-                categoryID,productID)){
+        } else if (itemController.addNewItem(defective, inWareHouse, floorBuilding,
+                floorShelf, x, y,
+                supplierCost, priceNoDiscount, name, id, expireDate,
+                categoryID, productID)) {
             return true;
         }
         return false;
     }
 
-    public void addItemsToProduct(String itemID){
+    public void addItemsToProduct(String itemID) {
         productController.addItemsToProduct(itemID);
     }
 
-    public void reportExpired(){
+    public void reportExpired() {
         itemController.generateExpiredItems();
     }
 
-    public void generateStockReport() {
-        productController.generateStockReport();
-    }
-
-    public void removeExpire(){
-
+    public void removeExpire() {
         itemController.removeExpiredItems(productController);
     }
 
-    public void generateLowSupplyCSVReport() {
-        productController.generateLowSupplyCSVReport();
-    }
-
-
-    public void removeDefective(){
+    public void removeDefective() {
         itemController.removeDefectiveItems(productController);
     }
 
-    public boolean moveItemToStore(String id){
+    public boolean moveItemToStore(String id) {
         return itemController.moveItemToStore(id);
     }
 
@@ -86,16 +72,10 @@ public class ServiceController {
         return productController.removeItemFromProduct(itemID);
     }
 
-
     public boolean removeItem(String id) {
         boolean removedFromProduct = productController.removeItemFromProduct(id);
         boolean removedFromInventory = itemController.removeItem(id, productController);
         return removedFromProduct && removedFromInventory;
-    }
-
-
-    public List<Product> getAllProducts() {
-        return productController.getAllProducts();
     }
 
     public List<Item> getWarehouseItems() {
@@ -106,9 +86,11 @@ public class ServiceController {
         return itemController.getStoreItems();
     }
 
+    public boolean updateItemDefective(boolean isDefective, String itemID) {
+        return itemController.reportDefectiveItem(isDefective, itemID);
+    }
 
-    //product service
-
+    // Product Service Methods
     public boolean addNewProduct(String makat, String name, String supplier, double costPrice, double sellingPrice, String categoryID, String subCategoryID, int minimumAmount) {
         if (categoryController.doesCategoryExist(categoryID)) {
             boolean productAdded = productController.addProduct(makat, name, supplier, costPrice, sellingPrice, categoryID, subCategoryID, minimumAmount);
@@ -151,39 +133,23 @@ public class ServiceController {
         return false;
     }
 
-
-
-
-    //category service
-    public boolean addCategory(String name, String id) {
-
-        return categoryController.addCategory(name, id);
-
-
+    public List<Product> getAllProducts() {
+        return productController.getAllProducts();
     }
 
-    public boolean removeCategory(String id) {
-        return categoryController.removeCategory(id);
+    public void generateStockReport() {
+        productController.generateStockReport();
     }
 
-    public void clearCategories() {
-        categoryController.clearCategories();
-    }
-
-    public HashMap<String, Category> getCategories() {
-        return categoryController.getCategories();
-    }
-
-    public boolean updateItemDefective(boolean isDefective, String itemID){
-        return itemController.reportDefectiveItem(isDefective, itemID);
+    public void generateLowSupplyCSVReport() {
+        productController.generateLowSupplyCSVReport();
     }
 
     public boolean updateProductDiscount(String productID, int discount, LocalDate startDate, LocalDate endDate) {
         return productController.updateProductDiscount(productID, discount, startDate, endDate);
     }
 
-
-    public void generateDefectiveCSVReport(){
+    public void generateDefectiveCSVReport() {
         itemController.generateDefectiveItemsReport();
     }
 
@@ -191,7 +157,22 @@ public class ServiceController {
         productController.generateCategoryCSVReport(categoryID);
     }
 
+    // Category Service Methods
+    public boolean addCategory(String name, String id) {
+        return categoryController.addCategory(name, id);
+    }
 
+    public boolean removeCategory(String id) {
+        return categoryController.removeCategory(id);
+    }
 
+    public List<Category> getCategories() {
+        return categoryController.getCategories();
+    }
+
+    // Category Service Methods
+    public boolean updateCategory(String id, LocalDate startDiscount, LocalDate endDiscount, float discountPercentage) {
+        return categoryController.updateCategory(id, startDiscount, endDiscount, discountPercentage);
+    }
 
 }
