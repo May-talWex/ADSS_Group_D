@@ -73,7 +73,7 @@ public class Product {
     public double getCostPrice() { return costPrice; }
     public void setCostPrice(double costPrice) { this.costPrice = costPrice; }
 
-//    public void setItemAmount(int itemAmount) { this.itemAmount = itemAmount; }
+    //    public void setItemAmount(int itemAmount) { this.itemAmount = itemAmount; }
     public int getItemAmount() { return items.size(); }
 
     public double getSellingPrice() { return sellingPrice; }
