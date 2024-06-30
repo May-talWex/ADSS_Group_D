@@ -1,6 +1,6 @@
 package src.main.java.Inventory.DomainLayer;
 
-//controls the items, here we will implement for example a function that returns all expired products
+import src.main.java.Inventory.DataLayer.ItemRepository;
 
 import java.io.File;
 import java.io.FileWriter;
@@ -17,24 +17,53 @@ public class ItemController {
 
     private static HashMap<String, Item> wareHouseItems = new HashMap<>(); //items in warehouse by category ID
     private static HashMap<String, Item> storeItems = new HashMap<>();
-
-
+    private ItemRepository itemRepository;
 
     public ItemController() {
         wareHouseItems = new HashMap<>();
         storeItems = new HashMap<>();
+        itemRepository = new ItemRepository();
     }
 
-    public static Item getItemByID(String id) {
-        if (wareHouseItems.containsKey(id)) {
-            return wareHouseItems.get(id);
-        } else if (storeItems.containsKey(id)) {
-            return storeItems.get(id);
+    public Item getItemByID(String id) {
+        return itemRepository.getItemById(id);
+    }
+
+    public boolean addNewItem(boolean defective, boolean inWareHouse, int floorBuilding, int floorShelf, float x, float y, float supplierCost, float priceNoDiscount, String name, String id, LocalDate expireDate, String categoryID, String productID) {
+        Item itemToAdd = new Item(defective, inWareHouse, floorBuilding, floorShelf, x, y, supplierCost, priceNoDiscount, name, id, expireDate, categoryID, productID);
+
+        if (wareHouseItems.containsKey(itemToAdd.getID()) || storeItems.containsKey(itemToAdd.getID())) {
+            System.out.println("Item with same ID already exists");
+            return false;
         } else {
-            return null;
+            if (inWareHouse) {
+                wareHouseItems.put(itemToAdd.getID(), itemToAdd);
+                System.out.println("Item added successfully to warehouse");
+            } else {
+                storeItems.put(itemToAdd.getID(), itemToAdd);
+                System.out.println("Item added successfully to store");
+            }
+            return itemRepository.insertItem(itemToAdd);
         }
     }
 
+    public boolean doesItemExist(String id) {
+        return itemRepository.getItemById(id) != null;
+    }
+
+    public boolean removeItem(String id) {
+        Item item = getItemByID(id);
+        if (item == null) {
+            System.out.println("Item " + id + " does not exist in inventory");
+            return false;
+        }
+        if (item.inWareHouse) {
+            wareHouseItems.remove(id);
+        } else {
+            storeItems.remove(id);
+        }
+        return itemRepository.deleteItem(id);
+    }
 
     public void generateExpiredItems() {
         List<Item> expiredItems = new ArrayList<>();
@@ -103,7 +132,6 @@ public class ItemController {
         }
     }
 
-
     public void generateDefectiveItemsReport() {
         List<Item> defectiveItems = new ArrayList<>();
 
@@ -163,104 +191,10 @@ public class ItemController {
                         .append(item.categoryID).append(',')
                         .append(item.productID).append('\n');
             }
-            System.out.println("CSV report for defective items generated successfully at path" + filePath + ".");
+            System.out.println("CSV report for defective items generated successfully in the path" + filePath + ".");
         } catch (IOException e) {
             System.out.println("Error while generating CSV report for defective items: " + e.getMessage());
         }
-
-
-
-        // Check defective items in store
-        Iterator<Map.Entry<String, Item>> iteratorStore = storeItems.entrySet().iterator();
-        while (iteratorStore.hasNext()) {
-            Map.Entry<String, Item> entry = iteratorStore.next();
-            if (entry.getValue().defective) {
-                defectiveItems.add(entry.getValue());
-                System.out.println("Defective store item: " + entry.getValue());
-            }
-        }
-
-        if (defectiveItems.isEmpty()) {
-            System.out.println("No defective items found.");
-        }
-    }
-
-
-    public void removeExpiredItems(ProductController productController) {
-        boolean removed = false;
-        // Remove expired items from inWareHouse
-        Iterator<Map.Entry<String, Item>> iteratorWarehouse = wareHouseItems.entrySet().iterator();
-        while (iteratorWarehouse.hasNext()) {
-            Map.Entry<String, Item> entry = iteratorWarehouse.next();
-            if (entry.getValue().isExpired()) {
-                iteratorWarehouse.remove();
-                removed = true;
-            }
-        }
-
-        // Remove expired items from inStore
-        Iterator<Map.Entry<String, Item>> iteratorStore = storeItems.entrySet().iterator();
-        while (iteratorStore.hasNext()) {
-            Map.Entry<String, Item> entry = iteratorStore.next();
-            if (entry.getValue().isExpired()) {
-                iteratorStore.remove();
-                removed = true;
-            }
-        }
-
-        if (!removed) {
-            System.out.println("No expired items found.");
-        } else {
-            System.out.println("Expired items removed successfully.");
-        }
-    }
-
-
-    public void removeDefectiveItems(ProductController productController) {
-        boolean removed = false;
-        // Remove defective items from inWareHouse
-        Iterator<Map.Entry<String, Item>> iteratorWarehouse = wareHouseItems.entrySet().iterator();
-        while (iteratorWarehouse.hasNext()) {
-            Map.Entry<String, Item> entry = iteratorWarehouse.next();
-            if (entry.getValue().defective) {
-                iteratorWarehouse.remove();
-                removed = true;
-            }
-        }
-
-        // Remove defective items from inStore
-        Iterator<Map.Entry<String, Item>> iteratorStore = storeItems.entrySet().iterator();
-        while (iteratorStore.hasNext()) {
-            Map.Entry<String, Item> entry = iteratorStore.next();
-            if (entry.getValue().defective) {
-                iteratorStore.remove();
-                removed = true;
-            }
-        }
-
-        if (!removed) {
-            System.out.println("No defective items found.");
-        } else {
-            System.out.println("Defective items removed successfully.");
-        }
-    }
-
-    public boolean addNewItem(boolean defective, boolean inWareHouse, int floorBuilding, int floorShelf, float x, float y, float supplierCost, float priceNoDiscount, String name, String id, LocalDate expireDate, String categoryID, String productID) {
-        Item itemToAdd = new Item(defective, inWareHouse, floorBuilding, floorShelf, x, y, supplierCost, priceNoDiscount, name, id, expireDate, categoryID, productID);
-
-        if (wareHouseItems.containsKey(itemToAdd.getID()) || storeItems.containsKey(itemToAdd.getID())) {
-            System.out.println("Item with same ID already exists");
-            return false;
-        } else {
-            if (inWareHouse) {
-                wareHouseItems.put(itemToAdd.getID(), itemToAdd);
-                System.out.println("Item added successfully to warehouse");
-            } else {
-                storeItems.put(itemToAdd.getID(), itemToAdd);
-                System.out.println("Item added successfully to store");
-            }
-        }
-        return true;
     }
 
     public boolean moveItemToStore(String id){
@@ -280,36 +214,6 @@ public class ItemController {
         }
     }
 
-    public boolean removeItem(String id, ProductController productController) {
-
-        // Item exists, remove it from the appropriate HashMap
-        if (wareHouseItems.containsKey(id)) {
-            Item item = wareHouseItems.get(id);
-            wareHouseItems.remove(id);
-            System.out.println("removed succesfully from warehouse");
-        }
-        else if(storeItems.containsKey(id)) {
-            Item item = storeItems.get(id);
-            storeItems.remove(id);
-            System.out.println("removed succesfully from store");
-        }
-        else {
-            System.out.println("Item doesnt exist");
-            return false;
-        }
-
-        return true; // Item removed successfully
-    }
-
-
-    public List<Item> getWarehouseItems() {
-        return new ArrayList<>(wareHouseItems.values());
-    }
-
-    public List<Item> getStoreItems() {
-        return new ArrayList<>(storeItems.values());
-    }
-
 
     public boolean reportDefectiveItem(boolean isDefective, String itemID){
         Item item = getItemByID(itemID);
@@ -319,6 +223,64 @@ public class ItemController {
         }
         item.defective = isDefective;
         return true;
+    }
+
+    public void removeExpiredItems() {
+        boolean removed = false;
+        // Remove expired items from warehouse
+        Iterator<Map.Entry<String, Item>> iteratorWarehouse = wareHouseItems.entrySet().iterator();
+        while (iteratorWarehouse.hasNext()) {
+            Map.Entry<String, Item> entry = iteratorWarehouse.next();
+            if (entry.getValue().isExpired()) {
+                iteratorWarehouse.remove();
+                removed = true;
+            }
+        }
+
+        // Remove expired items from store
+        Iterator<Map.Entry<String, Item>> iteratorStore = storeItems.entrySet().iterator();
+        while (iteratorStore.hasNext()) {
+            Map.Entry<String, Item> entry = iteratorStore.next();
+            if (entry.getValue().isExpired()) {
+                iteratorStore.remove();
+                removed = true;
+            }
+        }
+
+        if (!removed) {
+            System.out.println("No expired items found.");
+        } else {
+            System.out.println("Expired items removed successfully.");
+        }
+    }
+
+    public void removeDefectiveItems() {
+        boolean removed = false;
+        // Remove defective items from warehouse
+        Iterator<Map.Entry<String, Item>> iteratorWarehouse = wareHouseItems.entrySet().iterator();
+        while (iteratorWarehouse.hasNext()) {
+            Map.Entry<String, Item> entry = iteratorWarehouse.next();
+            if (entry.getValue().defective) {
+                iteratorWarehouse.remove();
+                removed = true;
+            }
+        }
+
+        // Remove defective items from store
+        Iterator<Map.Entry<String, Item>> iteratorStore = storeItems.entrySet().iterator();
+        while (iteratorStore.hasNext()) {
+            Map.Entry<String, Item> entry = iteratorStore.next();
+            if (entry.getValue().defective) {
+                iteratorStore.remove();
+                removed = true;
+            }
+        }
+
+        if (!removed) {
+            System.out.println("No defective items found.");
+        } else {
+            System.out.println("Defective items removed successfully.");
+        }
     }
 
 }

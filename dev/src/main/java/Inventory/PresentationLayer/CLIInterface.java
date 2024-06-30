@@ -7,24 +7,10 @@ import java.time.LocalDate;
 import java.time.format.DateTimeParseException;
 
 public class CLIInterface {
-    private static ServiceController serviceController;
+    private static ServiceController serviceController = new ServiceController();
     private static Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
-        boolean exit = false;
-        while (!exit) {
-            System.out.println("Do you want to upload the default data? answer yes or no");
-            String response = scanner.nextLine();
-            if (response.equalsIgnoreCase("yes")) {
-                serviceController = new ServiceController(true);
-                exit = true;
-            } else if (response.equalsIgnoreCase("no")) {
-                serviceController = new ServiceController(false);
-                exit = true;
-            } else {
-                System.out.println("Please type yes or no");
-            }
-        }
         while (true) {
             try {
                 System.out.print("");
@@ -215,7 +201,7 @@ public class CLIInterface {
     }
 
     private static void getExpireReport() {
-        serviceController.reportExpired();
+        serviceController.generateExpiredCSVReport();
     }
 
     private static void addCategory() {
@@ -230,16 +216,14 @@ public class CLIInterface {
         }
     }
 
-
     private static void removeCategory() {
         System.out.print("Enter category ID: ");
         String categoryID = scanner.nextLine();
         if (serviceController.removeCategory(categoryID)) {
             System.out.println("Category removed successfully.");
-        } else {
-            System.out.println("Failed to remove category.");
         }
     }
+
 
     private static void updateCategory() {
         System.out.print("Enter category ID: ");
@@ -288,9 +272,9 @@ public class CLIInterface {
         System.out.print("Enter supplier name: ");
         String supplier = scanner.nextLine();
         System.out.print("Enter product cost price: ");
-        double costPrice = scanner.nextDouble();
+        float costPrice = scanner.nextFloat();
         System.out.print("Enter product selling price: ");
-        double sellingPrice = scanner.nextDouble();
+        float sellingPrice = scanner.nextFloat();
         scanner.nextLine(); // Consume newline
         System.out.print("Enter product category ID: ");
         String categoryId = scanner.nextLine();
@@ -300,7 +284,7 @@ public class CLIInterface {
         int minimumAmount = scanner.nextInt();
         scanner.nextLine(); // Consume newline
 
-        if (serviceController.addNewProduct(makat, name, supplier, costPrice, sellingPrice, categoryId, subCategoryID, minimumAmount)) {
+        if (serviceController.addProduct(makat, name, supplier, costPrice, sellingPrice, categoryId, subCategoryID, minimumAmount)) {
             System.out.println("New product added successfully.");
         } else {
             System.out.println("Failed to add new product.");
@@ -348,21 +332,25 @@ public class CLIInterface {
         for (int i = 0; i < itemAmount; i++) {
             String newItemId = itemId + i; // Generate a new item ID for each item
             serviceController.addItem(defective, inWareHouse, -1, -1, -1f, -1f, -1f, -1f, name, newItemId, expireDate, categoryID, productID);
-            serviceController.addItemsToProduct(newItemId); // Add each item individually to the product
         }
     }
 
     private static void removeProduct() {
         System.out.print("Enter product makat: ");
         String makat = scanner.nextLine();
-        serviceController.removeProduct(makat);
+        if (serviceController.removeProduct(makat)){
+            System.out.println("Product removed successfully.");
+        }
     }
 
     private static void removeItem() {
         System.out.print("Enter item ID: ");
         String itemID = scanner.nextLine();
-        serviceController.removeItemFromProduct(itemID);
-        serviceController.removeItem(itemID);
+        if (serviceController.removeItem(itemID)) {
+            System.out.println("Item removed successfully.");
+        } else {
+            System.out.println("Failed to remove item.");
+        }
     }
 
     private static void removeExpired() {

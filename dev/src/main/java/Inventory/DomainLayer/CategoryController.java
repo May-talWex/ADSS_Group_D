@@ -3,14 +3,13 @@ package src.main.java.Inventory.DomainLayer;
 import src.main.java.Inventory.DataLayer.CategoryRepository;
 
 import java.time.LocalDate;
-import java.util.Date;
 import java.util.List;
 
 public class CategoryController {
     private CategoryRepository categoryRepository;
 
     public CategoryController() {
-        this.categoryRepository = new CategoryRepository();
+        categoryRepository = new CategoryRepository();
     }
 
     public boolean addCategory(String id, String name) {
@@ -20,10 +19,6 @@ public class CategoryController {
 
     public boolean removeCategory(String id) {
         return categoryRepository.deleteCategory(id);
-    }
-
-    public boolean updateCategory(String id, LocalDate startDiscount, LocalDate endDiscount, float discountPercentage) {
-        return categoryRepository.updateCategory(id, startDiscount, endDiscount, discountPercentage);
     }
 
     public Category getCategoryByID(String id) {
@@ -39,10 +34,22 @@ public class CategoryController {
     }
 
     public boolean removeProductFromCategory(String categoryID, Product product) {
-        Category category = categoryRepository.getCategoryById(categoryID);
+        Category category = getCategoryByID(categoryID);
         if (category != null) {
             category.removeProduct(product);
             return categoryRepository.updateCategory(categoryID, category.getDiscountStartDate(), category.getDiscountEndDate(), category.getDiscountPercentage());
+        }
+        return false;
+    }
+
+
+    public boolean updateCategory(String categoryID, LocalDate startDiscount, LocalDate endDiscount, float discountPercentage) {
+        Category category = categoryRepository.getCategoryById(categoryID);
+        if (category != null) {
+            category.setDiscountStartDate(startDiscount);
+            category.setDiscountEndDate(endDiscount);
+            category.setDiscountPercentage(discountPercentage);
+            return categoryRepository.updateCategory(categoryID, startDiscount, endDiscount, discountPercentage);
         }
         return false;
     }

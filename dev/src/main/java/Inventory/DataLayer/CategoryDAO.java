@@ -8,6 +8,7 @@ import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -48,12 +49,12 @@ public class CategoryDAO {
         }
     }
 
-    public boolean updateCategory(String id, Date startDiscount, Date endDiscount, float discountPercentage) {
+    public boolean updateCategory(String id, LocalDate startDiscount, LocalDate endDiscount, float discountPercentage) {
         String sql = "UPDATE Category SET Start_Discount = ?, End_Discount = ?, Discount_Percentage = ? WHERE id = ?";
 
         try (PreparedStatement pstmt = connection.prepareStatement(sql)) {
-            pstmt.setDate(1, startDiscount);
-            pstmt.setDate(2, endDiscount);
+            pstmt.setString(1, startDiscount != null ? startDiscount.toString() : null);
+            pstmt.setString(2, endDiscount != null ? endDiscount.toString() : null);
             pstmt.setFloat(3, discountPercentage);
             pstmt.setString(4, id);
             pstmt.executeUpdate();
@@ -77,14 +78,17 @@ public class CategoryDAO {
                 Date endDiscount = rs.getDate("End_Discount");
                 float discountPercentage = rs.getFloat("Discount_Percentage");
 
-                ArrayList<Product> products = getProductsByCategoryId(id);
-                return new Category(name, id, startDiscount.toLocalDate(), endDiscount.toLocalDate(), discountPercentage, products);
+                LocalDate startDiscountLocalDate = startDiscount != null ? startDiscount.toLocalDate() : null;
+                LocalDate endDiscountLocalDate = endDiscount != null ? endDiscount.toLocalDate() : null;
+
+                return new Category(name, id, startDiscountLocalDate, endDiscountLocalDate, discountPercentage);
             }
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
         return null;
     }
+
 
     public List<Category> getAllCategories() {
         String sql = "SELECT * FROM Category";
@@ -123,8 +127,8 @@ public class CategoryDAO {
                 String makat = rs.getString("makat");
                 String name = rs.getString("name");
                 String supplier = rs.getString("supplier");
-                double costPrice = rs.getDouble("costPrice");
-                double sellingPrice = rs.getDouble("Selling_Price");
+                float costPrice = rs.getFloat("costPrice");
+                float sellingPrice = rs.getFloat("Selling_Price");
                 int discount = rs.getInt("discount");
                 int minStockAmnt = rs.getInt("Min_Stock_Amnt");
                 Date discountStart = rs.getDate("Discount_Start");
@@ -141,4 +145,5 @@ public class CategoryDAO {
 
         return products;
     }
+
 }

@@ -8,8 +8,8 @@ public class Product {
     private String makat;
     private String name;
     private String supplier;
-    private double costPrice;
-    private double sellingPrice;
+    private float costPrice;
+    private float sellingPrice;
     private boolean isDamaged;
     private int discount;
     private int minimumAmount;
@@ -19,10 +19,10 @@ public class Product {
     private String categoryID;
     private String subCategoryID;
     private ArrayList<Item> items;
-    private double fullPrice;
+    private float fullPrice;
 //    private int itemAmount = 0;
 
-    public Product(String makat, String name, String supplier, double costPrice, double sellingPrice, String categoryID, String subCategoryID, int minimumAmount) {
+    public Product(String makat, String name, String supplier, float costPrice, float sellingPrice, String categoryID, String subCategoryID, int minimumAmount) {
         this.makat = makat;
         this.name = name;
         this.supplier = supplier;
@@ -70,14 +70,14 @@ public class Product {
         return warehouseQuantity;
     }
 
-    public double getCostPrice() { return costPrice; }
-    public void setCostPrice(double costPrice) { this.costPrice = costPrice; }
+    public float getCostPrice() { return costPrice; }
+    public void setCostPrice(float costPrice) { this.costPrice = costPrice; }
 
     //    public void setItemAmount(int itemAmount) { this.itemAmount = itemAmount; }
     public int getItemAmount() { return items.size(); }
 
-    public double getSellingPrice() { return sellingPrice; }
-    public void setSellingPrice(double sellingPrice) { this.sellingPrice = sellingPrice;}
+    public float getSellingPrice() { return sellingPrice; }
+    public void setSellingPrice(float sellingPrice) { this.sellingPrice = sellingPrice;}
 
     public String getCategoryID() { return categoryID; }
     public void setCategory(String categoryID) { this.categoryID = categoryID; }
@@ -94,7 +94,7 @@ public class Product {
 
     public void applyDiscount(int discountPercentage) {
         this.discount = discountPercentage;
-        this.sellingPrice = this.sellingPrice - (this.sellingPrice * (discountPercentage / 100.0));
+        this.sellingPrice = (float) (this.sellingPrice - (this.sellingPrice * (discountPercentage / 100.0)));
     }
 
 
@@ -115,15 +115,15 @@ public class Product {
         this.startDiscount = startDate;
         this.endDiscount = endDate;
         if(isDiscountActive()){
-            this.sellingPrice = this.fullPrice - (this.fullPrice * (discount / 100.0));
+            this.sellingPrice = (float) (this.fullPrice - (this.fullPrice * (discount / 100.0)));
         }
         else{
             this.discount = 0;
-            this.sellingPrice = this.fullPrice;
+            this.sellingPrice = (float) this.fullPrice;
         }
     }
 
-    public double getFullPrice() { return fullPrice; }
+    public float getFullPrice() { return fullPrice; }
 
 
     public void addDiscount(String discount) { discounts.add(discount); }

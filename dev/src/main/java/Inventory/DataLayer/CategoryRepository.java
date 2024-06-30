@@ -30,8 +30,8 @@ public class CategoryRepository {
     public boolean updateCategory(String id, LocalDate startDiscount, LocalDate endDiscount, float discountPercentage) {
         return categoryDAO.updateCategory(
                 id,
-                startDiscount != null ? Date.valueOf(startDiscount) : null,
-                endDiscount != null ? Date.valueOf(endDiscount) : null,
+                startDiscount,
+                endDiscount,
                 discountPercentage
         );
     }
