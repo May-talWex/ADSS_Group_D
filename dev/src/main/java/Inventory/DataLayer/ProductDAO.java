@@ -1,8 +1,10 @@
 package src.main.java.Inventory.DataLayer;
 
+import src.main.java.Inventory.DomainLayer.Item;
 import src.main.java.Inventory.DomainLayer.Product;
 
 import java.sql.*;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -63,13 +65,47 @@ public class ProductDAO {
                 String subCategoryID = rs.getString("Sub_Category_ID");
                 int minimumAmount = rs.getInt("Min_Stock_Amnt");
 
-                return new Product(makat, name, supplier, costPrice, sellingPrice, categoryID, subCategoryID, minimumAmount);
+                Product product = new Product(makat, name, supplier, costPrice, sellingPrice, categoryID, subCategoryID, minimumAmount);
+                product.setItems(getItemsByProductId(makat)); // Add this line to fetch items
+                return product;
             }
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
         return null;
     }
+
+    private ArrayList<Item> getItemsByProductId(String productId) {
+        String sql = "SELECT * FROM Item WHERE productID = ?";
+        ArrayList<Item> items = new ArrayList<>();
+
+        try (PreparedStatement pstmt = connection.prepareStatement(sql)) {
+            pstmt.setString(1, productId);
+            ResultSet rs = pstmt.executeQuery();
+
+            while (rs.next()) {
+                boolean defective = rs.getBoolean("defective");
+                boolean inWareHouse = rs.getBoolean("inWareHouse");
+                int floorBuilding = rs.getInt("floorBuilding");
+                int floorShelf = rs.getInt("floorShelf");
+                float x = rs.getFloat("x");
+                float y = rs.getFloat("y");
+                String name = rs.getString("name");
+                String id = rs.getString("id");
+                LocalDate expireDate = rs.getDate("expireDate").toLocalDate();
+                String categoryID = rs.getString("categoryID");
+                String productID = rs.getString("productID");
+
+                Item item = new Item(defective, inWareHouse, floorBuilding, floorShelf, x, y, name, id, expireDate, categoryID, productID);
+                items.add(item);
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+
+        return items;
+    }
+
 
     public List<Product> getProductsByCategoryId(String categoryID) {
         List<Product> products = new ArrayList<>();

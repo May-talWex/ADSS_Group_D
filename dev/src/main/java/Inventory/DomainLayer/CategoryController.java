@@ -18,8 +18,14 @@ public class CategoryController {
     }
 
     public boolean removeCategory(String id) {
+        Category category = categoryRepository.getCategoryById(id);
+        if (category != null && !category.getProducts().isEmpty()) {
+            System.out.println("Cannot delete category " + id + " because it contains products.");
+            return false;
+        }
         return categoryRepository.deleteCategory(id);
     }
+
 
     public Category getCategoryByID(String id) {
         return categoryRepository.getCategoryById(id);

@@ -140,6 +140,11 @@ public class Product {
         return this.minimumAmount >= items.size() - amount;
     }
 
+    public void setItems(ArrayList<Item> items) {
+        this.items = items;
+    }
+
+
     public String toString() {
         return "Product{" +
                 "makat='" + makat + '\'' +

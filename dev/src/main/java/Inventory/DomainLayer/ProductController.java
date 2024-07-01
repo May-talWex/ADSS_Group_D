@@ -24,27 +24,7 @@ public class ProductController {
                 System.out.println("Cannot remove product " + makat + " because it still contains items.");
                 return false;
             }
-            String categoryID = product.getCategoryID();
-            if (categoryID != null && !categoryID.isEmpty()) {
-                CategoryController categoryController = new CategoryController();
-                Category category = categoryController.getCategoryByID(categoryID);
-                if (category != null) {
-                    category.removeProduct(product);
-                    boolean removedFromCategory = categoryController.updateCategory(
-                            categoryID,
-                            category.getDiscountStartDate(),
-                            category.getDiscountEndDate(),
-                            category.getDiscountPercentage()
-                    );
-                    if (removedFromCategory) {
-                        return productRepository.deleteProduct(makat);
-                    } else {
-                        System.out.println("Failed to remove product from category.");
-                    }
-                }
-            } else {
-                System.out.println("Product category ID is null or empty.");
-            }
+            return productRepository.deleteProduct(makat);
         } else {
             System.out.println("Product not found.");
         }
@@ -79,6 +59,11 @@ public class ProductController {
 
     public static Product getProductByID(String productID) {
         return new ProductRepository().getProductById(productID);
+    }
+
+    public boolean productContainsItems(String makat) {
+        Product product = productRepository.getProductById(makat);
+        return product != null && !product.getItems().isEmpty();
     }
 
 }

@@ -81,14 +81,15 @@ public class CategoryDAO {
                 LocalDate startDiscountLocalDate = startDiscount != null ? startDiscount.toLocalDate() : null;
                 LocalDate endDiscountLocalDate = endDiscount != null ? endDiscount.toLocalDate() : null;
 
-                return new Category(name, id, startDiscountLocalDate, endDiscountLocalDate, discountPercentage);
+                Category category = new Category(name, id, startDiscountLocalDate, endDiscountLocalDate, discountPercentage);
+                category.getProducts().addAll(getProductsByCategoryId(id)); // Add products to category
+                return category;
             }
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
         return null;
     }
-
 
     public List<Category> getAllCategories() {
         String sql = "SELECT * FROM Category";
@@ -104,7 +105,7 @@ public class CategoryDAO {
                 Date endDiscount = rs.getDate("End_Discount");
                 float discountPercentage = rs.getFloat("Discount_Percentage");
 
-                Category category = new Category(name, id, startDiscount.toLocalDate(), endDiscount.toLocalDate(), discountPercentage);
+                Category category = new Category(name, id, startDiscount != null ? startDiscount.toLocalDate() : null, endDiscount != null ? endDiscount.toLocalDate() : null, discountPercentage);
                 category.getProducts().addAll(getProductsByCategoryId(id)); // Add products to category
                 categories.add(category);
             }

@@ -88,19 +88,11 @@ public class ServiceController {
     }
 
     public boolean removeProduct(String makat) {
-        if (productController.doesProductExist(makat)) {
-            boolean productRemoved = productController.removeProduct(makat);
-            if (productRemoved) {
-                System.out.println("Product removed successfully");
-                return true;
-            } else {
-                System.out.println("Failed to remove product");
-                return false;
-            }
-        } else {
-            System.out.println("Product not found");
+        if (productController.productContainsItems(makat)) {
+            System.out.println("Cannot remove product " + makat + " because it still contains items.");
             return false;
         }
+        return productController.removeProduct(makat);
     }
 
 
