@@ -60,21 +60,6 @@ public class Item {
         this.productID = productID;
     }
 
-//    public double getPrice() {
-//        Category category = categoryController.getCategoryByID(categoryID);
-//        Product product = productController.getProduct(productID);
-//        double discount = 0;
-//        assert category != null;
-//        if (category.getDiscountPercentage() > discount) {
-//            discount = category.getDiscountPercentage();
-//        }
-//
-//        if (product.getDiscount() > discount) {
-//            discount = product.getDiscount();
-//        }
-//        return priceNoDiscount - (priceNoDiscount * discount / 100);
-//    }
-
     public String getID(){
         return id;
     }

@@ -5,8 +5,14 @@ import src.main.java.Inventory.DomainLayer.Product;
 
 import java.sql.*;
 import java.time.LocalDate;
+import java.time.ZoneId;
 import java.util.ArrayList;
 import java.util.List;
+import java.sql.Date;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
+
 
 public class ProductDAO {
     private Connection connection;
@@ -66,7 +72,7 @@ public class ProductDAO {
                 int minimumAmount = rs.getInt("Min_Stock_Amnt");
 
                 Product product = new Product(makat, name, supplier, costPrice, sellingPrice, categoryID, subCategoryID, minimumAmount);
-                product.setItems(getItemsByProductId(makat)); // Add this line to fetch items
+                product.setItems(getItemsByProductId(makat));
                 return product;
             }
         } catch (SQLException e) {
@@ -78,9 +84,11 @@ public class ProductDAO {
     private ArrayList<Item> getItemsByProductId(String productId) {
         String sql = "SELECT * FROM Item WHERE productID = ?";
         ArrayList<Item> items = new ArrayList<>();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 
         try (PreparedStatement pstmt = connection.prepareStatement(sql)) {
             pstmt.setString(1, productId);
+            System.out.println("Executing query with productID: " + productId);
             ResultSet rs = pstmt.executeQuery();
 
             while (rs.next()) {
@@ -92,9 +100,20 @@ public class ProductDAO {
                 float y = rs.getFloat("y");
                 String name = rs.getString("name");
                 String id = rs.getString("id");
-                LocalDate expireDate = rs.getDate("expireDate").toLocalDate();
+                String expireDateStr = rs.getString("expireDate");
+                LocalDate expireDate = null;
+                if (expireDateStr != null) {
+                    try {
+                        expireDate = LocalDate.parse(expireDateStr, formatter);
+                    } catch (DateTimeParseException e) {
+                        System.out.println("Error parsing expireDate for item ID: " + id);
+                        e.printStackTrace();
+                    }
+                }
                 String categoryID = rs.getString("categoryID");
                 String productID = rs.getString("productID");
+
+                System.out.println("Found item: " + id);
 
                 Item item = new Item(defective, inWareHouse, floorBuilding, floorShelf, x, y, name, id, expireDate, categoryID, productID);
                 items.add(item);
@@ -105,6 +124,9 @@ public class ProductDAO {
 
         return items;
     }
+
+
+
 
 
     public List<Product> getProductsByCategoryId(String categoryID) {
