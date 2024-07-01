@@ -66,4 +66,23 @@ public class ProductController {
         return product != null && !product.getItems().isEmpty();
     }
 
+
+    public void ProductsNoItem() {
+        List<Product> allProducts = productRepository.getAllProducts();
+        List<String> productsWithNoItems = new ArrayList<>();
+
+        for (Product product : allProducts) {
+            if (product.getItemAmount() == 0) {
+                productsWithNoItems.add(product.getName());
+            }
+        }
+
+        if (!productsWithNoItems.isEmpty()) {
+            System.out.println("WARNING: PRODUCTS WITH NO ITEMS");
+            for (String productName : productsWithNoItems) {
+                System.out.println(productName);
+            }
+        }
+    }
+
 }
