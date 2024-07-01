@@ -9,23 +9,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2ee10d94-4457-471a-97fe-029a048743dc" name="Changes" comment="Adding Category Repository and implementing all category logic with DB">
-      <change afterPath="$PROJECT_DIR$/dev/src/main/java/Inventory/DataLayer/ItemRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dev/src/main/java/Inventory/DataLayer/ProductRepository.java" afterDir="false" />
+    <list default="true" id="2ee10d94-4457-471a-97fe-029a048743dc" name="Changes" comment="Adding Item + Product DAO and Repository, TO-DO!!! fix bugs in item adding">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dev/src/main/java/Inventory/DataLayer/CategoryDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/dev/src/main/java/Inventory/DataLayer/CategoryDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dev/src/main/java/Inventory/DataLayer/CategoryRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/dev/src/main/java/Inventory/DataLayer/CategoryRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dev/src/main/java/Inventory/DataLayer/DefaultDataInitializer.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/dev/src/main/java/Inventory/DataLayer/ItemDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/dev/src/main/java/Inventory/DataLayer/ItemDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dev/src/main/java/Inventory/DataLayer/MainTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dev/src/main/java/Inventory/DataLayer/ProductDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/dev/src/main/java/Inventory/DataLayer/ProductDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dev/src/main/java/Inventory/DomainLayer/CategoryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/dev/src/main/java/Inventory/DomainLayer/CategoryController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dev/src/main/java/Inventory/DomainLayer/Item.java" beforeDir="false" afterPath="$PROJECT_DIR$/dev/src/main/java/Inventory/DomainLayer/Item.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dev/src/main/java/Inventory/DomainLayer/ItemController.java" beforeDir="false" afterPath="$PROJECT_DIR$/dev/src/main/java/Inventory/DomainLayer/ItemController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dev/src/main/java/Inventory/DomainLayer/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/dev/src/main/java/Inventory/DomainLayer/Product.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dev/src/main/java/Inventory/DomainLayer/ProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/dev/src/main/java/Inventory/DomainLayer/ProductController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dev/src/main/java/Inventory/PresentationLayer/CLIInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/dev/src/main/java/Inventory/PresentationLayer/CLIInterface.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dev/src/main/java/Inventory/ServiceLayer/ServiceController.java" beforeDir="false" afterPath="$PROJECT_DIR$/dev/src/main/java/Inventory/ServiceLayer/ServiceController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dev/src/main/java/Inventory/tests/InventoryManagementTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/dev/src/main/java/Inventory/tests/InventoryManagementTests.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,31 +54,31 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.CLIInterface.executor&quot;: &quot;Run&quot;,
-    &quot;Application.MainApp.executor&quot;: &quot;Debug&quot;,
-    &quot;Application.MainTest.executor&quot;: &quot;Debug&quot;,
-    &quot;Application.src.main.java.Inventory.PresentationLayer.CLIInterface.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.InventoryManagementTests.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.InventoryManagementTests.testAddNewProduct.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.InventoryManagementTests.testLowStockAlert.executor&quot;: &quot;Debug&quot;,
-    &quot;JUnit.InventoryManagementTests.testUpdateQuantity.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;209638667__205850621__325842706&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/githubclones/ADSS_Group_D/docs&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Artifacts&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.CLIInterface.executor": "Run",
+    "Application.MainApp.executor": "Debug",
+    "Application.MainTest.executor": "Debug",
+    "Application.src.main.java.Inventory.PresentationLayer.CLIInterface.executor": "Run",
+    "JUnit.InventoryManagementTests.executor": "Run",
+    "JUnit.InventoryManagementTests.testAddNewProduct.executor": "Run",
+    "JUnit.InventoryManagementTests.testLowStockAlert.executor": "Debug",
+    "JUnit.InventoryManagementTests.testUpdateQuantity.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "209638667__205850621__325842706",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/githubclones/ADSS_Group_D/docs",
+    "node.js.detected.package.eslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Artifacts",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\githubclones\ADSS_Group_D\docs" />
@@ -205,7 +193,7 @@
       <workItem from="1719658324902" duration="6880000" />
       <workItem from="1719666098621" duration="14846000" />
       <workItem from="1719746291122" duration="3101000" />
-      <workItem from="1719749443235" duration="2071000" />
+      <workItem from="1719749443235" duration="4953000" />
     </task>
     <task id="LOCAL-00001" summary="Fixing bugs and adding CSV generation">
       <option name="closed" value="true" />
@@ -311,7 +299,15 @@
       <option name="project" value="LOCAL" />
       <updated>1719688077696</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Adding Item + Product DAO and Repository, TO-DO!!! fix bugs in item adding">
+      <option name="closed" value="true" />
+      <created>1719751775342</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1719751775342</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -332,6 +328,18 @@
     <MESSAGE value="Adding SQLite connection and creating tables in DB" />
     <MESSAGE value="Adding Category DAO configuration" />
     <MESSAGE value="Adding Category Repository and implementing all category logic with DB" />
-    <option name="LAST_COMMIT_MESSAGE" value="Adding Category Repository and implementing all category logic with DB" />
+    <MESSAGE value="Adding Item + Product DAO and Repository, TO-DO!!! fix bugs in item adding" />
+    <option name="LAST_COMMIT_MESSAGE" value="Adding Item + Product DAO and Repository, TO-DO!!! fix bugs in item adding" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/dev/src/main/java/Inventory/PresentationLayer/CLIInterface.java</url>
+          <line>319</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

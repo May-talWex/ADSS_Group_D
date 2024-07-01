@@ -30,7 +30,7 @@ public class ItemController {
     }
 
     public boolean addNewItem(boolean defective, boolean inWareHouse, int floorBuilding, int floorShelf, float x, float y, float supplierCost, float priceNoDiscount, String name, String id, LocalDate expireDate, String categoryID, String productID) {
-        Item itemToAdd = new Item(defective, inWareHouse, floorBuilding, floorShelf, x, y, supplierCost, priceNoDiscount, name, id, expireDate, categoryID, productID);
+        Item itemToAdd = new Item(defective, inWareHouse, floorBuilding, floorShelf, x, y, name, id, expireDate, categoryID, productID);
 
         if (wareHouseItems.containsKey(itemToAdd.getID()) || storeItems.containsKey(itemToAdd.getID())) {
             System.out.println("Item with same ID already exists");
@@ -110,7 +110,7 @@ public class ItemController {
 
     public void generateExpiredItemsCSV(List<Item> expiredItems, String filePath) {
         try (FileWriter writer = new FileWriter(filePath)) {
-            writer.append("ID,Name,Defective,InWarehouse,FloorBuilding,FloorShelf,X,Y,SupplierCost,PriceNoDiscount,ExpireDate,CategoryID,ProductID\n");
+            writer.append("ID,Name,Defective,InWarehouse,FloorBuilding,FloorShelf,X,Y,ExpireDate,CategoryID,ProductID\n");
             for (Item item : expiredItems) {
                 writer.append(item.getID()).append(',')
                         .append(item.getName()).append(',')
@@ -120,8 +120,6 @@ public class ItemController {
                         .append(String.valueOf(item.floorShelf)).append(',')
                         .append(String.valueOf(item.x)).append(',')
                         .append(String.valueOf(item.y)).append(',')
-                        .append(String.valueOf(item.supplierCost)).append(',')
-                        .append(String.valueOf(item.priceNoDiscount)).append(',')
                         .append(item.expireDate.toString()).append(',')
                         .append(item.categoryID).append(',')
                         .append(item.productID).append('\n');
@@ -185,8 +183,6 @@ public class ItemController {
                         .append(String.valueOf(item.floorShelf)).append(',')
                         .append(String.valueOf(item.x)).append(',')
                         .append(String.valueOf(item.y)).append(',')
-                        .append(String.valueOf(item.supplierCost)).append(',')
-                        .append(String.valueOf(item.priceNoDiscount)).append(',')
                         .append(item.expireDate.toString()).append(',')
                         .append(item.categoryID).append(',')
                         .append(item.productID).append('\n');

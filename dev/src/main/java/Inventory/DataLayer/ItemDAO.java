@@ -17,9 +17,8 @@ public class ItemDAO {
     public ItemDAO() {
         this.connection = DataBaseConnection.getInstance().getConnection();
     }
-
     public boolean insertItem(Item item) {
-        String sql = "INSERT INTO Item (id, name, defective, inWareHouse, floorBuilding, floorShelf, x, y, supplierCost, priceNoDiscount, expireDate, categoryID, productID) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)";
+        String sql = "INSERT INTO Item(id, name, defective, inWareHouse, floorBuilding, floorShelf, x, y, expireDate, categoryID, productID) VALUES(?,?,?,?,?,?,?,?,?,?,?)";
 
         try (PreparedStatement pstmt = connection.prepareStatement(sql)) {
             pstmt.setString(1, item.getID());
@@ -30,11 +29,9 @@ public class ItemDAO {
             pstmt.setInt(6, item.floorShelf);
             pstmt.setFloat(7, item.x);
             pstmt.setFloat(8, item.y);
-            pstmt.setFloat(9, item.supplierCost);
-            pstmt.setFloat(10, item.priceNoDiscount);
-            pstmt.setDate(11, Date.valueOf(item.expireDate));
-            pstmt.setString(12, item.categoryID);
-            pstmt.setString(13, item.productID);
+            pstmt.setString(9, item.expireDate.toString());  // Ensure correct date format
+            pstmt.setString(10, item.categoryID);
+            pstmt.setString(11, item.productID);
             pstmt.executeUpdate();
             return true;
         } catch (SQLException e) {
@@ -42,6 +39,8 @@ public class ItemDAO {
             return false;
         }
     }
+
+
 
     public boolean deleteItem(String id) {
         String sql = "DELETE FROM Item WHERE id = ?";
@@ -70,14 +69,12 @@ public class ItemDAO {
                 int floorShelf = rs.getInt("floorShelf");
                 float x = rs.getFloat("x");
                 float y = rs.getFloat("y");
-                float supplierCost = rs.getFloat("supplierCost");
-                float priceNoDiscount = rs.getFloat("priceNoDiscount");
                 LocalDate expireDate = rs.getDate("expireDate").toLocalDate();
                 String name = rs.getString("name");
                 String categoryID = rs.getString("categoryID");
                 String productID = rs.getString("productID");
 
-                return new Item(defective, inWareHouse, floorBuilding, floorShelf, x, y, supplierCost, priceNoDiscount, name, id, expireDate, categoryID, productID);
+                return new Item(defective, inWareHouse, floorBuilding, floorShelf, x, y, name, id, expireDate, categoryID, productID);
             }
         } catch (SQLException e) {
             System.out.println(e.getMessage());
@@ -157,7 +154,7 @@ public class ItemDAO {
         String categoryID = rs.getString("categoryID");
         String productID = rs.getString("productID");
 
-        return new Item(defective, inWareHouse, floorBuilding, floorShelf, x, y, supplierCost, priceNoDiscount, name, id, expireDate, categoryID, productID);
+        return new Item(defective, inWareHouse, floorBuilding, floorShelf, x, y, name, id, expireDate, categoryID, productID);
     }
 
     public boolean removeExpiredItems() {

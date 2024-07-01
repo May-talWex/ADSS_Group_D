@@ -11,8 +11,6 @@ public class Item {
     public int floorShelf;
     public float x;
     public float y;
-    public float supplierCost;
-    public float priceNoDiscount;
     public String name;
     public String id;
     public LocalDate expireDate;
@@ -29,8 +27,6 @@ public class Item {
                 ", floorShelf=" + floorShelf +
                 ", x=" + x +
                 ", y=" + y +
-                ", supplierCost=" + supplierCost +
-                ", priceNoDiscount=" + priceNoDiscount +
                 ", name='" + name + '\'' +
                 ", id='" + id + '\'' +
                 ", expireDate=" + expireDate +
@@ -41,8 +37,7 @@ public class Item {
     }
 
     public Item(boolean defective, boolean inWareHouse, int floorBuilding,
-                int floorShelf, float x, float y, float supplierCost,
-                float priceNoDiscount, String name, String id, LocalDate expireDate,
+                int floorShelf, float x, float y, String name, String id, LocalDate expireDate,
                 String categoryID, String productID) {
         this.defective = defective;
         this.inWareHouse = inWareHouse;
@@ -57,8 +52,6 @@ public class Item {
             this.x = x;
             this.y = y;
         }
-        this.supplierCost = supplierCost;
-        this.priceNoDiscount = priceNoDiscount;
         this.name = name;
         this.id = id;
         this.expireDate = expireDate;
@@ -99,13 +92,5 @@ public class Item {
         defective = isDefective;
     }
 
-
-    public void setSupplierCost(float newPrice){
-        supplierCost = newPrice;
-    }
-
-    public void setPriceNoDiscount(float newPrice){
-        priceNoDiscount = newPrice;
-    }
 
 }
