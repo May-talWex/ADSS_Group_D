@@ -138,4 +138,8 @@ public class ServiceController {
     public boolean updateCategory(String id, LocalDate startDiscount, LocalDate endDiscount, float discountPercentage) {
         return categoryController.updateCategory(id, startDiscount, endDiscount, discountPercentage);
     }
+
+    public void NoItemsForProductsAlert(){
+        productController.ProductsNoItem();
+    }
 }
