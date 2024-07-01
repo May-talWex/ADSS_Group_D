@@ -12,7 +12,7 @@ public class CLIInterface {
 
     public static void main(String[] args) {
         while (true) {
-            NoItemsForProduct();
+//            NoItemsForProduct();
             try {
                 System.out.print("");
                 primeMenu();
@@ -426,7 +426,7 @@ public class CLIInterface {
         serviceController.generateCategoryCSVReport(categoryID);
     }
 
-    private static void NoItemsForProduct(){
-        serviceController.NoItemsForProductsAlert();
-    }
+//    private static void NoItemsForProduct(){
+//        serviceController.NoItemsForProductsAlert();
+//    }
 }

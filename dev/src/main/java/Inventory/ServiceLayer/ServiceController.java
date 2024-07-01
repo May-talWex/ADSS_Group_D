@@ -139,7 +139,7 @@ public class ServiceController {
         return categoryController.updateCategory(id, startDiscount, endDiscount, discountPercentage);
     }
 
-    public void NoItemsForProductsAlert(){
-        productController.ProductsNoItem();
-    }
+//    public void NoItemsForProductsAlert(){
+//        productController.ProductsNoItem();
+//    }
 }

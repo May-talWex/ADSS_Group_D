@@ -10,6 +10,10 @@ import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+import java.sql.Date;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
 
 public class ItemDAO {
     private Connection connection;
@@ -57,6 +61,7 @@ public class ItemDAO {
 
     public Item getItemById(String id) {
         String sql = "SELECT * FROM Item WHERE id = ?";
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 
         try (PreparedStatement pstmt = connection.prepareStatement(sql)) {
             pstmt.setString(1, id);
@@ -69,8 +74,17 @@ public class ItemDAO {
                 int floorShelf = rs.getInt("floorShelf");
                 float x = rs.getFloat("x");
                 float y = rs.getFloat("y");
-                LocalDate expireDate = rs.getDate("expireDate").toLocalDate();
                 String name = rs.getString("name");
+                String expireDateStr = rs.getString("expireDate");
+                LocalDate expireDate = null;
+                if (expireDateStr != null) {
+                    try {
+                        expireDate = LocalDate.parse(expireDateStr, formatter);
+                    } catch (DateTimeParseException e) {
+                        System.out.println("Error parsing expireDate for item ID: " + id);
+                        e.printStackTrace();
+                    }
+                }
                 String categoryID = rs.getString("categoryID");
                 String productID = rs.getString("productID");
 
