@@ -12,6 +12,7 @@ public class CLIInterface {
 
     public static void main(String[] args) {
         while (true) {
+            NoItemsForProduct();
             try {
                 System.out.print("");
                 primeMenu();
@@ -423,5 +424,9 @@ public class CLIInterface {
         System.out.print("Enter category ID: ");
         String categoryID = scanner.nextLine();
         serviceController.generateCategoryCSVReport(categoryID);
+    }
+
+    private static void NoItemsForProduct(){
+        serviceController.NoItemsForProductsAlert();
     }
 }
