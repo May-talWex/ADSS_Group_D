@@ -105,7 +105,7 @@ public class CLIInterface {
 
             switch (choice) {
                 case 1:
-                    getStockReport();
+                    generateStockReport();
                     break;
                 case 2:
                     getExpireReport();
@@ -195,10 +195,6 @@ public class CLIInterface {
         System.out.println("3. Update Category Discount");
         System.out.println("4. Exit");
         System.out.print("Choose an option: ");
-    }
-
-    private static void getStockReport() {
-        serviceController.generateStockReport();
     }
 
     private static void getExpireReport() {
@@ -420,11 +416,23 @@ public class CLIInterface {
         }
     }
 
+//    private static void generateReportByCategoryID() {
+//        System.out.print("Enter category ID: ");
+//        String categoryID = scanner.nextLine();
+//        serviceController.generateCategoryCSVReport(categoryID);
+//    }
+
     private static void generateReportByCategoryID() {
         System.out.print("Enter category ID: ");
         String categoryID = scanner.nextLine();
-        serviceController.generateCategoryCSVReport(categoryID);
+        serviceController.generateCategoryProductReport(categoryID);
     }
+
+    private static void generateStockReport() {
+        serviceController.generateStockCSVReport();
+        System.out.println("Stock report generated successfully.");
+    }
+
 
 //    private static void NoItemsForProduct(){
 //        serviceController.NoItemsForProductsAlert();

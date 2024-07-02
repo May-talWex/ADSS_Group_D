@@ -2,9 +2,16 @@ package src.main.java.Inventory.ServiceLayer;
 
 import src.main.java.Inventory.DomainLayer.CategoryController;
 import src.main.java.Inventory.DomainLayer.ItemController;
+import src.main.java.Inventory.DomainLayer.Product;
 import src.main.java.Inventory.DomainLayer.ProductController;
 
+import java.io.FileWriter;
+import java.io.IOException;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 
 public class ServiceController {
@@ -137,6 +144,42 @@ public class ServiceController {
 
     public boolean updateCategory(String id, LocalDate startDiscount, LocalDate endDiscount, float discountPercentage) {
         return categoryController.updateCategory(id, startDiscount, endDiscount, discountPercentage);
+    }
+
+    public void generateStockCSVReport() {
+        List<Map<String, String>> reportData = productController.generateStockReportData();
+        String fileName = "C:\\githubclones\\ADSS_Group_D\\dev\\src\\main\\java\\resources\\stock_report.csv";
+        generateCSV(reportData, fileName);
+    }
+
+    public void generateCategoryProductReport(String categoryID) {
+        List<Map<String, String>> reportData = productController.generateCategoryProductReportData(categoryID);
+        String fileName = "C:\\githubclones\\ADSS_Group_D\\dev\\src\\main\\java\\resources\\category_product_report_" + categoryID + ".csv";
+        generateCSV(reportData, fileName);
+    }
+
+    private void generateCSV(List<Map<String, String>> data, String filePath) {
+        try (FileWriter writer = new FileWriter(filePath)) {
+            if (data.isEmpty()) {
+                System.out.println("No data to write to CSV.");
+                return;
+            }
+
+            // Write header
+            Map<String, String> firstRow = data.get(0);
+            writer.append(String.join(",", firstRow.keySet()));
+            writer.append('\n');
+
+            // Write data
+            for (Map<String, String> row : data) {
+                writer.append(String.join(",", row.values()));
+                writer.append('\n');
+            }
+
+            System.out.println("CSV report generated successfully at " + filePath);
+        } catch (IOException e) {
+            System.out.println("Error while generating CSV report: " + e.getMessage());
+        }
     }
 
 //    public void NoItemsForProductsAlert(){

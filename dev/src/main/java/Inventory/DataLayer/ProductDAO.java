@@ -171,11 +171,14 @@ public class ProductDAO {
                 String subCategoryID = rs.getString("Sub_Category_ID");
                 int minimumAmount = rs.getInt("Min_Stock_Amnt");
 
-                products.add(new Product(makat, name, supplier, costPrice, sellingPrice, categoryID, subCategoryID, minimumAmount));
+                Product product = new Product(makat, name, supplier, costPrice, sellingPrice, categoryID, subCategoryID, minimumAmount);
+                product.setItems(getItemsByProductId(makat));  // Set the items for the product
+                products.add(product);
             }
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
         return products;
     }
+
 }

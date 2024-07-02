@@ -74,7 +74,9 @@ public class Product {
     public void setCostPrice(float costPrice) { this.costPrice = costPrice; }
 
     //    public void setItemAmount(int itemAmount) { this.itemAmount = itemAmount; }
-    public int getItemAmount() { return items.size(); }
+    public int getItemAmount() {
+        return this.items != null ? this.items.size() : 0;
+    }
 
     public float getSellingPrice() { return sellingPrice; }
     public void setSellingPrice(float sellingPrice) { this.sellingPrice = sellingPrice;}

@@ -3,7 +3,10 @@ package src.main.java.Inventory.DomainLayer;
 import src.main.java.Inventory.DataLayer.ProductRepository;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class ProductController {
     private ProductRepository productRepository;
@@ -44,6 +47,55 @@ public class ProductController {
         // Implementation here
     }
 
+    public List<Map<String, String>> generateStockReportData() {
+        List<Product> products = productRepository.getAllProducts();
+        List<Map<String, String>> data = new ArrayList<>();
+
+        for (Product product : products) {
+            Map<String, String> productData = new HashMap<>();
+            productData.put("Makat", product.getMakat());
+            productData.put("Name", product.getName());
+            productData.put("Supplier", product.getSupplier());
+            productData.put("Cost Price", String.valueOf(product.getCostPrice()));
+            productData.put("Selling Price", String.valueOf(product.getSellingPrice()));
+            productData.put("Discount", String.valueOf(product.getDiscount()));
+            productData.put("Minimum Amount", String.valueOf(product.getMinimumAmount()));
+            productData.put("Category ID", product.getCategoryID());
+            productData.put("Sub Category ID", product.getSubCategoryID());
+            productData.put("Full Price", String.valueOf(product.getFullPrice()));
+            productData.put("Item Amount", String.valueOf(product.getItemAmount()));  // Ensure correct item amount is populated
+
+            data.add(productData);
+        }
+
+        return data;
+    }
+
+    public List<Map<String, String>> generateCategoryProductReportData(String categoryID) {
+        List<Product> products = getProductsByCategoryId(categoryID);
+        List<Map<String, String>> data = new ArrayList<>();
+
+        for (Product product : products) {
+            Map<String, String> productData = new HashMap<>();
+            productData.put("Makat", product.getMakat());
+            productData.put("Name", product.getName());
+            productData.put("Supplier", product.getSupplier());
+            productData.put("Cost Price", String.valueOf(product.getCostPrice()));
+            productData.put("Selling Price", String.valueOf(product.getSellingPrice()));
+            productData.put("Discount", String.valueOf(product.getDiscount()));
+            productData.put("Minimum Amount", String.valueOf(product.getMinimumAmount()));
+            productData.put("Category ID", product.getCategoryID());
+            productData.put("Sub Category ID", product.getSubCategoryID());
+            productData.put("Full Price", String.valueOf(product.getFullPrice()));
+            productData.put("Item Amount", String.valueOf(product.getItemAmount()));
+
+            data.add(productData);
+        }
+
+        return data;
+    }
+
+
     public void generateLowSupplyCSVReport() {
         // Implementation here
     }
@@ -64,6 +116,10 @@ public class ProductController {
     public boolean productContainsItems(String makat) {
         Product product = productRepository.getProductById(makat);
         return product != null && !product.getItems().isEmpty();
+    }
+
+    public List<Product> getProductsByCategoryId(String categoryID) {
+        return productRepository.getProductsByCategoryId(categoryID);
     }
 
 
