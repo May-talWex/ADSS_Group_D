@@ -27,7 +27,10 @@ public class Employee {
     @JsonProperty("salary")
     private Salary currentSalary;
     @JsonProperty("dateOfEmployment")
-    private LocalDate dateOfEmployment;
+    private LocalDate dateOfEmployment ;
+
+    @JsonProperty("driverLicenses")
+    private List<String> driverLicenses;
 
 
     public Employee(int workerId, String name, String email, BankAccount bankAccount, Branch branch, Salary currentSalary) {
@@ -39,6 +42,7 @@ public class Employee {
         this.possiblePositions = null;
         this.currentSalary = currentSalary;
         this.dateOfEmployment = LocalDate.now();
+        this.driverLicenses = new ArrayList<>();
     }
 
     public Employee(String JSON) {
@@ -125,6 +129,11 @@ public class Employee {
     public void setBranch(Branch branch) {
         this.branch = branch;
     }
+
+    public void setDateOfEmployment(LocalDate dateOfEmployment) {
+        this.dateOfEmployment = dateOfEmployment;
+    }
+
 
     public void addPossiblePosition(EmployeeType position) throws Exception {
         if (possiblePositions == null) {

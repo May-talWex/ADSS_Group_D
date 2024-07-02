@@ -34,6 +34,14 @@ public class Branch {
         this.schedule = new Schedule();
         this.shiftLimitations = new ArrayList<>();
     }
+    public Branch(int id, String name, String address) {
+        this.branchId = id;
+        this.branchName = name;
+        this.branchAddress = address;
+        this.workers = new ArrayList<>();
+        this.schedule = new Schedule();
+        this.shiftLimitations = new ArrayList<>();
+    }
 
     public String getName() {
         return branchName;
@@ -41,6 +49,10 @@ public class Branch {
 
     public String getAddress() {
         return branchAddress;
+    }
+
+    public int getBranchId() {
+        return branchId;
     }
 
     public List<Employee> getWorkers() {

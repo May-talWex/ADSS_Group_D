@@ -10,48 +10,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9a0829ce-1916-46c8-a83f-0eb68d1bcbb5" name="Changes" comment="Changed structure">
-      <change afterPath="$PROJECT_DIR$/dev/src/main/java/HR/Data/EmployeesDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dev/src/main/java/HR/Data/SQLiteConnection.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dev/src/main/java/HR/Data/ShiftLimitationDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dev/src/main/java/HR/Data/ShiftsDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dev/src/main/java/HR/Data/BranchDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dev/src/main/java/HR/Presentation/Main_Menu_With_DB.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dev/src/main/java/HR/Presentation/Main_Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/dev/src/main/java/HR/Presentation/Main_Menu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/HR/Data/CreateStubEmployeesData.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/HR/Domain/BankAccount.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/HR/Domain/Branch.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/HR/Domain/BranchController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/HR/Domain/Employee.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/HR/Domain/EmployeeController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/HR/Domain/EmployeeType.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/HR/Domain/EmployeeTypes/Cashier.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/HR/Domain/EmployeeTypes/DeliveryPerson.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/HR/Domain/EmployeeTypes/HRManager.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/HR/Domain/EmployeeTypes/ShiftManager.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/HR/Domain/EmployeeTypes/StorageEmployee.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/HR/Domain/Exceptions/EmployeeAlreadyExistsInBranch.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/HR/Domain/Exceptions/EmployeeAlreadyHasRole.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/HR/Domain/Exceptions/EmployeeDoesNotExistInBranch.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/HR/Domain/Exceptions/EmployeeDoesNotHaveRole.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/HR/Domain/Exceptions/NotEnoughWorkers.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/HR/Domain/Exceptions/ShiftAlreadyExists.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/HR/Domain/Exceptions/ShiftDoesntExist.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/HR/Domain/Exceptions/ShiftLimitationAlreadyExists.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/HR/Domain/Exceptions/ShiftLimitationDoesntExist.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/HR/Domain/Salary.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/HR/Domain/Schedule.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/HR/Domain/ScheduleController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/HR/Domain/Shift.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/HR/Domain/ShiftController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/HR/Domain/ShiftLimitation.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/HR/Domain/ShiftLimitationController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/HR/Presentation/Main_Menu.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/HR/Service/Service.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/HR/Tests/Branch_Tests.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/HR/Tests/Employee_Tests.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/HR/Tests/Shift_Tests.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ADSS_Group_D.iml" beforeDir="false" afterPath="$PROJECT_DIR$/ADSS_Group_D.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dev/src/main/java/HR/Data/EmployeesDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/dev/src/main/java/HR/Data/EmployeesDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dev/src/main/java/HR/Data/SQLiteConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/dev/src/main/java/HR/Data/SQLiteConnection.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dev/src/main/java/HR/Domain/Branch.java" beforeDir="false" afterPath="$PROJECT_DIR$/dev/src/main/java/HR/Domain/Branch.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dev/src/main/java/HR/Domain/Employee.java" beforeDir="false" afterPath="$PROJECT_DIR$/dev/src/main/java/HR/Domain/Employee.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/META-INF/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/META-INF/MANIFEST.MF" afterDir="false" />
     </list>
     <list id="92241546-7950-4e02-919c-86c9491857e4" name="Changes by kidox" comment="" />
@@ -109,8 +79,10 @@
   "keyToString": {
     "Application.Branch_Tests.executor": "Run",
     "Application.Employee_Tests.executor": "Run",
+    "Application.HR.Data.SQLiteConnection.executor": "Run",
     "Application.Main.executor": "Run",
     "Application.Main_Menu.executor": "Run",
+    "Application.Main_Menu_With_DB.executor": "Debug",
     "Application.SQLiteConnection.executor": "Run",
     "Application.Shift_Tests.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
@@ -131,6 +103,11 @@
     "run.code.analysis.last.selected.profile": "pProject Default",
     "settings.editor.selected.configurable": "reference.settings.ide.settings.uml",
     "vue.rearranger.settings.migration": "true"
+  },
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "sqlite"
+    ]
   }
 }]]></component>
   <component name="RecentsManager">
@@ -141,7 +118,7 @@
       <recent name="src" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.SQLiteConnection">
+  <component name="RunManager" selected="Application.Main_Menu_With_DB">
     <configuration name="Branch_Tests" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="HR.Tests.Branch_Tests" />
       <module name="ADSS_Group_D" />
@@ -155,12 +132,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Employee_Tests" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="HR.Tests.Employee_Tests" />
+    <configuration name="HR.Data.SQLiteConnection" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="HR.Data.SQLiteConnection" />
       <module name="ADSS_Group_D" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="HR.Tests.*" />
+          <option name="PATTERN" value="HR.Data.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -168,8 +145,8 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Main_Menu" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="HR.Presentation.Main_Menu" />
+    <configuration name="Main_Menu_With_DB" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="HR.Presentation.Main_Menu_With_DB" />
       <module name="ADSS_Group_D" />
       <extension name="coverage">
         <pattern>
@@ -202,13 +179,20 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <list>
+      <item itemvalue="Application.Branch_Tests" />
+      <item itemvalue="Application.HR.Data.SQLiteConnection" />
+      <item itemvalue="Application.Main_Menu_With_DB" />
+      <item itemvalue="Application.Shift_Tests" />
+      <item itemvalue="Application.SQLiteConnection" />
+    </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Main_Menu_With_DB" />
+        <item itemvalue="Application.HR.Data.SQLiteConnection" />
         <item itemvalue="Application.SQLiteConnection" />
         <item itemvalue="Application.Branch_Tests" />
         <item itemvalue="Application.Shift_Tests" />
-        <item itemvalue="Application.Main_Menu" />
-        <item itemvalue="Application.Employee_Tests" />
       </list>
     </recent_temporary>
   </component>
@@ -393,6 +377,17 @@
     <MESSAGE value="Added Unit tests" />
     <MESSAGE value="Changed structure" />
     <option name="LAST_COMMIT_MESSAGE" value="Changed structure" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/dev/src/main/java/HR/Data/BranchDAO.java</url>
+          <line>16</line>
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
