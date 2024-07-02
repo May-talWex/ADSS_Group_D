@@ -1,5 +1,6 @@
 package HR.Domain;
 
+import HR.Data.ShiftsDAO;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
@@ -9,6 +10,12 @@ import java.util.List;
 import java.util.Scanner;
 
 public class ShiftController {
+    private static ShiftsDAO shiftDAO;
+
+    public ShiftController() {
+        this.shiftDAO = new ShiftsDAO();
+    }
+
     @JsonCreator
     public Shift JSONtoClass(
             @JsonProperty("isMorningShift") boolean isMorningShift,
@@ -33,7 +40,6 @@ public class ShiftController {
         return new Shift(isMorningShift, date, shiftManagers, cashiers, storageWorkers, deliveries);
     }
 
-
     public static Shift createShift(Branch branch) {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Creating a new shift for branch " + branch.getName());
@@ -46,6 +52,25 @@ public class ShiftController {
         LocalDate date = LocalDate.of(year, month, day);
         System.out.println("Is this a morning shift? (true/false): ");
         boolean isMorningShift = Boolean.parseBoolean(scanner.nextLine());
-        return new Shift(isMorningShift, date);
+        Shift shift = new Shift(isMorningShift, date);
+        shiftDAO.addShift(shift, branch.getBranchId());
+        return shift;
     }
+
+    public List<Shift> getAllShifts() {
+        return shiftDAO.getAllShifts();
+    }
+
+    public Shift getShift(LocalDate date, boolean isMorningShift, int branchId) {
+        return shiftDAO.getShift(date, isMorningShift);
+    }
+
+    public void updateShift(Shift shift, int branchId) {
+        shiftDAO.updateShift(shift, branchId);
+    }
+
+    public void deleteShift(LocalDate date, boolean isMorningShift, int branchId) {
+        shiftDAO.deleteShift(date, isMorningShift, branchId);
+    }
+
 }

@@ -5,7 +5,6 @@ import HR.Domain.*;
 import HR.Domain.EmployeeTypes.*;
 import HR.Domain.Exceptions.NotEnoughWorkers;
 
-import java.time.LocalDate;
 import java.util.List;
 import java.util.Scanner;
 
@@ -39,6 +38,7 @@ public class Main_Menu_With_DB {
             }
         }
 
+        assert branch != null;
         List<Employee> employees = employeesDAO.getAllEmployees(branch.getBranchId());
         for (Employee employee : employees) {
             branch.addWorker(employee);
@@ -283,7 +283,7 @@ public class Main_Menu_With_DB {
         }
     }
 
-    public static void updateEmployeePosition(Branch branch, EmployeesDAO employeesDAO) throws Exception {
+    public static void updateEmployeePosition(Branch branch, EmployeesDAO employeesDAO) {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Enter the employee ID to update: ");
         int id = scanner.nextInt();
@@ -397,20 +397,11 @@ public class Main_Menu_With_DB {
     }
 
     public static void PrintNonManagerMenu() {
-        System.out.println("Non-Manager Menu:");
-        System.out.println("1. Add Shift Limitation");
-        System.out.println("2. Remove Shift Limitation");
-        System.out.println("3. View Shift Limitations");
-        System.out.println("4. Logout");
-        System.out.print("Enter your choice: ");
+        Main_Menu.PrintNonManagerMenu();
     }
 
     public static void PrintMainHRMenu() {
-        System.out.println("Main HR Menu:");
-        System.out.println("1. Employee Functions");
-        System.out.println("2. Schedule and Shift Functions");
-        System.out.println("3. Logout");
-        System.out.print("Enter your choice: ");
+        Main_Menu.PrintMainHRMenu();
     }
 
     public static void PrintEmployeeMenu() {
@@ -425,11 +416,6 @@ public class Main_Menu_With_DB {
     }
 
     public static void PrintScheduleMenu() {
-        System.out.println("Schedule Menu:");
-        System.out.println("1. Create Shift");
-        System.out.println("2. update Shifts Requirements");
-        System.out.println("3. Print Weekly Schedule");
-        System.out.println("4. Return to Main HR Menu");
-        System.out.print("Enter your choice: ");
+        Main_Menu.PrintScheduleMenu();
     }
 }

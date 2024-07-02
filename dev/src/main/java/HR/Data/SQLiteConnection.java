@@ -89,6 +89,10 @@ public class SQLiteConnection {
                 + "    Date DATE NOT NULL,\n"
                 + "    IsMorningShift BOOLEAN NOT NULL,\n"
                 + "    BranchID INTEGER NOT NULL,\n"
+                + "    ShiftManagers TEXT,\n"
+                + "    Cashiers TEXT,\n"
+                + "    StorageEmployees TEXT,\n"
+                + "    Deliveriers TEXT,\n"
                 + "    FOREIGN KEY (BranchID) REFERENCES Branches(BranchID)\n"
                 + ");";
 

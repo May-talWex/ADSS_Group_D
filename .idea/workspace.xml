@@ -10,9 +10,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9a0829ce-1916-46c8-a83f-0eb68d1bcbb5" name="Changes" comment="Changed structure">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dev/src/main/java/HR/Data/ShiftLimitationDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/dev/src/main/java/HR/Data/ShiftLimitationDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dev/src/main/java/HR/Domain/ShiftLimitationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/dev/src/main/java/HR/Domain/ShiftLimitationController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HRDB.sqlite" beforeDir="false" afterPath="$PROJECT_DIR$/HRDB.sqlite" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dev/src/main/java/HR/Data/SQLiteConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/dev/src/main/java/HR/Data/SQLiteConnection.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dev/src/main/java/HR/Data/ShiftsDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/dev/src/main/java/HR/Data/ShiftsDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dev/src/main/java/HR/Domain/ShiftController.java" beforeDir="false" afterPath="$PROJECT_DIR$/dev/src/main/java/HR/Domain/ShiftController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dev/src/main/java/HR/Presentation/Main_Menu_With_DB.java" beforeDir="false" afterPath="$PROJECT_DIR$/dev/src/main/java/HR/Presentation/Main_Menu_With_DB.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/HR/Data/SQLiteConnection.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/HR/Data/SQLiteConnection.class" afterDir="false" />
     </list>
     <list id="92241546-7950-4e02-919c-86c9491857e4" name="Changes by kidox" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -72,7 +77,6 @@
     "Application.HR.Data.SQLiteConnection.executor": "Run",
     "Application.Main.executor": "Run",
     "Application.Main_Menu.executor": "Run",
-    "Application.Main_Menu_With_DB.executor": "Run",
     "Application.SQLiteConnection.executor": "Run",
     "Application.Shift_Tests.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
@@ -93,11 +97,6 @@
     "run.code.analysis.last.selected.profile": "pProject Default",
     "settings.editor.selected.configurable": "reference.settings.ide.settings.uml",
     "vue.rearranger.settings.migration": "true"
-  },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "sqlite"
-    ]
   }
 }]]></component>
   <component name="RecentsManager">
@@ -108,7 +107,7 @@
       <recent name="src" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Main_Menu_With_DB">
+  <component name="RunManager" selected="Application.HR.Data.SQLiteConnection">
     <configuration name="Branch_Tests" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="HR.Tests.Branch_Tests" />
       <module name="ADSS_Group_D" />
@@ -135,8 +134,8 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Main_Menu_With_DB" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="HR.Presentation.Main_Menu_With_DB" />
+    <configuration name="Main_Menu" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="HR.Presentation.Main_Menu" />
       <module name="ADSS_Group_D" />
       <extension name="coverage">
         <pattern>
@@ -169,20 +168,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <list>
-      <item itemvalue="Application.Branch_Tests" />
-      <item itemvalue="Application.HR.Data.SQLiteConnection" />
-      <item itemvalue="Application.Main_Menu_With_DB" />
-      <item itemvalue="Application.Shift_Tests" />
-      <item itemvalue="Application.SQLiteConnection" />
-    </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Main_Menu_With_DB" />
         <item itemvalue="Application.HR.Data.SQLiteConnection" />
         <item itemvalue="Application.SQLiteConnection" />
         <item itemvalue="Application.Branch_Tests" />
         <item itemvalue="Application.Shift_Tests" />
+        <item itemvalue="Application.Main_Menu" />
       </list>
     </recent_temporary>
   </component>
