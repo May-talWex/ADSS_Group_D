@@ -4,7 +4,6 @@ import HR.Data.*;
 import HR.Domain.*;
 import HR.Domain.EmployeeTypes.*;
 import HR.Domain.Exceptions.*;
-
 import java.util.List;
 import java.util.Scanner;
 
@@ -12,7 +11,6 @@ public class Main_Menu_With_DB {
     public static void main(String[] args) throws Exception {
         // Initialize the database
         SQLiteConnection.initializeDatabase();
-
         EmployeeController employeeController = new EmployeeController();
         ShiftController shiftController = new ShiftController();
 
@@ -30,14 +28,13 @@ public class Main_Menu_With_DB {
                 scanner.next(); // clear the invalid input
                 branchId = 1;
             }
-            System.out.println("Retrieving branch " + branchId + " from database...");
             branch = branchDAO.getBranchFromDatabase(branchId);
 
             if (branch == null) {
                 System.out.println("Branch not found. Do you want to create a new branch? (yes/no)");
                 String response = scanner.next();
                 if (response.equalsIgnoreCase("yes")) {
-                    branch = createNewBranch(branchId);
+                    branch = createNewBranch();
                     branchDAO.addBranchToDatabase(branch);
                 } else {
                     System.out.println("Please enter a valid branch ID.");
@@ -85,13 +82,13 @@ public class Main_Menu_With_DB {
         }
     }
 
-    public static Branch createNewBranch(int branchId) {
+    public static Branch createNewBranch() {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Enter the branch name: ");
         String branchName = scanner.nextLine();
         System.out.println("Enter the branch address: ");
         String branchAddress = scanner.nextLine();
-        return new Branch(branchId, branchName, branchAddress);
+        return new Branch(branchName, branchAddress);
     }
 
     public static void HRMenu(Branch branch, EmployeeController employeeController, ShiftController shiftController, EmployeesDAO employeesDAO) throws Exception {
@@ -143,8 +140,7 @@ public class Main_Menu_With_DB {
                     Employee temp = employeeController.createEmployee(branch);
                     try {
                         branch.addWorker(temp);
-                        // Also add to database
-                        employeesDAO.addEmployee(temp);
+                        employeesDAO.addEmployee(temp); // Add employee to the database
                     } catch (Exception e) {
                         System.out.println(e.getMessage());
                     }
@@ -239,7 +235,6 @@ public class Main_Menu_With_DB {
                     break;
                 default:
                     System.out.println("Invalid choice!");
-                    break;
             }
         } while (choice != 4);
     }
@@ -274,7 +269,7 @@ public class Main_Menu_With_DB {
     public static void PrintScheduleMenu() {
         System.out.println("Schedule Menu:");
         System.out.println("1. Create Shift");
-        System.out.println("2. update Shifts Requirements");
+        System.out.println("2. Update Shifts Requirements");
         System.out.println("3. Print Weekly Schedule");
         System.out.println("4. Return to Main HR Menu");
         System.out.print("Enter your choice: ");

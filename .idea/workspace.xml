@@ -10,19 +10,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9a0829ce-1916-46c8-a83f-0eb68d1bcbb5" name="Changes" comment="Changed structure">
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dev/src/main/java/HR/Data/BranchDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dev/src/main/java/HR/Presentation/Main_Menu_With_DB.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ADSS_Group_D.iml" beforeDir="false" afterPath="$PROJECT_DIR$/ADSS_Group_D.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dev/src/main/java/HR/Data/EmployeesDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/dev/src/main/java/HR/Data/EmployeesDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HRDB.sqlite" beforeDir="false" afterPath="$PROJECT_DIR$/HRDB.sqlite" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dev/src/main/java/HR/Data/BranchDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/dev/src/main/java/HR/Data/BranchDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dev/src/main/java/HR/Data/SQLiteConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/dev/src/main/java/HR/Data/SQLiteConnection.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dev/src/main/java/HR/Domain/Branch.java" beforeDir="false" afterPath="$PROJECT_DIR$/dev/src/main/java/HR/Domain/Branch.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dev/src/main/java/HR/Domain/Employee.java" beforeDir="false" afterPath="$PROJECT_DIR$/dev/src/main/java/HR/Domain/Employee.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/META-INF/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/META-INF/MANIFEST.MF" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dev/src/main/java/HR/Presentation/Main_Menu_With_DB.java" beforeDir="false" afterPath="$PROJECT_DIR$/dev/src/main/java/HR/Presentation/Main_Menu_With_DB.java" afterDir="false" />
     </list>
     <list id="92241546-7950-4e02-919c-86c9491857e4" name="Changes by kidox" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -82,7 +74,7 @@
     "Application.HR.Data.SQLiteConnection.executor": "Run",
     "Application.Main.executor": "Run",
     "Application.Main_Menu.executor": "Run",
-    "Application.Main_Menu_With_DB.executor": "Debug",
+    "Application.Main_Menu_With_DB.executor": "Run",
     "Application.SQLiteConnection.executor": "Run",
     "Application.Shift_Tests.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
@@ -377,17 +369,6 @@
     <MESSAGE value="Added Unit tests" />
     <MESSAGE value="Changed structure" />
     <option name="LAST_COMMIT_MESSAGE" value="Changed structure" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/dev/src/main/java/HR/Data/BranchDAO.java</url>
-          <line>16</line>
-          <option name="timeStamp" value="7" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

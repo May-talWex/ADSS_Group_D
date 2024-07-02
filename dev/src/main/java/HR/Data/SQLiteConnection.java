@@ -1,6 +1,9 @@
 package HR.Data;
 
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.sql.Statement;
 
 public class SQLiteConnection {
     private static final String URL = "jdbc:sqlite:HRDB.sqlite";
@@ -16,16 +19,25 @@ public class SQLiteConnection {
             connection = DriverManager.getConnection(URL);
             System.out.println("Connection to SQLite has been established.");
         } catch (SQLException e) {
-            System.out.println(e.getMessage());
+            System.out.println("SQLException in connect: " + e.getMessage());
         } catch (ClassNotFoundException e) {
-            throw new RuntimeException(e);
+            System.out.println("ClassNotFoundException in connect: " + e.getMessage());
         }
         return connection;
     }
 
     public static Connection getConnection() {
         if (connection == null) {
+            System.out.println("No existing connection, connecting now.");
             return connect();
+        }
+        try {
+            if (connection.isClosed()) {
+                System.out.println("Connection was closed, reconnecting.");
+                connection = DriverManager.getConnection(URL);
+            }
+        } catch (SQLException e) {
+            System.out.println("SQLException in getConnection: " + e.getMessage());
         }
         return connection;
     }
@@ -87,8 +99,13 @@ public class SQLiteConnection {
                 + "    FOREIGN KEY (EmployeeID) REFERENCES Employees(EmployeeID)\n"
                 + ");";
 
-        try (Connection conn = connect();
-             Statement stmt = conn.createStatement()) {
+        Connection conn = connect(); // Get the connection
+        if (conn == null) {
+            System.out.println("Failed to establish connection.");
+            return;
+        }
+
+        try (Statement stmt = conn.createStatement()) {
             stmt.execute(createBranchesTable);
             stmt.execute(createBankAccountsTable);
             stmt.execute(createSalariesTable);
@@ -98,7 +115,7 @@ public class SQLiteConnection {
             stmt.execute(createEmployeeRolesTable);
             System.out.println("Database has been initialized.");
         } catch (SQLException e) {
-            System.out.println(e.getMessage());
+            System.out.println("SQLException in initializeDatabase: " + e.getMessage());
         }
     }
 
