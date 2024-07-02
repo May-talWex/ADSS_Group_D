@@ -176,6 +176,19 @@ public class Employee {
         this.currentSalary = currentSalary;
     }
 
+    public void addDriverLicense(String license) {
+        driverLicenses.add(license);
+    }
+
+    public void removeDriverLicense(String license) {
+        driverLicenses.remove(license);
+    }
+
+    public List<String> getDriverLicenses() {
+        return driverLicenses;
+    }
+
+
     public void printWorker() {
         System.out.println("Worker ID: " + workerId);
         System.out.println("Name: " + name);
@@ -193,7 +206,15 @@ public class Employee {
     }
 
     public String toString() {
-        return name + " (" + workerId + ")";
+        StringBuilder worker = new StringBuilder(name + " (" + workerId + ")");
+        if(possiblePositions != null) {
+            worker.append(" -> ");
+            for (EmployeeType employeeType : possiblePositions) {
+                worker.append(employeeType.getType()).append(", ");
+            }
+            worker.deleteCharAt(worker.length() - 2);
+        }
+        return worker.toString();
     }
 
     public boolean hasRole(EmployeeType role) {

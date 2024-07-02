@@ -99,6 +99,13 @@ public class SQLiteConnection {
                 + "    FOREIGN KEY (EmployeeID) REFERENCES Employees(EmployeeID)\n"
                 + ");";
 
+        String createDriverLicensesTable = "CREATE TABLE IF NOT EXISTS DriverLicenses (\n"
+                + "    LicenseID INTEGER PRIMARY KEY,\n"
+                + "    LicenseType TEXT NOT NULL,\n"
+                + "    EmployeeID INTEGER NOT NULL,\n"
+                + "    FOREIGN KEY (EmployeeID) REFERENCES Employees(EmployeeID)\n"
+                + ");";
+
         try {
             Connection conn = getConnection();
             Statement stmt = conn.createStatement();
@@ -109,6 +116,7 @@ public class SQLiteConnection {
             stmt.execute(createShiftLimitationsTable);
             stmt.execute(createShiftsTable);
             stmt.execute(createEmployeeRolesTable);
+            stmt.execute(createDriverLicensesTable);
             stmt.close();
             System.out.println("Database has been initialized.");
         } catch (SQLException e) {

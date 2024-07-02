@@ -5,6 +5,7 @@ import HR.Domain.*;
 import HR.Domain.EmployeeTypes.*;
 import HR.Domain.Exceptions.NotEnoughWorkers;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Scanner;
 
@@ -124,13 +125,104 @@ public class Main_Menu_With_DB {
                     }
                     break;
                 case 5:
+                    // Driver license option
+                    try {
+                        updateDriverLicense(branch, employeesDAO);
+                    } catch (Exception e) {
+                        System.out.println(e.getMessage());
+                    }
+                    break;
+                case 6:
                     System.out.println("Returning to the main HR menu...");
                     break;
                 default:
                     System.out.println("Invalid choice!");
                     break;
             }
-        } while (employeeChoice != 5);
+        } while (employeeChoice != 6);
+    }
+
+    private static void updateDriverLicense(Branch branch, EmployeesDAO employeesDAO) {
+        printLicenseMenu();
+        Scanner scanner = new Scanner(System.in);
+        int licenseChoice = scanner.nextInt();
+        scanner.nextLine(); // Consume newline
+        int id;
+        Employee employee;
+        String license;
+        switch (licenseChoice) {
+            case 1:
+                System.out.println("Enter Employee ID: ");
+                id = scanner.nextInt(); // Consume newline
+                scanner.nextLine(); // Consume newline
+                employee = branch.getWorkerById(id);
+                if (employee == null) {
+                    System.out.println("Employee not found.");
+                    return;
+                }
+                System.out.print("Enter Driver License type: ");
+                license = scanner.nextLine();
+
+                if (employee.getDriverLicenses().contains(license)) {
+                    System.out.println("Driver License already exists.");
+                    break;
+                }
+
+                employee.addDriverLicense(license);
+                employeesDAO.addDriverLicenseToEmployee(id, license);
+                System.out.println("Driver License added successfully.");
+                break;
+
+            case 2:
+                System.out.println("Enter Employee ID: ");
+                id = scanner.nextInt();
+                scanner.nextLine(); // Consume newline
+                employee = branch.getWorkerById(id);
+                if (employee == null) {
+                    System.out.println("Employee not found.");
+                    return;
+                }
+                System.out.println("Enter Driver License Type: ");
+                license = scanner.nextLine();
+                if (!employee.getDriverLicenses().contains(license)) {
+                    System.out.println("Driver License not found.");
+                    break;
+                }
+                employee.removeDriverLicense(license);
+                employeesDAO.removeDriverLicenseFromEmployee(id, license);
+                System.out.println("Driver License removed successfully.");
+                break;
+            case 3:
+                System.out.println("Enter Employee ID: ");
+                id = scanner.nextInt();
+                scanner.nextLine(); // Consume newline
+                employee = branch.getWorkerById(id);
+                if (employee == null) {
+                    System.out.println("Employee not found.");
+                    return;
+                }
+                List<String> licenses = employee.getDriverLicenses();
+                if (licenses.isEmpty()) {
+                    System.out.println("No driver licenses found.");
+                } else {
+                    System.out.println("Driver Licenses: ");
+                    for (String driverLicense : licenses) {
+                        System.out.print(driverLicense + ", ");
+                    }
+                }
+                break;
+            case 4:
+                System.out.println("Returning to the main HR menu...");
+                break;
+        }
+    }
+
+    private static void printLicenseMenu() {
+        System.out.println("1. Add Driver License");
+        System.out.println("2. Remove Driver License");
+        System.out.println("3. View Driver Licenses");
+        System.out.println("4. Return to Main HR Menu");
+        System.out.print("Enter your choice: ");
     }
 
     public static Employee createEmployee(Branch branch) {
@@ -327,7 +419,8 @@ public class Main_Menu_With_DB {
         System.out.println("2. Remove Employee");
         System.out.println("3. View Available Employees");
         System.out.println("4. Update Employee Information");
-        System.out.println("5. Return to Main HR Menu");
+        System.out.println("5. Update Driver License");
+        System.out.println("6. Return to Main HR Menu");
         System.out.print("Enter your choice: ");
     }
 

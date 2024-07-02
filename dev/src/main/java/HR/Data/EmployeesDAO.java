@@ -64,18 +64,16 @@ public class EmployeesDAO {
         String roleSql = "INSERT INTO EmployeeRoles (EmployeeID, Role) VALUES (?, ?)";
 
         Connection conn = SQLiteConnection.getConnection();
-        PreparedStatement pstmtRole = conn.prepareStatement(roleSql);
-        if (employee.getPossiblePositions() == null) {
-            pstmtRole.close();
-
-            return;
+        try (PreparedStatement pstmtRole = conn.prepareStatement(roleSql)) {
+            for (EmployeeType role : employee.getPossiblePositions()) {
+                pstmtRole.setInt(1, employee.getEmployeeId());
+                pstmtRole.setString(2, role.getType());
+                pstmtRole.executeUpdate();
+            }
+        } catch (SQLException e) {
+            System.out.println("SQLException in addRolesToDatabase: " + e.getMessage());
+            e.printStackTrace();
         }
-        for (EmployeeType role : employee.getPossiblePositions()) {
-            pstmtRole.setInt(1, employee.getEmployeeId());
-            pstmtRole.setString(2, role.getType());
-            pstmtRole.executeUpdate();
-        }
-        pstmtRole.close();
     }
 
     public void removeEmployeeFromDatabase(int employeeId) {
@@ -131,6 +129,8 @@ public class EmployeesDAO {
         List<Employee> employees = new ArrayList<>();
         String sql = "SELECT * FROM Employees WHERE BranchID = ?";
         String roleSql = "SELECT Role FROM EmployeeRoles WHERE EmployeeID = ?";
+        String licenseSql = "SELECT LicenseType FROM DriverLicenses WHERE EmployeeID = ?";
+
 
         try {
             Connection conn = SQLiteConnection.getConnection();
@@ -178,6 +178,13 @@ public class EmployeesDAO {
                     }
                 }
                 pstmtRole.close();
+                PreparedStatement pstmtLicense = conn.prepareStatement(licenseSql);
+                pstmtLicense.setInt(1, employeeId);
+                ResultSet rsLicense = pstmtLicense.executeQuery();
+                while (rsLicense.next()) {
+                    String licenseType = rsLicense.getString("LicenseType");
+                    employee.addDriverLicense(licenseType);
+                }
                 employees.add(employee);
             }
             pstmt.close();
@@ -250,6 +257,37 @@ public class EmployeesDAO {
             System.out.println("SQLException: " + e.getMessage());
             e.printStackTrace();
         } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void addDriverLicenseToEmployee(int id, String license) {
+        String licenseSql = "INSERT INTO DriverLicenses (EmployeeID, LicenseType) VALUES (?, ?)";
+        try {
+            Connection conn = SQLiteConnection.getConnection();
+            PreparedStatement pstmt = conn.prepareStatement(licenseSql);
+            pstmt.setInt(1, id);
+            pstmt.setString(2, license);
+            pstmt.executeUpdate();
+            pstmt.close();
+        } catch (SQLException e) {
+            System.out.println("SQLException: " + e.getMessage());
+            e.printStackTrace();
+        }
+
+    }
+
+    public void removeDriverLicenseFromEmployee(int id, String license) {
+        String licenseSql = "DELETE FROM DriverLicenses WHERE EmployeeID = ? AND LicenseType = ?";
+        try {
+            Connection conn = SQLiteConnection.getConnection();
+            PreparedStatement pstmt = conn.prepareStatement(licenseSql);
+            pstmt.setInt(1, id);
+            pstmt.setString(2, license);
+            pstmt.executeUpdate();
+            pstmt.close();
+        } catch (SQLException e) {
+            System.out.println("SQLException: " + e.getMessage());
             e.printStackTrace();
         }
     }
