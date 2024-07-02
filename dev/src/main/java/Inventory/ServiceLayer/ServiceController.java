@@ -102,11 +102,6 @@ public class ServiceController {
         return productController.removeProduct(makat);
     }
 
-
-    public void generateStockReport() {
-        productController.generateStockReport();
-    }
-
     public void generateLowSupplyCSVReport() {
         List<Map<String, String>> reportData = productController.generateLowSupplyReportData();
         String fileName = "C:\\githubclones\\ADSS_Group_D\\dev\\src\\main\\java\\resources\\low_supply_report.csv";
@@ -125,13 +120,12 @@ public class ServiceController {
         return productController.updateProductDiscount(productID, discount, startDate, endDate);
     }
 
-    public void generateDefectiveCSVReport() {
-        itemController.generateDefectiveItemsReport();
+    public void generateDefectiveItemsCSVReport() {
+        List<Map<String, String>> reportData = itemController.generateDefectiveItemsReportData();
+        String fileName = "C:\\githubclones\\ADSS_Group_D\\dev\\src\\main\\java\\resources\\defective_items_report.csv";
+        generateCSV(reportData, fileName);
     }
 
-    public void generateCategoryCSVReport(String categoryID) {
-        productController.generateCategoryCSVReport(categoryID);
-    }
 
     public void generateExpiredCSVReport() {
         itemController.generateExpiredItems();

@@ -9,10 +9,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2ee10d94-4457-471a-97fe-029a048743dc" name="Changes" comment="Fixing connection and adding reports generation supper">
+    <list default="true" id="2ee10d94-4457-471a-97fe-029a048743dc" name="Changes" comment="Adding low stock and supplier reports">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dev/src/main/java/Inventory/DomainLayer/Item.java" beforeDir="false" afterPath="$PROJECT_DIR$/dev/src/main/java/Inventory/DomainLayer/Item.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dev/src/main/java/Inventory/DomainLayer/ItemController.java" beforeDir="false" afterPath="$PROJECT_DIR$/dev/src/main/java/Inventory/DomainLayer/ItemController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dev/src/main/java/Inventory/DomainLayer/ProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/dev/src/main/java/Inventory/DomainLayer/ProductController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dev/src/main/java/Inventory/PresentationLayer/CLIInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/dev/src/main/java/Inventory/PresentationLayer/CLIInterface.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dev/src/main/java/Inventory/ServiceLayer/ServiceController.java" beforeDir="false" afterPath="$PROJECT_DIR$/dev/src/main/java/Inventory/ServiceLayer/ServiceController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -348,7 +349,23 @@
       <option name="project" value="LOCAL" />
       <updated>1719927461349</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="Adding low stock and supplier reports">
+      <option name="closed" value="true" />
+      <created>1719928545551</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1719928545551</updated>
+    </task>
+    <task id="LOCAL-00020" summary="Adding low stock and supplier reports">
+      <option name="closed" value="true" />
+      <created>1719930202916</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1719930202916</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -374,7 +391,8 @@
     <MESSAGE value="Category removal bug fixed" />
     <MESSAGE value="Product removal bug fixed" />
     <MESSAGE value="Fixing connection and adding reports generation supper" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixing connection and adding reports generation supper" />
+    <MESSAGE value="Adding low stock and supplier reports" />
+    <option name="LAST_COMMIT_MESSAGE" value="Adding low stock and supplier reports" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -388,11 +406,6 @@
           <url>file://$PROJECT_DIR$/dev/src/main/java/Inventory/DomainLayer/ItemController.java</url>
           <line>34</line>
           <option name="timeStamp" value="13" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/dev/src/main/java/Inventory/DomainLayer/ProductController.java</url>
-          <line>50</line>
-          <option name="timeStamp" value="17" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

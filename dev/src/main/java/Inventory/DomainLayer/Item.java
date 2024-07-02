@@ -73,6 +73,18 @@ public class Item {
         return expireDate.isBefore(currentDate);
     }
 
+    public String getCategoryID(){
+        return categoryID;
+    }
+
+    public String getProductID(){
+        return productID;
+    }
+
+    public LocalDate getExpireDate(){
+        return expireDate;
+    }
+
     public void setisDefective(boolean isDefective){
         defective = isDefective;
     }

@@ -367,7 +367,7 @@ public class CLIInterface {
     }
 
     private static void getDefectiveReport() {
-        serviceController.generateDefectiveCSVReport();
+        serviceController.generateDefectiveItemsCSVReport();
     }
 
     private static void updateProductDiscount() {

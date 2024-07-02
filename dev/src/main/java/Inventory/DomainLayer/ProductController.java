@@ -39,13 +39,6 @@ public class ProductController {
         return productRepository.getProductById(productID) != null;
     }
 
-    public List<Product> getAllProducts() {
-        return productRepository.getAllProducts();
-    }
-
-    public void generateStockReport() {
-        // Implementation here
-    }
 
     public List<Map<String, String>> generateStockReportData() {
         List<Product> products = productRepository.getAllProducts();
@@ -141,19 +134,9 @@ public class ProductController {
         return data;
     }
 
-
-
     public boolean updateProductDiscount(String productID, int discount, LocalDate startDate, LocalDate endDate) {
         // Implementation here
         return true;
-    }
-
-    public void generateCategoryCSVReport(String categoryID) {
-        // Implementation here
-    }
-
-    public static Product getProductByID(String productID) {
-        return new ProductRepository().getProductById(productID);
     }
 
     public boolean productContainsItems(String makat) {
@@ -164,24 +147,5 @@ public class ProductController {
     public List<Product> getProductsByCategoryId(String categoryID) {
         return productRepository.getProductsByCategoryId(categoryID);
     }
-
-
-//    public void ProductsNoItem() {
-//        List<Product> allProducts = productRepository.getAllProducts();
-//        List<String> productsWithNoItems = new ArrayList<>();
-//
-//        for (Product product : allProducts) {
-//            if (product.getItemAmount() == 0) {
-//                productsWithNoItems.add(product.getName());
-//            }
-//        }
-//
-//        if (!productsWithNoItems.isEmpty()) {
-//            System.out.println("WARNING: PRODUCTS WITH NO ITEMS");
-//            for (String productName : productsWithNoItems) {
-//                System.out.println(productName);
-//            }
-//        }
-//    }
 
 }

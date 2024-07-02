@@ -130,38 +130,6 @@ public class ItemController {
         }
     }
 
-    public void generateDefectiveItemsReport() {
-        List<Item> defectiveItems = new ArrayList<>();
-
-        // Check defective items in warehouse
-        Iterator<Map.Entry<String, Item>> iteratorWarehouse = wareHouseItems.entrySet().iterator();
-        while (iteratorWarehouse.hasNext()) {
-            Map.Entry<String, Item> entry = iteratorWarehouse.next();
-            if (entry.getValue().defective) {
-                defectiveItems.add(entry.getValue());
-            }
-        }
-
-        // Check defective items in store
-        Iterator<Map.Entry<String, Item>> iteratorStore = storeItems.entrySet().iterator();
-        while (iteratorStore.hasNext()) {
-            Map.Entry<String, Item> entry = iteratorStore.next();
-            if (entry.getValue().defective) {
-                defectiveItems.add(entry.getValue());
-            }
-        }
-
-        if (defectiveItems.isEmpty()) {
-            System.out.println("No defective items found.");
-        } else {
-            String jarDir = getJarDirectory();
-            String relativePath = "dev/src/main/java/resources/defective_items_report.csv";
-            String fullPath = Paths.get(jarDir, relativePath).toString();
-            ensureDirectoryExists(fullPath);
-            generateDefectiveItemsCSV(defectiveItems, fullPath);
-        }
-    }
-
     private String getJarDirectory() {
         try {
             String jarPath = ProductController.class.getProtectionDomain().getCodeSource().getLocation().toURI().getPath();
@@ -171,27 +139,46 @@ public class ItemController {
         }
     }
 
-    public void generateDefectiveItemsCSV(List<Item> defectiveItems, String filePath) {
-        try (FileWriter writer = new FileWriter(filePath)) {
-            writer.append("ID,Name,Defective,InWarehouse,FloorBuilding,FloorShelf,X,Y,SupplierCost,PriceNoDiscount,ExpireDate,CategoryID,ProductID\n");
-            for (Item item : defectiveItems) {
-                writer.append(item.getID()).append(',')
-                        .append(item.getName()).append(',')
-                        .append(String.valueOf(item.defective)).append(',')
-                        .append(String.valueOf(item.inWareHouse)).append(',')
-                        .append(String.valueOf(item.floorBuilding)).append(',')
-                        .append(String.valueOf(item.floorShelf)).append(',')
-                        .append(String.valueOf(item.x)).append(',')
-                        .append(String.valueOf(item.y)).append(',')
-                        .append(item.expireDate.toString()).append(',')
-                        .append(item.categoryID).append(',')
-                        .append(item.productID).append('\n');
+    public List<Map<String, String>> generateDefectiveItemsReportData() {
+        List<Map<String, String>> data = new ArrayList<>();
+
+        // Collect defective items from warehouse
+        for (Item item : wareHouseItems.values()) {
+            if (item.defective) {
+                Map<String, String> itemData = new HashMap<>();
+                itemData.put("ID", item.getID());
+                itemData.put("Name", item.getName());
+                itemData.put("CategoryID", item.getCategoryID());
+                itemData.put("ProductID", item.getProductID());
+                itemData.put("FloorBuilding", String.valueOf(item.floorBuilding));
+                itemData.put("FloorShelf", String.valueOf(item.floorShelf));
+                itemData.put("X", String.valueOf(item.x));
+                itemData.put("Y", String.valueOf(item.y));
+                itemData.put("ExpireDate", item.getExpireDate().toString());
+                data.add(itemData);
             }
-            System.out.println("CSV report for defective items generated successfully in the path" + filePath + ".");
-        } catch (IOException e) {
-            System.out.println("Error while generating CSV report for defective items: " + e.getMessage());
         }
+
+        // Collect defective items from store
+        for (Item item : storeItems.values()) {
+            if (item.defective) {
+                Map<String, String> itemData = new HashMap<>();
+                itemData.put("ID", item.getID());
+                itemData.put("Name", item.getName());
+                itemData.put("CategoryID", item.getCategoryID());
+                itemData.put("ProductID", item.getProductID());
+                itemData.put("FloorBuilding", String.valueOf(item.floorBuilding));
+                itemData.put("FloorShelf", String.valueOf(item.floorShelf));
+                itemData.put("X", String.valueOf(item.x));
+                itemData.put("Y", String.valueOf(item.y));
+                itemData.put("ExpireDate", item.getExpireDate().toString());
+                data.add(itemData);
+            }
+        }
+
+        return data;
     }
+
 
     public boolean moveItemToStore(String id){
         if(storeItems.containsKey(id)){
