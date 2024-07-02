@@ -31,5 +31,8 @@ public class ProductRepository {
         return productDAO.getAllProducts();
     }
 
+    public boolean updateProduct(Product product) {
+        return productDAO.updateProduct(product);
+    }
 
 }

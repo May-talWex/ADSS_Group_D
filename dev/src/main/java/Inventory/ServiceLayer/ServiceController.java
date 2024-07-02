@@ -128,8 +128,11 @@ public class ServiceController {
 
 
     public void generateExpiredCSVReport() {
-        itemController.generateExpiredItems();
+        List<Map<String, String>> reportData = itemController.generateExpiredItemsReportData();
+        String fileName = "C:\\githubclones\\ADSS_Group_D\\dev\\src\\main\\java\\resources\\expired_items_report.csv";
+        generateCSV(reportData, fileName);
     }
+
 
     // Category Service Methods
     public boolean addCategory(String name, String id) {

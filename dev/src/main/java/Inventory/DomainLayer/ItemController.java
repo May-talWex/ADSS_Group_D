@@ -65,70 +65,47 @@ public class ItemController {
         return itemRepository.deleteItem(id);
     }
 
-    public void generateExpiredItems() {
-        List<Item> expiredItems = new ArrayList<>();
+    public List<Map<String, String>> generateExpiredItemsReportData() {
+        List<Map<String, String>> data = new ArrayList<>();
+        LocalDate today = LocalDate.now();
 
-        Iterator<Map.Entry<String, Item>> iteratorWarehouse = wareHouseItems.entrySet().iterator();
-        while (iteratorWarehouse.hasNext()) {
-            Map.Entry<String, Item> entry = iteratorWarehouse.next();
-            if (entry.getValue().isExpired()) {
-                expiredItems.add(entry.getValue());
+        // Collect expired items from warehouse
+        for (Item item : wareHouseItems.values()) {
+            if (item.getExpireDate().isBefore(today)) {
+                Map<String, String> itemData = new HashMap<>();
+                itemData.put("ID", item.getID());
+                itemData.put("Name", item.getName());
+                itemData.put("CategoryID", item.getCategoryID());
+                itemData.put("ProductID", item.getProductID());
+                itemData.put("FloorBuilding", String.valueOf(item.floorBuilding));
+                itemData.put("FloorShelf", String.valueOf(item.floorShelf));
+                itemData.put("X", String.valueOf(item.x));
+                itemData.put("Y", String.valueOf(item.y));
+                itemData.put("ExpireDate", item.getExpireDate().toString());
+                data.add(itemData);
             }
         }
 
-        // Check expired items in store
-        Iterator<Map.Entry<String, Item>> iteratorStore = storeItems.entrySet().iterator();
-        while (iteratorStore.hasNext()) {
-            Map.Entry<String, Item> entry = iteratorStore.next();
-            if (entry.getValue().isExpired()) {
-                expiredItems.add(entry.getValue());
+        // Collect expired items from store
+        for (Item item : storeItems.values()) {
+            if (item.getExpireDate().isBefore(today)) {
+                Map<String, String> itemData = new HashMap<>();
+                itemData.put("ID", item.getID());
+                itemData.put("Name", item.getName());
+                itemData.put("CategoryID", item.getCategoryID());
+                itemData.put("ProductID", item.getProductID());
+                itemData.put("FloorBuilding", String.valueOf(item.floorBuilding));
+                itemData.put("FloorShelf", String.valueOf(item.floorShelf));
+                itemData.put("X", String.valueOf(item.x));
+                itemData.put("Y", String.valueOf(item.y));
+                itemData.put("ExpireDate", item.getExpireDate().toString());
+                data.add(itemData);
             }
         }
 
-        if (expiredItems.isEmpty()) {
-            System.out.println("No expired items found.");
-        } else {
-            String jarDir = getJarDirectory();
-            String relativePath = "dev/src/main/java/resources/expired_items_report.csv";
-            String fullPath = Paths.get(jarDir, relativePath).toString();
-            ensureDirectoryExists(fullPath);
-            generateExpiredItemsCSV(expiredItems, fullPath);
-        }
+        return data;
     }
 
-    private String getProjectRootDirectory() {
-        return System.getProperty("user.dir");
-    }
-
-    private void ensureDirectoryExists(String filePath) {
-        File file = new File(filePath);
-        File parentDir = file.getParentFile();
-        if (!parentDir.exists()) {
-            parentDir.mkdirs();
-        }
-    }
-
-    public void generateExpiredItemsCSV(List<Item> expiredItems, String filePath) {
-        try (FileWriter writer = new FileWriter(filePath)) {
-            writer.append("ID,Name,Defective,InWarehouse,FloorBuilding,FloorShelf,X,Y,ExpireDate,CategoryID,ProductID\n");
-            for (Item item : expiredItems) {
-                writer.append(item.getID()).append(',')
-                        .append(item.getName()).append(',')
-                        .append(String.valueOf(item.defective)).append(',')
-                        .append(String.valueOf(item.inWareHouse)).append(',')
-                        .append(String.valueOf(item.floorBuilding)).append(',')
-                        .append(String.valueOf(item.floorShelf)).append(',')
-                        .append(String.valueOf(item.x)).append(',')
-                        .append(String.valueOf(item.y)).append(',')
-                        .append(item.expireDate.toString()).append(',')
-                        .append(item.categoryID).append(',')
-                        .append(item.productID).append('\n');
-            }
-            System.out.println("CSV report for expired items generated successfully in the path" + filePath + ".");
-        } catch (IOException e) {
-            System.out.println("Error while generating CSV report for expired items: " + e.getMessage());
-        }
-    }
 
     private String getJarDirectory() {
         try {

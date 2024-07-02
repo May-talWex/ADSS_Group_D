@@ -135,9 +135,16 @@ public class ProductController {
     }
 
     public boolean updateProductDiscount(String productID, int discount, LocalDate startDate, LocalDate endDate) {
-        // Implementation here
-        return true;
+        Product product = productRepository.getProductById(productID);
+        if (product != null) {
+            product.setDiscount(discount, startDate, endDate);
+            return productRepository.updateProduct(product);
+        } else {
+            System.out.println("Product not found with ID: " + productID);
+            return false;
+        }
     }
+
 
     public boolean productContainsItems(String makat) {
         Product product = productRepository.getProductById(makat);

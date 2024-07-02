@@ -11,7 +11,7 @@ public class Product {
     private float costPrice;
     private float sellingPrice;
     private boolean isDamaged;
-    private int discount;
+    private float discount;
     private int minimumAmount;
     private LocalDate startDiscount;
     private LocalDate endDiscount;
@@ -111,7 +111,7 @@ public class Product {
 
     public boolean isDamaged() { return isDamaged; }
 
-    public double getDiscount() { return discount; }
+    public float getDiscount() { return discount; }
     public void setDiscount(int discount, LocalDate startDate, LocalDate endDate) {
         this.discount = discount;
         this.startDiscount = startDate;
@@ -144,6 +144,14 @@ public class Product {
 
     public void setItems(ArrayList<Item> items) {
         this.items = items;
+    }
+
+    public LocalDate getStartDiscount() {
+        return this.startDiscount;
+    }
+
+    public LocalDate getEndDiscount() {
+        return this.endDiscount;
     }
 
 

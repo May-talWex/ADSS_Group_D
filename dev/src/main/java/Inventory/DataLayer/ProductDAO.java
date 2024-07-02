@@ -55,6 +55,25 @@ public class ProductDAO {
         }
     }
 
+    public boolean updateProduct(Product product) {
+        String sql = "UPDATE Product SET discount = ?, Discount_Start = ?, Discount_End = ?, Selling_Price = ? WHERE makat = ?";
+
+        try (PreparedStatement pstmt = connection.prepareStatement(sql)) {
+            pstmt.setFloat(1, product.getDiscount());
+            pstmt.setString(2, product.getStartDiscount().toString());
+            pstmt.setString(3, product.getEndDiscount().toString());
+            pstmt.setFloat(4, product.getSellingPrice());
+            pstmt.setString(5, product.getMakat());
+            pstmt.executeUpdate();
+            return true;
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+            return false;
+        }
+    }
+
+
+
     public Product getProductById(String makat) {
         String sql = "SELECT * FROM Product WHERE makat = ?";
 
