@@ -108,8 +108,18 @@ public class ServiceController {
     }
 
     public void generateLowSupplyCSVReport() {
-        productController.generateLowSupplyCSVReport();
+        List<Map<String, String>> reportData = productController.generateLowSupplyReportData();
+        String fileName = "C:\\githubclones\\ADSS_Group_D\\dev\\src\\main\\java\\resources\\low_supply_report.csv";
+        generateCSV(reportData, fileName);
     }
+
+    public void generateLowSupplyDeltaCSVReport() {
+        List<Map<String, String>> reportData = productController.generateLowSupplyReportDataWithDelta();
+        String fileName = "C:\\githubclones\\ADSS_Group_D\\dev\\src\\main\\java\\resources\\low_supply_delta_report.csv";
+        generateCSV(reportData, fileName);
+    }
+
+
 
     public boolean updateProductDiscount(String productID, int discount, LocalDate startDate, LocalDate endDate) {
         return productController.updateProductDiscount(productID, discount, startDate, endDate);

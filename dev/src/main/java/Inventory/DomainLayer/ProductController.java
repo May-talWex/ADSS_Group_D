@@ -96,9 +96,52 @@ public class ProductController {
     }
 
 
-    public void generateLowSupplyCSVReport() {
-        // Implementation here
+    public List<Map<String, String>> generateLowSupplyReportData() {
+        List<Product> products = productRepository.getAllProducts();
+        List<Map<String, String>> data = new ArrayList<>();
+
+        for (Product product : products) {
+            if (product.getItemAmount() < product.getMinimumAmount()) {
+                Map<String, String> productData = new HashMap<>();
+                productData.put("Makat", product.getMakat());
+                productData.put("Name", product.getName());
+                productData.put("Supplier", product.getSupplier());
+                productData.put("Cost Price", String.valueOf(product.getCostPrice()));
+                productData.put("Selling Price", String.valueOf(product.getSellingPrice()));
+                productData.put("Discount", String.valueOf(product.getDiscount()));
+                productData.put("Minimum Amount", String.valueOf(product.getMinimumAmount()));
+                productData.put("Current Amount", String.valueOf(product.getItemAmount()));
+                productData.put("Category ID", product.getCategoryID());
+                productData.put("Sub Category ID", product.getSubCategoryID());
+                productData.put("Full Price", String.valueOf(product.getFullPrice()));
+
+                data.add(productData);
+            }
+        }
+
+        return data;
     }
+
+    public List<Map<String, String>> generateLowSupplyReportDataWithDelta() {
+        List<Product> products = productRepository.getAllProducts();
+        List<Map<String, String>> data = new ArrayList<>();
+
+        for (Product product : products) {
+            int amountToOrder = product.getMinimumAmount() - product.getItemAmount();
+            if (amountToOrder > 0) {
+                Map<String, String> productData = new HashMap<>();
+                productData.put("Makat", product.getMakat());
+                productData.put("Name", product.getName());
+                productData.put("Supplier", product.getSupplier());
+                productData.put("Amount to Order", String.valueOf(amountToOrder)); // Calculated delta
+                data.add(productData);
+            }
+        }
+
+        return data;
+    }
+
+
 
     public boolean updateProductDiscount(String productID, int discount, LocalDate startDate, LocalDate endDate) {
         // Implementation here

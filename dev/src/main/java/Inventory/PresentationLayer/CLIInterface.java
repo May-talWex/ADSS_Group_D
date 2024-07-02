@@ -32,6 +32,9 @@ public class CLIInterface {
                         getLowSupplyReport();
                         break;
                     case 5:
+                        generateLowSupplyDeltaCSVReport();
+                        break;
+                    case 6:
                         System.out.println("Exiting...");
                         return;
                     default:
@@ -50,7 +53,8 @@ public class CLIInterface {
         System.out.println("2. Update items/categories/products");
         System.out.println("3. Generate reports");
         System.out.println("4. Generate low stock report");
-        System.out.println("5. Exit");
+        System.out.println("5. Generate stock report for supplier");
+        System.out.println("6. Exit");
         System.out.print("Choose an option: ");
     }
 
@@ -416,12 +420,6 @@ public class CLIInterface {
         }
     }
 
-//    private static void generateReportByCategoryID() {
-//        System.out.print("Enter category ID: ");
-//        String categoryID = scanner.nextLine();
-//        serviceController.generateCategoryCSVReport(categoryID);
-//    }
-
     private static void generateReportByCategoryID() {
         System.out.print("Enter category ID: ");
         String categoryID = scanner.nextLine();
@@ -433,8 +431,9 @@ public class CLIInterface {
         System.out.println("Stock report generated successfully.");
     }
 
+    private static void generateLowSupplyDeltaCSVReport(){
+        serviceController.generateLowSupplyDeltaCSVReport();
+        System.out.println("Low supply report for supplier generated successfully.");
+    }
 
-//    private static void NoItemsForProduct(){
-//        serviceController.NoItemsForProductsAlert();
-//    }
 }
