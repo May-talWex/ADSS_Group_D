@@ -34,7 +34,7 @@ public class ShiftController {
     }
 
 
-    public Shift createShift(Branch branch) {
+    public static Shift createShift(Branch branch) {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Creating a new shift for branch " + branch.getName());
         System.out.println("Enter the day of the shift (1-31):");

@@ -99,13 +99,9 @@ public class SQLiteConnection {
                 + "    FOREIGN KEY (EmployeeID) REFERENCES Employees(EmployeeID)\n"
                 + ");";
 
-        Connection conn = connect(); // Get the connection
-        if (conn == null) {
-            System.out.println("Failed to establish connection.");
-            return;
-        }
-
-        try (Statement stmt = conn.createStatement()) {
+        try {
+            Connection conn = getConnection();
+            Statement stmt = conn.createStatement();
             stmt.execute(createBranchesTable);
             stmt.execute(createBankAccountsTable);
             stmt.execute(createSalariesTable);
@@ -113,6 +109,7 @@ public class SQLiteConnection {
             stmt.execute(createShiftLimitationsTable);
             stmt.execute(createShiftsTable);
             stmt.execute(createEmployeeRolesTable);
+            stmt.close();
             System.out.println("Database has been initialized.");
         } catch (SQLException e) {
             System.out.println("SQLException in initializeDatabase: " + e.getMessage());

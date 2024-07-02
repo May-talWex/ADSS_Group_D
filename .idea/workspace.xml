@@ -13,7 +13,9 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/HRDB.sqlite" beforeDir="false" afterPath="$PROJECT_DIR$/HRDB.sqlite" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dev/src/main/java/HR/Data/BranchDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/dev/src/main/java/HR/Data/BranchDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dev/src/main/java/HR/Data/EmployeesDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/dev/src/main/java/HR/Data/EmployeesDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dev/src/main/java/HR/Data/SQLiteConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/dev/src/main/java/HR/Data/SQLiteConnection.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dev/src/main/java/HR/Domain/ShiftController.java" beforeDir="false" afterPath="$PROJECT_DIR$/dev/src/main/java/HR/Domain/ShiftController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dev/src/main/java/HR/Presentation/Main_Menu_With_DB.java" beforeDir="false" afterPath="$PROJECT_DIR$/dev/src/main/java/HR/Presentation/Main_Menu_With_DB.java" afterDir="false" />
     </list>
     <list id="92241546-7950-4e02-919c-86c9491857e4" name="Changes by kidox" comment="" />

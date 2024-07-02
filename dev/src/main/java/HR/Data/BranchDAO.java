@@ -14,10 +14,7 @@ public class BranchDAO {
         System.out.println("Trying getBranchFromDatabase");
         try {
             Connection conn = SQLiteConnection.getConnection();
-            if (conn == null || conn.isClosed()) {
-                System.out.println("Connection is null or closed.");
-                return null;
-            }
+            System.out.println(conn);
             PreparedStatement pstmt = conn.prepareStatement(sql);
             pstmt.setInt(1, branchId);
             ResultSet rs = pstmt.executeQuery();
@@ -28,14 +25,12 @@ public class BranchDAO {
                         rs.getString("BranchName"),
                         rs.getString("BranchAddress")
                 );
-                // System.out.println("Branch retrieved: " + branch);
-            } else {
-                System.out.println("No branch found with ID: " + branchId);
             }
+            rs.close();
+            pstmt.close();
         } catch (SQLException e) {
             System.out.println("SQLException: " + e.getMessage());
         }
-
         return branch;
     }
 
@@ -43,27 +38,19 @@ public class BranchDAO {
         String sql = "INSERT INTO Branches (BranchName, BranchAddress) VALUES (?, ?)";
         try {
             Connection conn = SQLiteConnection.getConnection();
-            System.out.println("Connection obtained: " + conn);
-
-            if (conn != null && !conn.isClosed()) {
-                PreparedStatement pstmt = conn.prepareStatement(sql);
-                System.out.println("PreparedStatement created: " + pstmt);
-
-                pstmt.setString(1, branch.getName());
-                System.out.println("BranchName set to " + branch.getName());
-
-                pstmt.setString(2, branch.getAddress());
-                System.out.println("BranchAddress set to " + branch.getAddress());
-
-                pstmt.executeUpdate();
-                System.out.println("Branch added to database.");
-            } else {
-                System.out.println("Connection is null or closed.");
-            }
+            System.out.println("got conn");
+            System.out.println(conn);
+            PreparedStatement pstmt = conn.prepareStatement(sql);
+            System.out.println("PreparedStatement created");
+            pstmt.setString(1, branch.getName());
+            System.out.println("BranchName set to " + branch.getName());
+            pstmt.setString(2, branch.getAddress());
+            System.out.println("BranchAddress set to " + branch.getAddress());
+            pstmt.executeUpdate();
+            System.out.println("Branch " + branch.getBranchId() + " added to database.");
+            pstmt.close();
         } catch (SQLException e) {
             System.out.println("SQLException: " + e.getMessage());
-        } catch (Exception e) {
-            System.out.println("Exception: " + e.getMessage());
         }
     }
 }

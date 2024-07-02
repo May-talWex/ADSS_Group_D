@@ -3,64 +3,51 @@ package HR.Presentation;
 import HR.Data.*;
 import HR.Domain.*;
 import HR.Domain.EmployeeTypes.*;
-import HR.Domain.Exceptions.*;
+import HR.Domain.Exceptions.NotEnoughWorkers;
+
 import java.util.List;
 import java.util.Scanner;
 
 public class Main_Menu_With_DB {
     public static void main(String[] args) throws Exception {
-        // Initialize the database
         SQLiteConnection.initializeDatabase();
-        EmployeeController employeeController = new EmployeeController();
-        ShiftController shiftController = new ShiftController();
 
-        Scanner scanner = new Scanner(System.in);
         BranchDAO branchDAO = new BranchDAO();
-        Branch branch = null;
+        EmployeesDAO employeesDAO = new EmployeesDAO();
 
-        while (branch == null) {
-            System.out.println("Enter the branch ID (default is 1): ");
-            int branchId;
-            try {
-                branchId = scanner.nextInt();
-            } catch (Exception e) {
-                System.out.println("Invalid input. Defaulting to branch ID 1.");
-                scanner.next(); // clear the invalid input
-                branchId = 1;
-            }
-            branch = branchDAO.getBranchFromDatabase(branchId);
+        Branch branch = branchDAO.getBranchFromDatabase(1); // Default branch with ID 1
 
-            if (branch == null) {
-                System.out.println("Branch not found. Do you want to create a new branch? (yes/no)");
-                String response = scanner.next();
-                if (response.equalsIgnoreCase("yes")) {
-                    branch = createNewBranch();
-                    branchDAO.addBranchToDatabase(branch);
-                } else {
-                    System.out.println("Please enter a valid branch ID.");
-                }
+        if (branch == null) {
+            Scanner scanner = new Scanner(System.in);
+            System.out.println("Branch not found. Do you want to create a new branch? (yes/no)");
+            if (scanner.nextLine().equalsIgnoreCase("yes")) {
+                System.out.println("Enter the branch name: ");
+                String branchName = scanner.nextLine();
+                System.out.println("Enter the branch address: ");
+                String branchAddress = scanner.nextLine();
+                branch = new Branch(1, branchName, branchAddress); // ID 1 for default branch
+                branchDAO.addBranchToDatabase(branch);
+
+                // Add default admin employee
+                BankAccount bankAccount = new BankAccount(0, 0, 0);
+                Salary salary = new Salary(0);
+                Employee admin = new Employee(0, "Admin", "admin@supermarket.com", bankAccount, branch, salary);
+                admin.addPossiblePosition(new HRManager());
+                employeesDAO.addEmployeeToDatabase(admin);
+                System.out.println("Default admin account has been created.");
             }
         }
 
-        // Initialize EmployeesDAO with the retrieved branch
-        EmployeesDAO employeesDAO = new EmployeesDAO(branch);
-
-        // Load all employees into the branch
-        List<Employee> employees = employeesDAO.getAllEmployees();
+        List<Employee> employees = employeesDAO.getAllEmployees(branch.getBranchId());
         for (Employee employee : employees) {
             branch.addWorker(employee);
         }
 
+        Scanner scanner = new Scanner(System.in);
         while (true) {
             System.out.println("Enter your ID (or -1 to exit): ");
-            int id;
-            try {
-                id = scanner.nextInt();
-            } catch (Exception e) {
-                System.out.println("Invalid input. Please enter a number.");
-                scanner.next();
-                continue;
-            }
+            int id = scanner.nextInt();
+            scanner.nextLine(); // Consume newline
 
             if (id == -1) {
                 System.out.println("Exiting the system...");
@@ -71,45 +58,33 @@ public class Main_Menu_With_DB {
 
             if (employee == null) {
                 System.out.println("Employee not found.");
-                continue;  // Loop back to ask for ID again
+                continue;
             }
 
             if (employee.hasRole(new HRManager())) {
-                HRMenu(branch, employeeController, shiftController, employeesDAO);
+                System.out.println("Welcome, HR Manager " + employee.getName() + "!");
+                HRMenu(branch, employeesDAO);
             } else {
+                System.out.println("Welcome, " + employee.getName() + "!");
                 NonManagerMenu(branch, id);
             }
         }
     }
 
-    public static Branch createNewBranch() {
+    public static void HRMenu(Branch branch, EmployeesDAO employeesDAO) throws Exception {
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Enter the branch name: ");
-        String branchName = scanner.nextLine();
-        System.out.println("Enter the branch address: ");
-        String branchAddress = scanner.nextLine();
-        return new Branch(branchName, branchAddress);
-    }
-
-    public static void HRMenu(Branch branch, EmployeeController employeeController, ShiftController shiftController, EmployeesDAO employeesDAO) throws Exception {
-        Scanner scanner = new Scanner(System.in);
-        int HRChoice = -1; // Initialize HRChoice
+        int HRChoice;
         do {
             PrintMainHRMenu();
-            try {
-                HRChoice = scanner.nextInt();
-            } catch (Exception e) {
-                System.out.println("Invalid input. Please enter a number.");
-                scanner.next();
-                continue;
-            }
+            HRChoice = scanner.nextInt();
+            scanner.nextLine(); // Consume newline
 
             switch (HRChoice) {
                 case 1:
-                    employeeMenu(branch, employeeController, employeesDAO);
+                    employeeMenu(branch, employeesDAO);
                     break;
                 case 2:
-                    scheduleMenu(branch, shiftController);
+                    scheduleMenu(branch);
                     break;
                 case 3:
                     System.out.println("Logging out and returning to the main menu...");
@@ -121,42 +96,29 @@ public class Main_Menu_With_DB {
         } while (HRChoice != 3);
     }
 
-    public static void employeeMenu(Branch branch, EmployeeController employeeController, EmployeesDAO employeesDAO) throws Exception {
+    public static void employeeMenu(Branch branch, EmployeesDAO employeesDAO) throws Exception {
         Scanner scanner = new Scanner(System.in);
-        int employeeChoice = -1; // Initialize employeeChoice
+        int employeeChoice;
         do {
             PrintEmployeeMenu();
-            try {
-                employeeChoice = scanner.nextInt();
-            } catch (Exception e) {
-                System.out.println("Invalid input. Please enter a number.");
-                scanner.next();
-                continue;
-            }
+            employeeChoice = scanner.nextInt();
+            scanner.nextLine(); // Consume newline
 
             switch (employeeChoice) {
                 case 1:
-                    // Add Employee logic
-                    Employee temp = employeeController.createEmployee(branch);
-                    try {
-                        branch.addWorker(temp);
-                        employeesDAO.addEmployee(temp); // Add employee to the database
-                    } catch (Exception e) {
-                        System.out.println(e.getMessage());
-                    }
+                    Employee temp = createEmployee(branch);
+                    employeesDAO.addEmployeeToDatabase(temp);
+                    branch.addWorker(temp);
                     break;
                 case 2:
-                    // Remove Employee logic
-                    BranchController.removeEmployee(branch);
+                    removeEmployee(branch, employeesDAO);
                     break;
                 case 3:
-                    System.out.println("Available Employees:");
-                    BranchController.printEmployees(branch);
+                    printEmployees(branch);
                     break;
                 case 4:
-                    // Update Employee Position logic
                     try {
-                        BranchController.updateEmployeePosition(branch);
+                        updateEmployeePosition(branch, employeesDAO);
                     } catch (Exception e) {
                         System.out.println(e.getMessage());
                     }
@@ -171,30 +133,137 @@ public class Main_Menu_With_DB {
         } while (employeeChoice != 5);
     }
 
-    public static void scheduleMenu(Branch branch, ShiftController shiftController) throws NotEnoughWorkers {
+    public static Employee createEmployee(Branch branch) {
         Scanner scanner = new Scanner(System.in);
-        int scheduleChoice = -1; // Initialize scheduleChoice
+        System.out.println("Enter Employee ID: ");
+        int id = scanner.nextInt();
+        scanner.nextLine(); // Consume newline
+
+        System.out.println("Enter Employee Name: ");
+        String name = scanner.nextLine();
+
+        System.out.println("Enter Employee Email: ");
+        String email = scanner.nextLine();
+
+        System.out.println("Enter Bank Number: ");
+        int bankNumber = scanner.nextInt();
+        System.out.println("Enter Branch Number: ");
+        int branchNumber = scanner.nextInt();
+        System.out.println("Enter Account Number: ");
+        int accountNumber = scanner.nextInt();
+        BankAccount bankAccount = new BankAccount(bankNumber, accountNumber, branchNumber);
+
+        System.out.println("Enter Salary: ");
+        float salaryAmount = scanner.nextFloat();
+        Salary salary = new Salary(salaryAmount);
+
+        Employee employee = new Employee(id, name, email, bankAccount, branch, salary);
+
+        System.out.println("Employee created successfully.");
+        return employee;
+    }
+
+    public static void removeEmployee(Branch branch, EmployeesDAO employeesDAO) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Enter Employee ID to remove: ");
+        int id = scanner.nextInt();
+        scanner.nextLine(); // Consume newline
+
+        Employee employee = branch.getWorkerById(id);
+        if (employee == null) {
+            System.out.println("Employee not found.");
+            return;
+        }
+
+        try {
+            branch.removeEmployee(employee);
+            employeesDAO.removeEmployeeFromDatabase(id);
+            System.out.println("Employee " + id + " removed successfully.");
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    public static void printEmployees(Branch branch) {
+        List<Employee> employees = branch.getWorkers();
+        for (Employee employee : employees) {
+            System.out.println(employee);
+        }
+    }
+
+    public static void updateEmployeePosition(Branch branch, EmployeesDAO employeesDAO) throws Exception {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Enter the employee ID to update: ");
+        int id = scanner.nextInt();
+        scanner.nextLine(); // Consume newline
+
+        Employee employee = branch.getWorkerById(id);
+        if (employee == null) {
+            System.out.println("Employee not found.");
+            return;
+        }
+
+        System.out.println("Choose a role to add to the employee: ");
+        printRoleMenu();
+        int role = scanner.nextInt();
+        scanner.nextLine(); // Consume newline
+
+        try {
+            switch (role) {
+                case 1:
+                    employee.addPossiblePosition(new ShiftManager());
+                    employeesDAO.addRoleToEmployee(id, "ShiftManager");
+                    break;
+                case 2:
+                    employee.addPossiblePosition(new Cashier());
+                    employeesDAO.addRoleToEmployee(id, "Cashier");
+                    break;
+                case 3:
+                    employee.addPossiblePosition(new StorageEmployee());
+                    employeesDAO.addRoleToEmployee(id, "StorageEmployee");
+                    break;
+                case 4:
+                    employee.addPossiblePosition(new DeliveryPerson());
+                    employeesDAO.addRoleToEmployee(id, "DeliveryPerson");
+                    break;
+                case 5:
+                    employee.addPossiblePosition(new HRManager());
+                    employeesDAO.addRoleToEmployee(id, "HRManager");
+                    break;
+                default:
+                    System.out.println("Invalid option.");
+                    break;
+            }
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    private static void printRoleMenu() {
+        System.out.println("1. Shift Manager");
+        System.out.println("2. Cashier");
+        System.out.println("3. Storage Worker");
+        System.out.println("4. Delivery Person");
+        System.out.println("5. HR Manager");
+    }
+
+    public static void scheduleMenu(Branch branch) throws NotEnoughWorkers {
+        Scanner scanner = new Scanner(System.in);
+        int scheduleChoice;
         do {
             PrintScheduleMenu();
-            try {
-                scheduleChoice = scanner.nextInt();
-            } catch (Exception e) {
-                System.out.println("Invalid input. Please enter a number.");
-                scanner.next();
-                continue;
-            }
+            scheduleChoice = scanner.nextInt();
+            scanner.nextLine(); // Consume newline
+
             switch (scheduleChoice) {
                 case 1:
-                    // Create Shift Schedule logic
-                    Shift shift = shiftController.createShift(branch);
+                    Shift shift = ShiftController.createShift(branch);
                     ScheduleController.generateShift(branch, shift);
                     break;
                 case 2:
-                    // Update Shift Requirements logic
                     ScheduleController.updateShiftRequirements(branch);
                     break;
                 case 3:
-                    // Print Weekly Schedule logic
                     ScheduleController.printWeeklySchedule(branch);
                     break;
                 case 4:
@@ -209,16 +278,11 @@ public class Main_Menu_With_DB {
 
     public static void NonManagerMenu(Branch branch, int id) {
         Scanner scanner = new Scanner(System.in);
-        int choice = -1; // Initialize choice
+        int choice;
         do {
             PrintNonManagerMenu();
-            try {
-                choice = scanner.nextInt();
-            } catch (Exception e) {
-                System.out.println("Invalid input. Please enter a number.");
-                scanner.next();
-                continue;
-            }
+            choice = scanner.nextInt();
+            scanner.nextLine(); // Consume newline
 
             switch (choice) {
                 case 1:
@@ -235,6 +299,7 @@ public class Main_Menu_With_DB {
                     break;
                 default:
                     System.out.println("Invalid choice!");
+                    break;
             }
         } while (choice != 4);
     }
@@ -269,7 +334,7 @@ public class Main_Menu_With_DB {
     public static void PrintScheduleMenu() {
         System.out.println("Schedule Menu:");
         System.out.println("1. Create Shift");
-        System.out.println("2. Update Shifts Requirements");
+        System.out.println("2. update Shifts Requirements");
         System.out.println("3. Print Weekly Schedule");
         System.out.println("4. Return to Main HR Menu");
         System.out.print("Enter your choice: ");
