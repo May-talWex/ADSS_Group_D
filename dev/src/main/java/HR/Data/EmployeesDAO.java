@@ -65,6 +65,11 @@ public class EmployeesDAO {
 
         Connection conn = SQLiteConnection.getConnection();
         PreparedStatement pstmtRole = conn.prepareStatement(roleSql);
+        if (employee.getPossiblePositions() == null) {
+            pstmtRole.close();
+
+            return;
+        }
         for (EmployeeType role : employee.getPossiblePositions()) {
             pstmtRole.setInt(1, employee.getEmployeeId());
             pstmtRole.setString(2, role.getType());
