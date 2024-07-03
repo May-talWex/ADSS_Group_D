@@ -24,6 +24,23 @@ public class ScheduleController {
         }
     }
 
+    public static void updateShiftRequirementsDAO(Branch branch, ShiftsDAO shiftsDAO) throws NotEnoughWorkers {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Updating shift requirements for branch " + branch.getName());
+
+        LocalDate date = inputShiftDate(scanner);
+        System.out.println("Is this a morning shift? (true/false): ");
+        boolean isMorningShift = Boolean.parseBoolean(scanner.nextLine());
+
+        if (branch.getSchedule().doesShiftExist(date, isMorningShift)) {
+            updateRoleRequirement(scanner, branch, date, isMorningShift);
+        } else {
+            System.out.println("Shift does not exist for the specified date and time.");
+        }
+        Shift shift = branch.getSchedule().getShift(date, isMorningShift);
+        shiftsDAO.updateShift(shift, branch);
+    }
+
     private static LocalDate inputShiftDate(Scanner scanner) {
         System.out.println("Enter the day of the shift (1-31):");
         int day = Integer.parseInt(scanner.nextLine());

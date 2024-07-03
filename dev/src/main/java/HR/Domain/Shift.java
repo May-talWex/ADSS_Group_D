@@ -289,11 +289,11 @@ public class Shift {
     }
 
     public String getShiftManagersString() {
-        String result = "";
+        StringBuilder result = new StringBuilder();
         for (Employee w : shiftManagers) {
-            result += w.getEmployeeId() + ",";
+            result.append(w.getEmployeeId()).append(",");
         }
-        return result;
+        return result.toString();
     }
 
     public String getCashiersString() {

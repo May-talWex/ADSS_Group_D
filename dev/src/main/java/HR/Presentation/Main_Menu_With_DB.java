@@ -360,7 +360,7 @@ public class Main_Menu_With_DB {
                     shiftDAO.addShift(branch.getSchedule().getShift(shift.getDate(),shift.isMorningShift()), branch.getBranchId());
                     break;
                 case 2:
-                    ScheduleController.updateShiftRequirements(branch);
+                    ScheduleController.updateShiftRequirementsDAO(branch, shiftDAO);
                     break;
                 case 3:
                     ScheduleController.printWeeklySchedule(branch);

@@ -135,14 +135,13 @@ public class ShiftsDAO {
         String sql = "UPDATE Shifts SET ShiftManagers=?, Cashiers=?, StorageEmployees=?, Deliveriers=? WHERE Date=? AND IsMorningShift=? AND BranchID=?";
 
         try (Connection conn = SQLiteConnection.getConnection();
-             PreparedStatement pstmt = conn.prepareStatement(sql)) {
-
+             PreparedStatement pstmt = conn.prepareStatement(sql)){
             ObjectMapper objectMapper = new ObjectMapper();
 
-            pstmt.setString(1, objectMapper.writeValueAsString(shift.getShiftManagers()));
-            pstmt.setString(2, objectMapper.writeValueAsString(shift.getCashiers()));
-            pstmt.setString(3, objectMapper.writeValueAsString(shift.getStorageEmployees()));
-            pstmt.setString(4, objectMapper.writeValueAsString(shift.getDeliveriers()));
+            pstmt.setString(1, objectMapper.writeValueAsString(shift.getShiftManagersString()));
+            pstmt.setString(2, objectMapper.writeValueAsString(shift.getCashiersString()));
+            pstmt.setString(3, objectMapper.writeValueAsString(shift.getStorageEmployeesString()));
+            pstmt.setString(4, objectMapper.writeValueAsString(shift.getDeliveriersString()));
             pstmt.setString(5, shift.getDate().toString());
             pstmt.setBoolean(6, shift.isMorningShift());
             pstmt.setInt(7, branch.getBranchId());
