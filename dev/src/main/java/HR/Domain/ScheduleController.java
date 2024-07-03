@@ -36,6 +36,7 @@ public class ScheduleController {
             updateRoleRequirement(scanner, branch, date, isMorningShift);
         } else {
             System.out.println("Shift does not exist for the specified date and time.");
+            return;
         }
         Shift shift = branch.getSchedule().getShift(date, isMorningShift);
         shiftsDAO.updateShift(shift, branch);
@@ -95,14 +96,6 @@ public class ScheduleController {
         }
     }
 
-    public static void generateShift_withDAO(Branch branch, Shift shift) {
-        try {
-            branch.getSchedule().generateShift(branch, shift.getDate(), shift.isMorningShift());
-            System.out.println("Shift generated successfully.");
-        } catch (Exception e) {
-            System.out.println("Error: " + e.getMessage());
-        }
-    }
 
     public static void printShifts(LocalDate date, Schedule schedule) {
         List<Shift> shifts = schedule.getShifts(date);
@@ -114,10 +107,6 @@ public class ScheduleController {
         } else {
             System.out.println("No shifts found on " + date);
         }
-    }
-
-    public boolean doesShiftExist(LocalDate date, boolean isMorningShift, Schedule schedule) {
-        return schedule.doesShiftExist(date, isMorningShift);
     }
 }
 

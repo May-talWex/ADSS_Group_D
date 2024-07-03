@@ -15,6 +15,7 @@ public class Main_Menu_With_DB {
         BranchDAO branchDAO = new BranchDAO();
         EmployeesDAO employeesDAO = new EmployeesDAO();
         ShiftsDAO shiftDAO = new ShiftsDAO();
+        ShiftLimitationDAO shiftLimitationDAO = new ShiftLimitationDAO();
 
         Branch branch = branchDAO.getBranchFromDatabase(1); // Default branch with ID 1
 
@@ -49,6 +50,9 @@ public class Main_Menu_With_DB {
         for (Shift shift : shifts) {
             branch.getSchedule().addShift(shift);
         }
+
+        List<ShiftLimitation> shiftLimitations = shiftLimitationDAO.getAllShiftLimitations(branch);
+        branch.SetShiftLimitations(shiftLimitations);
 
         Scanner scanner = new Scanner(System.in);
         while (true) {

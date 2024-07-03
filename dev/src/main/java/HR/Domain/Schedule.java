@@ -11,7 +11,7 @@ import java.util.*;
  * TODO: Finish the implementation of the Schedule class
  * */
 public class Schedule {
-    private Map<LocalDate, List<Shift>> shifts;
+    private final Map<LocalDate, List<Shift>> shifts;
 
     public Schedule() {
         this.shifts = new HashMap<>();
@@ -305,8 +305,7 @@ public class Schedule {
             throw new NotEnoughWorkers(" date: " + date + " and isMorningShift:" + isMorningShift);
         }
         try {
-            Shift shift = new Shift(isMorningShift, date, shiftManagerList, shiftCashierList, shiftStorageList, shiftDeliverierList);
-            return shift;
+            return new Shift(isMorningShift, date, shiftManagerList, shiftCashierList, shiftStorageList, shiftDeliverierList);
         } catch (Exception e) {
             System.out.println("Shift could not be created.");
             throw new IllegalArgumentException();

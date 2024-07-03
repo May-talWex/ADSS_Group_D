@@ -14,8 +14,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Shift {
-    private boolean isMorningShift;
-    private LocalDate date;
+    private final boolean isMorningShift;
+    private final LocalDate date;
     private List<Employee> shiftManagers;
     private List<Employee> cashiers;
     private List<Employee> storageEmployees;
@@ -234,10 +234,9 @@ public class Shift {
         if (obj == this) {
             return true;
         }
-        if (!(obj instanceof Shift)) {
+        if (!(obj instanceof Shift shift)) {
             return false;
         }
-        Shift shift = (Shift) obj;
         return isMorningShift == shift.isMorningShift && date.equals(shift.date);
     }
 

@@ -182,4 +182,9 @@ public class Branch {
     public List<ShiftLimitation> getShiftLimitations() {
         return shiftLimitations;
     }
+    public Void SetShiftLimitations(List<ShiftLimitation> shiftLimitations) {
+        this.shiftLimitations.clear();
+        this.shiftLimitations.addAll(shiftLimitations);
+        return null;
+    }
 }

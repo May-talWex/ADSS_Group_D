@@ -4,9 +4,9 @@ import java.time.LocalDate;
 
 public class ShiftLimitation {
 
-    private Employee employee;
-    private LocalDate date;
-    private boolean isMorningShift;
+    private final Employee employee;
+    private final LocalDate date;
+    private final boolean isMorningShift;
 
     public ShiftLimitation(Employee employee, LocalDate date, boolean isMorningShift) {
         this.employee = employee;
