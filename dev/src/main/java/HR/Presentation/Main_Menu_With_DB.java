@@ -14,6 +14,7 @@ public class Main_Menu_With_DB {
 
         BranchDAO branchDAO = new BranchDAO();
         EmployeesDAO employeesDAO = new EmployeesDAO();
+        ShiftsDAO shiftDAO = new ShiftsDAO();
 
         Branch branch = branchDAO.getBranchFromDatabase(1); // Default branch with ID 1
 
@@ -44,6 +45,11 @@ public class Main_Menu_With_DB {
             branch.addWorker(employee);
         }
 
+        List<Shift> shifts = new ShiftsDAO().getAllShifts(branch);
+        for (Shift shift : shifts) {
+            branch.getSchedule().addShift(shift);
+        }
+
         Scanner scanner = new Scanner(System.in);
         while (true) {
             System.out.println("Enter your ID (or -1 to exit): ");
@@ -64,7 +70,7 @@ public class Main_Menu_With_DB {
 
             if (employee.hasRole(new HRManager())) {
                 System.out.println("Welcome, HR Manager " + employee.getName() + "!");
-                HRMenu(branch, employeesDAO);
+                HRMenu(branch, employeesDAO, shiftDAO);
             } else {
                 System.out.println("Welcome, " + employee.getName() + "!");
                 NonManagerMenu(branch, id);
@@ -72,7 +78,7 @@ public class Main_Menu_With_DB {
         }
     }
 
-    public static void HRMenu(Branch branch, EmployeesDAO employeesDAO) throws Exception {
+    public static void HRMenu(Branch branch, EmployeesDAO employeesDAO, ShiftsDAO shiftDAO) throws Exception {
         Scanner scanner = new Scanner(System.in);
         int HRChoice;
         do {
@@ -85,7 +91,7 @@ public class Main_Menu_With_DB {
                     employeeMenu(branch, employeesDAO);
                     break;
                 case 2:
-                    scheduleMenu(branch);
+                    scheduleMenu(branch, shiftDAO);
                     break;
                 case 3:
                     System.out.println("Logging out and returning to the main menu...");
@@ -339,7 +345,7 @@ public class Main_Menu_With_DB {
         System.out.println("5. HR Manager");
     }
 
-    public static void scheduleMenu(Branch branch) throws NotEnoughWorkers {
+    public static void scheduleMenu(Branch branch,ShiftsDAO shiftDAO) throws NotEnoughWorkers {
         Scanner scanner = new Scanner(System.in);
         int scheduleChoice;
         do {
@@ -351,6 +357,7 @@ public class Main_Menu_With_DB {
                 case 1:
                     Shift shift = ShiftController.createShift(branch);
                     ScheduleController.generateShift(branch, shift);
+                    shiftDAO.addShift(branch.getSchedule().getShift(shift.getDate(),shift.isMorningShift()), branch.getBranchId());
                     break;
                 case 2:
                     ScheduleController.updateShiftRequirements(branch);

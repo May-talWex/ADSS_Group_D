@@ -272,5 +272,52 @@ public class Shift {
         storageEmployees.clear();
         deliveriers.clear();
     }
+    public void setShiftManagers(List<Employee> shiftManagers) {
+        this.shiftManagers = shiftManagers;
+    }
 
+    public void setCashiers(List<Employee> cashiers) {
+        this.cashiers = cashiers;
+    }
+
+    public void setStorageEmployees(List<Employee> storageEmployees) {
+        this.storageEmployees = storageEmployees;
+    }
+
+    public void setDeliveriers(List<Employee> deliveriers) {
+        this.deliveriers = deliveriers;
+    }
+
+    public String getShiftManagersString() {
+        String result = "";
+        for (Employee w : shiftManagers) {
+            result += w.getEmployeeId() + ",";
+        }
+        return result;
+    }
+
+    public String getCashiersString() {
+        StringBuilder result = new StringBuilder();
+        for (Employee w : cashiers) {
+            result.append(w.getEmployeeId()).append(",");
+        }
+        return result.toString();
+    }
+
+    public String getStorageEmployeesString() {
+        StringBuilder result = new StringBuilder();
+        for (Employee w : storageEmployees) {
+            result.append(w.getEmployeeId()).append(",");
+        }
+        return result.toString();
+    }
+
+    public String getDeliveriersString() {
+        StringBuilder result = new StringBuilder();
+        for (Employee w : deliveriers) {
+            result.append(w.getEmployeeId()).append(",");
+        }
+        return result.toString();
+    }
 }
+

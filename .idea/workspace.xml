@@ -9,15 +9,26 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9a0829ce-1916-46c8-a83f-0eb68d1bcbb5" name="Changes" comment="Changed structure">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="9a0829ce-1916-46c8-a83f-0eb68d1bcbb5" name="Changes" comment="Added ShiftController and ShiftsDAO functionality- untested">
+      <change afterPath="$PROJECT_DIR$/.idea/ADSS_Group_D.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/HRDB.sqlite" beforeDir="false" afterPath="$PROJECT_DIR$/HRDB.sqlite" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dev/src/main/java/HR/Data/SQLiteConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/dev/src/main/java/HR/Data/SQLiteConnection.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dev/src/main/java/HR/Data/ShiftsDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/dev/src/main/java/HR/Data/ShiftsDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dev/src/main/java/HR/Domain/Employee.java" beforeDir="false" afterPath="$PROJECT_DIR$/dev/src/main/java/HR/Domain/Employee.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dev/src/main/java/HR/Domain/Schedule.java" beforeDir="false" afterPath="$PROJECT_DIR$/dev/src/main/java/HR/Domain/Schedule.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dev/src/main/java/HR/Domain/ScheduleController.java" beforeDir="false" afterPath="$PROJECT_DIR$/dev/src/main/java/HR/Domain/ScheduleController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dev/src/main/java/HR/Domain/Shift.java" beforeDir="false" afterPath="$PROJECT_DIR$/dev/src/main/java/HR/Domain/Shift.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dev/src/main/java/HR/Domain/ShiftController.java" beforeDir="false" afterPath="$PROJECT_DIR$/dev/src/main/java/HR/Domain/ShiftController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dev/src/main/java/HR/Presentation/Main_Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/dev/src/main/java/HR/Presentation/Main_Menu.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dev/src/main/java/HR/Presentation/Main_Menu_With_DB.java" beforeDir="false" afterPath="$PROJECT_DIR$/dev/src/main/java/HR/Presentation/Main_Menu_With_DB.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/HR/Data/SQLiteConnection.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/HR/Data/SQLiteConnection.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/HR/Data/ShiftsDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/HR/Data/ShiftsDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/HR/Domain/Employee.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/HR/Domain/Employee.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/HR/Domain/ScheduleController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/HR/Domain/ScheduleController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/HR/Domain/Shift.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/HR/Domain/Shift.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/HR/Domain/ShiftController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/HR/Domain/ShiftController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/HR/Presentation/Main_Menu.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/HR/Presentation/Main_Menu.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/HR/Presentation/Main_Menu_With_DB.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/HR/Presentation/Main_Menu_With_DB.class" afterDir="false" />
     </list>
     <list id="92241546-7950-4e02-919c-86c9491857e4" name="Changes by kidox" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -77,6 +88,7 @@
     "Application.HR.Data.SQLiteConnection.executor": "Run",
     "Application.Main.executor": "Run",
     "Application.Main_Menu.executor": "Run",
+    "Application.Main_Menu_With_DB.executor": "Debug",
     "Application.SQLiteConnection.executor": "Run",
     "Application.Shift_Tests.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
@@ -107,7 +119,7 @@
       <recent name="src" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.HR.Data.SQLiteConnection">
+  <component name="RunManager" selected="Application.Main_Menu_With_DB">
     <configuration name="Branch_Tests" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="HR.Tests.Branch_Tests" />
       <module name="ADSS_Group_D" />
@@ -134,8 +146,8 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Main_Menu" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="HR.Presentation.Main_Menu" />
+    <configuration name="Main_Menu_With_DB" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="HR.Presentation.Main_Menu_With_DB" />
       <module name="ADSS_Group_D" />
       <extension name="coverage">
         <pattern>
@@ -170,11 +182,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Main_Menu_With_DB" />
         <item itemvalue="Application.HR.Data.SQLiteConnection" />
         <item itemvalue="Application.SQLiteConnection" />
         <item itemvalue="Application.Branch_Tests" />
         <item itemvalue="Application.Shift_Tests" />
-        <item itemvalue="Application.Main_Menu" />
       </list>
     </recent_temporary>
   </component>
@@ -342,7 +354,15 @@
       <option name="project" value="LOCAL" />
       <updated>1717768987757</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="Added ShiftController and ShiftsDAO functionality- untested">
+      <option name="closed" value="true" />
+      <created>1719940212143</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1719940212143</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -358,7 +378,24 @@
     <MESSAGE value="Added Schedule functionality" />
     <MESSAGE value="Added Unit tests" />
     <MESSAGE value="Changed structure" />
-    <option name="LAST_COMMIT_MESSAGE" value="Changed structure" />
+    <MESSAGE value="Added ShiftController and ShiftsDAO functionality- untested" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added ShiftController and ShiftsDAO functionality- untested" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/dev/src/main/java/HR/Data/CreateStubEmployeesData.java</url>
+          <line>52</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/dev/src/main/java/HR/Presentation/Main_Menu_With_DB.java</url>
+          <line>52</line>
+          <option name="timeStamp" value="21" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

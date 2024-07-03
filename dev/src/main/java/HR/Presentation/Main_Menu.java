@@ -152,7 +152,7 @@ public class Main_Menu {
             switch (scheduleChoice) {
                 case 1:
                     // Create Shift Schedule logic
-                    Shift shift = shiftController.createShift(branch);
+                    Shift shift = ShiftController.createShift(branch);
                     ScheduleController.generateShift(branch, shift);
                     break;
                 case 2:

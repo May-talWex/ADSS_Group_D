@@ -39,7 +39,7 @@ public class Employee {
         this.email = email;
         this.bankAccount = bankAccount;
         this.branch = branch;
-        this.possiblePositions = null;
+        this.possiblePositions = new ArrayList<>();
         this.currentSalary = currentSalary;
         this.dateOfEmployment = LocalDate.now();
         this.driverLicenses = new ArrayList<>();

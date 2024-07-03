@@ -17,20 +17,15 @@ public class Schedule {
         this.shifts = new HashMap<>();
     }
 
-    public void addShift(LocalDate date, List<Shift> shift) {
-        List<Shift> shiftList = shifts.computeIfAbsent(date, k -> new ArrayList<>());
-        if (shiftList.isEmpty()) {
-            shiftList.addAll(shift);
+    public void addShift(Shift shift) {
+        if (shifts.containsKey(shift.getDate())) {
+            shifts.get(shift.getDate()).add(shift);
         } else {
-            for (Shift s : shift) {
-                if (!shiftList.contains(s)) {
-                    shiftList.add(s);
-                } else {
-                    System.out.println("Shift already exists.");
-                    throw new IllegalArgumentException();
-                }
-            }
+            List<Shift> shiftList = new ArrayList<>();
+            shiftList.add(shift);
+            shifts.put(shift.getDate(), shiftList);
         }
+
 
     }
 
@@ -97,7 +92,7 @@ public class Schedule {
     }
 
     public void generateShift(Branch branch, LocalDate date, boolean isMorningShift) throws Exception {
-        if (branch.getSchedule().doesShiftExist(date, isMorningShift)) { // TODO: Check this
+        if (branch.getSchedule().doesShiftExist(date, isMorningShift)) {
             System.out.println("Shift already exists.");
             throw new ShiftAlreadyExists(" date: " + date + " and isMorningShift: " + isMorningShift);
         }
