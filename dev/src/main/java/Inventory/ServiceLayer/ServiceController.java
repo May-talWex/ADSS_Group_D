@@ -25,6 +25,12 @@ public class ServiceController {
         itemController = new ItemController();
     }
 
+    public void initialize() {
+        productController.initializeProducts();
+        categoryController.initializeCategories();
+    }
+
+
     // Item Service Methods
     public boolean addItem(boolean defective, boolean inWareHouse, int floorBuilding,
                            int floorShelf, float x, float y,
@@ -38,7 +44,7 @@ public class ServiceController {
             System.out.println("ProductID " + productID + " does not exist. Please create product first");
             return false;
         } else {
-            boolean itemAdded = itemController.addNewItem(defective, inWareHouse, floorBuilding, floorShelf, x, y, supplierCost, priceNoDiscount, name, id, expireDate, categoryID, productID);
+            boolean itemAdded = itemController.addNewItem(defective, inWareHouse, floorBuilding, floorShelf, x, y, name, id, expireDate, categoryID, productID);
             if (itemAdded) {
                 System.out.println("Item added successfully to product and inventory");
                 return true;
@@ -75,6 +81,19 @@ public class ServiceController {
 
     public boolean updateItemDefective(boolean isDefective, String itemID) {
         return itemController.reportDefectiveItem(isDefective, itemID);
+    }
+
+
+    public boolean doesItemExist(String itemID) {
+        return itemController.getItemByID(itemID) != null;
+    }
+
+    public boolean isItemInWarehouse(String itemID) {
+        return itemController.isItemInWarehouse(itemID);
+    }
+
+    public boolean updateItemLocation(String itemID, int floorBuilding, int floorShelf, float aisle, float shelf, boolean inWarehouse) {
+        return itemController.updateItemLocation(itemID, floorBuilding, floorShelf, aisle, shelf, inWarehouse);
     }
 
     // Product Service Methods

@@ -11,8 +11,8 @@ public class CLIInterface {
     private static Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
+        initialize();
         while (true) {
-//            NoItemsForProduct();
             try {
                 System.out.print("");
                 primeMenu();
@@ -45,6 +45,10 @@ public class CLIInterface {
                 scanner.nextLine(); // Consume the invalid input
             }
         }
+    }
+
+    private static void initialize() {
+        serviceController.initialize();
     }
 
     private static void primeMenu() {
@@ -159,9 +163,12 @@ public class CLIInterface {
                     updateItemDefective();
                     break;
                 case 3:
-                    updateCategory();
+                    updateItemLocation();
                     break;
                 case 4:
+                    updateCategory();
+                    break;
+                case 5:
                     System.out.println("Exiting...");
                     return;
                 default:
@@ -173,14 +180,6 @@ public class CLIInterface {
         }
     }
 
-    private static void displayHashMapsMenu() {
-        System.out.println("Menu:");
-        System.out.println("1. Display Categories");
-        System.out.println("2. Display Products");
-        System.out.println("3. Display Items");
-        System.out.println("4. Exit");
-        System.out.print("Choose an option: ");
-    }
 
     private static void reportMenu() {
         System.out.println("Menu:");
@@ -196,8 +195,9 @@ public class CLIInterface {
         System.out.println("Update Menu:");
         System.out.println("1. Update Product Discount");
         System.out.println("2. Update Item Defective Status");
-        System.out.println("3. Update Category Discount");
-        System.out.println("4. Exit");
+        System.out.println("3. Update Item Location");
+        System.out.println("4. Update Category Discount");
+        System.out.println("5. Exit");
         System.out.print("Choose an option: ");
     }
 
@@ -336,6 +336,8 @@ public class CLIInterface {
         }
     }
 
+
+
     private static void removeProduct() {
         System.out.print("Enter product makat: ");
         String makat = scanner.nextLine();
@@ -434,6 +436,62 @@ public class CLIInterface {
     private static void generateLowSupplyDeltaCSVReport(){
         serviceController.generateLowSupplyDeltaCSVReport();
         System.out.println("Low supply report for supplier generated successfully.");
+    }
+
+    private static void updateItemLocation() {
+        System.out.print("Enter item ID: ");
+        String itemID = scanner.nextLine();
+
+        if (!serviceController.doesItemExist(itemID)) {
+            System.out.println("Item not found.");
+            return;
+        }
+
+        if (serviceController.isItemInWarehouse(itemID)) {
+            System.out.println("Item is currently in the warehouse.");
+            System.out.print("Enter new building: ");
+            int building = scanner.nextInt();
+            System.out.print("Enter new floor: ");
+            int floor = scanner.nextInt();
+            System.out.print("Enter new aisle: ");
+            float aisle = scanner.nextFloat();
+            System.out.print("Enter new shelf: ");
+            float shelf = scanner.nextFloat();
+            scanner.nextLine(); // Consume newline
+
+            if (serviceController.updateItemLocation(itemID, floor, building, aisle, shelf, false)) {
+                System.out.println("Item moved to store and location updated successfully.");
+            } else {
+                System.out.println("Failed to update item location.");
+            }
+        } else {
+            System.out.print("Do you want to move the item to the warehouse? (yes/no): ");
+            String response = scanner.nextLine();
+
+            if (response.equalsIgnoreCase("yes")) {
+                if (serviceController.updateItemLocation(itemID, -1, -1, Float.MIN_VALUE, Float.MIN_VALUE, true)) {
+                    System.out.println("Item moved to warehouse successfully.");
+                } else {
+                    System.out.println("Failed to move item to warehouse.");
+                }
+            } else {
+                System.out.print("Enter new building: ");
+                int building = scanner.nextInt();
+                System.out.print("Enter new floor: ");
+                int floor = scanner.nextInt();
+                System.out.print("Enter new aisle: ");
+                float aisle = scanner.nextFloat();
+                System.out.print("Enter new shelf: ");
+                float shelf = scanner.nextFloat();
+                scanner.nextLine(); // Consume newline
+
+                if (serviceController.updateItemLocation(itemID, floor, building, aisle, shelf, false)) {
+                    System.out.println("Item location updated successfully.");
+                } else {
+                    System.out.println("Failed to update item location.");
+                }
+            }
+        }
     }
 
 }

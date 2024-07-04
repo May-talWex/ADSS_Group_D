@@ -15,6 +15,14 @@ public class ProductController {
         productRepository = new ProductRepository();
     }
 
+    public void initializeProducts() {
+        List<Product> products = productRepository.getAllProductsWithItems();
+        for (Product product : products) {
+            productRepository.getItemsByProductId(product.getMakat());
+        }
+    }
+
+
     public boolean addProduct(String makat, String name, String supplier, float costPrice, float sellingPrice, String categoryID, String subCategoryID, int minimumAmount) {
         Product product = new Product(makat, name, supplier, costPrice, sellingPrice, categoryID, subCategoryID, minimumAmount);
         return productRepository.addProduct(product);
@@ -65,28 +73,9 @@ public class ProductController {
     }
 
     public List<Map<String, String>> generateCategoryProductReportData(String categoryID) {
-        List<Product> products = getProductsByCategoryId(categoryID);
-        List<Map<String, String>> data = new ArrayList<>();
-
-        for (Product product : products) {
-            Map<String, String> productData = new HashMap<>();
-            productData.put("Makat", product.getMakat());
-            productData.put("Name", product.getName());
-            productData.put("Supplier", product.getSupplier());
-            productData.put("Cost Price", String.valueOf(product.getCostPrice()));
-            productData.put("Selling Price", String.valueOf(product.getSellingPrice()));
-            productData.put("Discount", String.valueOf(product.getDiscount()));
-            productData.put("Minimum Amount", String.valueOf(product.getMinimumAmount()));
-            productData.put("Category ID", product.getCategoryID());
-            productData.put("Sub Category ID", product.getSubCategoryID());
-            productData.put("Full Price", String.valueOf(product.getFullPrice()));
-            productData.put("Item Amount", String.valueOf(product.getItemAmount()));
-
-            data.add(productData);
-        }
-
-        return data;
+        return productRepository.getProductsByCategoryIdWithItemAmounts(categoryID);
     }
+
 
 
     public List<Map<String, String>> generateLowSupplyReportData() {
@@ -153,6 +142,10 @@ public class ProductController {
 
     public List<Product> getProductsByCategoryId(String categoryID) {
         return productRepository.getProductsByCategoryId(categoryID);
+    }
+
+    public Product getProductById(String makat) {
+        return productRepository.getProductById(makat);
     }
 
 }

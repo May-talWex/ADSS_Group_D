@@ -12,6 +12,14 @@ public class CategoryController {
         categoryRepository = new CategoryRepository();
     }
 
+    public void initializeCategories() {
+        List<Category> categories = categoryRepository.getAllCategoriesWithProducts();
+        for (Category category : categories) {
+            categoryRepository.getProductsByCategoryId(category.getID());
+        }
+    }
+
+
     public boolean addCategory(String id, String name) {
         Category category = new Category(name, id);
         return categoryRepository.addCategory(category);

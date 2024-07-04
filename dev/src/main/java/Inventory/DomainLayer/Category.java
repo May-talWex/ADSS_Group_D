@@ -77,8 +77,8 @@ public class Category {
         this.discountPercentage = discountPercentage;
     }
 
-    public void addProduct(Product product) {
-        products.add(product);
+    public void setProducts(ArrayList<Product> products) {
+        this.products = products;
     }
 
     public void removeProduct(Product product) {

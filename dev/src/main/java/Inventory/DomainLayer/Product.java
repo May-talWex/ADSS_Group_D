@@ -20,7 +20,6 @@ public class Product {
     private String subCategoryID;
     private ArrayList<Item> items;
     private float fullPrice;
-//    private int itemAmount = 0;
 
     public Product(String makat, String name, String supplier, float costPrice, float sellingPrice, String categoryID, String subCategoryID, int minimumAmount) {
         this.makat = makat;
@@ -48,71 +47,38 @@ public class Product {
     public String getSupplier() { return supplier; }
     public void setSupplier(String supplier) { this.supplier = supplier; }
 
-    public int getCurrentQuantity() { return items.size(); }
-
-    public int getShelfQuantity() {
-        int shelfQuantity = 0;
-        for (Item item : items) {
-            if (!item.inWareHouse) {
-                shelfQuantity++;
-            }
-        }
-        return shelfQuantity;
-    }
-
-    public int getWarehouseQuantity() {
-        int warehouseQuantity = 0;
-        for (Item item : items) {
-            if (item.inWareHouse) {
-                warehouseQuantity++;
-            }
-        }
-        return warehouseQuantity;
-    }
-
     public float getCostPrice() { return costPrice; }
-    public void setCostPrice(float costPrice) { this.costPrice = costPrice; }
 
-    //    public void setItemAmount(int itemAmount) { this.itemAmount = itemAmount; }
     public int getItemAmount() {
         return this.items != null ? this.items.size() : 0;
     }
 
+    public ArrayList<Item> getItems() {
+        return items;
+    }
+
     public float getSellingPrice() { return sellingPrice; }
-    public void setSellingPrice(float sellingPrice) { this.sellingPrice = sellingPrice;}
 
     public String getCategoryID() { return categoryID; }
     public void setCategory(String categoryID) { this.categoryID = categoryID; }
 
     public String getSubCategoryID() { return subCategoryID; }
-    public void setSubCategoryID(String subCategoryID) { this.subCategoryID = subCategoryID; }
 
     public int getMinimumAmount() { return minimumAmount; }
-    public void setMinimumAmount(int minimumAmount) { this.minimumAmount = minimumAmount; }
 
-    public boolean isLowStock() {
-        return items.size() < this.minimumAmount;
-    }
-
-    public void applyDiscount(int discountPercentage) {
-        this.discount = discountPercentage;
-        this.sellingPrice = (float) (this.sellingPrice - (this.sellingPrice * (discountPercentage / 100.0)));
-    }
 
 
     public boolean isDiscountActive() {
+        if (startDiscount == null || endDiscount == null) {
+            return false;
+        }
         LocalDate now = LocalDate.now();
         return now.isAfter(startDiscount) && now.isBefore(endDiscount);
     }
 
-    public void markAsDamaged() {
-        this.isDamaged = true;
-    }
-
-    public boolean isDamaged() { return isDamaged; }
-
     public float getDiscount() { return discount; }
     public void setDiscount(int discount, LocalDate startDate, LocalDate endDate) {
+        this.fullPrice = this.sellingPrice;
         this.discount = discount;
         this.startDiscount = startDate;
         this.endDiscount = endDate;
@@ -126,21 +92,6 @@ public class Product {
     }
 
     public float getFullPrice() { return fullPrice; }
-
-
-    public void addDiscount(String discount) { discounts.add(discount); }
-
-    public ArrayList<String> getDiscounts() { return discounts; }
-
-    public ArrayList<Item> getItems() { return items; }
-
-    public void addItem(Item item) { items.add(item); }
-
-    public void removeItem(Item item) { items.remove(item); }
-
-    public boolean isAmountBiggerThanMinAmount(int amount) {
-        return this.minimumAmount >= items.size() - amount;
-    }
 
     public void setItems(ArrayList<Item> items) {
         this.items = items;

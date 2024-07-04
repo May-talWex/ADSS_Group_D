@@ -1,14 +1,24 @@
 package src.main.java.Inventory.DataLayer;
 
+import src.main.java.Inventory.DomainLayer.Item;
 import src.main.java.Inventory.DomainLayer.Product;
 
 import java.util.List;
+import java.util.Map;
 
 public class ProductRepository {
     private ProductDAO productDAO;
 
     public ProductRepository() {
         this.productDAO = new ProductDAO();
+    }
+
+    public List<Product> getAllProductsWithItems() {
+        return productDAO.getAllProductsWithItems();
+    }
+
+    public List<Item> getItemsByProductId(String productId) {
+        return productDAO.getItemsByProductId(productId);
     }
 
     public boolean addProduct(Product product) {
@@ -34,5 +44,10 @@ public class ProductRepository {
     public boolean updateProduct(Product product) {
         return productDAO.updateProduct(product);
     }
+
+    public List<Map<String, String>> getProductsByCategoryIdWithItemAmounts(String categoryID) {
+        return productDAO.getProductsByCategoryIdWithItemAmounts(categoryID);
+    }
+
 
 }

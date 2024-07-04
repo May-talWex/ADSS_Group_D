@@ -47,9 +47,10 @@ public class ItemRepository {
         return itemDAO.removeDefectiveItems();
     }
 
-    public boolean updateItemLocation(Item item) {
-        return itemDAO.updateItemLocation(item);
+    public boolean updateItemLocation(String itemID, int floor, int building, float aisle, float shelf, boolean inWareHouse) {
+        return itemDAO.updateItemLocation(itemID, floor, building, aisle, shelf, inWareHouse);
     }
+
 
     public boolean updateItemDefectiveStatus(String itemID, boolean isDefective) {
         return itemDAO.updateItemDefectiveStatus(itemID, isDefective);

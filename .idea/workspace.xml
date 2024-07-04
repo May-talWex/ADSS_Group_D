@@ -9,15 +9,25 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2ee10d94-4457-471a-97fe-029a048743dc" name="Changes" comment="Adding defective report">
+    <list default="true" id="2ee10d94-4457-471a-97fe-029a048743dc" name="Changes" comment="Fixing discount update on product">
+      <change afterPath="$PROJECT_DIR$/dev/src/main/java/Inventory/tests/TestV2.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/InventoyDB.db" beforeDir="false" afterPath="$PROJECT_DIR$/InventoyDB.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dev/src/main/java/Inventory/DataLayer/CategoryDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/dev/src/main/java/Inventory/DataLayer/CategoryDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dev/src/main/java/Inventory/DataLayer/CategoryRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/dev/src/main/java/Inventory/DataLayer/CategoryRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dev/src/main/java/Inventory/DataLayer/ItemDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/dev/src/main/java/Inventory/DataLayer/ItemDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dev/src/main/java/Inventory/DataLayer/ItemRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/dev/src/main/java/Inventory/DataLayer/ItemRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dev/src/main/java/Inventory/DataLayer/ProductDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/dev/src/main/java/Inventory/DataLayer/ProductDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dev/src/main/java/Inventory/DataLayer/ProductRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/dev/src/main/java/Inventory/DataLayer/ProductRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dev/src/main/java/Inventory/DomainLayer/Category.java" beforeDir="false" afterPath="$PROJECT_DIR$/dev/src/main/java/Inventory/DomainLayer/Category.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dev/src/main/java/Inventory/DomainLayer/CategoryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/dev/src/main/java/Inventory/DomainLayer/CategoryController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dev/src/main/java/Inventory/DomainLayer/Item.java" beforeDir="false" afterPath="$PROJECT_DIR$/dev/src/main/java/Inventory/DomainLayer/Item.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dev/src/main/java/Inventory/DomainLayer/ItemController.java" beforeDir="false" afterPath="$PROJECT_DIR$/dev/src/main/java/Inventory/DomainLayer/ItemController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dev/src/main/java/Inventory/DomainLayer/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/dev/src/main/java/Inventory/DomainLayer/Product.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dev/src/main/java/Inventory/DomainLayer/ProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/dev/src/main/java/Inventory/DomainLayer/ProductController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dev/src/main/java/Inventory/PresentationLayer/CLIInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/dev/src/main/java/Inventory/PresentationLayer/CLIInterface.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dev/src/main/java/Inventory/ServiceLayer/ServiceController.java" beforeDir="false" afterPath="$PROJECT_DIR$/dev/src/main/java/Inventory/ServiceLayer/ServiceController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dev/src/main/java/Inventory/tests/InventoryManagementTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/dev/src/main/java/Inventory/tests/TestV1.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -75,6 +85,32 @@
     "JUnit.InventoryManagementTests.testAddNewProduct.executor": "Run",
     "JUnit.InventoryManagementTests.testLowStockAlert.executor": "Debug",
     "JUnit.InventoryManagementTests.testUpdateQuantity.executor": "Run",
+    "JUnit.TestV1.executor": "Run",
+    "JUnit.TestV1.testAddCategory.executor": "Run",
+    "JUnit.TestV1.testAddItem.executor": "Run",
+    "JUnit.TestV1.testAddProduct.executor": "Run",
+    "JUnit.TestV1.testDeleteCategory.executor": "Run",
+    "JUnit.TestV1.testDeleteItem.executor": "Run",
+    "JUnit.TestV1.testDeleteProduct.executor": "Run",
+    "JUnit.TestV1.testGetCategory.executor": "Run",
+    "JUnit.TestV1.testGetItem.executor": "Run",
+    "JUnit.TestV1.testGetProduct.executor": "Run",
+    "JUnit.TestV1.testUpdateItemDefective.executor": "Run",
+    "JUnit.TestV1.testUpdateProductDiscount.executor": "Run",
+    "JUnit.TestV1.testUpdateProductPrice.executor": "Run",
+    "JUnit.TestV2.executor": "Run",
+    "JUnit.TestV2.testAddCategory.executor": "Run",
+    "JUnit.TestV2.testAddItemToProduct.executor": "Run",
+    "JUnit.TestV2.testAddProductToCategory.executor": "Run",
+    "JUnit.TestV2.testCleanup.executor": "Run",
+    "JUnit.TestV2.testGetNonExistingItem.executor": "Run",
+    "JUnit.TestV2.testGetNonExistingProduct.executor": "Run",
+    "JUnit.TestV2.testMoveToWarehouse.executor": "Debug",
+    "JUnit.TestV2.testRemoveCategoryWithProducts.executor": "Debug",
+    "JUnit.TestV2.testRemoveCategoryWithoutProducts.executor": "Run",
+    "JUnit.TestV2.testRemoveItem.executor": "Run",
+    "JUnit.TestV2.testRemoveProductWithItems.executor": "Run",
+    "JUnit.TestV2.testRemoveProductWithoutItems.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "git-widget-placeholder": "209638667__205850621__325842706",
@@ -105,47 +141,8 @@
       <recent name="C:\githubclones\ADSS_Group_D\dev" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.src.main.java.Inventory.PresentationLayer.CLIInterface">
-    <configuration name="MainApp" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="src.main.java.Inventory.DataLayer.MainApp" />
-      <module name="ADSS_Group_D" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="src.main.java.Inventory.DataLayer.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="MainTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="src.main.java.Inventory.DataLayer.MainTest" />
-      <module name="ADSS_Group_D" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="src.main.java.Inventory.DataLayer.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="TableInitializer" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="src.main.java.Inventory.DataLayer.TableInitializer" />
-      <module name="ADSS_Group_D" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="src.main.java.Inventory.DataLayer.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="src.main.java.Inventory.PresentationLayer.CLIInterface" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Application.CLIInterface">
+    <configuration name="CLIInterface" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="src.main.java.Inventory.PresentationLayer.CLIInterface" />
       <module name="ADSS_Group_D" />
       <extension name="coverage">
@@ -158,7 +155,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="InventoryManagementTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="TestV1" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ADSS_Group_D" />
       <extension name="coverage">
         <pattern>
@@ -167,19 +164,66 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="src.main.java.Inventory.tests" />
-      <option name="MAIN_CLASS_NAME" value="src.main.java.Inventory.tests.InventoryManagementTests" />
+      <option name="MAIN_CLASS_NAME" value="src.main.java.Inventory.tests.TestV1" />
       <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TestV2" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ADSS_Group_D" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="src.main.java.Inventory.tests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="src.main.java.Inventory.tests" />
+      <option name="MAIN_CLASS_NAME" value="src.main.java.Inventory.tests.TestV2" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TestV2.testCleanup" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ADSS_Group_D" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="src.main.java.Inventory.tests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="src.main.java.Inventory.tests" />
+      <option name="MAIN_CLASS_NAME" value="src.main.java.Inventory.tests.TestV2" />
+      <option name="METHOD_NAME" value="testCleanup" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TestV2.testMoveToWarehouse" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ADSS_Group_D" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="src.main.java.Inventory.tests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="src.main.java.Inventory.tests" />
+      <option name="MAIN_CLASS_NAME" value="src.main.java.Inventory.tests.TestV2" />
+      <option name="METHOD_NAME" value="testMoveToWarehouse" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.src.main.java.Inventory.PresentationLayer.CLIInterface" />
-        <item itemvalue="Application.TableInitializer" />
-        <item itemvalue="Application.MainTest" />
-        <item itemvalue="Application.MainApp" />
-        <item itemvalue="JUnit.InventoryManagementTests" />
+        <item itemvalue="Application.CLIInterface" />
+        <item itemvalue="JUnit.TestV1" />
+        <item itemvalue="JUnit.TestV2" />
+        <item itemvalue="JUnit.TestV2.testCleanup" />
+        <item itemvalue="JUnit.TestV2.testMoveToWarehouse" />
       </list>
     </recent_temporary>
   </component>
@@ -207,6 +251,8 @@
       <workItem from="1719666098621" duration="14846000" />
       <workItem from="1719746291122" duration="3101000" />
       <workItem from="1719749443235" duration="11548000" />
+      <workItem from="1719932255552" duration="10937000" />
+      <workItem from="1720081545582" duration="15750000" />
     </task>
     <task id="LOCAL-00001" summary="Fixing bugs and adding CSV generation">
       <option name="closed" value="true" />
@@ -376,7 +422,15 @@
       <option name="project" value="LOCAL" />
       <updated>1719931054877</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="Fixing discount update on product">
+      <option name="closed" value="true" />
+      <created>1719932490896</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1719932490896</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -404,7 +458,8 @@
     <MESSAGE value="Fixing connection and adding reports generation supper" />
     <MESSAGE value="Adding low stock and supplier reports" />
     <MESSAGE value="Adding defective report" />
-    <option name="LAST_COMMIT_MESSAGE" value="Adding defective report" />
+    <MESSAGE value="Fixing discount update on product" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixing discount update on product" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -415,11 +470,21 @@
           <option name="timeStamp" value="1" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/dev/src/main/java/Inventory/DomainLayer/ItemController.java</url>
-          <line>34</line>
-          <option name="timeStamp" value="13" />
+          <url>file://$PROJECT_DIR$/dev/src/main/java/Inventory/tests/TestV2.java</url>
+          <line>108</line>
+          <option name="timeStamp" value="101" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/dev/src/main/java/Inventory/PresentationLayer/CLIInterface.java</url>
+          <line>427</line>
+          <option name="timeStamp" value="105" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
+    <pin-to-top-manager>
+      <pinned-members>
+        <PinnedItemInfo parentTag="src.main.java.Inventory.DomainLayer.Category" memberName="products" />
+      </pinned-members>
+    </pin-to-top-manager>
   </component>
 </project>

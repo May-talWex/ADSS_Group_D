@@ -1,6 +1,7 @@
 package src.main.java.Inventory.DataLayer;
 
 import src.main.java.Inventory.DomainLayer.Category;
+import src.main.java.Inventory.DomainLayer.Product;
 
 import java.sql.Date;
 import java.time.LocalDate;
@@ -11,6 +12,14 @@ public class CategoryRepository {
 
     public CategoryRepository() {
         this.categoryDAO = new CategoryDAO();
+    }
+
+    public List<Category> getAllCategoriesWithProducts() {
+        return categoryDAO.getAllCategoriesWithProducts();
+    }
+
+    public List<Product> getProductsByCategoryId(String categoryId) {
+        return categoryDAO.getProductsByCategoryId(categoryId);
     }
 
     public boolean addCategory(Category category) {

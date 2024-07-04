@@ -2,10 +2,6 @@ package src.main.java.Inventory.DomainLayer;
 
 import src.main.java.Inventory.DataLayer.ItemRepository;
 
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.nio.file.Paths;
 import java.time.LocalDate;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -29,7 +25,7 @@ public class ItemController {
         return itemRepository.getItemById(id);
     }
 
-    public boolean addNewItem(boolean defective, boolean inWareHouse, int floorBuilding, int floorShelf, float x, float y, float supplierCost, float priceNoDiscount, String name, String id, LocalDate expireDate, String categoryID, String productID) {
+    public boolean addNewItem(boolean defective, boolean inWareHouse, int floorBuilding, int floorShelf, float x, float y, String name, String id, LocalDate expireDate, String categoryID, String productID) {
         Item itemToAdd = new Item(defective, inWareHouse, floorBuilding, floorShelf, x, y, name, id, expireDate, categoryID, productID);
 
         if (wareHouseItems.containsKey(itemToAdd.getID()) || storeItems.containsKey(itemToAdd.getID())) {
@@ -45,10 +41,6 @@ public class ItemController {
             }
             return itemRepository.insertItem(itemToAdd);
         }
-    }
-
-    public boolean doesItemExist(String id) {
-        return itemRepository.getItemById(id) != null;
     }
 
     public boolean removeItem(String id) {
@@ -77,10 +69,10 @@ public class ItemController {
                 itemData.put("Name", item.getName());
                 itemData.put("CategoryID", item.getCategoryID());
                 itemData.put("ProductID", item.getProductID());
-                itemData.put("FloorBuilding", String.valueOf(item.floorBuilding));
-                itemData.put("FloorShelf", String.valueOf(item.floorShelf));
-                itemData.put("X", String.valueOf(item.x));
-                itemData.put("Y", String.valueOf(item.y));
+                itemData.put("FloorBuilding", String.valueOf(item.floor));
+                itemData.put("FloorShelf", String.valueOf(item.building));
+                itemData.put("X", String.valueOf(item.aisle));
+                itemData.put("Y", String.valueOf(item.shelf));
                 itemData.put("ExpireDate", item.getExpireDate().toString());
                 data.add(itemData);
             }
@@ -94,10 +86,10 @@ public class ItemController {
                 itemData.put("Name", item.getName());
                 itemData.put("CategoryID", item.getCategoryID());
                 itemData.put("ProductID", item.getProductID());
-                itemData.put("FloorBuilding", String.valueOf(item.floorBuilding));
-                itemData.put("FloorShelf", String.valueOf(item.floorShelf));
-                itemData.put("X", String.valueOf(item.x));
-                itemData.put("Y", String.valueOf(item.y));
+                itemData.put("FloorBuilding", String.valueOf(item.floor));
+                itemData.put("FloorShelf", String.valueOf(item.building));
+                itemData.put("X", String.valueOf(item.aisle));
+                itemData.put("Y", String.valueOf(item.shelf));
                 itemData.put("ExpireDate", item.getExpireDate().toString());
                 data.add(itemData);
             }
@@ -106,83 +98,49 @@ public class ItemController {
         return data;
     }
 
-
-    private String getJarDirectory() {
-        try {
-            String jarPath = ProductController.class.getProtectionDomain().getCodeSource().getLocation().toURI().getPath();
-            return new File(jarPath).getParentFile().getParentFile().getParentFile().getParent(); // Adjust according to your directory structure
-        } catch (Exception e) {
-            throw new RuntimeException("Unable to determine JAR file directory", e);
-        }
-    }
 
     public List<Map<String, String>> generateDefectiveItemsReportData() {
         List<Map<String, String>> data = new ArrayList<>();
+        List<Item> defectiveItems = itemRepository.getDefectiveItems();
 
-        // Collect defective items from warehouse
-        for (Item item : wareHouseItems.values()) {
-            if (item.defective) {
-                Map<String, String> itemData = new HashMap<>();
-                itemData.put("ID", item.getID());
-                itemData.put("Name", item.getName());
-                itemData.put("CategoryID", item.getCategoryID());
-                itemData.put("ProductID", item.getProductID());
-                itemData.put("FloorBuilding", String.valueOf(item.floorBuilding));
-                itemData.put("FloorShelf", String.valueOf(item.floorShelf));
-                itemData.put("X", String.valueOf(item.x));
-                itemData.put("Y", String.valueOf(item.y));
-                itemData.put("ExpireDate", item.getExpireDate().toString());
-                data.add(itemData);
-            }
-        }
-
-        // Collect defective items from store
-        for (Item item : storeItems.values()) {
-            if (item.defective) {
-                Map<String, String> itemData = new HashMap<>();
-                itemData.put("ID", item.getID());
-                itemData.put("Name", item.getName());
-                itemData.put("CategoryID", item.getCategoryID());
-                itemData.put("ProductID", item.getProductID());
-                itemData.put("FloorBuilding", String.valueOf(item.floorBuilding));
-                itemData.put("FloorShelf", String.valueOf(item.floorShelf));
-                itemData.put("X", String.valueOf(item.x));
-                itemData.put("Y", String.valueOf(item.y));
-                itemData.put("ExpireDate", item.getExpireDate().toString());
-                data.add(itemData);
-            }
+        for (Item item : defectiveItems) {
+            Map<String, String> itemData = new HashMap<>();
+            itemData.put("ID", item.getID());
+            itemData.put("Name", item.getName());
+            itemData.put("CategoryID", item.getCategoryID());
+            itemData.put("ProductID", item.getProductID());
+            itemData.put("FloorBuilding", String.valueOf(item.floor));
+            itemData.put("FloorShelf", String.valueOf(item.building));
+            itemData.put("X", String.valueOf(item.aisle));
+            itemData.put("Y", String.valueOf(item.shelf));
+            itemData.put("ExpireDate", item.getExpireDate().toString());
+            data.add(itemData);
         }
 
         return data;
     }
 
-
-    public boolean moveItemToStore(String id){
-        if(storeItems.containsKey(id)){
-            System.out.println("Error item already in the store");
-            return false;
-        }
-        else if(!wareHouseItems.containsKey(id)){
-            System.out.println("Error item doesnt exist in ware house");
-            return false;
-        }
-        else{
-            System.out.println("Item was moved");
-            Item item = wareHouseItems.remove(id);
-            storeItems.put(item.id, item);
-            return true;
-        }
-    }
-
-
-    public boolean reportDefectiveItem(boolean isDefective, String itemID){
+    public boolean reportDefectiveItem(boolean isDefective, String itemID) {
         Item item = getItemByID(itemID);
-        if(item == null){
+        if (item == null) {
             System.out.println("Item not found");
             return false;
         }
-        item.defective = isDefective;
-        return true;
+        item.setIsDefective(isDefective);
+        return itemRepository.updateItemDefectiveStatus(itemID, isDefective);
+    }
+
+    public boolean updateItemLocation(String itemID, int floor, int building, float aisle, float shelf, boolean inWareHouse) {
+        return itemRepository.updateItemLocation(itemID, floor, building, aisle, shelf, inWareHouse);
+    }
+
+    public boolean isItemInWarehouse(String itemID) {
+        Item item = getItemByID(itemID);
+        return item != null && item.inWareHouse;
+    }
+
+    public boolean doesItemExist(String itemID) {
+        return getItemByID(itemID) != null;
     }
 
     public void removeExpiredItems() {
