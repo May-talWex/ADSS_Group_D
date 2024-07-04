@@ -9,19 +9,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9a0829ce-1916-46c8-a83f-0eb68d1bcbb5" name="Changes" comment="added unit and integration tests for the Branch class">
+    <list default="true" id="9a0829ce-1916-46c8-a83f-0eb68d1bcbb5" name="Changes" comment="Added more tests and JAR file">
       <change afterPath="$PROJECT_DIR$/.idea/artifacts/adss2024_v02_jar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dev/src/main/java/HR/Tests/EmployeesDAOTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dev/src/main/java/HR/Tests/ShiftsDAOTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/HRDB.sqlite" beforeDir="false" afterPath="$PROJECT_DIR$/HRDB.sqlite" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/META-INF/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/META-INF/MANIFEST.MF" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dev/src/main/java/HR/Data/EmployeesDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/dev/src/main/java/HR/Data/EmployeesDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dev/src/main/java/HR/Data/SQLiteConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/dev/src/main/java/HR/Data/SQLiteConnection.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dev/src/main/java/HR/Domain/Branch.java" beforeDir="false" afterPath="$PROJECT_DIR$/dev/src/main/java/HR/Domain/Branch.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dev/src/main/java/HR/Domain/Employee.java" beforeDir="false" afterPath="$PROJECT_DIR$/dev/src/main/java/HR/Domain/Employee.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/HR/Data/EmployeesDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/HR/Data/EmployeesDAO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/HR/Data/SQLiteConnection.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/HR/Data/SQLiteConnection.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/HR/Domain/Branch.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/HR/Domain/Branch.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/META-INF/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/META-INF/MANIFEST.MF" afterDir="false" />
     </list>
@@ -76,43 +67,43 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.Branch_Tests.executor": "Run",
-    "Application.Employee_Tests.executor": "Run",
-    "Application.HR.Data.SQLiteConnection.executor": "Run",
-    "Application.Main.executor": "Run",
-    "Application.Main_Menu.executor": "Run",
-    "Application.Main_Menu_With_DB.executor": "Run",
-    "Application.SQLiteConnection.executor": "Run",
-    "Application.Shift_Tests.executor": "Run",
-    "JAR Application.ADSS_Group_D.jar.executor": "Run",
-    "JAR Application.adss2024_v02.jar.executor": "Run",
-    "JUnit.BranchDAOIntegrationTest.executor": "Run",
-    "JUnit.BranchDAOTest.executor": "Run",
-    "JUnit.EmployeesDAOTest.executor": "Run",
-    "JUnit.EmployeesDAOTest.testaddRolesToDatabase.executor": "Run",
-    "JUnit.ShiftsDAOTest.executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "#6 on 318810777__315839795",
-    "ignore.virus.scanning.warn.message": "true",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/rotto/IdeaProjects/ADSS_Group_D/release",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Artifacts",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.19876325",
-    "run.code.analysis.last.selected.profile": "pProject Default",
-    "settings.editor.selected.configurable": "reference.settings.project.maven.repository.indices",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.Branch_Tests.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Employee_Tests.executor&quot;: &quot;Run&quot;,
+    &quot;Application.HR.Data.SQLiteConnection.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Main_Menu.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Main_Menu_With_DB.executor&quot;: &quot;Run&quot;,
+    &quot;Application.SQLiteConnection.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Shift_Tests.executor&quot;: &quot;Run&quot;,
+    &quot;JAR Application.ADSS_Group_D.jar.executor&quot;: &quot;Run&quot;,
+    &quot;JAR Application.adss2024_v02.jar.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.BranchDAOIntegrationTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.BranchDAOTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.EmployeesDAOTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.EmployeesDAOTest.testaddRolesToDatabase.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ShiftsDAOTest.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;#6 on 318810777__315839795&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/rotto/IdeaProjects/ADSS_Group_D/release&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Artifacts&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.19876325&quot;,
+    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.project.maven.repository.indices&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\rotto\IdeaProjects\ADSS_Group_D\dev" />
@@ -222,7 +213,8 @@
       <workItem from="1720078892067" duration="65000" />
       <workItem from="1720078963042" duration="2903000" />
       <workItem from="1720094412678" duration="3768000" />
-      <workItem from="1720098909224" duration="11648000" />
+      <workItem from="1720098909224" duration="11698000" />
+      <workItem from="1720118048894" duration="449000" />
     </task>
     <task id="LOCAL-00001" summary="Added some JSON support">
       <option name="closed" value="true" />
@@ -392,7 +384,15 @@
       <option name="project" value="LOCAL" />
       <updated>1720081841631</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="Added more tests and JAR file">
+      <option name="closed" value="true" />
+      <created>1720112263622</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1720112263622</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -412,7 +412,8 @@
     <MESSAGE value="1.Fixed adding shift to DB&#10;2.Fixed Branch init" />
     <MESSAGE value="added updateshift funcunality" />
     <MESSAGE value="added unit and integration tests for the Branch class" />
-    <option name="LAST_COMMIT_MESSAGE" value="added unit and integration tests for the Branch class" />
+    <MESSAGE value="Added more tests and JAR file" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added more tests and JAR file" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
