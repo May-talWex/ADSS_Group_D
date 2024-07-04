@@ -51,6 +51,10 @@ public class Branch {
         return branchAddress;
     }
 
+    public void setBranchId(int id) {
+        this.branchId = id;
+    }
+
     public int getBranchId() {
         return branchId;
     }

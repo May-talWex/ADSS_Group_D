@@ -225,4 +225,8 @@ public class Employee {
     public void setSalary(Salary salary) {
         this.currentSalary = salary;
     }
+
+
+
+
 }

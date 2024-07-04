@@ -110,6 +110,7 @@ public class SQLiteConnection {
                 + "    FOREIGN KEY (EmployeeID) REFERENCES Employees(EmployeeID)\n"
                 + ");";
 
+
         try {
             Connection conn = getConnection();
             Statement stmt = conn.createStatement();

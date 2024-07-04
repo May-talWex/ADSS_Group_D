@@ -9,7 +9,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class EmployeesDAO {
-    private Connection connection;
+    private static Connection connection;
+
+    public EmployeesDAO() {
+        this.connection = SQLiteConnection.getConnection();
+    }
+
+    public EmployeesDAO(Connection connection) {
+        this.connection = connection;
+    }
 
     public void addEmployeeToDatabase(Employee employee) {
         String sql = "INSERT INTO Employees (EmployeeID, Name, Email, BankAccountID, BranchID, SalaryID, DateOfEmployment) VALUES (?, ?, ?, ?, ?, ?, ?)";
@@ -197,7 +205,7 @@ public class EmployeesDAO {
         return employees;
     }
 
-    private BankAccount getBankAccountById(int bankAccountId) throws SQLException {
+    private static BankAccount getBankAccountById(int bankAccountId) throws SQLException {
         String sql = "SELECT * FROM BankAccounts WHERE BankAccountID = ?";
         BankAccount bankAccount = null;
 
@@ -218,7 +226,7 @@ public class EmployeesDAO {
         return bankAccount;
     }
 
-    private Salary getSalaryById(int salaryId) throws SQLException {
+    private static Salary getSalaryById(int salaryId) throws SQLException {
         String sql = "SELECT * FROM Salaries WHERE SalaryID = ?";
         Salary salary = null;
 
@@ -239,7 +247,7 @@ public class EmployeesDAO {
         return salary;
     }
 
-    private Branch getBranchById(int branchId) {
+    private static Branch getBranchById(int branchId) {
         BranchDAO branchDAO = new BranchDAO();
         return branchDAO.getBranchFromDatabase(branchId);
     }
@@ -293,7 +301,101 @@ public class EmployeesDAO {
         }
     }
 
-    public void setConnection(Connection Connection) {
-        this.connection = Connection;
+    public static Employee getEmployeeById(int employeeId) throws Exception {
+        String sql = "SELECT * FROM Employees WHERE EmployeeID = ?";
+        String roleSql = "SELECT Role FROM EmployeeRoles WHERE EmployeeID = ?";
+        String licenseSql = "SELECT LicenseType FROM DriverLicenses WHERE EmployeeID = ?";
+
+        Employee employee = null;
+
+        PreparedStatement pstmt = connection.prepareStatement(sql);
+        pstmt.setInt(1, employeeId);
+        ResultSet rs = pstmt.executeQuery();
+
+        if (rs.next()) {
+            String name = rs.getString("Name");
+            String email = rs.getString("Email");
+            int bankAccountId = rs.getInt("BankAccountID");
+            int salaryId = rs.getInt("SalaryID");
+            int branchId = rs.getInt("BranchID");
+            LocalDate dateOfEmployment = rs.getDate("DateOfEmployment").toLocalDate();
+
+            BankAccount bankAccount = getBankAccountById(bankAccountId);
+            Salary salary = getSalaryById(salaryId);
+
+            employee = new Employee(employeeId, name, email, bankAccount, getBranchById(branchId), salary);
+            employee.setDateOfEmployment(dateOfEmployment);
+
+            PreparedStatement pstmtRole = connection.prepareStatement(roleSql);
+            pstmtRole.setInt(1, employeeId);
+            ResultSet rsRole = pstmtRole.executeQuery();
+            if (rsRole != null){
+                while (rsRole.next()) {
+                    String role = rsRole.getString("Role");
+                    switch (role) {
+                        case "ShiftManager":
+                            employee.addPossiblePosition(new ShiftManager());
+                            break;
+                        case "Cashier":
+                            employee.addPossiblePosition(new Cashier());
+                            break;
+                        case "StorageEmployee":
+                            employee.addPossiblePosition(new StorageEmployee());
+                            break;
+                        case "DeliveryPerson":
+                            employee.addPossiblePosition(new DeliveryPerson());
+                            break;
+                        case "HR Manager", "HRManager":
+                            employee.addPossiblePosition(new HRManager());
+                            break;
+                        default:
+                            break;
+                    }
+            }
+            }
+            pstmtRole.close();
+
+            PreparedStatement pstmtLicense = connection.prepareStatement(licenseSql);
+            pstmtLicense.setInt(1, employeeId);
+            ResultSet rsLicense = pstmtLicense.executeQuery();
+            while (rsLicense.next()) {
+                String licenseType = rsLicense.getString("LicenseType");
+                employee.addDriverLicense(licenseType);
+            }
+            pstmtLicense.close();
+        }
+        pstmt.close();
+        return employee;
+    }
+
+    public void updateEmployee(Employee employee) {
+        String sql = "UPDATE Employees SET Name = ?, Email = ?, BankAccountID = ?, BranchID = ?, SalaryID = ?, DateOfEmployment = ? WHERE EmployeeID = ?";
+        String roleSql = "INSERT INTO EmployeeRoles (EmployeeID, Role) VALUES (?, ?)";
+        String licenseSql = "INSERT INTO DriverLicenses (EmployeeID, LicenseType) VALUES (?, ?)";
+
+        try {
+            Connection conn = SQLiteConnection.getConnection();
+            conn.setAutoCommit(false);
+
+            PreparedStatement pstmtEmployee = conn.prepareStatement(sql);
+            PreparedStatement pstmtRole = conn.prepareStatement(roleSql);
+            PreparedStatement pstmtLicense = conn.prepareStatement(licenseSql);
+
+            pstmtEmployee.setString(1, employee.getName());
+            pstmtEmployee.setString(2, employee.getEmail());
+            pstmtEmployee.setInt(3, employee.getEmployeeId());
+            pstmtEmployee.setInt(4, employee.getBranch().getBranchId());
+            pstmtEmployee.setInt(5, employee.getEmployeeId());
+            pstmtEmployee.setDate(6, Date.valueOf(employee.getDateOfEmployment()));
+            pstmtEmployee.setInt(7, employee.getEmployeeId());
+            pstmtEmployee.executeUpdate();
+
+            conn.commit();
+            pstmtEmployee.close();
+            pstmtRole.close();
+            pstmtLicense.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 }
