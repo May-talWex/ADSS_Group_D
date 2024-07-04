@@ -1,3 +1,8 @@
+***IDs:***
+- 209638667
+- 205850621
+- 325842706
+
 # Inventory Management System
 
 This Inventory Management System is designed to help manage categories, products, and items in a store or warehouse. The system supports adding, removing, updating, and generating reports for various inventory elements.
