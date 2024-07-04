@@ -49,28 +49,9 @@ public class ProductController {
 
 
     public List<Map<String, String>> generateStockReportData() {
-        List<Product> products = productRepository.getAllProducts();
-        List<Map<String, String>> data = new ArrayList<>();
-
-        for (Product product : products) {
-            Map<String, String> productData = new HashMap<>();
-            productData.put("Makat", product.getMakat());
-            productData.put("Name", product.getName());
-            productData.put("Supplier", product.getSupplier());
-            productData.put("Cost Price", String.valueOf(product.getCostPrice()));
-            productData.put("Selling Price", String.valueOf(product.getSellingPrice()));
-            productData.put("Discount", String.valueOf(product.getDiscount()));
-            productData.put("Minimum Amount", String.valueOf(product.getMinimumAmount()));
-            productData.put("Category ID", product.getCategoryID());
-            productData.put("Sub Category ID", product.getSubCategoryID());
-            productData.put("Full Price", String.valueOf(product.getFullPrice()));
-            productData.put("Item Amount", String.valueOf(product.getItemAmount()));  // Ensure correct item amount is populated
-
-            data.add(productData);
-        }
-
-        return data;
+        return productRepository.getAllProductsWithItemAmounts();
     }
+
 
     public List<Map<String, String>> generateCategoryProductReportData(String categoryID) {
         return productRepository.getProductsByCategoryIdWithItemAmounts(categoryID);
@@ -122,6 +103,24 @@ public class ProductController {
 
         return data;
     }
+
+    // In ProductController.java
+    public List<Map<String, String>> generateReorderReportData() {
+        List<Product> products = productRepository.getAllProducts();
+        List<Map<String, String>> data = new ArrayList<>();
+
+        for (Product product : products) {
+            Map<String, String> productData = new HashMap<>();
+            productData.put("Product ID", product.getMakat());
+            productData.put("Product Name", product.getName());
+            productData.put("Supplier Name", product.getSupplier());
+            productData.put("Reorder Amount", String.valueOf(product.getMinimumAmount() * 2));
+            data.add(productData);
+        }
+
+        return data;
+    }
+
 
     public boolean updateProductDiscount(String productID, int discount, LocalDate startDate, LocalDate endDate) {
         Product product = productRepository.getProductById(productID);

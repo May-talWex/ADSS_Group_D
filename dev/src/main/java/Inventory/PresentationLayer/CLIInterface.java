@@ -35,6 +35,9 @@ public class CLIInterface {
                         generateLowSupplyDeltaCSVReport();
                         break;
                     case 6:
+                        generateReorderCSVReport();
+                        break;
+                    case 7:
                         System.out.println("Exiting...");
                         return;
                     default:
@@ -57,8 +60,9 @@ public class CLIInterface {
         System.out.println("2. Update items/categories/products");
         System.out.println("3. Generate reports");
         System.out.println("4. Generate low stock report");
-        System.out.println("5. Generate stock report for supplier");
-        System.out.println("6. Exit");
+        System.out.println("5. Generate low stock report for supplier");
+        System.out.println("6. Generate regular stock report for supplier");
+        System.out.println("7. Exit");
         System.out.print("Choose an option: ");
     }
 
@@ -492,6 +496,11 @@ public class CLIInterface {
                 }
             }
         }
+    }
+
+    private static void generateReorderCSVReport() {
+        serviceController.generateReorderCSVReport();
+        System.out.println("Reorder report generated successfully.");
     }
 
 }

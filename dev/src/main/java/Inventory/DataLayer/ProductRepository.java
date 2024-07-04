@@ -49,5 +49,11 @@ public class ProductRepository {
         return productDAO.getProductsByCategoryIdWithItemAmounts(categoryID);
     }
 
+    public List<Map<String, String>> getAllProductsWithItemAmounts() {
+        return productDAO.getAllProductsWithItemAmounts();
+    }
+
+
+
 
 }

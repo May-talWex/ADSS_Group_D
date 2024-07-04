@@ -57,7 +57,15 @@ public class Product {
         return items;
     }
 
-    public float getSellingPrice() { return sellingPrice; }
+    public float getSellingPrice() {
+        if(isDiscountActive()){
+            return (float) (this.fullPrice - (this.fullPrice * (discount / 100.0)));
+        }
+        else{
+            this.discount = 0;
+            return (float) this.fullPrice;
+        }
+    }
 
     public String getCategoryID() { return categoryID; }
     public void setCategory(String categoryID) { this.categoryID = categoryID; }

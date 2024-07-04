@@ -269,5 +269,40 @@ public class ProductDAO {
         return productsData;
     }
 
+    public List<Map<String, String>> getAllProductsWithItemAmounts() {
+        String sql = "SELECT p.makat, p.name, p.supplier, p.costPrice, p.Selling_Price, p.discount, p.Min_Stock_Amnt, " +
+                "p.Category_ID, p.Sub_Category_ID, p.Full_Price, COUNT(i.id) AS itemCount " +
+                "FROM Product p LEFT JOIN Item i ON p.makat = i.productID " +
+                "GROUP BY p.makat, p.name, p.supplier, p.costPrice, p.Selling_Price, p.discount, p.Min_Stock_Amnt, " +
+                "p.Category_ID, p.Sub_Category_ID, p.Full_Price";
+
+        List<Map<String, String>> productsData = new ArrayList<>();
+
+        try (Statement stmt = connection.createStatement();
+             ResultSet rs = stmt.executeQuery(sql)) {
+
+            while (rs.next()) {
+                Map<String, String> productData = new HashMap<>();
+                productData.put("Makat", rs.getString("makat"));
+                productData.put("Name", rs.getString("name"));
+                productData.put("Supplier", rs.getString("supplier"));
+                productData.put("Cost Price", String.valueOf(rs.getFloat("costPrice")));
+                productData.put("Selling Price", String.valueOf(rs.getFloat("Selling_Price")));
+                productData.put("Discount", String.valueOf(rs.getFloat("discount")));
+                productData.put("Minimum Amount", String.valueOf(rs.getInt("Min_Stock_Amnt")));
+                productData.put("Category ID", rs.getString("Category_ID"));
+                productData.put("Sub Category ID", rs.getString("Sub_Category_ID"));
+                productData.put("Full Price", String.valueOf(rs.getFloat("Full_Price")));
+                productData.put("Item Amount", String.valueOf(rs.getInt("itemCount")));
+                productsData.add(productData);
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+
+        return productsData;
+    }
+
+
 
 }

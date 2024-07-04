@@ -133,6 +133,14 @@ public class ServiceController {
         generateCSV(reportData, fileName);
     }
 
+    // In ServiceController.java
+    public void generateReorderCSVReport() {
+        List<Map<String, String>> reportData = productController.generateReorderReportData();
+        String fileName = "C:\\githubclones\\ADSS_Group_D\\dev\\src\\main\\java\\resources\\reorder_report.csv";
+        generateCSV(reportData, fileName);
+    }
+
+
 
 
     public boolean updateProductDiscount(String productID, int discount, LocalDate startDate, LocalDate endDate) {
@@ -177,6 +185,7 @@ public class ServiceController {
         String fileName = "C:\\githubclones\\ADSS_Group_D\\dev\\src\\main\\java\\resources\\stock_report.csv";
         generateCSV(reportData, fileName);
     }
+
 
     public void generateCategoryProductReport(String categoryID) {
         List<Map<String, String>> reportData = productController.generateCategoryProductReportData(categoryID);
