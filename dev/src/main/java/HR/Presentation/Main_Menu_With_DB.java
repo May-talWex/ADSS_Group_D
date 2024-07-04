@@ -361,7 +361,11 @@ public class Main_Menu_With_DB {
                 case 1:
                     Shift shift = ShiftController.createShift(branch);
                     ScheduleController.generateShift(branch, shift);
-                    shiftDAO.addShift(branch.getSchedule().getShift(shift.getDate(),shift.isMorningShift()), branch.getBranchId());
+                    if (branch.getSchedule().doesShiftExist(shift.getDate(), shift.isMorningShift())) {
+                        break;
+                    } else {
+                        shiftDAO.addShift(branch.getSchedule().getShift(shift.getDate(), shift.isMorningShift()), branch.getBranchId());
+                    }
                     break;
                 case 2:
                     ScheduleController.updateShiftRequirementsDAO(branch, shiftDAO);

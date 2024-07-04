@@ -10,24 +10,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9a0829ce-1916-46c8-a83f-0eb68d1bcbb5" name="Changes" comment="added updateshift funcunality">
+      <change afterPath="$PROJECT_DIR$/dev/src/main/java/HR/Tests/BranchDAOIntegrationTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dev/src/main/java/HR/Tests/BranchDAOTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/ADSS_Group_D.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/ADSS_Group_D.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/HRDB.sqlite" beforeDir="false" afterPath="$PROJECT_DIR$/HRDB.sqlite" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dev/src/main/java/HR/Data/ShiftLimitationDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/dev/src/main/java/HR/Data/ShiftLimitationDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dev/src/main/java/HR/Domain/Branch.java" beforeDir="false" afterPath="$PROJECT_DIR$/dev/src/main/java/HR/Domain/Branch.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dev/src/main/java/HR/Domain/Schedule.java" beforeDir="false" afterPath="$PROJECT_DIR$/dev/src/main/java/HR/Domain/Schedule.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dev/src/main/java/HR/Domain/ScheduleController.java" beforeDir="false" afterPath="$PROJECT_DIR$/dev/src/main/java/HR/Domain/ScheduleController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dev/src/main/java/HR/Domain/Shift.java" beforeDir="false" afterPath="$PROJECT_DIR$/dev/src/main/java/HR/Domain/Shift.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dev/src/main/java/HR/Domain/ShiftController.java" beforeDir="false" afterPath="$PROJECT_DIR$/dev/src/main/java/HR/Domain/ShiftController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dev/src/main/java/HR/Domain/ShiftLimitation.java" beforeDir="false" afterPath="$PROJECT_DIR$/dev/src/main/java/HR/Domain/ShiftLimitation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dev/src/main/java/HR/Data/BranchDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/dev/src/main/java/HR/Data/BranchDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dev/src/main/java/HR/Data/EmployeesDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/dev/src/main/java/HR/Data/EmployeesDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dev/src/main/java/HR/Presentation/Main_Menu_With_DB.java" beforeDir="false" afterPath="$PROJECT_DIR$/dev/src/main/java/HR/Presentation/Main_Menu_With_DB.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/HR/Data/ShiftLimitationDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/HR/Data/ShiftLimitationDAO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/HR/Domain/Branch.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/HR/Domain/Branch.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/HR/Domain/Schedule.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/HR/Domain/Schedule.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/HR/Domain/ScheduleController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/HR/Domain/ScheduleController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/HR/Domain/Shift.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/HR/Domain/Shift.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/HR/Domain/ShiftController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/HR/Domain/ShiftController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/HR/Domain/ShiftLimitation.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/HR/Domain/ShiftLimitation.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/HR/Data/BranchDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/HR/Data/BranchDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/HR/Data/EmployeesDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/HR/Data/EmployeesDAO.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/HR/Presentation/Main_Menu_With_DB.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/HR/Presentation/Main_Menu_With_DB.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/META-INF/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/META-INF/MANIFEST.MF" afterDir="false" />
     </list>
     <list id="92241546-7950-4e02-919c-86c9491857e4" name="Changes by kidox" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -60,7 +56,7 @@
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
     &quot;url&quot;: &quot;https://github.com/May-talWex/ADSS_Group_D.git&quot;,
-    &quot;accountId&quot;: &quot;d4b7678e-6fb5-4390-84e0-e4a0c3352291&quot;
+    &quot;accountId&quot;: &quot;6649944e-b860-4599-94fd-b68e7680023a&quot;
   }
 }</component>
   <component name="HighlightingSettingsPerFile">
@@ -90,10 +86,13 @@
     "Application.Main_Menu_With_DB.executor": "Run",
     "Application.SQLiteConnection.executor": "Run",
     "Application.Shift_Tests.executor": "Run",
+    "JUnit.BranchDAOIntegrationTest.executor": "Run",
+    "JUnit.BranchDAOTest.executor": "Run",
+    "JUnit.EmployeesDAOTest.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "318810777__315839795",
+    "git-widget-placeholder": "#6 on 318810777__315839795",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Users/kidox/Documents/GitHub/ADSS_Group_D/release",
@@ -118,33 +117,7 @@
       <recent name="src" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Main_Menu_With_DB">
-    <configuration name="Branch_Tests" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="HR.Tests.Branch_Tests" />
-      <module name="ADSS_Group_D" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="HR.Tests.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="HR.Data.SQLiteConnection" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="HR.Data.SQLiteConnection" />
-      <module name="ADSS_Group_D" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="HR.Data.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="JUnit.BranchDAOTest">
     <configuration name="Main_Menu_With_DB" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="HR.Presentation.Main_Menu_With_DB" />
       <module name="ADSS_Group_D" />
@@ -154,14 +127,6 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="SQLiteConnection" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="UNNAMED_CLASS_CONFIGURATION" value="true" />
-      <option name="MAIN_CLASS_NAME" value="SQLiteConnection" />
-      <module name="ADSS_Group_D" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -179,12 +144,57 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="BranchDAOIntegrationTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ADSS_Group_D" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="HR.Tests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="HR.Tests" />
+      <option name="MAIN_CLASS_NAME" value="HR.Tests.BranchDAOIntegrationTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="BranchDAOTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ADSS_Group_D" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="HR.Tests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="HR.Tests" />
+      <option name="MAIN_CLASS_NAME" value="HR.Tests.BranchDAOTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="EmployeesDAOTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ADSS_Group_D" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="HR.Tests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="HR.Tests" />
+      <option name="MAIN_CLASS_NAME" value="HR.Tests.EmployeesDAOTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.BranchDAOTest" />
+        <item itemvalue="JUnit.EmployeesDAOTest" />
+        <item itemvalue="JUnit.BranchDAOIntegrationTest" />
         <item itemvalue="Application.Main_Menu_With_DB" />
-        <item itemvalue="Application.HR.Data.SQLiteConnection" />
-        <item itemvalue="Application.SQLiteConnection" />
-        <item itemvalue="Application.Branch_Tests" />
         <item itemvalue="Application.Shift_Tests" />
       </list>
     </recent_temporary>
@@ -192,8 +202,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9f38398b9061-39b83d9b5494-intellij.indexing.shared.core-IU-241.17011.79" />
-        <option value="bundled-js-predefined-1d06a55b98c1-0b3e54e931b4-JavaScript-IU-241.17011.79" />
+        <option value="bundled-jdk-9f38398b9061-39b83d9b5494-intellij.indexing.shared.core-IU-241.18034.62" />
+        <option value="bundled-js-predefined-1d06a55b98c1-0b3e54e931b4-JavaScript-IU-241.18034.62" />
       </set>
     </attachedChunks>
   </component>
@@ -224,6 +234,9 @@
       <workItem from="1717832504419" duration="105000" />
       <workItem from="1717926349859" duration="10389000" />
       <workItem from="1719662889337" duration="7125000" />
+      <workItem from="1720076874794" duration="1746000" />
+      <workItem from="1720078892067" duration="65000" />
+      <workItem from="1720078963042" duration="2821000" />
     </task>
     <task id="LOCAL-00001" summary="Added some JSON support">
       <option name="closed" value="true" />
@@ -377,7 +390,15 @@
       <option name="project" value="LOCAL" />
       <updated>1719996360453</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="added updateshift funcunality">
+      <option name="closed" value="true" />
+      <created>1720004539710</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1720004539710</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -415,11 +436,6 @@
           <url>file://$PROJECT_DIR$/dev/src/main/java/HR/Data/ShiftsDAO.java</url>
           <line>134</line>
           <option name="timeStamp" value="23" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/dev/src/main/java/HR/Presentation/Main_Menu_With_DB.java</url>
-          <line>362</line>
-          <option name="timeStamp" value="24" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/dev/src/main/java/HR/Presentation/Main_Menu_With_DB.java</url>

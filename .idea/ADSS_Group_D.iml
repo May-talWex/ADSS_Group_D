@@ -7,7 +7,6 @@
       <sourceFolder url="file://$MODULE_DIR$/dev/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/dev/src/main" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/dev/src/main/java" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/dev/src/main/java/HR/Tests" isTestSource="true" />
     </content>
   </component>
 </module>

@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class EmployeesDAO {
+    private Connection connection;
 
     public void addEmployeeToDatabase(Employee employee) {
         String sql = "INSERT INTO Employees (EmployeeID, Name, Email, BankAccountID, BranchID, SalaryID, DateOfEmployment) VALUES (?, ?, ?, ?, ?, ?, ?)";
@@ -290,5 +291,9 @@ public class EmployeesDAO {
             System.out.println("SQLException: " + e.getMessage());
             e.printStackTrace();
         }
+    }
+
+    public void setConnection(Connection Connection) {
+        this.connection = Connection;
     }
 }

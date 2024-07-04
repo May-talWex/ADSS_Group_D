@@ -8,14 +8,24 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class BranchDAO {
+    private Connection connection;
+
+    // Constructor for production
+    public BranchDAO() {
+        this.connection = SQLiteConnection.getConnection();
+    }
+
+    // Constructor for testing
+    public BranchDAO(Connection connection) {
+        this.connection = connection;
+    }
+
     public Branch getBranchFromDatabase(int branchId) {
         String sql = "SELECT BranchID, BranchName, BranchAddress FROM Branches WHERE BranchID = ?";
         Branch branch = null;
         System.out.println("Trying getBranchFromDatabase");
         try {
-            Connection conn = SQLiteConnection.getConnection();
-            System.out.println(conn);
-            PreparedStatement pstmt = conn.prepareStatement(sql);
+            PreparedStatement pstmt = connection.prepareStatement(sql);
             pstmt.setInt(1, branchId);
             ResultSet rs = pstmt.executeQuery();
 
@@ -37,10 +47,7 @@ public class BranchDAO {
     public void addBranchToDatabase(Branch branch) {
         String sql = "INSERT INTO Branches (BranchName, BranchAddress) VALUES (?, ?)";
         try {
-            Connection conn = SQLiteConnection.getConnection();
-            System.out.println("got conn");
-            System.out.println(conn);
-            PreparedStatement pstmt = conn.prepareStatement(sql);
+            PreparedStatement pstmt = connection.prepareStatement(sql);
             System.out.println("PreparedStatement created");
             pstmt.setString(1, branch.getName());
             System.out.println("BranchName set to " + branch.getName());
@@ -54,3 +61,4 @@ public class BranchDAO {
         }
     }
 }
+
