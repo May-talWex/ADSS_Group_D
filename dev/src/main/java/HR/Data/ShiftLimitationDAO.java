@@ -35,6 +35,7 @@ public class ShiftLimitationDAO {
             pstmt.setString(2, limitation.getDate().toString());
             pstmt.setBoolean(3, limitation.isMorningShift());
             pstmt.executeUpdate();
+            System.out.println("Added limitation to db");
         }
         catch (SQLException e) {
             System.out.println("Error removing shift limitation: " + e.getMessage());

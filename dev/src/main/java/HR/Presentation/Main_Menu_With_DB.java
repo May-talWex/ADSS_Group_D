@@ -394,6 +394,7 @@ public class Main_Menu_With_DB {
             switch (choice) {
                 case 1:
                     ShiftLimitationController.addShiftLimitation(branch.getWorkerById(id));
+
                     break;
                 case 2:
                     ShiftLimitationController.removeShiftLimitation(branch.getWorkerById(id));
