@@ -1,8 +1,10 @@
-package src.main.java.Inventory.PresentationLayer;
+package Inventory.PresentationLayer;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
-import src.main.java.Inventory.ServiceLayer.ServiceController;
+
+import HR.Domain.Branch;
+import Inventory.ServiceLayer.ServiceController;
 import java.time.LocalDate;
 import java.time.format.DateTimeParseException;
 
@@ -10,8 +12,9 @@ public class CLIInterface {
     private static ServiceController serviceController = new ServiceController();
     private static Scanner scanner = new Scanner(System.in);
 
-    public static void main(String[] args) {
+    public static void main(Branch branch) {
         initialize();
+        int branchId = branch.getBranchId(); // Change building in item to branchID
         while (true) {
             try {
                 System.out.print("");
@@ -62,7 +65,7 @@ public class CLIInterface {
         System.out.println("4. Generate low stock report");
         System.out.println("5. Generate low stock report for supplier");
         System.out.println("6. Generate regular stock report for supplier");
-        System.out.println("7. Exit");
+        System.out.println("7. Exit inventory system");
         System.out.print("Choose an option: ");
     }
 

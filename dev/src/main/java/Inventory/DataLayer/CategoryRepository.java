@@ -1,7 +1,7 @@
-package src.main.java.Inventory.DataLayer;
+package Inventory.DataLayer;
 
-import src.main.java.Inventory.DomainLayer.Category;
-import src.main.java.Inventory.DomainLayer.Product;
+import Inventory.DomainLayer.Category;
+import Inventory.DomainLayer.Product;
 
 import java.sql.Date;
 import java.time.LocalDate;

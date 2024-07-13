@@ -11,13 +11,13 @@ public class SQLiteConnection {
 
     public static Connection connect() {
         if (connection != null) {
-            System.out.println("Using existing connection.");
+            //System.out.println("Using existing connection.");
             return connection;
         }
         try {
             Class.forName("org.sqlite.JDBC");
             connection = DriverManager.getConnection(URL);
-            System.out.println("Connection to SQLite has been established.");
+            //System.out.println("Connection to SQLite has been established.");
         } catch (SQLException e) {
             System.out.println("SQLException in connect: " + e.getMessage());
         } catch (ClassNotFoundException e) {
@@ -28,12 +28,12 @@ public class SQLiteConnection {
 
     public static Connection getConnection() {
         if (connection == null) {
-            System.out.println("No existing connection, connecting now.");
+            //System.out.println("No existing connection, connecting now.");
             return connect();
         }
         try {
             if (connection.isClosed()) {
-                System.out.println("Connection was closed, reconnecting.");
+                //System.out.println("Connection was closed, reconnecting.");
                 connection = DriverManager.getConnection(URL);
             }
         } catch (SQLException e) {
@@ -123,7 +123,7 @@ public class SQLiteConnection {
             stmt.execute(createEmployeeRolesTable);
             stmt.execute(createDriverLicensesTable);
             stmt.close();
-            System.out.println("Database has been initialized.");
+            //System.out.println("Database has been initialized.");
         } catch (SQLException e) {
             System.out.println("SQLException in initializeDatabase: " + e.getMessage());
         }

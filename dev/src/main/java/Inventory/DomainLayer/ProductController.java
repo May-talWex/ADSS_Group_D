@@ -1,6 +1,6 @@
-package src.main.java.Inventory.DomainLayer;
+package Inventory.DomainLayer;
 
-import src.main.java.Inventory.DataLayer.ProductRepository;
+import Inventory.DataLayer.ProductRepository;
 
 import java.time.LocalDate;
 import java.util.ArrayList;

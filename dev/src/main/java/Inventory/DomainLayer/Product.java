@@ -1,4 +1,4 @@
-package src.main.java.Inventory.DomainLayer;
+package Inventory.DomainLayer;
 
 //Timor
 import java.time.LocalDate;

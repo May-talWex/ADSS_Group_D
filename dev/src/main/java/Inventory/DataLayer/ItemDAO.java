@@ -1,7 +1,7 @@
-package src.main.java.Inventory.DataLayer;
+package Inventory.DataLayer;
 
-import src.main.java.Inventory.DomainLayer.Item;
-import src.main.java.Inventory.DomainLayer.Product;
+import Inventory.DomainLayer.Item;
+import Inventory.DomainLayer.Product;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -17,7 +17,7 @@ public class ItemDAO {
     private Connection connection;
 
     public ItemDAO() {
-        this.connection = DataBaseConnection.getInstance().getConnection();
+        this.connection = DataBaseConnection.getConnection();
     }
     public boolean insertItem(Item item) {
         String sql = "INSERT INTO Item(id, name, defective, inWareHouse, floor, building, aisle, shelf, expireDate, categoryID, productID) VALUES(?,?,?,?,?,?,?,?,?,?,?)";

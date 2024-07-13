@@ -1,4 +1,4 @@
-package src.main.java.Inventory.DomainLayer;
+package Inventory.DomainLayer;
 
 import java.time.LocalDate;
 import java.util.ArrayList;

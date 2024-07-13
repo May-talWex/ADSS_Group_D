@@ -1,11 +1,11 @@
-package src.main.java.Inventory.tests;
+package Inventory.tests;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.*;
 import org.junit.jupiter.api.MethodOrderer.OrderAnnotation;
-import src.main.java.Inventory.DomainLayer.*;
-import src.main.java.Inventory.ServiceLayer.ServiceController;
+import Inventory.DomainLayer.*;
+import Inventory.ServiceLayer.ServiceController;
 
 import java.time.LocalDate;
 import java.util.List;

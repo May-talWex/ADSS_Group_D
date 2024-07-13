@@ -1,68 +1,74 @@
-package src.main.java.Inventory.DataLayer;
+package Inventory.DataLayer;
 
 import java.sql.*;
 
-
 public class DataBaseConnection {
-    private static DataBaseConnection connectionDB = null;
-    private Connection connection;
-    private final String url="jdbc:sqlite:InventoyDB.db";
+    private static Connection connection;
+    private static final String url = "jdbc:sqlite:InventoyDB.db";
 
-    private DataBaseConnection() {
+    public static Connection DataBaseConnection() {
+        if (connection != null) return connection;
         try {
             Class.forName("org.sqlite.JDBC");
             connection = DriverManager.getConnection(url);
             System.out.println("Connection to SQLite has been established.");
+            return connection;
         } catch (SQLException | ClassNotFoundException e) {
             System.out.println(e.getMessage());
         }
+        return null;
     }
 
-    public static DataBaseConnection getInstance() {
-        if (connectionDB == null) {
-            connectionDB = new DataBaseConnection();
+    public static Connection getInstance() {
+        if (connection == null) {
+            connection = DataBaseConnection();
         }
-        return connectionDB;
-    }
-
-    public Connection getConnection() {
         return connection;
     }
 
-    public void createTables() {
+    public static Connection getConnection() {
+        if (connection != null) return connection;
+        return DataBaseConnection();
+    }
+
+    public static void createTables() {
         String createCategoryTable = "CREATE TABLE IF NOT EXISTS Category ("
                 + "id TEXT PRIMARY KEY,"
                 + "name TEXT NOT NULL,"
                 + "Start_Discount DATE,"
                 + "End_Discount DATE,"
                 + "Discount_Percentage FLOAT);";
+
         String createProductTable = "CREATE TABLE IF NOT EXISTS Product ("
                 + "makat TEXT PRIMARY KEY,"
                 + "name TEXT NOT NULL,"
                 + "supplier TEXT NOT NULL,"
                 + "costPrice FLOAT NOT NULL,"
                 + "Selling_Price FLOAT NOT NULL,"
-                + "discount INTEGER NULL,"
+                + "discount FLOAT,"
                 + "Min_Stock_Amnt INTEGER NOT NULL,"
                 + "Discount_Start DATE,"
                 + "Discount_End DATE,"
                 + "Category_ID INTEGER NOT NULL,"
                 + "Sub_Category_ID INTEGER NOT NULL,"
-                + "Full_Price FLOAT NULL,"
+                + "Full_Price FLOAT NOT NULL,"
                 + "FOREIGN KEY (Category_ID) REFERENCES Category(id));";
+
         String createItemTable = "CREATE TABLE IF NOT EXISTS Item ("
                 + "id TEXT PRIMARY KEY,"
-                + "productID TEXT NOT NULL,"
-                + "categoryID TEXT NOT NULL,"
-                + "inWarehouse BOOLEAN NOT NULL,"
-                + "isDefective BOOLEAN NOT NULL,"
-                + "expirationDate DATE,"
-                + "floorBuilding INTEGER,"
-                + "floorShelf INTEGER,"
-                + "X FLOAT,"
-                + "Y FLOAT,"
-                + "FOREIGN KEY (id) REFERENCES Product(makat),"
-                + "FOREIGN KEY (categoryID) REFERENCES Category(id));";
+                + "name TEXT,"
+                + "defective BOOLEAN,"
+                + "inWareHouse BOOLEAN,"
+                + "floor INTEGER,"
+                + "branchID INTEGER NOT NULL," // Changed from building to branchID
+                + "aisle FLOAT,"
+                + "shelf FLOAT,"
+                + "expireDate DATE,"
+                + "categoryID TEXT,"
+                + "productID TEXT,"
+                + "FOREIGN KEY (categoryID) REFERENCES Category(id),"
+                + "FOREIGN KEY (productID) REFERENCES Product(makat));";
+
         try (Statement stmt = connection.createStatement()) {
             stmt.execute(createCategoryTable);
             System.out.println("Category table created successfully.");
@@ -75,17 +81,20 @@ public class DataBaseConnection {
         }
     }
 
-    public void closeConnection() {
+    public static void closeConnection() {
         try {
             if (connection != null) {
                 connection.close();
+                System.out.println("Connection to SQLite has been closed.");
             }
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
         }
     }
 
-
+    public static void main(String[] args) {
+        DataBaseConnection();
+        createTables();
+        closeConnection();
+    }
 }
-
-

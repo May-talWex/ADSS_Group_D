@@ -4,6 +4,7 @@ import HR.Data.CreateStubEmployeesData;
 import HR.Domain.*;
 import HR.Domain.EmployeeTypes.*;
 import HR.Domain.Exceptions.NotEnoughWorkers;
+import Inventory.PresentationLayer.CLIInterface;
 
 import java.util.Scanner;
 
@@ -46,10 +47,51 @@ public class Main_Menu {
 
             if (employee.hasRole(new HRManager())) {
                 HRMenu(branch, employeeController, shiftController);
+            } else if(employee.hasRole(new StorageEmployee())) {
+                StorageEmployeeMenu(branch, id);
             } else {
                 NonManagerMenu(branch, id);
             }
         }
+    }
+
+    private static void PrintStorageEmployeeMenu() {
+        System.out.println("Storage Employee Menu:");
+        System.out.println("1. Storage Management");
+        System.out.println("2. Employee Menu");
+        System.out.println("3. Logout");
+        System.out.print("Enter your choice: ");
+    }
+    private static void StorageEmployeeMenu(Branch branch, int id) throws Exception {
+        PrintStorageEmployeeMenu();
+        Scanner scanner = new Scanner(System.in);
+        int choice;
+        do {
+            do {
+                try {
+                    choice = scanner.nextInt();
+                    break;
+                } catch (Exception e) {
+                    System.out.println("Invalid input. Please enter a number.");
+                    scanner.nextInt();
+                }
+            } while (true);
+
+            switch (choice) {
+                case 1:
+                    CLIInterface.main(branch);
+                    break;
+                case 2:
+                    employeeMenu(branch, new EmployeeController());
+                    break;
+                case 3:
+                    System.out.println("Logging out and returning to the main menu...");
+                    break;
+                default:
+                    System.out.println("Invalid choice!");
+                    break;
+            }
+        } while (choice != 3);
     }
 
     public static void HRMenu(Branch branch, EmployeeController employeeController, ShiftController shiftController) throws Exception {
@@ -75,13 +117,18 @@ public class Main_Menu {
                     scheduleMenu(branch, shiftController);
                     break;
                 case 3:
+                    System.out.println("Inventory Management");
+                    CLIInterface.main(branch);
+                    break;
+                case 4:
                     System.out.println("Logging out and returning to the main menu...");
+
                     break;
                 default:
                     System.out.println("Invalid choice!");
                     break;
             }
-        } while (HRChoice != 3);
+        } while (HRChoice != 4);
     }
 
     public static void employeeMenu(Branch branch, EmployeeController employeeController) throws Exception {
@@ -221,7 +268,8 @@ public class Main_Menu {
         System.out.println("Main HR Menu:");
         System.out.println("1. Employee Functions");
         System.out.println("2. Schedule and Shift Functions");
-        System.out.println("3. Logout");
+        System.out.println("3. Inventory Managment");
+        System.out.println("4. Logout");
         System.out.print("Enter your choice: ");
     }
 

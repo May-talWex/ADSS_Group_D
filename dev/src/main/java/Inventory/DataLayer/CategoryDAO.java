@@ -1,7 +1,7 @@
-package src.main.java.Inventory.DataLayer;
+package Inventory.DataLayer;
 
-import src.main.java.Inventory.DomainLayer.Category;
-import src.main.java.Inventory.DomainLayer.Product;
+import Inventory.DomainLayer.Category;
+import Inventory.DomainLayer.Product;
 
 import java.sql.*;
 import java.time.LocalDate;
@@ -12,7 +12,7 @@ public class CategoryDAO {
     private Connection connection;
 
     public CategoryDAO() {
-        this.connection = DataBaseConnection.getInstance().getConnection();
+        this.connection = DataBaseConnection.getConnection();
     }
 
     public List<Category> getAllCategoriesWithProducts() {

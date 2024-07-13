@@ -1,9 +1,9 @@
-package src.main.java.Inventory.tests;
+package Inventory.tests;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.*;
-import src.main.java.Inventory.DomainLayer.*;
+import Inventory.DomainLayer.*;
 
 import java.time.LocalDate;
 

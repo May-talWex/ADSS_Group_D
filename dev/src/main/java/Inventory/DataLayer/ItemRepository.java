@@ -1,6 +1,6 @@
-package src.main.java.Inventory.DataLayer;
+package Inventory.DataLayer;
 
-import src.main.java.Inventory.DomainLayer.Item;
+import Inventory.DomainLayer.Item;
 
 import java.util.List;
 

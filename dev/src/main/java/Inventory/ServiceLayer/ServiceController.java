@@ -1,18 +1,15 @@
-package src.main.java.Inventory.ServiceLayer;
+package Inventory.ServiceLayer;
 
-import src.main.java.Inventory.DomainLayer.CategoryController;
-import src.main.java.Inventory.DomainLayer.ItemController;
-import src.main.java.Inventory.DomainLayer.Product;
-import src.main.java.Inventory.DomainLayer.ProductController;
+import Inventory.DomainLayer.CategoryController;
+import Inventory.DomainLayer.ItemController;
+import Inventory.DomainLayer.ProductController;
 
+import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
 
 public class ServiceController {
     private CategoryController categoryController;
@@ -29,7 +26,6 @@ public class ServiceController {
         productController.initializeProducts();
         categoryController.initializeCategories();
     }
-
 
     // Item Service Methods
     public boolean addItem(boolean defective, boolean inWareHouse, int floorBuilding,
@@ -78,11 +74,9 @@ public class ServiceController {
         itemController.removeDefectiveItems();
     }
 
-
     public boolean updateItemDefective(boolean isDefective, String itemID) {
         return itemController.reportDefectiveItem(isDefective, itemID);
     }
-
 
     public boolean doesItemExist(String itemID) {
         return itemController.getItemByID(itemID) != null;
@@ -123,25 +117,21 @@ public class ServiceController {
 
     public void generateLowSupplyCSVReport() {
         List<Map<String, String>> reportData = productController.generateLowSupplyReportData();
-        String fileName = "C:\\githubclones\\ADSS_Group_D\\dev\\src\\main\\java\\resources\\low_supply_report.csv";
+        String fileName = getFilePath("low_supply_report.csv");
         generateCSV(reportData, fileName);
     }
 
     public void generateLowSupplyDeltaCSVReport() {
         List<Map<String, String>> reportData = productController.generateLowSupplyReportDataWithDelta();
-        String fileName = "C:\\githubclones\\ADSS_Group_D\\dev\\src\\main\\java\\resources\\low_supply_delta_report.csv";
+        String fileName = getFilePath("low_supply_delta_report.csv");
         generateCSV(reportData, fileName);
     }
 
-    // In ServiceController.java
     public void generateReorderCSVReport() {
         List<Map<String, String>> reportData = productController.generateReorderReportData();
-        String fileName = "C:\\githubclones\\ADSS_Group_D\\dev\\src\\main\\java\\resources\\reorder_report.csv";
+        String fileName = getFilePath("reorder_report.csv");
         generateCSV(reportData, fileName);
     }
-
-
-
 
     public boolean updateProductDiscount(String productID, int discount, LocalDate startDate, LocalDate endDate) {
         return productController.updateProductDiscount(productID, discount, startDate, endDate);
@@ -149,17 +139,15 @@ public class ServiceController {
 
     public void generateDefectiveItemsCSVReport() {
         List<Map<String, String>> reportData = itemController.generateDefectiveItemsReportData();
-        String fileName = "C:\\githubclones\\ADSS_Group_D\\dev\\src\\main\\java\\resources\\defective_items_report.csv";
+        String fileName = getFilePath("defective_items_report.csv");
         generateCSV(reportData, fileName);
     }
-
 
     public void generateExpiredCSVReport() {
         List<Map<String, String>> reportData = itemController.generateExpiredItemsReportData();
-        String fileName = "C:\\githubclones\\ADSS_Group_D\\dev\\src\\main\\java\\resources\\expired_items_report.csv";
+        String fileName = getFilePath("expired_items_report.csv");
         generateCSV(reportData, fileName);
     }
-
 
     // Category Service Methods
     public boolean addCategory(String name, String id) {
@@ -174,22 +162,19 @@ public class ServiceController {
         return categoryController.removeCategory(id);
     }
 
-
-
     public boolean updateCategory(String id, LocalDate startDiscount, LocalDate endDiscount, float discountPercentage) {
         return categoryController.updateCategory(id, startDiscount, endDiscount, discountPercentage);
     }
 
     public void generateStockCSVReport() {
         List<Map<String, String>> reportData = productController.generateStockReportData();
-        String fileName = "C:\\githubclones\\ADSS_Group_D\\dev\\src\\main\\java\\resources\\stock_report.csv";
+        String fileName = getFilePath("stock_report.csv");
         generateCSV(reportData, fileName);
     }
 
-
     public void generateCategoryProductReport(String categoryID) {
         List<Map<String, String>> reportData = productController.generateCategoryProductReportData(categoryID);
-        String fileName = "C:\\githubclones\\ADSS_Group_D\\dev\\src\\main\\java\\resources\\category_product_report_" + categoryID + ".csv";
+        String fileName = getFilePath("category_product_report_" + categoryID + ".csv");
         generateCSV(reportData, fileName);
     }
 
@@ -217,7 +202,14 @@ public class ServiceController {
         }
     }
 
-//    public void NoItemsForProductsAlert(){
-//        productController.ProductsNoItem();
-//    }
+    private String getFilePath(String fileName) {
+        String userHome = System.getProperty("user.home");
+        String directoryPath = userHome + File.separator + "inventory_reports";
+        File directory = new File(directoryPath);
+        if (!directory.exists()) {
+            directory.mkdirs();
+        }
+        return directoryPath + File.separator + fileName;
+    }
+
 }

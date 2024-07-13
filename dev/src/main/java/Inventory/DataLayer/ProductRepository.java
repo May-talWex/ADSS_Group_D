@@ -1,7 +1,7 @@
-package src.main.java.Inventory.DataLayer;
+package Inventory.DataLayer;
 
-import src.main.java.Inventory.DomainLayer.Item;
-import src.main.java.Inventory.DomainLayer.Product;
+import Inventory.DomainLayer.Item;
+import Inventory.DomainLayer.Product;
 
 import java.util.List;
 import java.util.Map;

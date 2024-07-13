@@ -23,7 +23,7 @@ public class BranchDAO {
     public Branch getBranchFromDatabase(int branchId) {
         String sql = "SELECT BranchID, BranchName, BranchAddress FROM Branches WHERE BranchID = ?";
         Branch branch = null;
-        System.out.println("Trying getBranchFromDatabase");
+        //System.out.println("Trying getBranchFromDatabase");
         try {
             PreparedStatement pstmt = connection.prepareStatement(sql);
             pstmt.setInt(1, branchId);

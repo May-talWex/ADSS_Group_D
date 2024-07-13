@@ -1,8 +1,8 @@
-package src.main.java.Inventory.DataLayer;
+package Inventory.DataLayer;
 
-import src.main.java.Inventory.DomainLayer.Category;
-import src.main.java.Inventory.DomainLayer.Item;
-import src.main.java.Inventory.DomainLayer.Product;
+import Inventory.DomainLayer.Category;
+import Inventory.DomainLayer.Item;
+import Inventory.DomainLayer.Product;
 
 import java.sql.*;
 import java.time.LocalDate;
@@ -18,7 +18,7 @@ public class ProductDAO {
     private Connection connection;
 
     public ProductDAO() {
-        this.connection = DataBaseConnection.getInstance().getConnection();
+        this.connection = DataBaseConnection.getConnection();
     }
 
     public List<Product> getAllProductsWithItems() {
