@@ -12,7 +12,7 @@ public class CategoryDAO {
     private Connection connection;
 
     public CategoryDAO() {
-        this.connection = DataBaseConnection.getInstance().getConnection();
+        this.connection = DataBaseConnection.getConnection();
     }
 
     public List<Category> getAllCategoriesWithProducts() {

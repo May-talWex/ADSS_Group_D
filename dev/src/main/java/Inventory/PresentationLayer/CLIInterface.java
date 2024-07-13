@@ -2,6 +2,8 @@ package src.main.java.Inventory.PresentationLayer;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
+
+import src.main.java.Inventory.DataLayer.DataBaseConnection;
 import src.main.java.Inventory.ServiceLayer.ServiceController;
 import java.time.LocalDate;
 import java.time.format.DateTimeParseException;
@@ -10,7 +12,9 @@ public class CLIInterface {
     private static ServiceController serviceController = new ServiceController();
     private static Scanner scanner = new Scanner(System.in);
 
+
     public static void main(String[] args) {
+        DataBaseConnection.getInstance();
         initialize();
         while (true) {
             try {
@@ -39,6 +43,7 @@ public class CLIInterface {
                         break;
                     case 7:
                         System.out.println("Exiting...");
+                        DataBaseConnection.closeConnection();
                         return;
                     default:
                         System.out.println("Invalid choice. Please try again.");

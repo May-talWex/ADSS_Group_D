@@ -8,7 +8,7 @@ public class Item {
     public boolean defective;
     public boolean inWareHouse;
     public int floor;
-    public int building;
+    public int branchID;
     public float aisle;
     public float shelf;
     public String name;
@@ -24,7 +24,7 @@ public class Item {
                 "defective=" + defective +
                 ", inWareHouse=" + inWareHouse +
                 ", floorBuilding=" + floor +
-                ", floorShelf=" + building +
+                ", floorShelf=" + branchID +
                 ", x=" + aisle +
                 ", y=" + shelf +
                 ", name='" + name + '\'' +
@@ -42,12 +42,12 @@ public class Item {
 
         if (inWareHouse) {
             this.floor = -1;
-            this.building = -1;
+            this.branchID = -1;
             this.aisle = -1;
             this.shelf = -1;
         } else {
             this.floor = floor;
-            this.building = building;
+            this.branchID = building;
             this.aisle = aisle;
             this.shelf = shelf;
         }
@@ -91,7 +91,7 @@ public class Item {
 
     public void setLocation(int floorBuilding, int floorShelf) {
         this.floor = floorBuilding;
-        this.building = floorShelf;
+        this.branchID = floorShelf;
     }
 
 

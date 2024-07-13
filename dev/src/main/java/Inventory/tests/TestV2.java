@@ -4,6 +4,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.*;
 import org.junit.jupiter.api.MethodOrderer.OrderAnnotation;
+import src.main.java.Inventory.DataLayer.DataBaseConnection;
 import src.main.java.Inventory.DomainLayer.*;
 import src.main.java.Inventory.ServiceLayer.ServiceController;
 
@@ -28,6 +29,7 @@ public class TestV2 {
 
     @BeforeEach
     void setUp() {
+        DataBaseConnection.getInstance();
         serviceController = new ServiceController();
         serviceController.initialize();
 
@@ -61,11 +63,11 @@ public class TestV2 {
         Item item = itemController.getItemByID("I002");
         assertNotNull(item);
         item.floor = 2;
-        item.building = 5;
+        item.branchID = 5;
         assertTrue(itemController.updateItemLocation("I002", 2, 5, 1, 1, false));
         Item updatedItem = itemController.getItemByID("I002");
         assertEquals(2, updatedItem.floor);
-        assertEquals(5, updatedItem.building);
+        assertEquals(5, updatedItem.branchID);
     }
 
     @Test
@@ -77,7 +79,7 @@ public class TestV2 {
         Item updatedItem = itemController.getItemByID("I002");
         assertTrue(updatedItem.inWareHouse);
         assertEquals(-1, updatedItem.floor);
-        assertEquals(-1, updatedItem.building);
+        assertEquals(-1, updatedItem.branchID);
     }
 
     @Test
@@ -88,7 +90,7 @@ public class TestV2 {
         Item updatedItem = itemController.getItemByID("I002");
         assertFalse(updatedItem.inWareHouse);
         assertEquals(2, updatedItem.floor);
-        assertEquals(5, updatedItem.building);
+        assertEquals(5, updatedItem.branchID);
     }
 
     @Test
@@ -98,7 +100,7 @@ public class TestV2 {
         Item updatedItem = itemController.getItemByID("I002");
         assertFalse(updatedItem.inWareHouse);
         assertEquals(3, updatedItem.floor);
-        assertEquals(6, updatedItem.building);
+        assertEquals(6, updatedItem.branchID);
         assertEquals(2, updatedItem.aisle);
         assertEquals(2, updatedItem.shelf);
     }

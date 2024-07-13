@@ -70,7 +70,7 @@ public class ItemController {
                 itemData.put("CategoryID", item.getCategoryID());
                 itemData.put("ProductID", item.getProductID());
                 itemData.put("FloorBuilding", String.valueOf(item.floor));
-                itemData.put("FloorShelf", String.valueOf(item.building));
+                itemData.put("FloorShelf", String.valueOf(item.branchID));
                 itemData.put("X", String.valueOf(item.aisle));
                 itemData.put("Y", String.valueOf(item.shelf));
                 itemData.put("ExpireDate", item.getExpireDate().toString());
@@ -87,7 +87,7 @@ public class ItemController {
                 itemData.put("CategoryID", item.getCategoryID());
                 itemData.put("ProductID", item.getProductID());
                 itemData.put("FloorBuilding", String.valueOf(item.floor));
-                itemData.put("FloorShelf", String.valueOf(item.building));
+                itemData.put("FloorShelf", String.valueOf(item.branchID));
                 itemData.put("X", String.valueOf(item.aisle));
                 itemData.put("Y", String.valueOf(item.shelf));
                 itemData.put("ExpireDate", item.getExpireDate().toString());
@@ -110,7 +110,7 @@ public class ItemController {
             itemData.put("CategoryID", item.getCategoryID());
             itemData.put("ProductID", item.getProductID());
             itemData.put("FloorBuilding", String.valueOf(item.floor));
-            itemData.put("FloorShelf", String.valueOf(item.building));
+            itemData.put("FloorShelf", String.valueOf(item.branchID));
             itemData.put("X", String.valueOf(item.aisle));
             itemData.put("Y", String.valueOf(item.shelf));
             itemData.put("ExpireDate", item.getExpireDate().toString());

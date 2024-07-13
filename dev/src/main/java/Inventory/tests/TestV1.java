@@ -3,6 +3,7 @@ package src.main.java.Inventory.tests;
 import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.*;
+import src.main.java.Inventory.DataLayer.DataBaseConnection;
 import src.main.java.Inventory.DomainLayer.*;
 
 import java.time.LocalDate;
@@ -16,6 +17,7 @@ public class TestV1 {
 
     @BeforeEach
     void setUp() {
+        DataBaseConnection.getInstance();
         categoryController = new CategoryController();
         productController = new ProductController();
         itemController = new ItemController();

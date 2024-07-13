@@ -10,17 +10,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2ee10d94-4457-471a-97fe-029a048743dc" name="Changes" comment="Adding tests and fixing last bugs">
-      <change afterPath="$PROJECT_DIR$/.idea/artifacts/adss2024_v02_jar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/InventoyDB.db" beforeDir="false" afterPath="$PROJECT_DIR$/InventoyDB.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/InventoyDB.db" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dev/src/main/java/Inventory/DataLayer/CategoryDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/dev/src/main/java/Inventory/DataLayer/CategoryDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dev/src/main/java/Inventory/DataLayer/DataBaseConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/dev/src/main/java/Inventory/DataLayer/DataBaseConnection.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dev/src/main/java/Inventory/DataLayer/ItemDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/dev/src/main/java/Inventory/DataLayer/ItemDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dev/src/main/java/Inventory/DataLayer/ProductDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/dev/src/main/java/Inventory/DataLayer/ProductDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dev/src/main/java/Inventory/DataLayer/ProductRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/dev/src/main/java/Inventory/DataLayer/ProductRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dev/src/main/java/Inventory/DataLayer/TableInitializer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dev/src/main/java/Inventory/DomainLayer/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/dev/src/main/java/Inventory/DomainLayer/Product.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dev/src/main/java/Inventory/DomainLayer/ProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/dev/src/main/java/Inventory/DomainLayer/ProductController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dev/src/main/java/Inventory/DomainLayer/Item.java" beforeDir="false" afterPath="$PROJECT_DIR$/dev/src/main/java/Inventory/DomainLayer/Item.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dev/src/main/java/Inventory/DomainLayer/ItemController.java" beforeDir="false" afterPath="$PROJECT_DIR$/dev/src/main/java/Inventory/DomainLayer/ItemController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dev/src/main/java/Inventory/PresentationLayer/CLIInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/dev/src/main/java/Inventory/PresentationLayer/CLIInterface.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dev/src/main/java/Inventory/ServiceLayer/ServiceController.java" beforeDir="false" afterPath="$PROJECT_DIR$/dev/src/main/java/Inventory/ServiceLayer/ServiceController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dev/src/main/java/Inventory/tests/TestV1.java" beforeDir="false" afterPath="$PROJECT_DIR$/dev/src/main/java/Inventory/tests/TestV1.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dev/src/main/java/Inventory/tests/TestV2.java" beforeDir="false" afterPath="$PROJECT_DIR$/dev/src/main/java/Inventory/tests/TestV2.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -129,8 +130,8 @@
       <recent name="C:\githubclones\ADSS_Group_D\docs" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\githubclones\ADSS_Group_D\docs" />
       <recent name="C:\githubclones\ADSS_Group_D\release" />
+      <recent name="C:\githubclones\ADSS_Group_D\docs" />
       <recent name="C:\githubclones\ADSS_Group_D\dev" />
     </key>
   </component>
@@ -468,7 +469,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/dev/src/main/java/Inventory/tests/TestV2.java</url>
-          <line>108</line>
+          <line>110</line>
           <option name="timeStamp" value="101" />
         </line-breakpoint>
       </breakpoints>

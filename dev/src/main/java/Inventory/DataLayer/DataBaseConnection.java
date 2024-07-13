@@ -1,91 +1,139 @@
 package src.main.java.Inventory.DataLayer;
 
-import java.sql.*;
-
+import java.io.File;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.sql.Statement;
 
 public class DataBaseConnection {
-    private static DataBaseConnection connectionDB = null;
-    private Connection connection;
-    private final String url="jdbc:sqlite:InventoyDB.db";
+    private static Connection connection;
+    private static final String url;
 
-    private DataBaseConnection() {
+    static {
+        String dbPath = "";
+        try {
+            // Define the release directory path
+            String releaseDir = "C:/githubclones/ADSS_Group_D/release";
+            // Ensure the release directory exists
+            File dir = new File(releaseDir);
+            if (!dir.exists()) {
+                dir.mkdirs();  // Create the release directory if it does not exist
+            }
+            dbPath = releaseDir + File.separator + "InventoyDB.db";
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+        url = "jdbc:sqlite:" + dbPath;
+    }
+
+    public static Connection DataBaseConnection() {
+        if (connection != null) return connection;
         try {
             Class.forName("org.sqlite.JDBC");
             connection = DriverManager.getConnection(url);
             System.out.println("Connection to SQLite has been established.");
+            createTables();  // Ensure tables are created when the connection is established
+            return connection;
         } catch (SQLException | ClassNotFoundException e) {
             System.out.println(e.getMessage());
         }
+        return null;
     }
 
-    public static DataBaseConnection getInstance() {
-        if (connectionDB == null) {
-            connectionDB = new DataBaseConnection();
+    public static Connection getInstance() {
+        if (connection == null) {
+            connection = DataBaseConnection();
         }
-        return connectionDB;
-    }
-
-    public Connection getConnection() {
         return connection;
     }
 
-    public void createTables() {
+    public static Connection getConnection() {
+        if (connection != null) return connection;
+        return DataBaseConnection();
+    }
+
+    public static void createTables() {
         String createCategoryTable = "CREATE TABLE IF NOT EXISTS Category ("
                 + "id TEXT PRIMARY KEY,"
                 + "name TEXT NOT NULL,"
                 + "Start_Discount DATE,"
                 + "End_Discount DATE,"
                 + "Discount_Percentage FLOAT);";
+
         String createProductTable = "CREATE TABLE IF NOT EXISTS Product ("
                 + "makat TEXT PRIMARY KEY,"
                 + "name TEXT NOT NULL,"
                 + "supplier TEXT NOT NULL,"
                 + "costPrice FLOAT NOT NULL,"
                 + "Selling_Price FLOAT NOT NULL,"
-                + "discount INTEGER NULL,"
+                + "discount FLOAT,"
                 + "Min_Stock_Amnt INTEGER NOT NULL,"
                 + "Discount_Start DATE,"
                 + "Discount_End DATE,"
                 + "Category_ID INTEGER NOT NULL,"
                 + "Sub_Category_ID INTEGER NOT NULL,"
-                + "Full_Price FLOAT NULL,"
+                + "Full_Price FLOAT NOT NULL,"
                 + "FOREIGN KEY (Category_ID) REFERENCES Category(id));";
+
         String createItemTable = "CREATE TABLE IF NOT EXISTS Item ("
                 + "id TEXT PRIMARY KEY,"
-                + "productID TEXT NOT NULL,"
-                + "categoryID TEXT NOT NULL,"
-                + "inWarehouse BOOLEAN NOT NULL,"
-                + "isDefective BOOLEAN NOT NULL,"
-                + "expirationDate DATE,"
-                + "floorBuilding INTEGER,"
-                + "floorShelf INTEGER,"
-                + "X FLOAT,"
-                + "Y FLOAT,"
-                + "FOREIGN KEY (id) REFERENCES Product(makat),"
-                + "FOREIGN KEY (categoryID) REFERENCES Category(id));";
+                + "name TEXT,"
+                + "defective BOOLEAN,"
+                + "inWareHouse BOOLEAN,"
+                + "floor INTEGER,"
+                + "branchID INTEGER NOT NULL,"
+                + "aisle FLOAT,"
+                + "shelf FLOAT,"
+                + "expireDate DATE,"
+                + "categoryID TEXT,"
+                + "productID TEXT,"
+                + "FOREIGN KEY (categoryID) REFERENCES Category(id),"
+                + "FOREIGN KEY (productID) REFERENCES Product(makat));";
+
         try (Statement stmt = connection.createStatement()) {
-            stmt.execute(createCategoryTable);
-            System.out.println("Category table created successfully.");
-            stmt.execute(createProductTable);
-            System.out.println("Product table created successfully.");
-            stmt.execute(createItemTable);
-            System.out.println("Item table created successfully.");
+            // Create Category table
+            boolean categoryCreated = stmt.execute(createCategoryTable);
+            if (categoryCreated) {
+                System.out.println("Category table created successfully.");
+            } else {
+                System.out.println("Category table already exists or no changes made.");
+            }
+
+            // Create Product table
+            boolean productCreated = stmt.execute(createProductTable);
+            if (productCreated) {
+                System.out.println("Product table created successfully.");
+            } else {
+                System.out.println("Product table already exists or no changes made.");
+            }
+
+            // Create Item table
+            boolean itemCreated = stmt.execute(createItemTable);
+            if (itemCreated) {
+                System.out.println("Item table created successfully.");
+            } else {
+                System.out.println("Item table already exists or no changes made.");
+            }
+
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
     }
 
-    public void closeConnection() {
+    public static void closeConnection() {
         try {
             if (connection != null) {
                 connection.close();
+                System.out.println("Connection to SQLite has been closed.");
             }
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
         }
     }
 
-
+    public static void main(String[] args) {
+        DataBaseConnection();
+        closeConnection();
+    }
 }
-
-
