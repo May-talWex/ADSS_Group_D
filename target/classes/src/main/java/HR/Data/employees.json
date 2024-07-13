@@ -1,0 +1,48 @@
+[
+  {
+	"workerId": "1",
+	"workerName": "John Doe",
+	"workerEmail": "some@email.com",
+	"possiblePositions": [
+	  {
+		"type": "HRManager"
+	  },
+	  {
+		"type": "Cashier"
+	  }
+	],
+	"bankAccount": {
+	  "bankNumber": "123",
+	  "branchNumber": "456",
+	  "accountNumber": "7890123"
+	},
+	"salary": {
+	  "amount": "1000",
+	  "startDate": "2020-01-01",
+	  "endDate": ""
+	}
+  },
+  {
+	"workerId": "2",
+	"workerName": "Jane Doe",
+	"workerEmail": "some1@email.com",
+	"possiblePositions": [
+	  {
+		"type": "HRManager"
+	  },
+	  {
+		"type": "ShiftManager"
+	  }
+	],
+	"bankAccount": {
+	  "bankNumber": "124",
+	  "branchNumber": "457",
+	  "accountNumber": "1890123"
+	},
+	"salary": {
+	  "amount": "1000",
+	  "startDate": "2020-01-01",
+	  "endDate": ""
+	}
+  }
+]
