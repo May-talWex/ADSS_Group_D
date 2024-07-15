@@ -25,8 +25,8 @@ public class ItemController {
         return itemRepository.getItemById(id);
     }
 
-    public boolean addNewItem(boolean defective, boolean inWareHouse, int floorBuilding, int floorShelf, float x, float y, String name, String id, LocalDate expireDate, String categoryID, String productID) {
-        Item itemToAdd = new Item(defective, inWareHouse, floorBuilding, floorShelf, x, y, name, id, expireDate, categoryID, productID);
+    public boolean addNewItem(boolean defective, boolean inWareHouse, int floor, int branchID, float aisle, float shelf, String name, String id, LocalDate expireDate, String categoryID, String productID) {
+        Item itemToAdd = new Item(defective, inWareHouse, floor, branchID, aisle, shelf, name, id, expireDate, categoryID, productID);
 
         if (wareHouseItems.containsKey(itemToAdd.getID()) || storeItems.containsKey(itemToAdd.getID())) {
             System.out.println("Item with same ID already exists");
@@ -69,10 +69,10 @@ public class ItemController {
                 itemData.put("Name", item.getName());
                 itemData.put("CategoryID", item.getCategoryID());
                 itemData.put("ProductID", item.getProductID());
-                itemData.put("FloorBuilding", String.valueOf(item.floor));
-                itemData.put("FloorShelf", String.valueOf(item.building));
-                itemData.put("X", String.valueOf(item.aisle));
-                itemData.put("Y", String.valueOf(item.shelf));
+                itemData.put("Floor", String.valueOf(item.floor));
+                itemData.put("BranchID", String.valueOf(item.branchID));
+                itemData.put("Aisle", String.valueOf(item.aisle));
+                itemData.put("Shelf", String.valueOf(item.shelf));
                 itemData.put("ExpireDate", item.getExpireDate().toString());
                 data.add(itemData);
             }
@@ -86,10 +86,10 @@ public class ItemController {
                 itemData.put("Name", item.getName());
                 itemData.put("CategoryID", item.getCategoryID());
                 itemData.put("ProductID", item.getProductID());
-                itemData.put("FloorBuilding", String.valueOf(item.floor));
-                itemData.put("FloorShelf", String.valueOf(item.building));
-                itemData.put("X", String.valueOf(item.aisle));
-                itemData.put("Y", String.valueOf(item.shelf));
+                itemData.put("Floor", String.valueOf(item.floor));
+                itemData.put("BranchID", String.valueOf(item.branchID));
+                itemData.put("Aisle", String.valueOf(item.aisle));
+                itemData.put("Shelf", String.valueOf(item.shelf));
                 itemData.put("ExpireDate", item.getExpireDate().toString());
                 data.add(itemData);
             }
@@ -109,10 +109,10 @@ public class ItemController {
             itemData.put("Name", item.getName());
             itemData.put("CategoryID", item.getCategoryID());
             itemData.put("ProductID", item.getProductID());
-            itemData.put("FloorBuilding", String.valueOf(item.floor));
-            itemData.put("FloorShelf", String.valueOf(item.building));
-            itemData.put("X", String.valueOf(item.aisle));
-            itemData.put("Y", String.valueOf(item.shelf));
+            itemData.put("Floor", String.valueOf(item.floor));
+            itemData.put("BranchID", String.valueOf(item.branchID));
+            itemData.put("Aisle", String.valueOf(item.aisle));
+            itemData.put("Shelf", String.valueOf(item.shelf));
             itemData.put("ExpireDate", item.getExpireDate().toString());
             data.add(itemData);
         }

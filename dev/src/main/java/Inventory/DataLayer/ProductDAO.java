@@ -153,7 +153,7 @@ public class ProductDAO {
                 boolean defective = rs.getBoolean("defective");
                 boolean inWareHouse = rs.getBoolean("inWareHouse");
                 int floor = rs.getInt("floor");
-                int building = rs.getInt("building");
+                int branchID = rs.getInt("branchID");
                 float aisle = rs.getFloat("aisle");
                 float shelf = rs.getFloat("shelf");
                 String name = rs.getString("name");
@@ -171,7 +171,7 @@ public class ProductDAO {
                 String categoryID = rs.getString("categoryID");
                 String productID = rs.getString("productID");
 
-                Item item = new Item(defective, inWareHouse, floor, building, aisle, shelf, name, id, expireDate, categoryID, productID);
+                Item item = new Item(defective, inWareHouse, floor, branchID, aisle, shelf, name, id, expireDate, categoryID, productID);
                 items.add(item);
             }
         } catch (SQLException e) {

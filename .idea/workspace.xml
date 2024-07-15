@@ -2,61 +2,44 @@
 <project version="4">
   <component name="ArtifactsWorkspaceSettings">
     <artifacts-to-build>
-      <artifact name="adss2024_v02.jar" />
+      <artifact name="adss2024_v02:jar" />
     </artifacts-to-build>
   </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9a0829ce-1916-46c8-a83f-0eb68d1bcbb5" name="Changes" comment="Added more tests and JAR file">
-      <change afterPath="$PROJECT_DIR$/dev/src/main/java/main.java" afterDir="false" />
+    <list default="true" id="2ee10d94-4457-471a-97fe-029a048743dc" name="Changes" comment="Adding tests and fixing last bugs">
       <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ADSS_Group_D.iml" beforeDir="false" afterPath="$PROJECT_DIR$/ADSS_Group_D.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/HRDB.sqlite" beforeDir="false" afterPath="$PROJECT_DIR$/HRDB.sqlite" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/META-INF/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/META-INF/MANIFEST.MF" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dev/src/main/java/HR/Data/BranchDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/dev/src/main/java/HR/Data/BranchDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dev/src/main/java/HR/Data/SQLiteConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/dev/src/main/java/HR/Data/SQLiteConnection.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dev/src/main/java/HR/Presentation/Main_Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/dev/src/main/java/HR/Presentation/Main_Menu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dev/src/main/java/HR/Presentation/Main_Menu_With_DB.java" beforeDir="false" afterPath="$PROJECT_DIR$/dev/src/main/java/HR/Presentation/HRMainMenu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dev/src/main/java/Inventory/DataLayer/CategoryDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/dev/src/main/java/Inventory/DataLayer/CategoryDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dev/src/main/java/Inventory/DataLayer/CategoryRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/dev/src/main/java/Inventory/DataLayer/CategoryRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/InventoyDB.db" beforeDir="false" afterPath="$PROJECT_DIR$/release/InventoryDB.db" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dev/src/main/java/Inventory/DataLayer/DataBaseConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/dev/src/main/java/Inventory/DataLayer/DataBaseConnection.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dev/src/main/java/Inventory/DataLayer/ItemDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/dev/src/main/java/Inventory/DataLayer/ItemDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dev/src/main/java/Inventory/DataLayer/ItemRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/dev/src/main/java/Inventory/DataLayer/ItemRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dev/src/main/java/Inventory/DataLayer/ProductDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/dev/src/main/java/Inventory/DataLayer/ProductDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dev/src/main/java/Inventory/DataLayer/ProductRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/dev/src/main/java/Inventory/DataLayer/ProductRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dev/src/main/java/Inventory/DomainLayer/Category.java" beforeDir="false" afterPath="$PROJECT_DIR$/dev/src/main/java/Inventory/DomainLayer/Category.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dev/src/main/java/Inventory/DomainLayer/CategoryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/dev/src/main/java/Inventory/DomainLayer/CategoryController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dev/src/main/java/Inventory/DomainLayer/Item.java" beforeDir="false" afterPath="$PROJECT_DIR$/dev/src/main/java/Inventory/DomainLayer/Item.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dev/src/main/java/Inventory/DomainLayer/ItemController.java" beforeDir="false" afterPath="$PROJECT_DIR$/dev/src/main/java/Inventory/DomainLayer/ItemController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dev/src/main/java/Inventory/DomainLayer/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/dev/src/main/java/Inventory/DomainLayer/Product.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dev/src/main/java/Inventory/DomainLayer/ProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/dev/src/main/java/Inventory/DomainLayer/ProductController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dev/src/main/java/Inventory/PresentationLayer/CLIInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/dev/src/main/java/Inventory/PresentationLayer/CLIInterface.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dev/src/main/java/Inventory/ServiceLayer/ServiceController.java" beforeDir="false" afterPath="$PROJECT_DIR$/dev/src/main/java/Inventory/ServiceLayer/ServiceController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dev/src/main/java/Inventory/tests/TestV1.java" beforeDir="false" afterPath="$PROJECT_DIR$/dev/src/main/java/Inventory/tests/TestV1.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dev/src/main/java/Inventory/tests/TestV2.java" beforeDir="false" afterPath="$PROJECT_DIR$/dev/src/main/java/Inventory/tests/TestV2.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/release/ADSS_Group_D.jar" beforeDir="false" afterPath="$PROJECT_DIR$/release/ADSS_Group_D.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/HR/Data/BranchDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/HR/Data/BranchDAO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/HR/Data/SQLiteConnection.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/HR/Data/SQLiteConnection.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/HR/Presentation/Main_Menu.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/HR/Presentation/Main_Menu.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/HR/Presentation/Main_Menu_With_DB.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/HRDB.sqlite" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Inventory/DataLayer/DataBaseConnection.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Inventory/DataLayer/DataBaseConnection.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Inventory/DataLayer/ItemDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Inventory/DataLayer/ItemDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Inventory/DataLayer/ProductDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Inventory/DataLayer/ProductDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Inventory/DomainLayer/Item.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Inventory/DomainLayer/Item.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Inventory/DomainLayer/ItemController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Inventory/DomainLayer/ItemController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Inventory/PresentationLayer/CLIInterface.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Inventory/PresentationLayer/CLIInterface.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Inventory/ServiceLayer/ServiceController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Inventory/ServiceLayer/ServiceController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Inventory/tests/TestV2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Inventory/tests/TestV2.class" afterDir="false" />
     </list>
-    <list id="92241546-7950-4e02-919c-86c9491857e4" name="Changes by kidox" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExportToHTMLSettings">
-    <option name="OUTPUT_DIRECTORY" value="$PROJECT_DIR$/../ADSS_Group_D\exportToHTML" />
-  </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="module-info" />
         <option value="Class" />
       </list>
     </option>
@@ -64,33 +47,29 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="master" />
+        <entry key="$PROJECT_DIR$" value="209638667_205850621_325842706" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="UPDATE_TYPE" value="REBASE" />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
   &quot;lastFilter&quot;: {
     &quot;state&quot;: &quot;OPEN&quot;,
-    &quot;assignee&quot;: &quot;idokraicer&quot;
+    &quot;assignee&quot;: &quot;timorlan&quot;
   }
 }</component>
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
     &quot;url&quot;: &quot;https://github.com/May-talWex/ADSS_Group_D.git&quot;,
-    &quot;accountId&quot;: &quot;d4b7678e-6fb5-4390-84e0-e4a0c3352291&quot;
+    &quot;accountId&quot;: &quot;cdbfdf1c-f5bc-4dba-a0c5-400a30b43d11&quot;
   }
 }</component>
-  <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/src/main/java/HR/Presentation/Main.java" root0="FORCE_HIGHLIGHTING" />
-  </component>
-  <component name="ProblemsViewState">
-    <option name="selectedTabId" value="CurrentFile" />
-  </component>
   <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
   &quot;associatedIndex&quot;: 1
 }</component>
-  <component name="ProjectId" id="2fzf2pxr3EseylL3w7AcH1DWylP" />
+  <component name="ProjectId" id="2hVrxDm41TkkJvUBeDbLvKE4Df2" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
   </component>
@@ -100,42 +79,54 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "Application.Branch_Tests.executor": "Run",
     "Application.CLIInterface.executor": "Run",
-    "Application.DataBaseConnection.executor": "Run",
-    "Application.Employee_Tests.executor": "Run",
-    "Application.HR.Data.SQLiteConnection.executor": "Run",
-    "Application.Main.executor": "Run",
-    "Application.Main_Menu.executor": "Run",
-    "Application.Main_Menu_With_DB.executor": "Run",
-    "Application.SQLiteConnection.executor": "Run",
-    "Application.Shift_Tests.executor": "Run",
-    "Application.main.executor": "Run",
-    "JAR Application.ADSS_Group_D.jar.executor": "Run",
-    "JAR Application.adss2024_v02.jar.executor": "Run",
-    "JUnit.BranchDAOIntegrationTest.executor": "Run",
-    "JUnit.BranchDAOTest.executor": "Run",
-    "JUnit.EmployeesDAOTest.executor": "Run",
-    "JUnit.EmployeesDAOTest.testAddAndGetEmployee.executor": "Run",
-    "JUnit.EmployeesDAOTest.testaddRolesToDatabase.executor": "Run",
-    "JUnit.ShiftsDAOTest.executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "Application.MainApp.executor": "Debug",
+    "Application.MainTest.executor": "Debug",
+    "Application.TableInitializer.executor": "Run",
+    "Application.main.executor": "Debug",
+    "Application.src.main.java.Inventory.PresentationLayer.CLIInterface.executor": "Run",
+    "JUnit.InventoryManagementTests.executor": "Run",
+    "JUnit.InventoryManagementTests.testAddNewProduct.executor": "Run",
+    "JUnit.InventoryManagementTests.testLowStockAlert.executor": "Debug",
+    "JUnit.InventoryManagementTests.testUpdateQuantity.executor": "Run",
+    "JUnit.TestV1.executor": "Run",
+    "JUnit.TestV1.testAddCategory.executor": "Run",
+    "JUnit.TestV1.testAddItem.executor": "Run",
+    "JUnit.TestV1.testAddProduct.executor": "Run",
+    "JUnit.TestV1.testDeleteCategory.executor": "Run",
+    "JUnit.TestV1.testDeleteItem.executor": "Run",
+    "JUnit.TestV1.testDeleteProduct.executor": "Run",
+    "JUnit.TestV1.testGetCategory.executor": "Run",
+    "JUnit.TestV1.testGetItem.executor": "Run",
+    "JUnit.TestV1.testGetProduct.executor": "Run",
+    "JUnit.TestV1.testUpdateItemDefective.executor": "Run",
+    "JUnit.TestV1.testUpdateProductDiscount.executor": "Run",
+    "JUnit.TestV1.testUpdateProductPrice.executor": "Run",
+    "JUnit.TestV2.executor": "Run",
+    "JUnit.TestV2.testAddCategory.executor": "Run",
+    "JUnit.TestV2.testAddItemToProduct.executor": "Run",
+    "JUnit.TestV2.testAddProductToCategory.executor": "Run",
+    "JUnit.TestV2.testCleanup.executor": "Run",
+    "JUnit.TestV2.testGetNonExistingItem.executor": "Run",
+    "JUnit.TestV2.testGetNonExistingProduct.executor": "Run",
+    "JUnit.TestV2.testMoveToWarehouse.executor": "Debug",
+    "JUnit.TestV2.testRemoveCategoryWithProducts.executor": "Debug",
+    "JUnit.TestV2.testRemoveCategoryWithoutProducts.executor": "Run",
+    "JUnit.TestV2.testRemoveItem.executor": "Run",
+    "JUnit.TestV2.testRemoveProductWithItems.executor": "Run",
+    "JUnit.TestV2.testRemoveProductWithoutItems.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "git-widget-placeholder": "master",
-    "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/rotto/IdeaProjects/ADSS_Group_D/release",
+    "last_opened_file_path": "C:/githubclones/ADSS_Group_D/release",
     "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Modules",
+    "project.structure.last.edited": "Artifacts",
     "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.19876325",
-    "run.code.analysis.last.selected.profile": "pProject Default",
-    "settings.editor.selected.configurable": "reference.settings.ide.settings.uml",
+    "project.structure.side.proportion": "0.2",
     "vue.rearranger.settings.migration": "true"
   },
   "keyToStringList": {
@@ -145,13 +136,13 @@
   }
 }]]></component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\kidox\Documents\GitHub\ADSS_Group_D\dev\src\main\resources" />
-      <recent name="C:\Users\rotto\IdeaProjects\ADSS_Group_D\dev" />
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\githubclones\ADSS_Group_D\docs" />
     </key>
-    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
-      <recent name="" />
-      <recent name="src" />
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\githubclones\ADSS_Group_D\release" />
+      <recent name="C:\githubclones\ADSS_Group_D\docs" />
+      <recent name="C:\githubclones\ADSS_Group_D\dev" />
     </key>
   </component>
   <component name="RunManager" selected="Application.main">
@@ -208,256 +199,255 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.main" />
-        <item itemvalue="Application.CLIInterface" />
-        <item itemvalue="Application.DataBaseConnection" />
-        <item itemvalue="Application.SQLiteConnection" />
         <item itemvalue="JAR Application.ADSS_Group_D.jar" />
+        <item itemvalue="Application.SQLiteConnection" />
+        <item itemvalue="Application.DataBaseConnection" />
+        <item itemvalue="Application.CLIInterface" />
       </list>
     </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9f38398b9061-39b83d9b5494-intellij.indexing.shared.core-IU-241.18034.62" />
-        <option value="bundled-js-predefined-1d06a55b98c1-0b3e54e931b4-JavaScript-IU-241.18034.62" />
+        <option value="bundled-jdk-9f38398b9061-39b83d9b5494-intellij.indexing.shared.core-IU-241.15989.150" />
+        <option value="bundled-js-predefined-1d06a55b98c1-91d5c284f522-JavaScript-IU-241.15989.150" />
       </set>
     </attachedChunks>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="9a0829ce-1916-46c8-a83f-0eb68d1bcbb5" name="Changes" comment="" />
-      <created>1714808625927</created>
+      <changelist id="2ee10d94-4457-471a-97fe-029a048743dc" name="Changes" comment="removing HR directory and fixing ID txt" />
+      <created>1717690336405</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1714808625927</updated>
-      <workItem from="1714808626980" duration="2000" />
-      <workItem from="1714810811509" duration="678000" />
-      <workItem from="1714811524309" duration="105000" />
-      <workItem from="1716791028807" duration="4978000" />
-      <workItem from="1717056998828" duration="3240000" />
-      <workItem from="1717064981279" duration="55000" />
-      <workItem from="1717104448923" duration="94000" />
-      <workItem from="1717104555869" duration="339000" />
-      <workItem from="1717488535554" duration="447000" />
-      <workItem from="1717489009199" duration="1676000" />
-      <workItem from="1717594638702" duration="2600000" />
-      <workItem from="1717745044390" duration="11729000" />
-      <workItem from="1717769691077" duration="139000" />
-      <workItem from="1717769835888" duration="66000" />
-      <workItem from="1717769907428" duration="240000" />
-      <workItem from="1717770156522" duration="1152000" />
-      <workItem from="1717832504419" duration="105000" />
-      <workItem from="1717926349859" duration="10389000" />
-      <workItem from="1719662889337" duration="7125000" />
-      <workItem from="1720076874794" duration="1746000" />
-      <workItem from="1720078892067" duration="65000" />
-      <workItem from="1720078963042" duration="2903000" />
-      <workItem from="1720094412678" duration="3768000" />
-      <workItem from="1720098909224" duration="11698000" />
-      <workItem from="1720118048894" duration="449000" />
-      <workItem from="1720682198138" duration="147000" />
-      <workItem from="1720682360634" duration="1448000" />
-      <workItem from="1720860767893" duration="2594000" />
+      <updated>1717690336405</updated>
+      <workItem from="1717690338497" duration="6505000" />
+      <workItem from="1717835411372" duration="17380000" />
+      <workItem from="1718537860768" duration="6594000" />
+      <workItem from="1719152523960" duration="11574000" />
+      <workItem from="1719658324902" duration="6880000" />
+      <workItem from="1719666098621" duration="14846000" />
+      <workItem from="1719746291122" duration="3101000" />
+      <workItem from="1719749443235" duration="11548000" />
+      <workItem from="1719932255552" duration="10937000" />
+      <workItem from="1720081545582" duration="18270000" />
     </task>
-    <task id="LOCAL-00001" summary="Added some JSON support">
+    <task id="LOCAL-00001" summary="Fixing bugs and adding CSV generation">
       <option name="closed" value="true" />
-      <created>1717064917414</created>
+      <created>1717765327659</created>
       <option name="number" value="00001" />
       <option name="presentableId" value="LOCAL-00001" />
       <option name="project" value="LOCAL" />
-      <updated>1717064917414</updated>
+      <updated>1717765327659</updated>
     </task>
-    <task id="LOCAL-00002" summary="Added some JSON support">
+    <task id="LOCAL-00002" summary="Moving project to DEV folder + adding tests">
       <option name="closed" value="true" />
-      <created>1717491318808</created>
+      <created>1717766368558</created>
       <option name="number" value="00002" />
       <option name="presentableId" value="LOCAL-00002" />
       <option name="project" value="LOCAL" />
-      <updated>1717491318808</updated>
+      <updated>1717766368558</updated>
     </task>
-    <task id="LOCAL-00003" summary="Added some JSON support">
+    <task id="LOCAL-00003" summary="Adding bulk item insertion">
       <option name="closed" value="true" />
-      <created>1717496188596</created>
+      <created>1717833983407</created>
       <option name="number" value="00003" />
       <option name="presentableId" value="LOCAL-00003" />
       <option name="project" value="LOCAL" />
-      <updated>1717496188596</updated>
+      <updated>1717833983408</updated>
     </task>
-    <task id="LOCAL-00004" summary="updating main">
+    <task id="LOCAL-00004" summary="Fixing reports and last bugs. Adding jar file. Moving all default creations to data layer">
       <option name="closed" value="true" />
-      <created>1717518698738</created>
+      <created>1717842429526</created>
       <option name="number" value="00004" />
       <option name="presentableId" value="LOCAL-00004" />
       <option name="project" value="LOCAL" />
-      <updated>1717518698738</updated>
+      <updated>1717842429526</updated>
     </task>
-    <task id="LOCAL-00005" summary="updating main">
+    <task id="LOCAL-00005" summary="adding relative file report storage">
       <option name="closed" value="true" />
-      <created>1717518950619</created>
+      <created>1717857964870</created>
       <option name="number" value="00005" />
       <option name="presentableId" value="LOCAL-00005" />
       <option name="project" value="LOCAL" />
-      <updated>1717518950619</updated>
+      <updated>1717857964870</updated>
     </task>
-    <task id="LOCAL-00006" summary="updating main">
+    <task id="LOCAL-00006" summary="adding new jar file and fixing path issue">
       <option name="closed" value="true" />
-      <created>1717527308635</created>
+      <created>1717859049108</created>
       <option name="number" value="00006" />
       <option name="presentableId" value="LOCAL-00006" />
       <option name="project" value="LOCAL" />
-      <updated>1717527308635</updated>
+      <updated>1717859049108</updated>
     </task>
-    <task id="LOCAL-00007" summary="Main menu updated, added updating employee info">
+    <task id="LOCAL-00007" summary="adding all docs">
       <option name="closed" value="true" />
-      <created>1717528720406</created>
+      <created>1717859984539</created>
       <option name="number" value="00007" />
       <option name="presentableId" value="LOCAL-00007" />
       <option name="project" value="LOCAL" />
-      <updated>1717528720406</updated>
+      <updated>1717859984539</updated>
     </task>
-    <task id="LOCAL-00008" summary="Added more employee functionality">
+    <task id="LOCAL-00008" summary="adding fixed documents">
       <option name="closed" value="true" />
-      <created>1717531641373</created>
+      <created>1717864197449</created>
       <option name="number" value="00008" />
       <option name="presentableId" value="LOCAL-00008" />
       <option name="project" value="LOCAL" />
-      <updated>1717531641373</updated>
+      <updated>1717864197449</updated>
     </task>
-    <task id="LOCAL-00009" summary="Added more employee functionality">
+    <task id="LOCAL-00009" summary="adding fixed instructions document">
       <option name="closed" value="true" />
-      <created>1717533257666</created>
+      <created>1717930201154</created>
       <option name="number" value="00009" />
       <option name="presentableId" value="LOCAL-00009" />
       <option name="project" value="LOCAL" />
-      <updated>1717533257666</updated>
+      <updated>1717930201154</updated>
     </task>
-    <task id="LOCAL-00010" summary="Added employee ShiftLimitation functionality- still need work">
+    <task id="LOCAL-00010" summary="Adding report generation by ID">
       <option name="closed" value="true" />
-      <created>1717596492402</created>
+      <created>1719152569167</created>
       <option name="number" value="00010" />
       <option name="presentableId" value="LOCAL-00010" />
       <option name="project" value="LOCAL" />
-      <updated>1717596492402</updated>
+      <updated>1719152569167</updated>
     </task>
-    <task id="LOCAL-00011" summary="Added employee ShiftLimitation functionality">
+    <task id="LOCAL-00011" summary="Adding SQLite connection and creating tables in DB">
       <option name="closed" value="true" />
-      <created>1717597279059</created>
+      <created>1719664362180</created>
       <option name="number" value="00011" />
       <option name="presentableId" value="LOCAL-00011" />
       <option name="project" value="LOCAL" />
-      <updated>1717597279059</updated>
+      <updated>1719664362180</updated>
     </task>
-    <task id="LOCAL-00012" summary="Added Schedule functionality">
+    <task id="LOCAL-00012" summary="Adding Category DAO configuration">
       <option name="closed" value="true" />
-      <created>1717749278335</created>
+      <created>1719667290647</created>
       <option name="number" value="00012" />
       <option name="presentableId" value="LOCAL-00012" />
       <option name="project" value="LOCAL" />
-      <updated>1717749278335</updated>
+      <updated>1719667290648</updated>
     </task>
-    <task id="LOCAL-00013" summary="Added Schedule functionality">
+    <task id="LOCAL-00013" summary="Adding Category Repository and implementing all category logic with DB">
       <option name="closed" value="true" />
-      <created>1717749751356</created>
+      <created>1719688077696</created>
       <option name="number" value="00013" />
       <option name="presentableId" value="LOCAL-00013" />
       <option name="project" value="LOCAL" />
-      <updated>1717749751356</updated>
+      <updated>1719688077696</updated>
     </task>
-    <task id="LOCAL-00014" summary="Added Unit tests">
+    <task id="LOCAL-00014" summary="Adding Item + Product DAO and Repository, TO-DO!!! fix bugs in item adding">
       <option name="closed" value="true" />
-      <created>1717768577852</created>
+      <created>1719751775342</created>
       <option name="number" value="00014" />
       <option name="presentableId" value="LOCAL-00014" />
       <option name="project" value="LOCAL" />
-      <updated>1717768577852</updated>
+      <updated>1719751775342</updated>
     </task>
-    <task id="LOCAL-00015" summary="Changed structure">
+    <task id="LOCAL-00015" summary="Fixing item bugs">
       <option name="closed" value="true" />
-      <created>1717768975011</created>
+      <created>1719830770458</created>
       <option name="number" value="00015" />
       <option name="presentableId" value="LOCAL-00015" />
       <option name="project" value="LOCAL" />
-      <updated>1717768975011</updated>
+      <updated>1719830770458</updated>
     </task>
-    <task id="LOCAL-00016" summary="Changed structure">
+    <task id="LOCAL-00016" summary="Category removal bug fixed">
       <option name="closed" value="true" />
-      <created>1717768987757</created>
+      <created>1719834318736</created>
       <option name="number" value="00016" />
       <option name="presentableId" value="LOCAL-00016" />
       <option name="project" value="LOCAL" />
-      <updated>1717768987757</updated>
+      <updated>1719834318736</updated>
     </task>
-    <task id="LOCAL-00017" summary="Added ShiftController and ShiftsDAO functionality- untested">
+    <task id="LOCAL-00017" summary="Product removal bug fixed">
       <option name="closed" value="true" />
-      <created>1719940212143</created>
+      <created>1719860180072</created>
       <option name="number" value="00017" />
       <option name="presentableId" value="LOCAL-00017" />
       <option name="project" value="LOCAL" />
-      <updated>1719940212143</updated>
+      <updated>1719860180072</updated>
     </task>
-    <task id="LOCAL-00018" summary="1.Fixed adding shift to DB&#10;2.Fixed Branch init">
+    <task id="LOCAL-00018" summary="Fixing connection and adding reports generation supper">
       <option name="closed" value="true" />
-      <created>1719995305514</created>
+      <created>1719927461349</created>
       <option name="number" value="00018" />
       <option name="presentableId" value="LOCAL-00018" />
       <option name="project" value="LOCAL" />
-      <updated>1719995305514</updated>
+      <updated>1719927461349</updated>
     </task>
-    <task id="LOCAL-00019" summary="added updateshift funcunality">
+    <task id="LOCAL-00019" summary="Adding low stock and supplier reports">
       <option name="closed" value="true" />
-      <created>1719996360453</created>
+      <created>1719928545551</created>
       <option name="number" value="00019" />
       <option name="presentableId" value="LOCAL-00019" />
       <option name="project" value="LOCAL" />
-      <updated>1719996360453</updated>
+      <updated>1719928545551</updated>
     </task>
-    <task id="LOCAL-00020" summary="added updateshift funcunality">
+    <task id="LOCAL-00020" summary="Adding low stock and supplier reports">
       <option name="closed" value="true" />
-      <created>1720004539710</created>
+      <created>1719930202916</created>
       <option name="number" value="00020" />
       <option name="presentableId" value="LOCAL-00020" />
       <option name="project" value="LOCAL" />
-      <updated>1720004539710</updated>
+      <updated>1719930202916</updated>
     </task>
-    <task id="LOCAL-00021" summary="added unit and integration tests for the Branch class">
+    <task id="LOCAL-00021" summary="Adding defective report">
       <option name="closed" value="true" />
-      <created>1720081841631</created>
+      <created>1719931054877</created>
       <option name="number" value="00021" />
       <option name="presentableId" value="LOCAL-00021" />
       <option name="project" value="LOCAL" />
-      <updated>1720081841631</updated>
+      <updated>1719931054877</updated>
     </task>
-    <task id="LOCAL-00022" summary="Added more tests and JAR file">
+    <task id="LOCAL-00022" summary="Fixing discount update on product">
       <option name="closed" value="true" />
-      <created>1720112263622</created>
+      <created>1719932490896</created>
       <option name="number" value="00022" />
       <option name="presentableId" value="LOCAL-00022" />
       <option name="project" value="LOCAL" />
-      <updated>1720112263622</updated>
+      <updated>1719932490896</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="Adding tests and fixing last bugs">
+      <option name="closed" value="true" />
+      <created>1720103456813</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1720103456813</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Added some JSON support" />
-    <MESSAGE value="updating main" />
-    <MESSAGE value="Main menu updated, added updating employee info" />
-    <MESSAGE value="Added more employee functionality" />
-    <MESSAGE value="Added employee ShiftLimitation functionality- still need work" />
-    <MESSAGE value="Added employee ShiftLimitation functionality" />
-    <MESSAGE value="Added Schedule functionality" />
-    <MESSAGE value="Added Unit tests" />
-    <MESSAGE value="Changed structure" />
-    <MESSAGE value="Added ShiftController and ShiftsDAO functionality- untested" />
-    <MESSAGE value="1.Fixed adding shift to DB&#10;2.Fixed Branch init" />
-    <MESSAGE value="added updateshift funcunality" />
-    <MESSAGE value="added unit and integration tests for the Branch class" />
-    <MESSAGE value="Added more tests and JAR file" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added more tests and JAR file" />
+    <MESSAGE value="removing HR directory and fixing ID txt" />
+    <MESSAGE value="Fixing bugs and adding CSV generation" />
+    <MESSAGE value="Moving project to DEV folder + adding tests" />
+    <MESSAGE value="Adding bulk item insertion" />
+    <MESSAGE value="Fixing reports and last bugs. Adding jar file. Moving all default creations to data layer" />
+    <MESSAGE value="adding relative file report storage" />
+    <MESSAGE value="adding new jar file and fixing path issue" />
+    <MESSAGE value="adding all docs" />
+    <MESSAGE value="adding fixed documents" />
+    <MESSAGE value="adding fixed instructions document" />
+    <MESSAGE value="Adding report generation by ID" />
+    <MESSAGE value="Adding SQLite connection and creating tables in DB" />
+    <MESSAGE value="Adding Category DAO configuration" />
+    <MESSAGE value="Adding Category Repository and implementing all category logic with DB" />
+    <MESSAGE value="Adding Item + Product DAO and Repository, TO-DO!!! fix bugs in item adding" />
+    <MESSAGE value="Fixing item bugs" />
+    <MESSAGE value="Category removal bug fixed" />
+    <MESSAGE value="Product removal bug fixed" />
+    <MESSAGE value="Fixing connection and adding reports generation supper" />
+    <MESSAGE value="Adding low stock and supplier reports" />
+    <MESSAGE value="Adding defective report" />
+    <MESSAGE value="Fixing discount update on product" />
+    <MESSAGE value="Adding tests and fixing last bugs" />
+    <option name="LAST_COMMIT_MESSAGE" value="Adding tests and fixing last bugs" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -477,6 +467,11 @@
           <line>102</line>
           <option name="timeStamp" value="41" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/dev/src/main/java/Inventory/PresentationLayer/CLIInterface.java</url>
+          <line>313</line>
+          <option name="timeStamp" value="107" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
     <pin-to-top-manager>
@@ -484,9 +479,5 @@
         <PinnedItemInfo parentTag="src.main.java.Inventory.DomainLayer.Category" memberName="products" />
       </pinned-members>
     </pin-to-top-manager>
-  </component>
-  <component name="XSLT-Support.FileAssociations.UIState">
-    <expand />
-    <select />
   </component>
 </project>

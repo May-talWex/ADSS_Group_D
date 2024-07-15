@@ -8,7 +8,7 @@ public class Item {
     public boolean defective;
     public boolean inWareHouse;
     public int floor;
-    public int building;
+    public int branchID;
     public float aisle;
     public float shelf;
     public String name;
@@ -24,7 +24,7 @@ public class Item {
                 "defective=" + defective +
                 ", inWareHouse=" + inWareHouse +
                 ", floorBuilding=" + floor +
-                ", floorShelf=" + building +
+                ", floorShelf=" + branchID +
                 ", x=" + aisle +
                 ", y=" + shelf +
                 ", name='" + name + '\'' +
@@ -36,18 +36,18 @@ public class Item {
                 '}';
     }
 
-    public Item(boolean defective, boolean inWareHouse, int floor, int building, float aisle, float shelf, String name, String id, LocalDate expireDate, String categoryID, String productID) {
+    public Item(boolean defective, boolean inWareHouse, int floor, int branchID, float aisle, float shelf, String name, String id, LocalDate expireDate, String categoryID, String productID) {
         this.defective = defective;
         this.inWareHouse = inWareHouse;
 
         if (inWareHouse) {
             this.floor = -1;
-            this.building = -1;
+            this.branchID = -1;
             this.aisle = -1;
             this.shelf = -1;
         } else {
             this.floor = floor;
-            this.building = building;
+            this.branchID = branchID;
             this.aisle = aisle;
             this.shelf = shelf;
         }
@@ -89,9 +89,9 @@ public class Item {
         this.defective = isDefective;
     }
 
-    public void setLocation(int floorBuilding, int floorShelf) {
-        this.floor = floorBuilding;
-        this.building = floorShelf;
+    public void setLocation(int floor, int branchID) {
+        this.floor = floor;
+        this.branchID = branchID;
     }
 
 

@@ -14,7 +14,7 @@ public class CLIInterface {
 
     public static void main(Branch branch) {
         initialize();
-        int branchId = branch.getBranchId(); // Change building in item to branchID
+        int branchId = branch.getBranchId();
         while (true) {
             try {
                 System.out.print("");
@@ -23,7 +23,7 @@ public class CLIInterface {
                 scanner.nextLine(); // Consume newline
                 switch (choice) {
                     case 1:
-                        handleAddRemoveMenu();
+                        handleAddRemoveMenu(branchId);
                         break;
                     case 2:
                         handleUpdateMenu();
@@ -69,7 +69,7 @@ public class CLIInterface {
         System.out.print("Choose an option: ");
     }
 
-    private static void handleAddRemoveMenu() {
+    private static void handleAddRemoveMenu(int branchId) {
         try {
             addRemoveMenu();
             int choice = scanner.nextInt();
@@ -83,7 +83,7 @@ public class CLIInterface {
                     addProduct();
                     break;
                 case 3:
-                    addItem();
+                    addItem(branchId);
                     break;
                 case 4:
                     removeCategory();
@@ -299,7 +299,10 @@ public class CLIInterface {
         }
     }
 
-    private static void addItem() {
+    private static void addItem(int branchId) {
+        int floor;
+        float aisle;
+        float shelf;
         System.out.print("Enter item name: ");
         String name = scanner.nextLine();
         System.out.print("Enter item ID (unique identifier): ");
@@ -308,7 +311,22 @@ public class CLIInterface {
         boolean defective = scanner.nextLine().equalsIgnoreCase("yes");
         System.out.print("Is the item in the warehouse (yes/no)? ");
         boolean inWareHouse = scanner.nextLine().equalsIgnoreCase("yes");
-
+        if (!inWareHouse){
+            System.out.print("Enter item floor: ");
+            floor = scanner.nextInt();
+            scanner.nextLine();
+            System.out.print("Enter item aisle: ");
+            aisle = scanner.nextFloat();
+            scanner.nextLine();
+            System.out.print("Enter item shelf: ");
+            shelf = scanner.nextFloat();
+            scanner.nextLine();
+        }
+        else {
+            floor = -1;
+            aisle = -1;
+            shelf = -1;
+        }
         LocalDate expireDate;
         while (true) {
             System.out.print("Enter product expiry date (YYYY-MM-DD): ");
@@ -339,7 +357,7 @@ public class CLIInterface {
 
         for (int i = 0; i < itemAmount; i++) {
             String newItemId = itemId + i; // Generate a new item ID for each item
-            serviceController.addItem(defective, inWareHouse, -1, -1, -1f, -1f, -1f, -1f, name, newItemId, expireDate, categoryID, productID);
+            serviceController.addItem(defective, inWareHouse, floor, branchId, aisle, shelf, -1f, -1f, name, newItemId, expireDate, categoryID, productID);
         }
     }
 

@@ -20,7 +20,7 @@ public class ItemDAO {
         this.connection = DataBaseConnection.getConnection();
     }
     public boolean insertItem(Item item) {
-        String sql = "INSERT INTO Item(id, name, defective, inWareHouse, floor, building, aisle, shelf, expireDate, categoryID, productID) VALUES(?,?,?,?,?,?,?,?,?,?,?)";
+        String sql = "INSERT INTO Item(id, name, defective, inWareHouse, floor, branchID, aisle, shelf, expireDate, categoryID, productID) VALUES(?,?,?,?,?,?,?,?,?,?,?)";
 
         try (PreparedStatement pstmt = connection.prepareStatement(sql)) {
             pstmt.setString(1, item.getID());
@@ -28,7 +28,7 @@ public class ItemDAO {
             pstmt.setBoolean(3, item.defective);
             pstmt.setBoolean(4, item.inWareHouse);
             pstmt.setInt(5, item.floor);
-            pstmt.setInt(6, item.building);
+            pstmt.setInt(6, item.branchID);
             pstmt.setFloat(7, item.aisle);
             pstmt.setFloat(8, item.shelf);
             pstmt.setString(9, item.expireDate.toString());  // Ensure correct date format
@@ -94,8 +94,8 @@ public class ItemDAO {
             if (rs.next()) {
                 boolean defective = rs.getBoolean("defective");
                 boolean inWareHouse = rs.getBoolean("inWareHouse");
-                int floorBuilding = rs.getInt("floor");
-                int floorShelf = rs.getInt("building");
+                int floor = rs.getInt("floor");
+                int branchID = rs.getInt("branchID");
                 float aisle = rs.getFloat("aisle");
                 float shelf = rs.getFloat("shelf");
                 String name = rs.getString("name");
@@ -112,7 +112,7 @@ public class ItemDAO {
                 String categoryID = rs.getString("categoryID");
                 String productID = rs.getString("productID");
 
-                return new Item(defective, inWareHouse, floorBuilding, floorShelf, aisle, shelf, name, id, expireDate, categoryID, productID);
+                return new Item(defective, inWareHouse, floor, branchID, aisle, shelf, name, id, expireDate, categoryID, productID);
             }
         } catch (SQLException e) {
             System.out.println(e.getMessage());
@@ -147,7 +147,7 @@ public class ItemDAO {
                 boolean defective = rs.getBoolean("defective");
                 boolean inWareHouse = rs.getBoolean("inWareHouse");
                 int floor = rs.getInt("floor");
-                int building = rs.getInt("building");
+                int branchID = rs.getInt("branchID");
                 float aisle = rs.getFloat("aisle");
                 float shelf = rs.getFloat("shelf");
                 String name = rs.getString("name");
@@ -165,7 +165,7 @@ public class ItemDAO {
                 String categoryID = rs.getString("categoryID");
                 String productID = rs.getString("productID");
 
-                Item item = new Item(defective, inWareHouse, floor, building, aisle, shelf, name, id, expireDate, categoryID, productID);
+                Item item = new Item(defective, inWareHouse, floor, branchID, aisle, shelf, name, id, expireDate, categoryID, productID);
                 defectiveItems.add(item);
             }
         } catch (SQLException e) {
@@ -203,17 +203,17 @@ public class ItemDAO {
     private Item createItemFromResultSet(ResultSet rs) throws SQLException {
         boolean defective = rs.getBoolean("defective");
         boolean inWareHouse = rs.getBoolean("inWareHouse");
-        int floorBuilding = rs.getInt("floor");
-        int floorShelf = rs.getInt("building");
-        float x = rs.getFloat("aisle");
-        float y = rs.getFloat("shelf");
+        int floor = rs.getInt("floor");
+        int branchID = rs.getInt("branchID");
+        float aisle = rs.getFloat("aisle");
+        float shelf = rs.getFloat("shelf");
         LocalDate expireDate = rs.getDate("expireDate").toLocalDate();
         String name = rs.getString("name");
         String id = rs.getString("id");
         String categoryID = rs.getString("categoryID");
         String productID = rs.getString("productID");
 
-        return new Item(defective, inWareHouse, floorBuilding, floorShelf, x, y, name, id, expireDate, categoryID, productID);
+        return new Item(defective, inWareHouse, floor, branchID, aisle, shelf, name, id, expireDate, categoryID, productID);
     }
 
     public boolean removeExpiredItems() {
@@ -240,11 +240,11 @@ public class ItemDAO {
         }
     }
 
-    public boolean updateItemLocation(String itemID, int floorBuilding, int floorShelf, float aisle, float shelf, boolean inWareHouse) {
-        String query = "UPDATE Item SET floor = ?, building = ?, aisle = ?, shelf = ?, inWareHouse = ? WHERE id = ?";
+    public boolean updateItemLocation(String itemID, int floor, int branchID, float aisle, float shelf, boolean inWareHouse) {
+        String query = "UPDATE Item SET floor = ?, branchID = ?, aisle = ?, shelf = ?, inWareHouse = ? WHERE id = ?";
         try (PreparedStatement statement = connection.prepareStatement(query)) {
-            statement.setInt(1, floorBuilding);
-            statement.setInt(2, floorShelf);
+            statement.setInt(1, floor);
+            statement.setInt(2, branchID);
             statement.setFloat(3, aisle);
             statement.setFloat(4, shelf);
             statement.setBoolean(5, inWareHouse);

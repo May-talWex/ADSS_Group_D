@@ -28,8 +28,8 @@ public class ServiceController {
     }
 
     // Item Service Methods
-    public boolean addItem(boolean defective, boolean inWareHouse, int floorBuilding,
-                           int floorShelf, float x, float y,
+    public boolean addItem(boolean defective, boolean inWareHouse, int floor,
+                           int branchID, float aisle, float shelf,
                            float supplierCost, float priceNoDiscount, String name,
                            String id, LocalDate expireDate,
                            String categoryID, String productID) {
@@ -40,7 +40,7 @@ public class ServiceController {
             System.out.println("ProductID " + productID + " does not exist. Please create product first");
             return false;
         } else {
-            boolean itemAdded = itemController.addNewItem(defective, inWareHouse, floorBuilding, floorShelf, x, y, name, id, expireDate, categoryID, productID);
+            boolean itemAdded = itemController.addNewItem(defective, inWareHouse, floor, branchID, aisle, shelf, name, id, expireDate, categoryID, productID);
             if (itemAdded) {
                 System.out.println("Item added successfully to product and inventory");
                 return true;
