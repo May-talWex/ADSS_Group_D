@@ -4,6 +4,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.*;
 import org.junit.jupiter.api.MethodOrderer.OrderAnnotation;
+import Inventory.DataLayer.DataBaseConnection;
 import Inventory.DomainLayer.*;
 import Inventory.ServiceLayer.ServiceController;
 
@@ -28,6 +29,7 @@ public class TestV2 {
 
     @BeforeEach
     void setUp() {
+        DataBaseConnection.getInstance();
         serviceController = new ServiceController();
         serviceController.initialize();
 
