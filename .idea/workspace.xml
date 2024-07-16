@@ -9,13 +9,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2ee10d94-4457-471a-97fe-029a048743dc" name="Changes" comment="Adding branchID to item">
+    <list default="true" id="2ee10d94-4457-471a-97fe-029a048743dc" name="Changes" comment="Fixing tests for inventory module">
+      <change afterPath="$PROJECT_DIR$/docs/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dev/src/main/java/Inventory/tests/TestV1.java" beforeDir="false" afterPath="$PROJECT_DIR$/dev/src/main/java/Inventory/tests/TestV1.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dev/src/main/java/Inventory/tests/TestV2.java" beforeDir="false" afterPath="$PROJECT_DIR$/dev/src/main/java/Inventory/tests/TestV2.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/release/ADSS_Group_D.jar" beforeDir="false" afterPath="$PROJECT_DIR$/release/ADSS_Group_D.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HRDB.sqlite" beforeDir="false" afterPath="$PROJECT_DIR$/HRDB.sqlite" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/release/InventoryDB.db" beforeDir="false" afterPath="$PROJECT_DIR$/release/InventoryDB.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Inventory/tests/TestV1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Inventory/tests/TestV1.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -70,6 +68,7 @@
     "Application.TableInitializer.executor": "Run",
     "Application.main.executor": "Run",
     "Application.src.main.java.Inventory.PresentationLayer.CLIInterface.executor": "Run",
+    "JUnit.IntegrationTests.testFullWorkflow.executor": "Run",
     "JUnit.InventoryManagementTests.executor": "Run",
     "JUnit.InventoryManagementTests.testAddNewProduct.executor": "Run",
     "JUnit.InventoryManagementTests.testLowStockAlert.executor": "Debug",
@@ -130,23 +129,26 @@
       <recent name="C:\githubclones\ADSS_Group_D\dev" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.TestV2">
-    <configuration name="SQLiteConnection" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="HR.Data.SQLiteConnection" />
+  <component name="RunManager" selected="JUnit.IntegrationTests.testFullWorkflow">
+    <configuration name="main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="main" />
       <module name="ADSS_Group_D" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="HR.Data.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="main" />
+    <configuration name="IntegrationTests.testFullWorkflow" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ADSS_Group_D" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="integrationTests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="integrationTests" />
+      <option name="MAIN_CLASS_NAME" value="integrationTests.IntegrationTests" />
+      <option name="METHOD_NAME" value="testFullWorkflow" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -187,11 +189,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.IntegrationTests.testFullWorkflow" />
         <item itemvalue="JUnit.TestV2" />
         <item itemvalue="JUnit.TestV1" />
         <item itemvalue="Application.main" />
         <item itemvalue="JAR Application.ADSS_Group_D.jar" />
-        <item itemvalue="Application.SQLiteConnection" />
       </list>
     </recent_temporary>
   </component>
@@ -414,7 +416,15 @@
       <option name="project" value="LOCAL" />
       <updated>1721036237121</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="Fixing tests for inventory module">
+      <option name="closed" value="true" />
+      <created>1721036337547</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1721036337547</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -445,7 +455,8 @@
     <MESSAGE value="Fixing discount update on product" />
     <MESSAGE value="Adding tests and fixing last bugs" />
     <MESSAGE value="Adding branchID to item" />
-    <option name="LAST_COMMIT_MESSAGE" value="Adding branchID to item" />
+    <MESSAGE value="Fixing tests for inventory module" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixing tests for inventory module" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
