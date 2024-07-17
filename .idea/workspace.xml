@@ -9,11 +9,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2ee10d94-4457-471a-97fe-029a048743dc" name="Changes" comment="Fixing tests for inventory module">
-      <change afterPath="$PROJECT_DIR$/docs/README.md" afterDir="false" />
+    <list default="true" id="2ee10d94-4457-471a-97fe-029a048743dc" name="Changes" comment="Adding README file">
+      <change afterPath="$PROJECT_DIR$/dev/src/main/java/integrationTests/IntegrationTests.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/HRDB.sqlite" beforeDir="false" afterPath="$PROJECT_DIR$/HRDB.sqlite" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/release/InventoryDB.db" beforeDir="false" afterPath="$PROJECT_DIR$/release/InventoryDB.db" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,7 +67,7 @@
     "Application.TableInitializer.executor": "Run",
     "Application.main.executor": "Run",
     "Application.src.main.java.Inventory.PresentationLayer.CLIInterface.executor": "Run",
-    "JUnit.IntegrationTests.testFullWorkflow.executor": "Run",
+    "JUnit.IntegrationTests.testFullWorkflow.executor": "Debug",
     "JUnit.InventoryManagementTests.executor": "Run",
     "JUnit.InventoryManagementTests.testAddNewProduct.executor": "Run",
     "JUnit.InventoryManagementTests.testLowStockAlert.executor": "Debug",
@@ -424,14 +423,21 @@
       <option name="project" value="LOCAL" />
       <updated>1721036337547</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="Adding README file">
+      <option name="closed" value="true" />
+      <created>1721157604864</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1721157604865</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="removing HR directory and fixing ID txt" />
     <MESSAGE value="Fixing bugs and adding CSV generation" />
     <MESSAGE value="Moving project to DEV folder + adding tests" />
     <MESSAGE value="Adding bulk item insertion" />
@@ -456,7 +462,8 @@
     <MESSAGE value="Adding tests and fixing last bugs" />
     <MESSAGE value="Adding branchID to item" />
     <MESSAGE value="Fixing tests for inventory module" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixing tests for inventory module" />
+    <MESSAGE value="Adding README file" />
+    <option name="LAST_COMMIT_MESSAGE" value="Adding README file" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -480,6 +487,11 @@
           <url>file://$PROJECT_DIR$/dev/src/main/java/Inventory/PresentationLayer/CLIInterface.java</url>
           <line>313</line>
           <option name="timeStamp" value="107" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/dev/src/main/java/HR/Data/EmployeesDAO.java</url>
+          <line>342</line>
+          <option name="timeStamp" value="112" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
