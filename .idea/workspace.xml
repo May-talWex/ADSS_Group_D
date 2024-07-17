@@ -10,9 +10,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2ee10d94-4457-471a-97fe-029a048743dc" name="Changes" comment="Adding README file">
-      <change afterPath="$PROJECT_DIR$/dev/src/main/java/integrationTests/IntegrationTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/HRDB.sqlite" beforeDir="false" afterPath="$PROJECT_DIR$/HRDB.sqlite" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dev/src/main/java/HR/Data/BranchDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/dev/src/main/java/HR/Data/BranchDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dev/src/main/java/HR/Data/EmployeesDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/dev/src/main/java/HR/Data/EmployeesDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dev/src/main/java/integrationTests/IntegrationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/dev/src/main/java/Integration/Tests/IntegrationTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/release/ADSS_Group_D.jar" beforeDir="false" afterPath="$PROJECT_DIR$/release/ADSS_Group_D.jar" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -67,7 +71,7 @@
     "Application.TableInitializer.executor": "Run",
     "Application.main.executor": "Run",
     "Application.src.main.java.Inventory.PresentationLayer.CLIInterface.executor": "Run",
-    "JUnit.IntegrationTests.testFullWorkflow.executor": "Debug",
+    "JUnit.IntegrationTests.testFullWorkflow.executor": "Run",
     "JUnit.InventoryManagementTests.executor": "Run",
     "JUnit.InventoryManagementTests.testAddNewProduct.executor": "Run",
     "JUnit.InventoryManagementTests.testLowStockAlert.executor": "Debug",
@@ -107,7 +111,7 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Artifacts",
+    "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
     "vue.rearranger.settings.migration": "true"
@@ -140,12 +144,12 @@
       <module name="ADSS_Group_D" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="integrationTests.*" />
+          <option name="PATTERN" value="Integration.Tests.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="integrationTests" />
-      <option name="MAIN_CLASS_NAME" value="integrationTests.IntegrationTests" />
+      <option name="PACKAGE_NAME" value="Integration.Tests" />
+      <option name="MAIN_CLASS_NAME" value="Integration.Tests.IntegrationTests" />
       <option name="METHOD_NAME" value="testFullWorkflow" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
@@ -490,7 +494,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/dev/src/main/java/HR/Data/EmployeesDAO.java</url>
-          <line>342</line>
+          <line>343</line>
           <option name="timeStamp" value="112" />
         </line-breakpoint>
       </breakpoints>

@@ -71,13 +71,14 @@ public class EmployeesDAO {
 
     public void addRolesToDatabase(Employee employee) throws SQLException {
         String roleSql = "INSERT INTO EmployeeRoles (EmployeeID, Role) VALUES (?, ?)";
-
+        System.out.println("Adding roles to database for employee: " + employee.getName());
         Connection conn = SQLiteConnection.getConnection();
         try (PreparedStatement pstmtRole = conn.prepareStatement(roleSql)) {
             for (EmployeeType role : employee.getPossiblePositions()) {
                 pstmtRole.setInt(1, employee.getEmployeeId());
                 pstmtRole.setString(2, role.getType());
                 pstmtRole.executeUpdate();
+                System.out.println("Role added to database: " + role.getType());
             }
         } catch (SQLException e) {
             System.out.println("SQLException in addRolesToDatabase: " + e.getMessage());

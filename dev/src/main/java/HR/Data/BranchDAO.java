@@ -45,13 +45,15 @@ public class BranchDAO {
     }
 
     public void addBranchToDatabase(Branch branch) {
-        String sql = "INSERT INTO Branches (BranchName, BranchAddress) VALUES (?, ?)";
+        String sql = "INSERT INTO Branches (BranchID, BranchName, BranchAddress) VALUES (?, ?, ?)";
         try {
             PreparedStatement pstmt = connection.prepareStatement(sql);
             System.out.println("PreparedStatement created");
-            pstmt.setString(1, branch.getName());
+            pstmt.setInt(1, branch.getBranchId());
+            System.out.println("BranchID set to " + branch.getBranchId());
+            pstmt.setString(2, branch.getName());
             System.out.println("BranchName set to " + branch.getName());
-            pstmt.setString(2, branch.getAddress());
+            pstmt.setString(3, branch.getAddress());
             System.out.println("BranchAddress set to " + branch.getAddress());
             pstmt.executeUpdate();
             System.out.println("Branch " + branch.getBranchId() + " added to database.");
