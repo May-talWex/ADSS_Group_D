@@ -20,6 +20,7 @@ public class HRMainMenu {
         System.out.println("Enter branch ID: ");
         Scanner s = new Scanner(System.in);
         int branchId = s.nextInt();
+        System.out.println("Read branch ID: " + branchId); // Added this line for debugging
         Branch branch = branchDAO.getBranchFromDatabase(branchId); // Default branch with ID 1
 
         if (branch == null) {
@@ -65,7 +66,6 @@ public class HRMainMenu {
             do {
                 try {
                     id = scanner.nextInt();
-
                     break;
                 } catch (Exception e) {
                     System.out.println("Invalid input. Please enter a number.");
@@ -106,7 +106,7 @@ public class HRMainMenu {
         System.out.print("Enter your choice: ");
     }
 
-    private static void StorageEmployeeMenu(Branch branch, int id) throws Exception {
+    public static void StorageEmployeeMenu(Branch branch, int id) throws Exception {
         PrintStorageEmployeeMenu();
         Scanner scanner = new Scanner(System.in);
         int choice;
@@ -123,10 +123,10 @@ public class HRMainMenu {
 
             switch (choice) {
                 case 1:
-                    CLIInterface.main(branch);
+                    CLIInterface.main(branch,id);
                     break;
                 case 2:
-                    employeeMenu(branch, new EmployeesDAO());
+                    NonManagerMenu(branch, id);
                     break;
                 case 3:
                     System.out.println("Logging out and returning to the main menu...");
@@ -154,16 +154,13 @@ public class HRMainMenu {
                     scheduleMenu(branch, shiftDAO);
                     break;
                 case 3:
-                    CLIInterface.main(branch);
-                    break;
-                case 4:
                     System.out.println("Logging out and returning to the main menu...");
                     break;
                 default:
                     System.out.println("Invalid choice!");
                     break;
             }
-        } while (HRChoice != 4);
+        } while (HRChoice != 3);
     }
 
     public static void employeeMenu(Branch branch, EmployeesDAO employeesDAO) throws Exception {
@@ -178,7 +175,7 @@ public class HRMainMenu {
                 case 1:
                     Employee temp = createEmployee(branch);
                     employeesDAO.addEmployeeToDatabase(temp);
-                    branch.addWorker(temp);
+//                    branch.addWorker(temp);
                     break;
                 case 2:
                     removeEmployee(branch, employeesDAO);
@@ -467,7 +464,7 @@ public class HRMainMenu {
                     break;
                 case 4:
                     System.out.println("Returning to the main menu...");
-                    break;
+                    return;
                 default:
                     System.out.println("Invalid choice!");
                     break;
@@ -488,8 +485,7 @@ public class HRMainMenu {
         System.out.println("Main HR Menu:");
         System.out.println("1. Employee Functions");
         System.out.println("2. Schedule and Shift Functions");
-        System.out.println("3. Inventory Management");
-        System.out.println("4. Logout");
+        System.out.println("3. Logout");
         System.out.print("Enter your choice: ");
     }
 

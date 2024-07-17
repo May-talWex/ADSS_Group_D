@@ -4,15 +4,17 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 import HR.Domain.Branch;
+import HR.Presentation.HRMainMenu;
 import Inventory.ServiceLayer.ServiceController;
 import java.time.LocalDate;
 import java.time.format.DateTimeParseException;
+
 
 public class CLIInterface {
     private static ServiceController serviceController = new ServiceController();
     private static Scanner scanner = new Scanner(System.in);
 
-    public static void main(Branch branch) {
+    public static void main(Branch branch, int ID) {
         initialize();
         int branchId = branch.getBranchId();
         while (true) {
@@ -42,6 +44,7 @@ public class CLIInterface {
                         break;
                     case 7:
                         System.out.println("Exiting...");
+                        HRMainMenu.StorageEmployeeMenu(branch ,ID);
                         return;
                     default:
                         System.out.println("Invalid choice. Please try again.");
@@ -49,6 +52,8 @@ public class CLIInterface {
             } catch (InputMismatchException e) {
                 System.out.println("Invalid input. Please enter a number.");
                 scanner.nextLine(); // Consume the invalid input
+            } catch (Exception e) {
+                throw new RuntimeException(e);
             }
         }
     }

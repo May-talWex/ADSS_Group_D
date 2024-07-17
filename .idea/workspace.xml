@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ArtifactsWorkspaceSettings">
     <artifacts-to-build>
-      <artifact name="adss2024_v02:jar" />
+      <artifact name="ADSS_Group_D:jar" />
     </artifacts-to-build>
   </component>
   <component name="AutoImportSettings">
@@ -10,14 +10,35 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2ee10d94-4457-471a-97fe-029a048743dc" name="Changes" comment="Adding README file">
+      <change afterPath="$PROJECT_DIR$/dev/src/main/java/Integration/Tests/CustomInputStream.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dev/src/main/java/Integration/Tests/CustomOutputStream.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/HRDB.sqlite" beforeDir="false" afterPath="$PROJECT_DIR$/HRDB.sqlite" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dev/src/main/java/HR/Data/EmployeesDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/dev/src/main/java/HR/Data/EmployeesDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HRDB.sqlite" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/HRDB.sqlite-journal" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/META-INF/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/META-INF/MANIFEST.MF" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dev/src/main/java/HR/Data/SQLiteConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/dev/src/main/java/HR/Data/SQLiteConnection.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dev/src/main/java/HR/Presentation/HRMainMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/dev/src/main/java/HR/Presentation/HRMainMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dev/src/main/java/HR/Presentation/Main_Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/dev/src/main/java/HR/Presentation/Main_Menu.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dev/src/main/java/Integration/Tests/IntegrationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/dev/src/main/java/Integration/Tests/IntegrationTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dev/src/main/java/main.java" beforeDir="false" afterPath="$PROJECT_DIR$/dev/src/main/java/main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/release/ADSS_Group_D.jar" beforeDir="false" afterPath="$PROJECT_DIR$/release/ADSS_Group_D.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dev/src/main/java/Inventory/DataLayer/DataBaseConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/dev/src/main/java/Inventory/DataLayer/DataBaseConnection.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dev/src/main/java/Inventory/PresentationLayer/CLIInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/dev/src/main/java/Inventory/PresentationLayer/CLIInterface.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dev/src/main/resources/HRDB.sqlite" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/release/ADSS_Group_D.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/release/HRDB.sqlite" beforeDir="false" afterPath="$PROJECT_DIR$/release/HRDB.sqlite" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/release/InventoryDB.db" beforeDir="false" afterPath="$PROJECT_DIR$/release/InventoryDB.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/HR/Data/SQLiteConnection.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/HR/Data/SQLiteConnection.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/HR/Presentation/HRMainMenu.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/HR/Presentation/HRMainMenu.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/HR/Presentation/Main_Menu.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Integration/Tests/IntegrationTests.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Integration/Tests/IntegrationTests.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Inventory/DataLayer/DataBaseConnection.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Inventory/DataLayer/DataBaseConnection.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Inventory/PresentationLayer/CLIInterface.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Inventory/PresentationLayer/CLIInterface.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/main/resources/HRDB.sqlite" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/resources/HRDB.sqlite" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/src/main/resources/HRDB.sqlite" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,66 +85,69 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.CLIInterface.executor&quot;: &quot;Run&quot;,
-    &quot;Application.MainApp.executor&quot;: &quot;Debug&quot;,
-    &quot;Application.MainTest.executor&quot;: &quot;Debug&quot;,
-    &quot;Application.TableInitializer.executor&quot;: &quot;Run&quot;,
-    &quot;Application.main.executor&quot;: &quot;Run&quot;,
-    &quot;Application.src.main.java.Inventory.PresentationLayer.CLIInterface.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.IntegrationTests.testFullWorkflow.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.InventoryManagementTests.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.InventoryManagementTests.testAddNewProduct.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.InventoryManagementTests.testLowStockAlert.executor&quot;: &quot;Debug&quot;,
-    &quot;JUnit.InventoryManagementTests.testUpdateQuantity.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.TestV1.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.TestV1.testAddCategory.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.TestV1.testAddItem.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.TestV1.testAddProduct.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.TestV1.testDeleteCategory.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.TestV1.testDeleteItem.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.TestV1.testDeleteProduct.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.TestV1.testGetCategory.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.TestV1.testGetItem.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.TestV1.testGetProduct.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.TestV1.testUpdateItemDefective.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.TestV1.testUpdateProductDiscount.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.TestV1.testUpdateProductPrice.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.TestV2.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.TestV2.testAddCategory.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.TestV2.testAddItemToProduct.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.TestV2.testAddProductToCategory.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.TestV2.testCleanup.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.TestV2.testGetNonExistingItem.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.TestV2.testGetNonExistingProduct.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.TestV2.testMoveToWarehouse.executor&quot;: &quot;Debug&quot;,
-    &quot;JUnit.TestV2.testRemoveCategoryWithProducts.executor&quot;: &quot;Debug&quot;,
-    &quot;JUnit.TestV2.testRemoveCategoryWithoutProducts.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.TestV2.testRemoveItem.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.TestV2.testRemoveProductWithItems.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.TestV2.testRemoveProductWithoutItems.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/githubclones/ADSS_Group_D/release&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.CLIInterface.executor": "Run",
+    "Application.MainApp.executor": "Debug",
+    "Application.MainTest.executor": "Debug",
+    "Application.SQLiteConnection.executor": "Run",
+    "Application.TableInitializer.executor": "Run",
+    "Application.main.executor": "Run",
+    "Application.src.main.java.Inventory.PresentationLayer.CLIInterface.executor": "Run",
+    "JUnit.IntegrationTests.executor": "Run",
+    "JUnit.IntegrationTests.testEmployeeMenuFlow.executor": "Run",
+    "JUnit.IntegrationTests.testFullWorkflow.executor": "Run",
+    "JUnit.InventoryManagementTests.executor": "Run",
+    "JUnit.InventoryManagementTests.testAddNewProduct.executor": "Run",
+    "JUnit.InventoryManagementTests.testLowStockAlert.executor": "Debug",
+    "JUnit.InventoryManagementTests.testUpdateQuantity.executor": "Run",
+    "JUnit.TestV1.executor": "Run",
+    "JUnit.TestV1.testAddCategory.executor": "Run",
+    "JUnit.TestV1.testAddItem.executor": "Run",
+    "JUnit.TestV1.testAddProduct.executor": "Run",
+    "JUnit.TestV1.testDeleteCategory.executor": "Run",
+    "JUnit.TestV1.testDeleteItem.executor": "Run",
+    "JUnit.TestV1.testDeleteProduct.executor": "Run",
+    "JUnit.TestV1.testGetCategory.executor": "Run",
+    "JUnit.TestV1.testGetItem.executor": "Run",
+    "JUnit.TestV1.testGetProduct.executor": "Run",
+    "JUnit.TestV1.testUpdateItemDefective.executor": "Run",
+    "JUnit.TestV1.testUpdateProductDiscount.executor": "Run",
+    "JUnit.TestV1.testUpdateProductPrice.executor": "Run",
+    "JUnit.TestV2.executor": "Run",
+    "JUnit.TestV2.testAddCategory.executor": "Run",
+    "JUnit.TestV2.testAddItemToProduct.executor": "Run",
+    "JUnit.TestV2.testAddProductToCategory.executor": "Run",
+    "JUnit.TestV2.testCleanup.executor": "Run",
+    "JUnit.TestV2.testGetNonExistingItem.executor": "Run",
+    "JUnit.TestV2.testGetNonExistingProduct.executor": "Run",
+    "JUnit.TestV2.testMoveToWarehouse.executor": "Debug",
+    "JUnit.TestV2.testRemoveCategoryWithProducts.executor": "Debug",
+    "JUnit.TestV2.testRemoveCategoryWithoutProducts.executor": "Run",
+    "JUnit.TestV2.testRemoveItem.executor": "Run",
+    "JUnit.TestV2.testRemoveProductWithItems.executor": "Run",
+    "JUnit.TestV2.testRemoveProductWithoutItems.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "master",
+    "ignore.virus.scanning.warn.message": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/githubclones/ADSS_Group_D/release",
+    "node.js.detected.package.eslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Artifacts",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;sqlite&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "sqlite"
     ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\githubclones\ADSS_Group_D\docs" />
@@ -134,10 +158,54 @@
       <recent name="C:\githubclones\ADSS_Group_D\dev" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.IntegrationTests.testFullWorkflow">
+  <component name="RunManager" selected="Application.main">
+    <configuration name="SQLiteConnection" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="HR.Data.SQLiteConnection" />
+      <module name="ADSS_Group_D" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="HR.Data.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="main" />
       <module name="ADSS_Group_D" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="IntegrationTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ADSS_Group_D" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Integration.Tests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="Integration.Tests" />
+      <option name="MAIN_CLASS_NAME" value="Integration.Tests.IntegrationTests" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="IntegrationTests.testEmployeeMenuFlow" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ADSS_Group_D" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Integration.Tests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="Integration.Tests" />
+      <option name="MAIN_CLASS_NAME" value="Integration.Tests.IntegrationTests" />
+      <option name="METHOD_NAME" value="testEmployeeMenuFlow" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -158,47 +226,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TestV1" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="ADSS_Group_D" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="Inventory.tests.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="Inventory.tests" />
-      <option name="MAIN_CLASS_NAME" value="Inventory.tests.TestV1" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="TestV2" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="ADSS_Group_D" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="Inventory.tests.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="Inventory.tests" />
-      <option name="MAIN_CLASS_NAME" value="Inventory.tests.TestV2" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="ADSS_Group_D.jar" type="JarApplication" temporary="true">
-      <option name="JAR_PATH" value="$PROJECT_DIR$/release/ADSS_Group_D.jar" />
-      <method v="2" />
-    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.IntegrationTests.testFullWorkflow" />
         <item itemvalue="Application.main" />
-        <item itemvalue="JUnit.TestV2" />
-        <item itemvalue="JUnit.TestV1" />
-        <item itemvalue="JAR Application.ADSS_Group_D.jar" />
+        <item itemvalue="JUnit.IntegrationTests" />
+        <item itemvalue="JUnit.IntegrationTests.testEmployeeMenuFlow" />
+        <item itemvalue="Application.SQLiteConnection" />
+        <item itemvalue="JUnit.IntegrationTests.testFullWorkflow" />
       </list>
     </recent_temporary>
   </component>
@@ -492,13 +526,28 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/dev/src/main/java/Inventory/PresentationLayer/CLIInterface.java</url>
-          <line>313</line>
+          <line>318</line>
           <option name="timeStamp" value="107" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/dev/src/main/java/HR/Data/EmployeesDAO.java</url>
-          <line>346</line>
-          <option name="timeStamp" value="112" />
+          <line>259</line>
+          <option name="timeStamp" value="116" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/dev/src/main/java/HR/Presentation/HRMainMenu.java</url>
+          <line>208</line>
+          <option name="timeStamp" value="117" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/dev/src/main/java/HR/Presentation/HRMainMenu.java</url>
+          <line>509</line>
+          <option name="timeStamp" value="118" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/dev/src/main/java/HR/Presentation/HRMainMenu.java</url>
+          <line>74</line>
+          <option name="timeStamp" value="127" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

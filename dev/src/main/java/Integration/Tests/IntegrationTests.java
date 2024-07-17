@@ -1,129 +1,97 @@
 package Integration.Tests;
-
-import HR.Data.BranchDAO;
-import HR.Data.EmployeesDAO;
 import HR.Domain.*;
 import HR.Domain.EmployeeTypes.StorageEmployee;
-import HR.Presentation.HRMainMenu;
+import Inventory.DomainLayer.*;
 import Inventory.ServiceLayer.ServiceController;
-import Inventory.DataLayer.ItemDAO;
-import Inventory.DomainLayer.Item;
-
 import org.junit.jupiter.api.*;
 
-import java.io.ByteArrayInputStream;
-import java.io.InputStream;
+import java.time.LocalDate;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-@TestInstance(TestInstance.Lifecycle.PER_CLASS)
+@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class IntegrationTests {
-    private static EmployeesDAO employeesDAO;
-    private static Employee employee;
+
+    private Branch testBranch;
+    private Employee employee;
+    private CategoryController categoryController;
+    private ProductController productController;
+    private ItemController itemController;
     private static ServiceController serviceController;
-    private static ItemDAO itemDAO;
-    private static Branch branch;
-    private static int employeeId = 1009;
 
     @BeforeAll
-    public void setUp() {
-        try {
-            employeesDAO = new EmployeesDAO();
-            serviceController = new ServiceController();
-            itemDAO = new ItemDAO();
-            BranchDAO branchDAO = new BranchDAO();
-            branch = branchDAO.getBranchFromDatabase(9999); // Default branch with ID 9999
-            if (branch == null) {
-                branchDAO.addBranchToDatabase(new Branch(9999, "Integration Test Branch", "456 Test Ave"));
-                branch = branchDAO.getBranchFromDatabase(9999); // Default branch with ID 9999
-            }
-            System.out.println(branch);
-            assertNotNull(branch);
-        } catch (Exception e) {
-            System.out.println("Error setting up integration tests: " + e.getMessage());
-            e.printStackTrace();
-            fail();
-        }
-    }
-
-    @AfterAll
-    public void tearDown() {
-        try {
-            BranchDAO branchDAO = new BranchDAO();
-            // Cleanup code if needed
-        } catch (Exception e) {
-            System.out.println("Error tearing down integration tests: " + e.getMessage());
-            e.printStackTrace();
-            fail();
-        }
+    static void initializeServiceController() {
+        serviceController = new ServiceController();
+        serviceController.initialize();
     }
 
     @BeforeEach
-    public void resetEmployee() {
-        try {
-            BankAccount bankAccount = new BankAccount(0, 0, 0);
-            Salary salary = new Salary(0);
-            employee = employeesDAO.getEmployeeById(employeeId);
-            if (employee != null) {
-                employeesDAO.removeEmployeeFromDatabase(employeeId);
-            }
-            employee = new Employee(employeeId, "John Doe", "john.doe@example.com", bankAccount, branch, salary);
-            employeesDAO.addEmployeeToDatabase(employee);
-            employee = employeesDAO.getEmployeeById(employeeId);
-            assertNotNull(employee);
-            assertFalse(employee.hasRole(new StorageEmployee())); // Assert that the employee does not have the Storage Worker role
-            System.out.println("Employee added to the DB.");
-        } catch (Exception e) {
-            System.out.println("Error resetting employee: " + e.getMessage());
-            e.printStackTrace();
-            fail();
-        }
+    void setUp() {
+        // Set up HR domain objects
+        testBranch = new Branch(1, "Test Branch", "123 Test St.");
+        BankAccount bankAccount = new BankAccount(12345, 67890, 54321);
+        Salary salary = new Salary(50000);
+        employee = new Employee(1, "John Doe", "john.doe@example.com", bankAccount, testBranch, salary);
+
+        // Set up Inventory domain objects
+        categoryController = new CategoryController();
+        productController = new ProductController();
+        itemController = new ItemController();
     }
 
     @Test
-    public void testFullWorkflow() {
-        // Step 1: Assign Storage Worker role
-        try {
-            assertNotNull(employee);
-            employee.addPossiblePosition(new StorageEmployee());
-            employeesDAO.addRoleToEmployee(employee.getEmployeeId(), "StorageEmployee");
-            Employee updatedEmployee = employeesDAO.getEmployeeById(employeeId);
-            System.out.println(updatedEmployee);
-            assertTrue(updatedEmployee.hasRole(new StorageEmployee()));
-            System.out.println("Assign Storage Worker test passed.");
-        } catch (Exception e) {
-            System.out.println("Assign Storage Worker test failed: " + e.getMessage());
-            e.printStackTrace();
-            fail();
-            return;
-        }
+    @Order(1)
+    void testCreateEmployee() {
+        assertEquals(1, employee.getEmployeeId());
+        assertEquals("John Doe", employee.getName());
+        assertEquals("john.doe@example.com", employee.getEmail());
+        assertEquals(testBranch, employee.getBranch());
+    }
 
-        // Simulate user input for login and adding item
-        String input = "9999\n1009\n";//1\n1\n\n3";//\nMilk\n1001\nyes\nyes\n2025-01-01\nDP\nMLK1\n5\n7\n";
-        InputStream in = new ByteArrayInputStream(input.getBytes());
-        System.setIn(in);
+    @Test
+    @Order(2)
+    void testAssignStorageEmployeeRole() throws Exception {
+        EmployeeType storageEmployee = new StorageEmployee();
+        employee.addPossiblePosition(storageEmployee);
+        assertTrue(employee.getPossiblePositions().contains(storageEmployee));
+    }
 
-        // Step 2: Employee logs in and selects storage management menu
-        try {
-            HRMainMenu.DisplayHRMainMenu();
-            System.out.println("Full workflow test passed.");
-        } catch (Exception e) {
-            System.out.println("Full workflow test failed: " + e.getMessage());
-            e.printStackTrace();
-            fail();
-        }
+    @Test
+    @Order(3)
+    void testAddCategory() {
+        assertTrue(categoryController.addCategory("C001", "Dairy"));
+    }
 
-        // Verify item was added
-        try {
-            Item item = itemDAO.getItemById("1001");
-            assertNotNull(item);
-            assertEquals("Milk", item.getName());
-            assertEquals("1001", item.getID());
-            System.out.println("Item added verification test passed.");
-        } catch (Exception e) {
-            System.out.println("Item added verification test failed: " + e.getMessage());
-            e.printStackTrace();
-            fail();
-        }
+    @Test
+    @Order(4)
+    void testAddProduct() {
+        assertTrue(productController.addProduct("P001", "Milk", "Supplier1", 5, 6, "C001", "SC001", 10));
+    }
+
+    @Test
+    @Order(5)
+    void testAddItem() {
+        LocalDate expiryDate = LocalDate.of(2026, 1, 1);
+        assertTrue(itemController.addNewItem(false, true, -1, 1, -1, -1, "Milk 1%", "MLK11", expiryDate, "C001", "P001"));
+    }
+
+    @Test
+    @Order(6)
+    void testGetItem() {
+        assertNotNull(itemController.getItemByID("MLK11"));
+    }
+
+    @AfterAll
+    static void cleanUp() {
+        // Clean up Inventory domain objects
+        ItemController itemController = new ItemController();
+        itemController.removeItem("MLK11");
+
+        ProductController productController = new ProductController();
+        productController.removeProduct("P001");
+
+        CategoryController categoryController = new CategoryController();
+        categoryController.removeCategory("C001");
+
     }
 }

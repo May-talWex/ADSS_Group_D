@@ -13,16 +13,26 @@ public class DataBaseConnection {
     static {
         String dbPath = "";
         try {
-            // Define the release directory path
-            String releaseDir = "C:/githubclones/ADSS_Group_D/release";
-            // Ensure the release directory exists
-            File dir = new File(releaseDir);
-            if (!dir.exists()) {
-                dir.mkdirs();  // Create the release directory if it does not exist
+            // Determine the current directory where the application is running
+            File currentDir = new File(System.getProperty("user.dir"));
+            // If running from a JAR file, get the parent directory of the JAR file
+            if (currentDir.getName().equals("release")) {
+                dbPath = currentDir.getAbsolutePath() + File.separator + "InventoryDB.db";
+            } else {
+                // If running from IntelliJ or other environment, assume the structure is different
+                File releaseDir = new File(currentDir, "release");
+                if (!releaseDir.exists() || !releaseDir.isDirectory()) {
+                    throw new Exception("Release directory not found in " + releaseDir.getAbsolutePath());
+                }
+                dbPath = releaseDir.getAbsolutePath() + File.separator + "InventoryDB.db";
             }
-            dbPath = releaseDir + File.separator + "InventoryDB.db";
+
+            File dbFile = new File(dbPath);
+            if (!dbFile.exists()) {
+                throw new Exception("Database file InventoryDB.db not found in " + dbFile.getAbsolutePath());
+            }
         } catch (Exception e) {
-            System.out.println(e.getMessage());
+            System.out.println("Error determining database path: " + e.getMessage());
         }
         url = "jdbc:sqlite:" + dbPath;
     }

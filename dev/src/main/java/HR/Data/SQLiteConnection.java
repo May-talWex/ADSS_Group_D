@@ -1,23 +1,50 @@
 package HR.Data;
 
+import java.io.File;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
 
 public class SQLiteConnection {
-    private static final String URL = "jdbc:sqlite:HRDB.sqlite";
     private static Connection connection = null;
+    private static final String URL;
+
+    static {
+        String dbPath = "";
+        try {
+            // Determine the current directory where the application is running
+            File currentDir = new File(System.getProperty("user.dir"));
+            // If running from a JAR file, get the parent directory of the JAR file
+            if (currentDir.getName().equals("release")) {
+                dbPath = currentDir.getAbsolutePath() + File.separator + "HRDB.sqlite";
+            } else {
+                // If running from IntelliJ or other environment, assume the structure is different
+                File releaseDir = new File(currentDir, "release");
+                if (!releaseDir.exists() || !releaseDir.isDirectory()) {
+                    throw new Exception("Release directory not found in " + releaseDir.getAbsolutePath());
+                }
+                dbPath = releaseDir.getAbsolutePath() + File.separator + "HRDB.sqlite";
+            }
+
+            File dbFile = new File(dbPath);
+            if (!dbFile.exists()) {
+                throw new Exception("Database file HRDB.sqlite not found in " + dbFile.getAbsolutePath());
+            }
+        } catch (Exception e) {
+            System.out.println("Error determining database path: " + e.getMessage());
+        }
+        URL = "jdbc:sqlite:" + dbPath;
+    }
 
     public static Connection connect() {
         if (connection != null) {
-            //System.out.println("Using existing connection.");
             return connection;
         }
         try {
             Class.forName("org.sqlite.JDBC");
             connection = DriverManager.getConnection(URL);
-            //System.out.println("Connection to SQLite has been established.");
+            System.out.println("Connection to SQLite has been established.");
         } catch (SQLException e) {
             System.out.println("SQLException in connect: " + e.getMessage());
         } catch (ClassNotFoundException e) {
@@ -28,12 +55,10 @@ public class SQLiteConnection {
 
     public static Connection getConnection() {
         if (connection == null) {
-            //System.out.println("No existing connection, connecting now.");
             return connect();
         }
         try {
             if (connection.isClosed()) {
-                //System.out.println("Connection was closed, reconnecting.");
                 connection = DriverManager.getConnection(URL);
             }
         } catch (SQLException e) {
@@ -110,7 +135,6 @@ public class SQLiteConnection {
                 + "    FOREIGN KEY (EmployeeID) REFERENCES Employees(EmployeeID)\n"
                 + ");";
 
-
         try {
             Connection conn = getConnection();
             Statement stmt = conn.createStatement();
@@ -123,7 +147,7 @@ public class SQLiteConnection {
             stmt.execute(createEmployeeRolesTable);
             stmt.execute(createDriverLicensesTable);
             stmt.close();
-            //System.out.println("Database has been initialized.");
+            System.out.println("Database has been initialized.");
         } catch (SQLException e) {
             System.out.println("SQLException in initializeDatabase: " + e.getMessage());
         }
