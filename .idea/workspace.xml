@@ -10,12 +10,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2ee10d94-4457-471a-97fe-029a048743dc" name="Changes" comment="Adding README file">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/HRDB.sqlite" beforeDir="false" afterPath="$PROJECT_DIR$/HRDB.sqlite" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dev/src/main/java/HR/Data/BranchDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/dev/src/main/java/HR/Data/BranchDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dev/src/main/java/HR/Data/EmployeesDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/dev/src/main/java/HR/Data/EmployeesDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dev/src/main/java/integrationTests/IntegrationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/dev/src/main/java/Integration/Tests/IntegrationTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dev/src/main/java/HR/Presentation/HRMainMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/dev/src/main/java/HR/Presentation/HRMainMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dev/src/main/java/Integration/Tests/IntegrationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/dev/src/main/java/Integration/Tests/IntegrationTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dev/src/main/java/main.java" beforeDir="false" afterPath="$PROJECT_DIR$/dev/src/main/java/main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/release/ADSS_Group_D.jar" beforeDir="false" afterPath="$PROJECT_DIR$/release/ADSS_Group_D.jar" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -63,65 +64,66 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.CLIInterface.executor": "Run",
-    "Application.MainApp.executor": "Debug",
-    "Application.MainTest.executor": "Debug",
-    "Application.TableInitializer.executor": "Run",
-    "Application.main.executor": "Run",
-    "Application.src.main.java.Inventory.PresentationLayer.CLIInterface.executor": "Run",
-    "JUnit.IntegrationTests.testFullWorkflow.executor": "Run",
-    "JUnit.InventoryManagementTests.executor": "Run",
-    "JUnit.InventoryManagementTests.testAddNewProduct.executor": "Run",
-    "JUnit.InventoryManagementTests.testLowStockAlert.executor": "Debug",
-    "JUnit.InventoryManagementTests.testUpdateQuantity.executor": "Run",
-    "JUnit.TestV1.executor": "Run",
-    "JUnit.TestV1.testAddCategory.executor": "Run",
-    "JUnit.TestV1.testAddItem.executor": "Run",
-    "JUnit.TestV1.testAddProduct.executor": "Run",
-    "JUnit.TestV1.testDeleteCategory.executor": "Run",
-    "JUnit.TestV1.testDeleteItem.executor": "Run",
-    "JUnit.TestV1.testDeleteProduct.executor": "Run",
-    "JUnit.TestV1.testGetCategory.executor": "Run",
-    "JUnit.TestV1.testGetItem.executor": "Run",
-    "JUnit.TestV1.testGetProduct.executor": "Run",
-    "JUnit.TestV1.testUpdateItemDefective.executor": "Run",
-    "JUnit.TestV1.testUpdateProductDiscount.executor": "Run",
-    "JUnit.TestV1.testUpdateProductPrice.executor": "Run",
-    "JUnit.TestV2.executor": "Run",
-    "JUnit.TestV2.testAddCategory.executor": "Run",
-    "JUnit.TestV2.testAddItemToProduct.executor": "Run",
-    "JUnit.TestV2.testAddProductToCategory.executor": "Run",
-    "JUnit.TestV2.testCleanup.executor": "Run",
-    "JUnit.TestV2.testGetNonExistingItem.executor": "Run",
-    "JUnit.TestV2.testGetNonExistingProduct.executor": "Run",
-    "JUnit.TestV2.testMoveToWarehouse.executor": "Debug",
-    "JUnit.TestV2.testRemoveCategoryWithProducts.executor": "Debug",
-    "JUnit.TestV2.testRemoveCategoryWithoutProducts.executor": "Run",
-    "JUnit.TestV2.testRemoveItem.executor": "Run",
-    "JUnit.TestV2.testRemoveProductWithItems.executor": "Run",
-    "JUnit.TestV2.testRemoveProductWithoutItems.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "master",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/githubclones/ADSS_Group_D/release",
-    "node.js.detected.package.eslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.CLIInterface.executor&quot;: &quot;Run&quot;,
+    &quot;Application.MainApp.executor&quot;: &quot;Debug&quot;,
+    &quot;Application.MainTest.executor&quot;: &quot;Debug&quot;,
+    &quot;Application.TableInitializer.executor&quot;: &quot;Run&quot;,
+    &quot;Application.main.executor&quot;: &quot;Run&quot;,
+    &quot;Application.src.main.java.Inventory.PresentationLayer.CLIInterface.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.IntegrationTests.testFullWorkflow.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.InventoryManagementTests.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.InventoryManagementTests.testAddNewProduct.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.InventoryManagementTests.testLowStockAlert.executor&quot;: &quot;Debug&quot;,
+    &quot;JUnit.InventoryManagementTests.testUpdateQuantity.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.TestV1.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.TestV1.testAddCategory.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.TestV1.testAddItem.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.TestV1.testAddProduct.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.TestV1.testDeleteCategory.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.TestV1.testDeleteItem.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.TestV1.testDeleteProduct.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.TestV1.testGetCategory.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.TestV1.testGetItem.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.TestV1.testGetProduct.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.TestV1.testUpdateItemDefective.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.TestV1.testUpdateProductDiscount.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.TestV1.testUpdateProductPrice.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.TestV2.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.TestV2.testAddCategory.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.TestV2.testAddItemToProduct.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.TestV2.testAddProductToCategory.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.TestV2.testCleanup.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.TestV2.testGetNonExistingItem.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.TestV2.testGetNonExistingProduct.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.TestV2.testMoveToWarehouse.executor&quot;: &quot;Debug&quot;,
+    &quot;JUnit.TestV2.testRemoveCategoryWithProducts.executor&quot;: &quot;Debug&quot;,
+    &quot;JUnit.TestV2.testRemoveCategoryWithoutProducts.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.TestV2.testRemoveItem.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.TestV2.testRemoveProductWithItems.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.TestV2.testRemoveProductWithoutItems.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/githubclones/ADSS_Group_D/release&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "sqlite"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;sqlite&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\githubclones\ADSS_Group_D\docs" />
@@ -193,9 +195,9 @@
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.IntegrationTests.testFullWorkflow" />
+        <item itemvalue="Application.main" />
         <item itemvalue="JUnit.TestV2" />
         <item itemvalue="JUnit.TestV1" />
-        <item itemvalue="Application.main" />
         <item itemvalue="JAR Application.ADSS_Group_D.jar" />
       </list>
     </recent_temporary>
@@ -203,8 +205,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9f38398b9061-39b83d9b5494-intellij.indexing.shared.core-IU-241.15989.150" />
-        <option value="bundled-js-predefined-1d06a55b98c1-91d5c284f522-JavaScript-IU-241.15989.150" />
+        <option value="bundled-jdk-9f38398b9061-39b83d9b5494-intellij.indexing.shared.core-IU-241.18034.62" />
+        <option value="bundled-js-predefined-1d06a55b98c1-0b3e54e931b4-JavaScript-IU-241.18034.62" />
       </set>
     </attachedChunks>
   </component>
@@ -226,6 +228,7 @@
       <workItem from="1719749443235" duration="11548000" />
       <workItem from="1719932255552" duration="10937000" />
       <workItem from="1720081545582" duration="18270000" />
+      <workItem from="1721225390842" duration="2692000" />
     </task>
     <task id="LOCAL-00001" summary="Fixing bugs and adding CSV generation">
       <option name="closed" value="true" />
@@ -494,7 +497,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/dev/src/main/java/HR/Data/EmployeesDAO.java</url>
-          <line>343</line>
+          <line>346</line>
           <option name="timeStamp" value="112" />
         </line-breakpoint>
       </breakpoints>

@@ -11,7 +11,7 @@
       </jdbc-additional-properties>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
-    <data-source source="LOCAL" name="InventoryDB.db" uuid="6fa2b757-2db9-4aa5-a197-a4f3fbca5b6d">
+    <data-source source="LOCAL" name="InventoyDB.db" uuid="6fa2b757-2db9-4aa5-a197-a4f3fbca5b6d">
       <driver-ref>sqlite.xerial</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>org.sqlite.JDBC</jdbc-driver>

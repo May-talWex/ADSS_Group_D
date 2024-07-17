@@ -17,8 +17,10 @@ public class HRMainMenu {
         EmployeesDAO employeesDAO = new EmployeesDAO();
         ShiftsDAO shiftDAO = new ShiftsDAO();
         ShiftLimitationDAO shiftLimitationDAO = new ShiftLimitationDAO();
-
-        Branch branch = branchDAO.getBranchFromDatabase(1); // Default branch with ID 1
+        System.out.println("Enter branch ID: ");
+        Scanner s = new Scanner(System.in);
+        int branchId = s.nextInt();
+        Branch branch = branchDAO.getBranchFromDatabase(branchId); // Default branch with ID 1
 
         if (branch == null) {
             Scanner scanner = new Scanner(System.in);
@@ -63,6 +65,7 @@ public class HRMainMenu {
             do {
                 try {
                     id = scanner.nextInt();
+
                     break;
                 } catch (Exception e) {
                     System.out.println("Invalid input. Please enter a number.");
@@ -85,7 +88,7 @@ public class HRMainMenu {
             if (employee.hasRole(new HRManager())) {
                 System.out.println("Welcome, HR Manager " + employee.getName() + "!");
                 HRMenu(branch, employeesDAO, shiftDAO);
-            } else if(employee.hasRole(new StorageEmployee())) {
+            } else if (employee.hasRole(new StorageEmployee())) {
                 System.out.println("Welcome, Storage Employee " + employee.getName() + "!");
                 StorageEmployeeMenu(branch, id);
             } else {

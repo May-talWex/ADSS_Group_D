@@ -63,9 +63,12 @@ public class EmployeesDAO {
             pstmtEmployee.close();
             pstmtBankAccount.close();
             pstmtSalary.close();
+            employee.getBranch().addWorker(employee);
 
         } catch (SQLException e) {
             e.printStackTrace();
+        } catch (Exception e) {
+            throw new RuntimeException(e);
         }
     }
 

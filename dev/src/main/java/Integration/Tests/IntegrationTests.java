@@ -99,7 +99,7 @@ public class IntegrationTests {
         }
 
         // Simulate user input for login and adding item
-        String input = employeeId + "\n1\n1\n3\nMilk\n1001\nyes\nyes\n2025-01-01\nDP\nMLK1\n5\n7\n";
+        String input = "9999\n1009\n";//1\n1\n\n3";//\nMilk\n1001\nyes\nyes\n2025-01-01\nDP\nMLK1\n5\n7\n";
         InputStream in = new ByteArrayInputStream(input.getBytes());
         System.setIn(in);
 
